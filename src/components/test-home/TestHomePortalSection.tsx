@@ -1,5 +1,6 @@
 import { useState, memo } from "react";
 import { Play } from "lucide-react";
+import videoThumbnail from "@/assets/video-thumbnail.png";
 
 const serviceItems = [
   { number: "01", title: "Check Your Eligibility" },
@@ -58,7 +59,7 @@ const TestHomePortalSection = memo(() => {
                 aria-label="Play video"
               >
                 <img
-                  src={`https://img.youtube.com/vi/C3yyl_4lrd4/hqdefault.jpg`}
+                  src={videoThumbnail}
                   alt="Video thumbnail"
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
