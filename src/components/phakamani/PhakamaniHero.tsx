@@ -11,7 +11,7 @@ const whyPageHeadings: Record<string, string> = {
 };
 
 const whyPageDescriptions: Record<string, string> = {
-  '/about/why': "South Africa's transformation efforts have been fragmented, compliance-driven, and insufficient to address systemic inequality. The Transformation Fund represents a bold shift: a coordinated, outcome-focused mechanism that engineers inclusive growth at scale.",
+  '/about/why': "South Africa's transformation efforts have been fragmented, compliance-driven, and insufficient to address systemic inequality. The Transformation Fund represents a bold shift: a coordinated, outcome-focused mechanism that engineers inclusive growth at scale.\n\nThe Transformation Fund is designed as a strategic instrument to drive inclusive economic transformation in South Africa.",
   '/about/why/policy-choice': "Recognising the limitations, the Department of Trade, Industry and Competition (the dtic) has proposed establishing a dedicated Transformation Fund managed via a Special Purpose Vehicle (SPV). Key features of the Fund include:",
   '/about/why/theory': "",
   '/about/why/value': "",
@@ -144,9 +144,11 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
                 {whyPageHeadings[location.pathname] || 'Transformation Fund'}
               </h1>
               {whyPageDescriptions[location.pathname] && (
-                <p className="text-gray-600 text-lg leading-relaxed mt-4">
-                  {whyPageDescriptions[location.pathname]}
-                </p>
+                <div className="text-gray-600 text-lg leading-relaxed mt-4 space-y-4">
+                  {whyPageDescriptions[location.pathname].split('\n\n').map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))}
+                </div>
               )}
             </div>
           )}
