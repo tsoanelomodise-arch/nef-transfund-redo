@@ -15,10 +15,10 @@ const HighlightedStoriesSection = memo(() => {
 
   if (isLoading) {
     return (
-      <section className="bg-white py-16">
+      <section className="bg-white py-10">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-10">
           <span className="text-xs font-bold tracking-widest text-[#666666] uppercase">Featured</span>
-          <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-8">
+          <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-6">
             HIGHLIGHTED STORIES
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -38,10 +38,10 @@ const HighlightedStoriesSection = memo(() => {
   if (stories.length === 0) return null;
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-10">
       <div className="max-w-[1400px] mx-auto px-4 lg:px-10">
         <span className="text-xs font-bold tracking-widest text-[#666666] uppercase">Featured</span>
-        <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-8">
+        <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-6">
           HIGHLIGHTED STORIES
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -3,8 +3,8 @@ import opportunitySpaceImg from "@/assets/opportunityspace.jpg";
 
 const WhySection = () => {
   return (
-    <section id="why" className="py-10 bg-white">
-      <div className="max-w-[1400px] mx-auto px-10 space-y-16">
+    <section id="why" className="py-8 bg-white">
+      <div className="max-w-[1400px] mx-auto px-10 space-y-10">
 
         {/* Problem Space */}
         <div>

@@ -18,7 +18,7 @@ const NewsHighlightsSection = memo(() => {
         />
 
         {/* News content */}
-        <div className="p-12 bg-white">
+        <div className="p-8 lg:p-10 bg-white">
           <span className="text-xs font-bold tracking-widest text-[#666666] uppercase">
             LATEST UPDATES
           </span>

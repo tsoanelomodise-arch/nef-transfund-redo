@@ -4,7 +4,7 @@ const GovernanceContent = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-10 md:py-14 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-20 items-start">
             <div>
@@ -26,7 +26,7 @@ const GovernanceContent = () => {
       </section>
 
       {/* Governance Structure Section */}
-      <section className="py-16 md:py-24 bg-[#f4f4f4]">
+      <section className="py-10 md:py-14 bg-[#f4f4f4]">
         <div className="max-w-[1200px] mx-auto px-6">
           <h2 className="text-2xl md:text-[2.5rem] font-extrabold uppercase tracking-[-0.5px] leading-[1.2] text-black mb-6">
             Governance structure
@@ -60,7 +60,7 @@ const GovernanceContent = () => {
       </section>
 
       {/* Digital Oversight Section - Dark */}
-      <section className="py-16 md:py-24 bg-black text-white">
+      <section className="py-10 md:py-14 bg-black text-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             <div className="w-full min-h-[300px] bg-[#222222] border border-[#333333] flex items-center justify-center">
@@ -85,7 +85,7 @@ const GovernanceContent = () => {
       </section>
 
       {/* Public Reporting Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-10 md:py-14 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
             <div>

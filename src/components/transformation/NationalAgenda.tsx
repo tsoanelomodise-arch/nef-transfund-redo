@@ -1,6 +1,6 @@
 const NationalAgenda = () => {
   return (
-    <section id="national-agenda" className="py-10 bg-white">
+    <section id="national-agenda" className="py-8 bg-white">
       <div className="max-w-[1400px] mx-auto px-10">
         <div>
           
@@ -8,7 +8,7 @@ const NationalAgenda = () => {
             The four focus areas will be:
           </h3>
           
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
             <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-start space-x-4">
                 <div className="w-4 h-4 bg-[#E31C23] rounded-full mt-1.5 flex-shrink-0"></div>

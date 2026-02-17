@@ -30,12 +30,12 @@ import { memo } from "react";
 
 const TestHomeProductsSection = memo(() => {
   return (
-    <section className="py-16 pb-8 bg-white">
+    <section className="py-10 pb-6 bg-white">
       <div className="max-w-[1200px] mx-auto px-5">
         <span className="text-xs font-bold tracking-widest text-[#666666] uppercase">
           COMPANY
         </span>
-        <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-12">
+        <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-8">
           Discover our Products
         </h2>
 
@@ -63,7 +63,7 @@ const TestHomeProductsSection = memo(() => {
         </div>
 
         {/* Tagline */}
-        <div className="mt-12">
+        <div className="mt-8">
           <h3 className="text-xl font-extrabold uppercase tracking-tight text-[#222222] mb-4">
             "Whatever your size"
           </h3>

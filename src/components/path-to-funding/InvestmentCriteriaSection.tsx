@@ -30,9 +30,9 @@ const InvestmentCriteriaSection: React.FC = memo(() => {
   ];
 
   return (
-    <section id="how-it-works" className="py-10 bg-white">
+    <section id="how-it-works" className="py-8 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <span className="inline-block px-4 py-2 bg-[hsl(var(--ptf-accent))]/10 text-[hsl(var(--ptf-accent))] rounded-full text-sm font-semibold mb-4">
             Requirements
           </span>

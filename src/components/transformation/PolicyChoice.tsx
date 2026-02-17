@@ -85,7 +85,7 @@ const policyItems = [
 
 const PolicyChoice = () => {
   return (
-    <section id="policy-choice" className="py-10 bg-white">
+    <section id="policy-choice" className="py-8 bg-white">
       <div className="max-w-[1400px] mx-auto px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {policyItems.map((item) => (
