@@ -144,9 +144,9 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
                 {whyPageHeadings[location.pathname] || 'Transformation Fund'}
               </h1>
               {whyPageDescriptions[location.pathname] && (
-                <div className="text-gray-600 text-lg leading-relaxed mt-4 space-y-4">
-                  {whyPageDescriptions[location.pathname].split('\n\n').map((para, i) => (
-                    <p key={i}>{para}</p>
+                <div className="text-gray-600 leading-relaxed mt-4 space-y-4">
+                  {whyPageDescriptions[location.pathname].split('\n\n').map((para, i, arr) => (
+                    <p key={i} className={i === arr.length - 1 && arr.length > 1 ? 'text-base' : 'text-lg'}>{para}</p>
                   ))}
                 </div>
               )}
