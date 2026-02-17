@@ -40,8 +40,8 @@ const theoryItems = [
 
 const TheoryOfChange = () => {
   return (
-    <section id="theory" className="py-10 bg-gray-50">
-      <div className="max-w-[1400px] mx-auto px-10 space-y-8">
+    <section id="theory" className="py-8 bg-gray-50">
+      <div className="max-w-[1400px] mx-auto px-10 space-y-6">
         {theoryItems.map((item) => (
           <div key={item.id} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
             <h3 className="text-2xl font-bold mb-4" style={{ color: item.color }}>{item.title}</h3>

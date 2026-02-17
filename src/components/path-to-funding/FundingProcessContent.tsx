@@ -64,9 +64,9 @@ const stages = [
 
 const FundingProcessContent = () => {
   return (
-    <section className="max-w-[1400px] mx-auto px-5 py-16 md:py-20 bg-white text-[#111111]">
+    <section className="max-w-[1400px] mx-auto px-5 py-10 md:py-14 bg-white text-[#111111]">
       {/* Header */}
-      <div className="mb-12 md:mb-16 max-w-[800px]">
+      <div className="mb-8 md:mb-12 max-w-[800px]">
         <h1 className="text-4xl md:text-[48px] font-extrabold leading-[1.1] tracking-[-1px] mb-6">
           Funding Process
         </h1>

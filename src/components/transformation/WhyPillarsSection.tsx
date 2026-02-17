@@ -55,9 +55,9 @@ const cards = [
 
 const WhyPillarsSection = () => {
   return (
-    <section id="why-pillars" className="w-full max-w-[1400px] mx-auto py-16 md:py-20 px-5 md:px-10 bg-white">
+    <section id="why-pillars" className="w-full max-w-[1400px] mx-auto py-10 md:py-14 px-5 md:px-10 bg-white">
       {/* Header Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 mb-16 md:mb-20 border-b-2 border-[#111111] pb-10">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 mb-10 md:mb-14 border-b-2 border-[#111111] pb-8">
         <div>
           <h2 className="text-3xl md:text-[3rem] font-extrabold uppercase tracking-[-1px] leading-none text-black">
             Why?
@@ -74,7 +74,7 @@ const WhyPillarsSection = () => {
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-x-10 lg:gap-y-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-x-10 lg:gap-y-10">
         {cards.map((card, index) => (
           <div
             key={index}

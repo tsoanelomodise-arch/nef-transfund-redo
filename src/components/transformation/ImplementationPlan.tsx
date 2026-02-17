@@ -2,9 +2,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const ImplementationPlan = () => {
   return (
-    <section id="implementation" className="py-20 bg-primary text-white">
+    <section id="implementation" className="py-14 bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="fade-in text-center mb-12">
+        <div className="fade-in text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Implementation Plan</h2>
           <p className="text-xl max-w-4xl mx-auto">
             The Transformation Fund will be implemented through phased, principle-based stages rather than rigid timelines. This ensures sequencing is aligned with institutional capacity and stakeholder readiness, while remaining flexible to adapt based on on-the-ground learning.

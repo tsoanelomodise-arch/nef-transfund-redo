@@ -40,8 +40,8 @@ const valueItems = [
 
 const ValueProposition = () => {
   return (
-    <section id="value" className="py-10 bg-white">
-      <div className="max-w-[1400px] mx-auto px-10 space-y-8">
+    <section id="value" className="py-8 bg-white">
+      <div className="max-w-[1400px] mx-auto px-10 space-y-6">
         {valueItems.map((item) => (
           <div key={item.id} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8 items-start">

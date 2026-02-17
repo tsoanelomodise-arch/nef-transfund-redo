@@ -39,7 +39,7 @@ const ProductsContent = () => {
   return (
     <div className="max-w-[1200px] mx-auto px-6">
       {/* Header */}
-      <header className="pt-16 md:pt-20 pb-12 md:pb-16 max-w-[800px]">
+      <header className="pt-10 md:pt-14 pb-8 md:pb-10 max-w-[800px]">
         <span className="block text-sm font-bold uppercase tracking-[2px] text-[#555555] mb-4">
           Transformation Fund
         </span>
@@ -52,7 +52,7 @@ const ProductsContent = () => {
       </header>
 
       {/* Products Grid */}
-      <main className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-16 md:pb-20">
+      <main className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10 md:pb-14">
         {products.map((product, index) => (
           <article
             key={index}

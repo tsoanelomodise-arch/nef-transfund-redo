@@ -40,7 +40,7 @@ const EligibilityCriteriaSection: React.FC = memo(() => {
   ];
 
   return (
-    <section id="eligibility-criteria" className="py-12 md:py-20 bg-[#F8FAFC]">
+    <section id="eligibility-criteria" className="py-10 md:py-14 bg-[#F8FAFC]">
       <div className="max-w-[1100px] mx-auto px-6">
         {/* Content Section */}
         <div className="space-y-8">

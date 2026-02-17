@@ -79,7 +79,7 @@ const InvestorsContent = () => {
   return (
     <div>
       {/* Investment Channels Grid Section */}
-      <section className="py-16 md:py-20 bg-[#f4f4f4]">
+      <section className="py-10 md:py-14 bg-[#f4f4f4]">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {investorCards.map((card) => (
@@ -105,7 +105,7 @@ const InvestorsContent = () => {
       </section>
 
       {/* Mid-Sized Firms Section */}
-      <section className="py-16 md:py-24 bg-[#7C8089]">
+      <section className="py-10 md:py-16 bg-[#7C8089]">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Left Content */}

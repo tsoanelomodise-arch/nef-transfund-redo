@@ -33,8 +33,8 @@ const operatingItems = [
 
 const OperatingModel = () => {
   return (
-    <section id="operating-model" className="py-10 bg-gray-50">
-      <div className="max-w-[1400px] mx-auto px-10 space-y-8">
+    <section id="operating-model" className="py-8 bg-gray-50">
+      <div className="max-w-[1400px] mx-auto px-10 space-y-6">
         {operatingItems.map((item) => (
           <div key={item.id} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>

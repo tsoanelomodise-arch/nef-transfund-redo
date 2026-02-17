@@ -64,7 +64,7 @@ const MarketSegmentsContent = () => {
   return (
     <div>
       {/* Intro Section */}
-      <section className="bg-white pt-8 pb-12 md:pb-16">
+      <section className="bg-white pt-6 pb-8 md:pb-10">
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="max-w-[700px]">
             <p className="text-lg text-[#333333] font-normal mb-4">
@@ -78,7 +78,7 @@ const MarketSegmentsContent = () => {
       </section>
 
       {/* Foundations Section */}
-      <section className="bg-white pb-16 md:pb-20">
+      <section className="bg-white pb-10 md:pb-14">
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {foundations.map((foundation, index) => (
@@ -99,9 +99,9 @@ const MarketSegmentsContent = () => {
       </section>
 
       {/* Priority Sectors Section */}
-      <section className="bg-[#F5F5F5] py-16 md:py-20">
+      <section className="bg-[#F5F5F5] py-10 md:py-14">
         <div className="max-w-[1200px] mx-auto px-5">
-          <div className="max-w-[700px] mb-12">
+          <div className="max-w-[700px] mb-8">
             <span className="block text-xs font-semibold tracking-[0.1em] text-[#888888] mb-4 uppercase">
               Investment Areas
             </span>

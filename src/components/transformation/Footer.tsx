@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-10" role="contentinfo" aria-label="Site footer with contact information and social media links">
+    <footer className="bg-black text-white py-8" role="contentinfo" aria-label="Site footer with contact information and social media links">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 items-start">
           {/* Left Section - Scan to Follow */}
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-white/20 text-center">
+        <div className="mt-8 pt-6 border-t border-white/20 text-center">
           <p className="opacity-75 font-light">&copy; 2026 Transformation Fund. Engineering inclusive growth for South Africa.</p>
         </div>
       </div>

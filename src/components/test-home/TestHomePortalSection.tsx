@@ -11,7 +11,7 @@ const TestHomePortalSection = memo(() => {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
-    <section className="pt-8 pb-16 bg-white mb-8">
+    <section className="pt-6 pb-10 bg-white">
       <div className="max-w-[1200px] mx-auto px-5">
         {/* Header - full width */}
         <span className="text-xs font-bold tracking-widest text-[#666666] uppercase text-right block">
