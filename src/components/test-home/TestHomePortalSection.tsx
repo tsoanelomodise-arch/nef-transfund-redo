@@ -15,13 +15,13 @@ const TestHomePortalSection = memo(() => {
       <div className="max-w-[1200px] mx-auto px-5">
         {/* Header - full width */}
         <span className="text-xs font-bold tracking-widest text-[#666666] uppercase text-right block">
-          SECURE PORTAL
+          PREPARATION IS KEY
         </span>
         <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-4 text-right">
-          How to apply
+          Eligibility Checklist
         </h2>
         <p className="text-[0.95rem] font-light text-[#666666] leading-relaxed mb-6 text-right">
-          Register, apply, and track your status through our secure portal environment.
+          This helps you quickly see if your business qualifies before you apply - saving you time and effort
         </p>
 
         {/* Bullet points + Video side by side */}
