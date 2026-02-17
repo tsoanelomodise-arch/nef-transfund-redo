@@ -1,25 +1,32 @@
 
-# Remove Duplicate "About" Sub-menu Item
+# Fix: Add Active State to "Why" Sub-navigation Items
 
-## Overview
-The "About" dropdown currently has a redundant "About" link as its first sub-item (line 84), while the top-level nav button already links to `/about`. Removing the duplicate sub-item and its separator keeps the dropdown clean.
+## Problem
+When viewing a "Why" sub-page (e.g., Value Proposition at `/about/why/value`), the dropdown menu items all look identical -- there's no visual indicator showing which sub-page is currently active. The top-level "About" link correctly shows an active state, but the individual dropdown items (Policy Choice, Theory, Value, Operating Model, National Agenda) do not.
+
+## Solution
+Add active styling to dropdown sub-items by comparing the current `location.pathname` with each link's target path. The active item will get a brighter text color and a highlighted background.
 
 ## Changes
 
 ### File: `src/components/phakamani/PhakamaniNavbar.tsx`
 
-**Desktop dropdown (lines 84-85):** Remove the duplicate "About" link and the divider below it. The dropdown will start directly with the "Why" section.
+**Desktop dropdown sub-items (lines 85-91):** Add a conditional class to each sub-link that checks if its path matches the current route. When active, the item will display with full white text and a subtle highlighted background instead of the default `text-white/70`.
 
-Before:
+For each sub-link, change:
 ```
-<Link to="/about" className="dropdown-item" ...>About</Link>
-<div className="border-t border-gray-100 my-1" />
-<Link to="/about/why" ...>Why</Link>
+className="dropdown-item pl-6 text-sm text-white/70 hover:!text-white ..."
 ```
-
-After:
+To:
 ```
-<Link to="/about/why" ...>Why</Link>
+className={`dropdown-item pl-6 text-sm hover:!text-white ... ${location.pathname === '/about/why/[sub-path]' ? 'text-white bg-[#004d30]' : 'text-white/70'}`}
 ```
 
-No changes needed for mobile -- the mobile menu has "About" as a standalone top-level link (not nested inside itself), so there is no duplication there.
+This applies to all 5 sub-links: Policy Choice, Theory, Value, Operating Model, and National Agenda.
+
+**Why top-level link (line 84):** Similarly highlight the "Why" link when on the `/about/why` route exactly:
+```
+className={`dropdown-item font-bold ${location.pathname === '/about/why' ? 'bg-[#004d30]' : ''}`}
+```
+
+**Mobile menu (lines 175-183):** The mobile sub-links already have conditional styling via inline checks, but they also lack per-item active state. Add the same active color for each mobile sub-link when its path matches `location.pathname`.
