@@ -1,22 +1,25 @@
 
-# Use Uploaded Screenshot as Video Thumbnail
+# Remove Duplicate "About" Sub-menu Item
 
 ## Overview
-Replace the current YouTube default thumbnail with the uploaded screenshot image, which shows the frame at 1:24 of the video.
+The "About" dropdown currently has a redundant "About" link as its first sub-item (line 84), while the top-level nav button already links to `/about`. Removing the duplicate sub-item and its separator keeps the dropdown clean.
 
 ## Changes
 
-### 1. Copy the uploaded image to the project
-- Copy `user-uploads://image.png` to `src/assets/video-thumbnail.png`
+### File: `src/components/phakamani/PhakamaniNavbar.tsx`
 
-### 2. Update `src/components/test-home/TestHomePortalSection.tsx`
-- Import the new thumbnail image
-- Replace the YouTube thumbnail URL (`https://img.youtube.com/vi/C3yyl_4lrd4/hqdefault.jpg`) with the imported local image
-- Keep the existing click-to-play pattern (lazy-loading iframe on click) unchanged
+**Desktop dropdown (lines 84-85):** Remove the duplicate "About" link and the divider below it. The dropdown will start directly with the "Why" section.
 
-## Technical Details
-- **File to copy**: `user-uploads://image.png` to `src/assets/video-thumbnail.png`
-- **File to edit**: `src/components/test-home/TestHomePortalSection.tsx`
-  - Add import: `import videoThumbnail from "@/assets/video-thumbnail.png";`
-  - Line ~63: Change `src` from the YouTube thumbnail URL to `{videoThumbnail}`
-- No structural or behavioral changes -- only the thumbnail image source changes
+Before:
+```
+<Link to="/about" className="dropdown-item" ...>About</Link>
+<div className="border-t border-gray-100 my-1" />
+<Link to="/about/why" ...>Why</Link>
+```
+
+After:
+```
+<Link to="/about/why" ...>Why</Link>
+```
+
+No changes needed for mobile -- the mobile menu has "About" as a standalone top-level link (not nested inside itself), so there is no duplication there.
