@@ -2,9 +2,9 @@ import { useState, memo } from "react";
 import { Play } from "lucide-react";
 
 const serviceItems = [
-  { number: "01", title: "Status Tracking" },
-  { number: "02", title: "Secure Document Upload" },
-  { number: "03", title: "Guided Application Process" },
+  { number: "01", title: "Check Your Eligibility" },
+  { number: "02", title: "Check Your Documentation" },
+  { number: "03", title: "Preparation Matters" },
 ];
 
 const TestHomePortalSection = memo(() => {
