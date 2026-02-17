@@ -22,7 +22,7 @@ const TestHomePortalSection = memo(() => {
           Eligibility Checklist
         </h2>
         <p className="text-[0.95rem] font-light text-[#666666] leading-relaxed mb-6 text-right">
-          This helps you quickly see if your business qualifies before you apply - saving you time and effort
+          Saving you time and effort
         </p>
 
         {/* Bullet points + Video side by side */}
