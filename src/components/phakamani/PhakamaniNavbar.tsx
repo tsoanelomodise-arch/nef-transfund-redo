@@ -81,8 +81,6 @@ const PhakamaniNavbar = memo(() => {
               </Link>
               {aboutDropdownOpen && (
                 <div className="dropdown-menu">
-                  <Link to="/about" className="dropdown-item" onClick={() => setAboutDropdownOpen(false)}>About</Link>
-                  <div className="border-t border-gray-100 my-1" />
                   <Link to="/about/why" className="dropdown-item font-bold" onClick={() => setAboutDropdownOpen(false)}>Why</Link>
                   <div className="ml-4 border-l-4 border-[#007847]">
                     <Link to="/about/why/policy-choice" className="dropdown-item pl-6 text-sm text-white/70 hover:!text-white flex items-center gap-2" onClick={() => setAboutDropdownOpen(false)}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Policy Choice</Link>
