@@ -60,9 +60,6 @@ const WhyPillarsSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 mb-10 md:mb-14 border-b-2 border-[#111111] pb-8">
         <div></div>
         <div className="text-lg font-light text-[#333333]">
-          <p className="mb-0">
-            By combining financial and non-financial support, mobilising public-private investment, and streamlining Enterprise and Supplier Development efforts, the Fund aims to empower Black-owned enterprises, foster job creation, and promote structural change across key sectors.
-          </p>
         </div>
       </div>
 
