@@ -1,19 +1,14 @@
 
+# Update Homepage Portal Section Wording
 
-## Invert Rollover Colors for "Why" Sub-Page Links
+## Changes
+Update three text elements in `src/components/test-home/TestHomePortalSection.tsx`:
 
-### What will change
+1. **Line 18** - Change "SECURE PORTAL" to "PREPARATION IS KEY"
+2. **Line 21** - Change "How to apply" to "Eligibility Checklist"  
+3. **Line 23-24** - Change the description paragraph to: "This helps you quickly see if your business qualifies before you apply - saving you time and effort"
 
-The five "Why" sub-page links (Policy Choice, Theory, Value, Operating Model, National Agenda) in the About dropdown will have inverted hover behavior:
-
-- **Default state**: White text (matching the other dropdown items)
-- **On hover**: Text changes to the accent green color (#007847) instead of the current dark background hover
-
-### Technical Details
-
-**File: `src/components/phakamani/PhakamaniNavbar.tsx`** (lines 88-92)
-
-- Remove `text-gray-600` from each sub-page link's className
-- Add `text-white hover:!text-[#007847] hover:!bg-transparent` to override the default `.dropdown-item:hover` styles
-- This ensures the links start white and turn green on hover, with no background color change
-
+## Technical Details
+- File: `src/components/test-home/TestHomePortalSection.tsx`
+- Only text content changes on lines 18, 21, and 23-24
+- No structural or styling changes required
