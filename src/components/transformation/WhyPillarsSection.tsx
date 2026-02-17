@@ -58,11 +58,7 @@ const WhyPillarsSection = () => {
     <section id="why-pillars" className="w-full max-w-[1400px] mx-auto py-10 md:py-14 px-5 md:px-10 bg-white">
       {/* Header Row */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 mb-10 md:mb-14 border-b-2 border-[#111111] pb-8">
-        <div>
-          <h2 className="text-3xl md:text-[3rem] font-extrabold uppercase tracking-[-1px] leading-none text-black">
-            Why?
-          </h2>
-        </div>
+        <div></div>
         <div className="text-lg font-light text-[#333333]">
           <p className="mb-6">
             The Transformation Fund is designed as a strategic instrument to drive inclusive economic transformation in South Africa.
