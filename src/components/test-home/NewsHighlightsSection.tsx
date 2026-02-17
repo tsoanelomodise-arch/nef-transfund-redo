@@ -40,12 +40,25 @@ const NewsHighlightsSection = memo(() => {
           ) : (
             newsItems.map((item, index) => (
               <div key={item.id} className={`flex gap-4 ${index < newsItems.length - 1 ? "mb-8" : ""}`}>
-                <img
-                  src={item.featured_image_url || "/images/logo-transformation-fund.jpg"}
-                  alt={item.title}
-                  className="w-20 h-20 rounded object-contain bg-[#f5f5f5] flex-shrink-0 mt-1"
-                  loading="lazy"
-                />
+                {item.source_url ? (
+                  <a href={item.source_url} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={item.featured_image_url || "/images/logo-transformation-fund.jpg"}
+                      alt={item.title}
+                      className="w-20 h-20 rounded object-contain bg-[#f5f5f5] flex-shrink-0 mt-1 cursor-pointer hover:opacity-80 transition-opacity"
+                      loading="lazy"
+                    />
+                  </a>
+                ) : (
+                  <Link to={`/news-media/${item.id}`}>
+                    <img
+                      src={item.featured_image_url || "/images/logo-transformation-fund.jpg"}
+                      alt={item.title}
+                      className="w-20 h-20 rounded object-contain bg-[#f5f5f5] flex-shrink-0 mt-1 cursor-pointer hover:opacity-80 transition-opacity"
+                      loading="lazy"
+                    />
+                  </Link>
+                )}
                 <div>
                   <h4 className="text-base font-extrabold uppercase tracking-tight text-[#222222] mb-2">
                     {item.title}
