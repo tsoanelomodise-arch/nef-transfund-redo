@@ -23,7 +23,7 @@ const PathToFunding: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    document.title = 'How to Apply | Transformation Fund';
+    document.title = 'Eligibility & Criteria | Transformation Fund';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Learn how to apply for the Transformation Fund. Check your eligibility, prepare your documents, and submit your application for business funding support.');
