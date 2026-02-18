@@ -15,7 +15,7 @@ const PathToFundingHero: React.FC<PathToFundingHeroProps> = memo(({ onCheckEligi
 
             {/* Headline */}
             <h1 className="phakamani-headline text-black mb-6">
-              How to Apply
+              Prepare before applying.
             </h1>
 
             {/* Description */}
@@ -43,8 +43,8 @@ const PathToFundingHero: React.FC<PathToFundingHeroProps> = memo(({ onCheckEligi
 
           {/* Hero Visual */}
           <div className="order-1 lg:order-2" aria-hidden="true">
-            <div className="relative flex justify-center items-center h-[500px]">
-              <div className="relative w-full h-full max-w-[650px]">
+            <div className="relative flex justify-center items-center h-[400px]">
+              <div className="relative w-full h-full max-w-[520px]">
               <div className="phakamani-slide slide-seamstress active">
                   <img 
                     src="/images/path-to-funding/SeamstressBack.png" 
