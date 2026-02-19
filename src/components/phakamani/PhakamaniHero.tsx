@@ -132,7 +132,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 h-full flex items-end pb-32">
+      <div className={`relative z-10 h-full flex ${isWhyPage ? 'items-start pt-8' : 'items-end pb-32'}`}>
         <div className="max-w-[1400px] mx-auto px-10 w-full">
         {/* Why page heading - top left */}
           {isWhyPage && (
