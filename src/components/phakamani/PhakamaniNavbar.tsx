@@ -103,7 +103,7 @@ const PhakamaniNavbar = memo(() => {
                 to="/path-to-funding" 
                 className={`nav-link flex items-center ${isPathToFundingSection ? 'nav-link-active' : ''}`}
               >
-                Eligibility & criteria
+                Eligibility
                 <ChevronDown className="ml-1 h-4 w-4" />
               </Link>
               {pathToFundingDropdownOpen && (
@@ -223,7 +223,7 @@ const PhakamaniNavbar = memo(() => {
               <Link to="/about/why/operating-model" className={`flex items-center gap-2 hover:text-[#007847] px-3 py-2 pl-14 text-sm border-l-4 border-[#007847] ml-6 ${location.pathname === '/about/why/operating-model' ? 'text-[#007847] font-bold' : 'text-gray-600'}`} onClick={closeMobileMenu}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Operating Model</Link>
               <Link to="/about/why/national-agenda" className={`flex items-center gap-2 hover:text-[#007847] px-3 py-2 pl-14 text-sm border-l-4 border-[#007847] ml-6 ${location.pathname === '/about/why/national-agenda' ? 'text-[#007847] font-bold' : 'text-gray-600'}`} onClick={closeMobileMenu}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />National Agenda</Link>
               
-              <Link to="/path-to-funding" className={`block px-3 py-2 text-base font-bold ${isPathToFundingSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Eligibility & criteria</Link>
+              <Link to="/path-to-funding" className={`block px-3 py-2 text-base font-bold ${isPathToFundingSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Eligibility</Link>
               <Link to="/path-to-funding/process" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Funding Process</Link>
               <Link to="/path-to-funding/market-segments" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Market segments</Link>
               <Link to="/path-to-funding/products" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Products</Link>
