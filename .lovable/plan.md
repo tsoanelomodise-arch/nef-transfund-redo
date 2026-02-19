@@ -1,32 +1,25 @@
 
-# Fix: Add Active State to "Why" Sub-navigation Items
+# Fix: Lower the "Why the Transformation Fund?" Heading
 
 ## Problem
-When viewing a "Why" sub-page (e.g., Value Proposition at `/about/why/value`), the dropdown menu items all look identical -- there's no visual indicator showing which sub-page is currently active. The top-level "About" link correctly shows an active state, but the individual dropdown items (Policy Choice, Theory, Value, Operating Model, National Agenda) do not.
+On the `/about/why` page, the heading and description text are positioned using `items-end pb-32`, which pushes content toward the bottom of the hero area. This causes the text to be cut off or not fully visible, especially on smaller viewports.
 
 ## Solution
-Add active styling to dropdown sub-items by comparing the current `location.pathname` with each link's target path. The active item will get a brighter text color and a highlighted background.
+Change the vertical alignment of hero content specifically for "Why" pages so the heading and text start higher up in the hero section, making them fully visible.
 
-## Changes
+## Technical Change
 
-### File: `src/components/phakamani/PhakamaniNavbar.tsx`
+### File: `src/components/phakamani/PhakamaniHero.tsx`
 
-**Desktop dropdown sub-items (lines 85-91):** Add a conditional class to each sub-link that checks if its path matches the current route. When active, the item will display with full white text and a subtle highlighted background instead of the default `text-white/70`.
+**Line 135** -- Update the hero content container to use top-aligned positioning for Why pages instead of bottom-aligned:
 
-For each sub-link, change:
-```
-className="dropdown-item pl-6 text-sm text-white/70 hover:!text-white ..."
+Change:
+```tsx
+<div className="relative z-10 h-full flex items-end pb-32">
 ```
 To:
-```
-className={`dropdown-item pl-6 text-sm hover:!text-white ... ${location.pathname === '/about/why/[sub-path]' ? 'text-white bg-[#004d30]' : 'text-white/70'}`}
-```
-
-This applies to all 5 sub-links: Policy Choice, Theory, Value, Operating Model, and National Agenda.
-
-**Why top-level link (line 84):** Similarly highlight the "Why" link when on the `/about/why` route exactly:
-```
-className={`dropdown-item font-bold ${location.pathname === '/about/why' ? 'bg-[#004d30]' : ''}`}
+```tsx
+<div className={`relative z-10 h-full flex ${isWhyPage ? 'items-start pt-8' : 'items-end pb-32'}`}>
 ```
 
-**Mobile menu (lines 175-183):** The mobile sub-links already have conditional styling via inline checks, but they also lack per-item active state. Add the same active color for each mobile sub-link when its path matches `location.pathname`.
+This positions the heading and description near the top of the hero on Why pages, ensuring full visibility, while keeping the bottom alignment for the home page slides.
