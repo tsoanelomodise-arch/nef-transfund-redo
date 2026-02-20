@@ -82,9 +82,7 @@ const PhakamaniNavbar = memo(() => {
               {aboutDropdownOpen && (
                 <div className="dropdown-menu">
                   <Link to="/about/why" className={`dropdown-item font-bold ${location.pathname === '/about/why' ? 'bg-[#004d30]' : ''}`} onClick={() => setAboutDropdownOpen(false)}>Fund purpose</Link>
-                  <div className="ml-4 border-l-4 border-[#007847]">
-                    <Link to="/about/why/policy-choice" className={`dropdown-item pl-6 text-sm hover:!text-white flex items-center gap-2 ${location.pathname === '/about/why/policy-choice' ? 'text-white bg-[#004d30]' : 'text-white/70'}`} onClick={() => setAboutDropdownOpen(false)}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Fund Policy</Link>
-                  </div>
+                  <Link to="/about/why/policy-choice" className={`dropdown-item font-bold ${location.pathname === '/about/why/policy-choice' ? 'bg-[#004d30]' : ''}`} onClick={() => setAboutDropdownOpen(false)}>Fund Policy</Link>
                 </div>
               )}
             </div>
@@ -212,8 +210,8 @@ const PhakamaniNavbar = memo(() => {
           <div className="lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-100px)] overflow-y-auto">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link to="/about" className={`block px-3 py-2 text-base font-bold ${isAboutPage || isWhySection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>About</Link>
-              <Link to="/about/why" className={`block px-3 py-2 pl-6 text-base font-bold ${isWhySection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Fund purpose</Link>
-              <Link to="/about/why/policy-choice" className={`flex items-center gap-2 hover:text-[#007847] px-3 py-2 pl-14 text-sm border-l-4 border-[#007847] ml-6 ${location.pathname === '/about/why/policy-choice' ? 'text-[#007847] font-bold' : 'text-gray-600'}`} onClick={closeMobileMenu}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Fund Policy</Link>
+              <Link to="/about/why" className={`block px-3 py-2 pl-6 text-base font-bold ${isWhySection && location.pathname !== '/about/why/policy-choice' ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Fund purpose</Link>
+              <Link to="/about/why/policy-choice" className={`block px-3 py-2 pl-6 text-base font-bold ${location.pathname === '/about/why/policy-choice' ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Fund Policy</Link>
               
               <Link to="/path-to-funding" className={`block px-3 py-2 text-base font-bold ${isPathToFundingSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Eligibility</Link>
               <Link to="/path-to-funding/process" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Funding Process</Link>
