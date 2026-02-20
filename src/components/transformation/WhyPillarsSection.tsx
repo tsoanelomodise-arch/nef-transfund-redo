@@ -22,8 +22,7 @@ const cards = [
     number: "03",
     title: "Coordinate and enhance ESD impact",
     paragraphs: [
-      "Serve as a central vehicle for Enterprise and Supplier Development (ESD), by addressing the current shortcomings of fragmented corporate initiatives. Instead of companies running numerous disparate projects, they can channel their ESD budgets into the Fund—either fully or partially—where resources are professionally managed and aligned with national priorities.",
-      "This approach simplifies compliance, reduces administrative burden, and ensures that ESD contributions are invested in a coherent portfolio of programmes with measurable outcomes in business growth and job creation, while also linking supported enterprises to real market opportunities within corporate supply chains."
+      "Serve as a central vehicle for Enterprise and Supplier Development (ESD), by addressing the current shortcomings of fragmented corporate initiatives. Instead of companies running numerous disparate projects, they can channel their ESD budgets into the Fund—either fully or partially—where resources are professionally managed and aligned with national priorities."
     ],
     image: null
   },

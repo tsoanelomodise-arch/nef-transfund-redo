@@ -3,20 +3,12 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const whyPageHeadings: Record<string, string> = {
   '/about/why': 'Why the Transformation Fund?',
-  '/about/why/policy-choice': 'Policy Choice: The Transformation Fund',
-  '/about/why/theory': 'Theory of Change',
-  '/about/why/value': 'Value Proposition',
-  '/about/why/operating-model': 'Operating Model',
-  '/about/why/national-agenda': 'Advancing the National Agenda',
+  '/about/why/policy-choice': 'Fund Policy',
 };
 
 const whyPageDescriptions: Record<string, string> = {
-  '/about/why': "South Africa's transformation efforts have been fragmented, compliance-driven, and insufficient to address systemic inequality. The Transformation Fund represents a bold shift: a coordinated, outcome-focused mechanism that engineers inclusive growth at scale.\n\nThe Transformation Fund is designed as a strategic instrument to drive inclusive economic transformation in South Africa.\n\nBy combining financial and non-financial support, mobilising public-private investment, and streamlining Enterprise and Supplier Development efforts, the Fund aims to empower Black-owned enterprises, foster job creation, and promote structural change across key sectors.",
-  '/about/why/policy-choice': "Recognising the limitations, the Department of Trade, Industry and Competition (the dtic) has proposed establishing a dedicated Transformation Fund managed via a Special Purpose Vehicle (SPV). Key features of the Fund include:",
-  '/about/why/theory': "",
-  '/about/why/value': "",
-  '/about/why/operating-model': "The Transformation Fund will serve as a central platform that connects government, DFIs, corporates and civil society with businesses that need support. The Fund has been designed to deliver integrated assistance through three main streams:",
-  '/about/why/national-agenda': "The Fund is designed to drive South Africa's key economic and social priorities. It will support businesses to grow, create meaningful jobs and promote equitable participation in the economy.",
+  '/about/why': "South Africa's transformation efforts have been fragmented, compliance-driven, and insufficient to address systemic inequality. The Transformation Fund represents a bold shift: a coordinated, outcome-focused mechanism that engineers inclusive growth at scale.\n\nBy combining financial and non-financial support, mobilising public-private investment, and streamlining Enterprise and Supplier Development efforts, the Fund aims to empower Black-owned enterprises, foster job creation, and promote structural change across key sectors.",
+  '/about/why/policy-choice': "Despite laudable intentions, South Africa's existing transformation efforts have been fragmented and largely compliance-driven, yielding limited structural impact. Recognising the limitations, the Department of Trade, Industry and Competition (the dtic) has proposed establishing a dedicated Transformation Fund managed via a Special Purpose Vehicle (SPV). Key features of the Fund include:",
 };
 
 interface PhakamaniHeroProps {
@@ -161,7 +153,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
                 style={{ fontSize: 'clamp(1.5rem, 2.2vw, 2.2rem)', textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
               >
                 {currentSlide === 0 
-                  ? <>Engineering an inclusive microeconomic foundation for macroeconomic growth <span className="whitespace-nowrap">and social stability</span></>
+                  ? "Engineering an inclusive foundation for macroeconomic growth"
                   : currentSlide === 1
                   ? "Advancing the economic agenda"
                   : currentSlide === 2
@@ -172,13 +164,13 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
                 }
               </h1>
               {currentSlide === 0 && (
-                <p className="text-white/80 font-light text-lg mt-3 italic" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
-                  This isn't just funding, it's a national movement
+                <p className="text-white/80 font-light text-lg mt-3 italic max-w-md" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
+                  Purposely structured to lower the barriers to entry and reduce the costs and risks of participation in the economy for the masses of South Africans who are currently marginalised.
                 </p>
               )}
               {currentSlide === 1 && (
                 <p className="text-white/80 font-light text-lg mt-3 italic max-w-md" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
-                  Designed to accelerate economic participation and unlock opportunity, the Transformation Fund supports sustainable growth for emerging businesses across South Africa.
+                  Designed to accelerate economic participation and unlock opportunity, to support sustainable growth for emerging businesses across South Africa.
                 </p>
               )}
               {currentSlide === 2 && (

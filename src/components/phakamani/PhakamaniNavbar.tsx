@@ -81,13 +81,9 @@ const PhakamaniNavbar = memo(() => {
               </Link>
               {aboutDropdownOpen && (
                 <div className="dropdown-menu">
-                  <Link to="/about/why" className={`dropdown-item font-bold ${location.pathname === '/about/why' ? 'bg-[#004d30]' : ''}`} onClick={() => setAboutDropdownOpen(false)}>Why</Link>
+                  <Link to="/about/why" className={`dropdown-item font-bold ${location.pathname === '/about/why' ? 'bg-[#004d30]' : ''}`} onClick={() => setAboutDropdownOpen(false)}>Fund purpose</Link>
                   <div className="ml-4 border-l-4 border-[#007847]">
-                    <Link to="/about/why/policy-choice" className={`dropdown-item pl-6 text-sm hover:!text-white flex items-center gap-2 ${location.pathname === '/about/why/policy-choice' ? 'text-white bg-[#004d30]' : 'text-white/70'}`} onClick={() => setAboutDropdownOpen(false)}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Policy Choice</Link>
-                    <Link to="/about/why/theory" className={`dropdown-item pl-6 text-sm hover:!text-white flex items-center gap-2 ${location.pathname === '/about/why/theory' ? 'text-white bg-[#004d30]' : 'text-white/70'}`} onClick={() => setAboutDropdownOpen(false)}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Theory</Link>
-                    <Link to="/about/why/value" className={`dropdown-item pl-6 text-sm hover:!text-white flex items-center gap-2 ${location.pathname === '/about/why/value' ? 'text-white bg-[#004d30]' : 'text-white/70'}`} onClick={() => setAboutDropdownOpen(false)}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Value</Link>
-                    <Link to="/about/why/operating-model" className={`dropdown-item pl-6 text-sm hover:!text-white flex items-center gap-2 ${location.pathname === '/about/why/operating-model' ? 'text-white bg-[#004d30]' : 'text-white/70'}`} onClick={() => setAboutDropdownOpen(false)}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Operating Model</Link>
-                    <Link to="/about/why/national-agenda" className={`dropdown-item pl-6 text-sm hover:!text-white flex items-center gap-2 ${location.pathname === '/about/why/national-agenda' ? 'text-white bg-[#004d30]' : 'text-white/70'}`} onClick={() => setAboutDropdownOpen(false)}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />National Agenda</Link>
+                    <Link to="/about/why/policy-choice" className={`dropdown-item pl-6 text-sm hover:!text-white flex items-center gap-2 ${location.pathname === '/about/why/policy-choice' ? 'text-white bg-[#004d30]' : 'text-white/70'}`} onClick={() => setAboutDropdownOpen(false)}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Fund Policy</Link>
                   </div>
                 </div>
               )}
@@ -216,12 +212,8 @@ const PhakamaniNavbar = memo(() => {
           <div className="lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-100px)] overflow-y-auto">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link to="/about" className={`block px-3 py-2 text-base font-bold ${isAboutPage || isWhySection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>About</Link>
-              <Link to="/about/why" className={`block px-3 py-2 pl-6 text-base font-bold ${isWhySection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Why</Link>
-              <Link to="/about/why/policy-choice" className={`flex items-center gap-2 hover:text-[#007847] px-3 py-2 pl-14 text-sm border-l-4 border-[#007847] ml-6 ${location.pathname === '/about/why/policy-choice' ? 'text-[#007847] font-bold' : 'text-gray-600'}`} onClick={closeMobileMenu}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Policy Choice</Link>
-              <Link to="/about/why/theory" className={`flex items-center gap-2 hover:text-[#007847] px-3 py-2 pl-14 text-sm border-l-4 border-[#007847] ml-6 ${location.pathname === '/about/why/theory' ? 'text-[#007847] font-bold' : 'text-gray-600'}`} onClick={closeMobileMenu}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Theory</Link>
-              <Link to="/about/why/value" className={`flex items-center gap-2 hover:text-[#007847] px-3 py-2 pl-14 text-sm border-l-4 border-[#007847] ml-6 ${location.pathname === '/about/why/value' ? 'text-[#007847] font-bold' : 'text-gray-600'}`} onClick={closeMobileMenu}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Value</Link>
-              <Link to="/about/why/operating-model" className={`flex items-center gap-2 hover:text-[#007847] px-3 py-2 pl-14 text-sm border-l-4 border-[#007847] ml-6 ${location.pathname === '/about/why/operating-model' ? 'text-[#007847] font-bold' : 'text-gray-600'}`} onClick={closeMobileMenu}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Operating Model</Link>
-              <Link to="/about/why/national-agenda" className={`flex items-center gap-2 hover:text-[#007847] px-3 py-2 pl-14 text-sm border-l-4 border-[#007847] ml-6 ${location.pathname === '/about/why/national-agenda' ? 'text-[#007847] font-bold' : 'text-gray-600'}`} onClick={closeMobileMenu}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />National Agenda</Link>
+              <Link to="/about/why" className={`block px-3 py-2 pl-6 text-base font-bold ${isWhySection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Fund purpose</Link>
+              <Link to="/about/why/policy-choice" className={`flex items-center gap-2 hover:text-[#007847] px-3 py-2 pl-14 text-sm border-l-4 border-[#007847] ml-6 ${location.pathname === '/about/why/policy-choice' ? 'text-[#007847] font-bold' : 'text-gray-600'}`} onClick={closeMobileMenu}><span className="w-1.5 h-1.5 rounded-full bg-[#007847] flex-shrink-0" />Fund Policy</Link>
               
               <Link to="/path-to-funding" className={`block px-3 py-2 text-base font-bold ${isPathToFundingSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Eligibility</Link>
               <Link to="/path-to-funding/process" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Funding Process</Link>
@@ -249,8 +241,8 @@ const PhakamaniNavbar = memo(() => {
       <div className="fixed top-[100px] lg:top-[120px] left-0 w-full bg-white z-40">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-10 py-3">
           <SocialIconsRow className="!mb-2 !justify-start" />
-          <span className="font-mono text-[#00703C] font-bold text-sm">
-            // Be sure to follow our socials
+            <span className="font-mono text-[#00703C] font-bold text-sm">
+            // Follow us on social media to stay updated
           </span>
         </div>
       </div>
