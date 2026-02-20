@@ -19,10 +19,6 @@ const PathToFunding = lazy(() => import("./pages/PathToFunding"));
 const Resources = lazy(() => import("./pages/Resources"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const PolicyChoicePage = lazy(() => import("./pages/why/PolicyChoicePage"));
-const TheoryPage = lazy(() => import("./pages/why/TheoryPage"));
-const ValuePage = lazy(() => import("./pages/why/ValuePage"));
-const OperatingModelPage = lazy(() => import("./pages/why/OperatingModelPage"));
-const NationalAgendaPage = lazy(() => import("./pages/why/NationalAgendaPage"));
 const FundingProcessPage = lazy(() => import("./pages/path-to-funding/FundingProcessPage"));
 const MarketSegmentsPage = lazy(() => import("./pages/path-to-funding/MarketSegmentsPage"));
 const ProductsPage = lazy(() => import("./pages/path-to-funding/ProductsPage"));
@@ -53,10 +49,6 @@ const App = () => (
               <Route path="/" element={<TestHome />} />
               <Route path="/about/why" element={<TransformationIndex />} />
               <Route path="/about/why/policy-choice" element={<PolicyChoicePage />} />
-              <Route path="/about/why/theory" element={<TheoryPage />} />
-              <Route path="/about/why/value" element={<ValuePage />} />
-              <Route path="/about/why/operating-model" element={<OperatingModelPage />} />
-              <Route path="/about/why/national-agenda" element={<NationalAgendaPage />} />
               <Route path="/old" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/contacts" element={<TestContacts />} />
