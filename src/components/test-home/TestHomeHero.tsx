@@ -5,18 +5,23 @@ import { Link } from "react-router-dom";
 const slides = [
   {
     image: "/images/test-home/hero-slide-1.jpg",
-    title: "Engineering an inclusive microeconomic foundation for macroeconomic growth and social stability",
-    tagline: "This isn't just funding, it's a national movement",
+    title: "Engineering an inclusive foundation for macroeconomic growth",
+    tagline: "Purposely structured to lower the barriers to entry and reduce the costs and risks of participation in the economy for the masses of South Africans who are currently marginalised.",
   },
   {
     image: "/images/test-home/hero-slide-2.jpg",
     title: "Advancing the economic agenda",
-    tagline: "Designed to accelerate economic participation and unlock opportunity, the Transformation Fund supports sustainable growth for emerging businesses across South Africa.",
+    tagline: "Designed to accelerate economic participation and unlock opportunity, to support sustainable growth for emerging businesses across South Africa.",
   },
   {
     image: "/images/test-home/hero-slide-3.jpg",
     title: "Advancing the economic agenda",
-    tagline: "Designed to accelerate economic participation and unlock opportunity, the Transformation Fund supports sustainable growth for emerging businesses across South Africa.",
+    tagline: "Designed to accelerate economic participation and unlock opportunity, to support sustainable growth for emerging businesses across South Africa.",
+  },
+  {
+    image: "/images/hero/platform-baker.jpg",
+    title: "A platform for a new economic era",
+    tagline: "A platform\u2011driven approach that pools capital, builds capabilities, creates trusted digital marketplaces, and uses data to ensure accountability.",
   },
 ];
 
