@@ -61,7 +61,45 @@ const About = () => {
     <div className="min-h-screen bg-background pt-[180px] lg:pt-[210px]">
       <PhakamaniNavbar />
       <main>
-        {/* Section 1: Objectives */}
+        {/* Section: About Intro */}
+        <section className="py-20 pb-24 bg-white">
+          <div className="max-w-[1200px] mx-auto px-8">
+            <div className="max-w-[800px] mb-12">
+              <span className="inline-block text-sm font-bold uppercase tracking-[2px] pl-4 border-l-[3px] border-[#111111] text-[#111111] mb-4">
+                About
+              </span>
+              <h2 className="text-3xl md:text-[2.5rem] font-bold uppercase tracking-[-0.5px] leading-[1.2] text-[#111111]">
+                Transformation Fund
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
+              <div className="relative h-[320px] md:h-[400px] max-w-[500px]">
+                <img
+                  src="/images/hero/BakeryBack-2.png"
+                  alt=""
+                  className="absolute bottom-0 right-0 w-[80%] z-[1] object-contain"
+                />
+                <img
+                  src="/images/hero/BakeryFront-2.png"
+                  alt=""
+                  className="absolute bottom-0 left-0 w-[70%] z-[2] object-contain"
+                />
+              </div>
+
+              <div>
+                <p className="text-xl font-medium text-[#111111] mb-6">
+                  The Transformation Fund is a strategic instrument designed to enable coherent and efficient implementation of B-BBEE and related financing interventions, alongside complementary policy tools such as competition and public-interest commitments.
+                </p>
+                <p className="text-[#555555]">
+                  It brings together empowerment, industrialisation and macroeconomic resilience through measurable, accountable interventions that drive inclusive economic growth.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section: Objectives */}
         <section className="py-16 md:py-20 bg-[#f4f4f4]">
           <div className="max-w-[1200px] mx-auto px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
