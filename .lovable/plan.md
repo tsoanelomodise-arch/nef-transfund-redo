@@ -1,51 +1,42 @@
 
 
-# Add Hero/Intro Section to About Page
+# Add Sector Icons to Market Segments Priority Sectors
 
 ## Overview
-Re-introduce the "About / Transformation Fund" hero section at the top of the About page, faithfully replicating the layout and design from the provided HTML file. This uses two overlapping bakery images (back + front) with text content beside them.
+Add the 6 uploaded icons to their matching priority sector cards, and generate a similar-style icon for "Manufacturing". Each icon will be placed at the top of its card, replacing the current black bar divider, sized consistently to fit the established card design.
 
-## What gets added
-A new intro section placed **before** the Objectives section, containing:
-- Eyebrow label: "About"
-- Heading: "Transformation Fund"
-- Two overlapping images (BakeryBack and BakeryFront) in a layered composition
-- Two text paragraphs (highlight + body) exactly as defined in the HTML
+## Icon-to-sector mapping
+| Icon file | Sector card |
+|-----------|-------------|
+| RenewableEnergy.gif | Renewable energy |
+| Mining_services.png | Mining services |
+| Agro-processing.png | Agro-processing |
+| Information_communication_technology.png | Information & communication technology |
+| Infrastructure.png | Infrastructure |
+| (generate SVG inline) | Manufacturing |
+| Services_and_business_process_outsourcing.png | Services and business process outsourcing |
 
-## Image assets
-- Copy `user-uploads://BakeryBack-2.png` to `public/images/hero/BakeryBack-2.png`
-- Copy `user-uploads://BakeryFront-2.png` to `public/images/hero/BakeryFront-2.png`
+## Manufacturing icon
+Since no icon was provided for "Manufacturing", a simple black silhouette SVG will be generated inline -- a gear/cog motif consistent with the industrial, black-on-white style of the other icons.
 
 ## Technical changes
 
-### File: `src/pages/About.tsx`
+### 1. Copy icon assets to `public/images/sectors/`
+- `RenewableEnergy.gif` -> `public/images/sectors/renewable-energy.gif`
+- `Mining_services.png` -> `public/images/sectors/mining-services.png`
+- `Agro-processing.png` -> `public/images/sectors/agro-processing.png`
+- `Information_communication_technology.png` -> `public/images/sectors/ict.png`
+- `Infrastructure.png` -> `public/images/sectors/infrastructure.png`
+- `Services_and_business_process_outsourcing.png` -> `public/images/sectors/services-bpo.png`
 
-Insert a new section between `<main>` and the Objectives section:
+### 2. Update `src/components/path-to-funding/MarketSegmentsContent.tsx`
+- Add an `icon` field to each sector object in the `sectors` array -- either an image path string or inline SVG markup for Manufacturing
+- In the card rendering, replace the `<div className="w-10 h-1 bg-black mb-5" />` bar with an `<img>` (or inline SVG for Manufacturing) sized at approximately `w-12 h-12` (48x48px), with `object-contain` to maintain aspect ratio
+- Keep the black bar as a fallback if no icon is present (though all 7 will have icons)
+- No other card styling, typography, spacing, or layout changes
 
-```text
-Structure:
-+--------------------------------------------------+
-|  "About" eyebrow + "Transformation Fund" heading |
-+--------------------------------------------------+
-|  [Overlapping images]  |  [Highlight paragraph]  |
-|  BakeryBack (80% w,    |  [Body paragraph]        |
-|   z-1, bottom-right)   |                          |
-|  BakeryFront (70% w,   |                          |
-|   z-2, bottom-left)    |                          |
-+--------------------------------------------------+
-```
-
-- White background, section padding matching `py-20 pb-24`
-- Header block with max-width 800px and margin-bottom 3rem
-- 2-column grid (stacked on mobile)
-- Left column: relative container (h-[400px], max-w-[500px]) with two absolutely positioned images
-  - BakeryBack: bottom-0 right-0, w-[80%], z-[1]
-  - BakeryFront: bottom-0 left-0, w-[70%], z-[2]
-  - On mobile: h-[320px], no negative top margin
-- Right column: text content with highlight paragraph (text-xl, font-medium, text-[#111111]) and body paragraph (text-[#555555])
-- All text content exactly as in the HTML -- no additions or modifications
-
-### No other files affected
-- Navbar, Footer, Objectives, Method, and Architecture sections remain untouched
-- No new UI elements, overlays, icons, gradients, or decorative assets introduced
+### What stays unchanged
+- All card dimensions, padding, hover effects, typography
+- Foundations section, intro section, hero section
+- Navbar, Footer, and all other pages
 
