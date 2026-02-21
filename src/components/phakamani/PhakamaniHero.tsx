@@ -22,8 +22,8 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
   
   // Check if we're on a WHY page - only show first slide there
   const isWhyPage = location.pathname.startsWith('/about/why');
-  const slideCount = isWhyPage ? 1 : 5;
-  const slideNames = isWhyPage ? ["Entrepreneur"] : ["Entrepreneur", "Investor", "Partner", "Collaborate", "Impact"];
+  const slideCount = isWhyPage ? 1 : 6;
+  const slideNames = isWhyPage ? ["Entrepreneur"] : ["Entrepreneur", "Investor", "Partner", "Collaborate", "Impact", "Platform"];
 
   useEffect(() => {
     // Don't rotate if only one slide (WHY page)
@@ -105,6 +105,19 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
           </div>
         )}
 
+        {/* Platform Baker Slide - Only show on non-WHY pages */}
+        {!isWhyPage && (
+          <div className={`absolute inset-0 transition-opacity duration-1000 bg-white ${currentSlide === 5 ? 'opacity-100' : 'opacity-0'}`}>
+            <img 
+              src="/images/hero/platform-baker.jpg" 
+              className="w-full h-full object-contain"
+              alt="Baker standing in artisan bakery with fresh bread"
+              loading="eager"
+              fetchPriority="high"
+            />
+          </div>
+        )}
+
       </div>
 
       {/* QR Code Block - Top Right */}
@@ -160,7 +173,9 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
                   ? "Where growth starts"
                   : currentSlide === 3
                   ? "Collaborate for change"
-                  : "Partner in progress"
+                  : currentSlide === 4
+                  ? "Partner in progress"
+                  : "A platform for a new economic era"
                 }
               </h1>
               {currentSlide === 0 && (
@@ -202,6 +217,11 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
                     <li>Strategic Partnership Programs</li>
                   </ul>
                 </div>
+              )}
+              {currentSlide === 5 && (
+                <p className="text-white/80 font-light text-lg mt-3 italic max-w-md" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
+                  A platform‑driven approach that pools capital, builds capabilities, creates trusted digital marketplaces, and uses data to ensure accountability.
+                </p>
               )}
             </>
           )}
