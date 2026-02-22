@@ -13,16 +13,6 @@ const foundations = [
   }
 ];
 
-const ManufacturingIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M24 30a6 6 0 100-12 6 6 0 000 12zm0-4a2 2 0 110-4 2 2 0 010 4z" fill="#000"/>
-    <path d="M24 2l3 6.1A16.1 16.1 0 0133.9 11L40 8l-2 6.5a16.1 16.1 0 011.5 6.5H46l-4.1 4.9A16.1 16.1 0 0142 32l4 4-6.1-1a16.1 16.1 0 01-4.9 4.9L36 46l-4.9-4.1a16.1 16.1 0 01-6.1 1.1v6l-4.9-4.1A16.1 16.1 0 0114 46l-2 2-1-6.5a16.1 16.1 0 01-4.5-4.5L0 38l4.1-4.9A16.1 16.1 0 013 27H-2l4-5a16.1 16.1 0 01-.5-5L-2 14l6.5 1A16.1 16.1 0 019 10.5L8 4l6 3a16.1 16.1 0 015-2.9L18 0h6z" fill="#000" opacity="0.15"/>
-    <path fillRule="evenodd" clipRule="evenodd" d="M24 6a18 18 0 100 36 18 18 0 000-36zM24 10a14 14 0 110 28 14 14 0 010-28z" fill="#000" opacity="0.3"/>
-    <path d="M24 2v5m0 34v5M2 24h5m34 0h5M7.03 7.03l3.54 3.54m27.86 27.86l3.54 3.54M7.03 40.97l3.54-3.54m27.86-27.86l3.54-3.54" stroke="#000" strokeWidth="2.5" strokeLinecap="round"/>
-    <circle cx="24" cy="24" r="9" stroke="#000" strokeWidth="2.5" fill="none"/>
-    <circle cx="24" cy="24" r="3" fill="#000"/>
-  </svg>
-);
 
 const sectors = [
   {
@@ -63,7 +53,7 @@ const sectors = [
   },
   {
     title: "Manufacturing",
-    icon: "manufacturing-svg",
+    icon: "/images/sectors/manufacturing.png",
     paragraphs: [
       "The Fund supports a wide range of manufacturing activities, including textiles, consumables, automotive components, batteries and electric accumulators, enabling industrial diversification and competitiveness."
     ]
@@ -141,11 +131,7 @@ const MarketSegmentsContent = () => {
                 className="bg-white p-6 md:p-8 h-full flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.05)]"
               >
                 <div className="w-10 h-1 bg-black mb-5" />
-                {sector.icon === "manufacturing-svg" ? (
-                  <div className="w-20 h-20 mb-5"><ManufacturingIcon /></div>
-                ) : (
-                  <img src={sector.icon} alt={sector.title} className="w-20 h-20 object-contain mb-5" />
-                )}
+                <img src={sector.icon} alt={sector.title} className="w-20 h-20 object-contain mb-5" />
                 <h4 className="text-lg font-bold text-black mb-4">
                   {sector.title}
                 </h4>
