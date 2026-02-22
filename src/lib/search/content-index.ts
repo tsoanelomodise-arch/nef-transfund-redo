@@ -376,7 +376,7 @@ export const searchableContent: SearchableContent[] = [
     title: 'Portal Login',
     description: 'Access the online application portal',
     content: "Access the Transformation Fund online portal at online.sa-transformationfund.co.za to submit applications, track your application status, and manage your account.",
-    url: 'https://tfportaltest-bjggc8febhc3aucy.southafricanorth-01.azurewebsites.net/',
+    url: 'https://dev-online.sa-transformationfund.co.za/',
     category: 'application',
     audience: ['entrepreneurs', 'general'],
     keywords: ['portal', 'login', 'sign in', 'account', 'application portal', 'online'],

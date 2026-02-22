@@ -119,7 +119,7 @@ export function usePathToFundingQuiz() {
   // Handle apply button click
   const handleApply = useCallback(() => {
     if (appState.elig && appState.docs) {
-      window.open('https://www.wonderlandstudio.co.za/tfportalform/uat_wizard.html', '_blank');
+      window.open('https://dev-online.sa-transformationfund.co.za/', '_blank');
     } else {
       setIncompleteModalOpen(true);
     }

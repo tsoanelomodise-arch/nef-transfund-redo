@@ -14,7 +14,7 @@ const FundingConditionsSection: React.FC<FundingConditionsSectionProps> = memo((
   onApply,
   appState
 }) => {
-  const portalUrl = 'https://tfportaltest-bjggc8febhc3aucy.southafricanorth-01.azurewebsites.net/';
+  const portalUrl = 'https://dev-online.sa-transformationfund.co.za/';
 
   const steps = [
     {

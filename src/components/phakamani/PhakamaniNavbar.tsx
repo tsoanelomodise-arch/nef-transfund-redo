@@ -183,7 +183,7 @@ const PhakamaniNavbar = memo(() => {
 
           {/* CTA Button - Desktop */}
           <a 
-            href="https://tfportaltest-bjggc8febhc3aucy.southafricanorth-01.azurewebsites.net/" 
+            href="https://dev-online.sa-transformationfund.co.za/"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:block phakamani-nav-cta"
@@ -229,7 +229,7 @@ const PhakamaniNavbar = memo(() => {
               <Link to="/contacts" className={`block px-3 py-2 text-base font-bold ${isContactsPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Contacts</Link>
               
               
-              <a href="https://tfportaltest-bjggc8febhc3aucy.southafricanorth-01.azurewebsites.net/" target="_blank" rel="noopener noreferrer" className="block bg-[#007847] text-white px-3 py-2 text-base font-bold hover:opacity-90 transition-all">Portal Login</a>
+              <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="block bg-[#007847] text-white px-3 py-2 text-base font-bold hover:opacity-90 transition-all">Portal Login</a>
             </div>
           </div>
         )}

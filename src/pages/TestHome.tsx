@@ -58,7 +58,7 @@ const TestHome = () => {
         onOpenChange={quiz.setDocSuccessModalOpen}
         onContinue={() => {
           quiz.setDocSuccessModalOpen(false);
-          window.open('https://tfportaltest-bjggc8febhc3aucy.southafricanorth-01.azurewebsites.net/', '_blank');
+          window.open('https://dev-online.sa-transformationfund.co.za/', '_blank');
         }}
       />
       <DocRejectModal
