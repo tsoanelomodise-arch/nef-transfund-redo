@@ -142,9 +142,9 @@ const MarketSegmentsContent = () => {
               >
                 <div className="w-10 h-1 bg-black mb-5" />
                 {sector.icon === "manufacturing-svg" ? (
-                  <div className="w-16 h-16 mb-5"><ManufacturingIcon /></div>
+                  <div className="w-20 h-20 mb-5"><ManufacturingIcon /></div>
                 ) : (
-                  <img src={sector.icon} alt={sector.title} className="w-16 h-16 object-contain mb-5" />
+                  <img src={sector.icon} alt={sector.title} className="w-20 h-20 object-contain mb-5" />
                 )}
                 <h4 className="text-lg font-bold text-black mb-4">
                   {sector.title}
