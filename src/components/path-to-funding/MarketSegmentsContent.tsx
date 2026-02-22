@@ -140,10 +140,11 @@ const MarketSegmentsContent = () => {
                 key={index}
                 className="bg-white p-6 md:p-8 h-full flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.05)]"
               >
+                <div className="w-10 h-1 bg-black mb-5" />
                 {sector.icon === "manufacturing-svg" ? (
-                  <div className="w-12 h-12 mb-5"><ManufacturingIcon /></div>
+                  <div className="w-16 h-16 mb-5"><ManufacturingIcon /></div>
                 ) : (
-                  <img src={sector.icon} alt={sector.title} className="w-12 h-12 object-contain mb-5" />
+                  <img src={sector.icon} alt={sector.title} className="w-16 h-16 object-contain mb-5" />
                 )}
                 <h4 className="text-lg font-bold text-black mb-4">
                   {sector.title}
