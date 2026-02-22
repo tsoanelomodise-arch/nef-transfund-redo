@@ -1,6 +1,7 @@
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 import MarketSegmentsContent from "@/components/path-to-funding/MarketSegmentsContent";
+import MarketSegmentsHero from "@/components/path-to-funding/MarketSegmentsHero";
 
 const MarketSegmentsPage = () => {
   return (
@@ -8,6 +9,7 @@ const MarketSegmentsPage = () => {
       <PhakamaniNavbar />
 
       <main className="pt-[180px] lg:pt-[210px]">
+        <MarketSegmentsHero />
         <MarketSegmentsContent />
       </main>
 
