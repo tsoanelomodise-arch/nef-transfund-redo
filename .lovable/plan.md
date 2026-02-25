@@ -1,42 +1,27 @@
 
 
-# Add Sector Icons to Market Segments Priority Sectors
+## Add "Investorss" Menu Item
 
-## Overview
-Add the 6 uploaded icons to their matching priority sector cards, and generate a similar-style icon for "Manufacturing". Each icon will be placed at the top of its card, replacing the current black bar divider, sized consistently to fit the established card design.
+A simple, non-navigating menu item will be added to both desktop and mobile navigation in the `PhakamaniNavbar` component.
 
-## Icon-to-sector mapping
-| Icon file | Sector card |
-|-----------|-------------|
-| RenewableEnergy.gif | Renewable energy |
-| Mining_services.png | Mining services |
-| Agro-processing.png | Agro-processing |
-| Information_communication_technology.png | Information & communication technology |
-| Infrastructure.png | Infrastructure |
-| (generate SVG inline) | Manufacturing |
-| Services_and_business_process_outsourcing.png | Services and business process outsourcing |
+### Approach
+- Use a `<span>` (or `<button>`) styled like a nav link instead of a `<Link>` or `<a>`, so clicking it does nothing and no route change occurs -- therefore no 404.
+- Place it after the existing "Investors" menu item in both desktop and mobile menus.
+- Apply the same `nav-link` CSS class used by other menu items for consistent styling.
 
-## Manufacturing icon
-Since no icon was provided for "Manufacturing", a simple black silhouette SVG will be generated inline -- a gear/cog motif consistent with the industrial, black-on-white style of the other icons.
+### Changes
 
-## Technical changes
+**File: `src/components/phakamani/PhakamaniNavbar.tsx`**
 
-### 1. Copy icon assets to `public/images/sectors/`
-- `RenewableEnergy.gif` -> `public/images/sectors/renewable-energy.gif`
-- `Mining_services.png` -> `public/images/sectors/mining-services.png`
-- `Agro-processing.png` -> `public/images/sectors/agro-processing.png`
-- `Information_communication_technology.png` -> `public/images/sectors/ict.png`
-- `Infrastructure.png` -> `public/images/sectors/infrastructure.png`
-- `Services_and_business_process_outsourcing.png` -> `public/images/sectors/services-bpo.png`
+1. **Desktop nav** (after the Investors dropdown, before News link ~line 133): Add:
+   ```tsx
+   <span className="nav-link cursor-pointer">Investorss</span>
+   ```
 
-### 2. Update `src/components/path-to-funding/MarketSegmentsContent.tsx`
-- Add an `icon` field to each sector object in the `sectors` array -- either an image path string or inline SVG markup for Manufacturing
-- In the card rendering, replace the `<div className="w-10 h-1 bg-black mb-5" />` bar with an `<img>` (or inline SVG for Manufacturing) sized at approximately `w-12 h-12` (48x48px), with `object-contain` to maintain aspect ratio
-- Keep the black bar as a fallback if no icon is present (though all 7 will have icons)
-- No other card styling, typography, spacing, or layout changes
+2. **Mobile nav** (after the Investors/Governance links, before News link ~line 209): Add:
+   ```tsx
+   <span className="block px-3 py-2 text-base font-bold text-gray-700 cursor-pointer">Investorss</span>
+   ```
 
-### What stays unchanged
-- All card dimensions, padding, hover effects, typography
-- Foundations section, intro section, hero section
-- Navbar, Footer, and all other pages
+No new routes, pages, or components are needed. No other files are affected.
 
