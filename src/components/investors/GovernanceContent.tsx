@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import digitalOversightImg from "@/assets/digital-oversight-dashboard.jpg";
 
 const GovernanceContent = () => {
   return (
@@ -64,10 +65,8 @@ const GovernanceContent = () => {
       <section className="py-10 md:py-14 bg-black text-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-            <div className="w-full min-h-[300px] bg-[#222222] border border-[#333333] flex items-center justify-center">
-              <span className="text-[#444444] font-semibold uppercase">
-                [Dashboard UI Placeholder]
-              </span>
+            <div className="w-full min-h-[300px] bg-[#222222] border border-[#333333] overflow-hidden">
+              <img src={digitalOversightImg} alt="Digital oversight dashboard" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col justify-center">
               <div className="w-[60px] h-1 bg-white mb-6" />
