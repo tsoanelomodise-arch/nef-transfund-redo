@@ -12,7 +12,7 @@ const InvestorsPage = () => {
         <section className="container mx-auto px-4 py-10">
           {/* Title */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[hsl(var(--ptf-heading))] mb-2">
-            Investors
+            Capitalisation
           </h1>
 
           {/* Subtitle */}
