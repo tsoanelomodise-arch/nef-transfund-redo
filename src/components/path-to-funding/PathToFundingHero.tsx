@@ -14,6 +14,7 @@ const PathToFundingHero: React.FC<PathToFundingHeroProps> = memo(({ onCheckEligi
           <div className="relative z-10 order-2 lg:order-1 text-center lg:text-left">
 
             {/* Headline */}
+            <div className="w-[60px] h-1 bg-black mb-4" />
             <h1 className="phakamani-headline text-black mb-6">
               Prepare before applying.
             </h1>

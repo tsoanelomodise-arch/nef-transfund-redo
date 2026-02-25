@@ -18,7 +18,8 @@ const HighlightedStoriesSection = memo(() => {
       <section className="bg-white py-10">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-10">
           <span className="text-xs font-bold tracking-widest text-[#666666] uppercase">Featured</span>
-          <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-6">
+        <div className="w-[60px] h-1 bg-black mb-4" />
+        <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-6">
             HIGHLIGHTED STORIES
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -41,6 +42,7 @@ const HighlightedStoriesSection = memo(() => {
     <section className="bg-white py-10">
       <div className="max-w-[1400px] mx-auto px-4 lg:px-10">
         <span className="text-xs font-bold tracking-widest text-[#666666] uppercase">Featured</span>
+        <div className="w-[60px] h-1 bg-black mb-4" />
         <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-6">
           HIGHLIGHTED STORIES
         </h2>

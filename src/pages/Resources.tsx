@@ -34,6 +34,7 @@ const Resources = () => {
           <div className="max-w-[1400px] mx-auto px-10">
             <div className="max-w-3xl">
               
+              <div className="w-[60px] h-1 bg-black mb-4" />
               <h1 className="phakamani-headline mb-6">
                 Download <span className="text-[#00703C]">Resources</span>
               </h1>
@@ -48,6 +49,7 @@ const Resources = () => {
         {/* Resources List */}
         <section className="py-10 bg-white">
           <div className="max-w-[1400px] mx-auto px-10">
+            <div className="w-[60px] h-1 bg-black mb-4" />
             <h2 className="phakamani-section-title mb-10">Available Documents</h2>
             
             <div className="grid md:grid-cols-2 gap-8">

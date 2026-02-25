@@ -35,6 +35,7 @@ const TestHomeProductsSection = memo(() => {
         <span className="text-xs font-bold tracking-widest text-[#666666] uppercase">
           COMPANY
         </span>
+        <div className="w-[60px] h-1 bg-black mb-4" />
         <h2 className="text-2xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-8">
           Discover our Products
         </h2>

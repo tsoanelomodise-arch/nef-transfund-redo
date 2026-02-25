@@ -53,6 +53,7 @@ const TestContacts = () => {
       <section className="max-w-[1200px] mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="text-center lg:text-left">
+            <div className="w-[60px] h-1 bg-black mb-4" />
             <h1 className="text-[3rem] font-bold leading-[1.2] text-[#111] mb-6 capitalize">
               Contact <span>Us</span>
             </h1>

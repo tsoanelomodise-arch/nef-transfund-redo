@@ -44,6 +44,7 @@ const EligibilityCriteriaSection: React.FC = memo(() => {
       <div className="max-w-[1100px] mx-auto px-6">
         {/* Content Section */}
         <div className="space-y-8">
+          <div className="w-[60px] h-1 bg-black mb-4" />
           <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A]">
             Eligibility and criteria
           </h2>

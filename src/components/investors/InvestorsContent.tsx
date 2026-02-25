@@ -113,6 +113,7 @@ const InvestorsContent = () => {
               <span className="text-xs font-bold uppercase tracking-[2px] text-white/70 mb-4 block">
                 About The Process
               </span>
+              <div className="w-[60px] h-1 bg-white mb-4" />
               <h2 className="text-2xl md:text-[2.5rem] font-bold text-white leading-tight tracking-[-0.5px] mb-6">
                 6. Special case: Mid-sized firms and ESD complexity
               </h2>

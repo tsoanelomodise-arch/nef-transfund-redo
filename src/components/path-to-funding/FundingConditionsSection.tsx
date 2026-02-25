@@ -54,6 +54,7 @@ const FundingConditionsSection: React.FC<FundingConditionsSectionProps> = memo((
           <span className="inline-block px-4 py-2 bg-[hsl(var(--ptf-accent))]/10 text-[hsl(var(--ptf-accent))] rounded-full text-sm font-semibold mb-4">
             Getting Started
           </span>
+          <div className="w-[60px] h-1 bg-black mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--ptf-heading))] mb-4">
             Eligibility & Document Checklist
           </h2>

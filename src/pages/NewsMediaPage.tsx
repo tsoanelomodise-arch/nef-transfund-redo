@@ -36,6 +36,7 @@ const NewsMediaPage = () => {
       <section className="bg-white py-16">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-10">
           <span className="text-xs font-bold tracking-widest text-[#666666] uppercase">Archive</span>
+          <div className="w-[60px] h-1 bg-black mb-4" />
           <h1 className="text-3xl font-extrabold uppercase tracking-tight text-[#222222] mt-2 mb-8">
             NEWS & MEDIA
           </h1>

@@ -59,6 +59,7 @@ const ProductsSection = memo(() => {
       <div className="max-w-[1400px] mx-auto px-10">
         {/* Section Intro */}
         <div className="text-center mb-10 max-w-[800px] mx-auto">
+          <div className="w-[60px] h-1 bg-black mb-4" />
           <h2 className="phakamani-section-title mb-4">Discover our Products</h2>
           <p className="text-gray-500 text-lg">
             Whatever your size, we offer funds tailored to grow revenue, create jobs, and foster inclusion.
