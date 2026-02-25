@@ -120,7 +120,7 @@ const PhakamaniNavbar = memo(() => {
               <span 
                 className={`nav-link flex items-center cursor-pointer ${isInvestorsSection ? 'nav-link-active' : ''}`}
               >
-                Investorss
+                Investors
                 <ChevronDown className="ml-1 h-4 w-4" />
               </span>
               {investorsDropdownOpen && (
@@ -219,7 +219,7 @@ const PhakamaniNavbar = memo(() => {
               <Link to="/path-to-funding/products" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Products</Link>
               <a href="/path-to-funding#path-to-funding" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={(e) => handlePathToFundingLink(e, 'path-to-funding')}>Funding Conditions</a>
               <a href="/path-to-funding#how-it-works" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={(e) => handlePathToFundingLink(e, 'how-it-works')}>Investment Criteria</a>
-              <span className="block px-3 py-2 text-base font-bold text-gray-700 cursor-default">Investorss</span>
+              <span className="block px-3 py-2 text-base font-bold text-gray-700 cursor-default">Investors</span>
               <Link to="/investors" className={`block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold ${location.pathname === '/investors' ? 'text-[#007847]' : ''}`} onClick={closeMobileMenu}>Capitalisation</Link>
               <Link to="/investors/governance" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Governance</Link>
               <Link to="/news-media" className={`block px-3 py-2 text-base font-bold ${isNewsMediaPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>News</Link>
