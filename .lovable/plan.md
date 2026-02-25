@@ -1,27 +1,23 @@
 
 
-## Add "Investorss" Menu Item
+## Rename "Investors" to "Capitalisation" + Link Audit
 
-A simple, non-navigating menu item will be added to both desktop and mobile navigation in the `PhakamaniNavbar` component.
+### Link Audit Results
+All navigation links were tested against the defined routes in `App.tsx`. **No broken links or 404-causing issues were found.** Every internal link has a matching route, external links open in new tabs, and hash links use smooth scrolling.
 
-### Approach
-- Use a `<span>` (or `<button>`) styled like a nav link instead of a `<Link>` or `<a>`, so clicking it does nothing and no route change occurs -- therefore no 404.
-- Place it after the existing "Investors" menu item in both desktop and mobile menus.
-- Apply the same `nav-link` CSS class used by other menu items for consistent styling.
-
-### Changes
+### Rename Changes
 
 **File: `src/components/phakamani/PhakamaniNavbar.tsx`**
 
-1. **Desktop nav** (after the Investors dropdown, before News link ~line 133): Add:
-   ```tsx
-   <span className="nav-link cursor-pointer">Investorss</span>
-   ```
+The word "Investors" appears as display text in 4 places and needs to be changed to "Capitalisation":
 
-2. **Mobile nav** (after the Investors/Governance links, before News link ~line 209): Add:
-   ```tsx
-   <span className="block px-3 py-2 text-base font-bold text-gray-700 cursor-pointer">Investorss</span>
-   ```
+1. **Line 124** (Desktop dropdown label): `Investors` --> `Capitalisation`
+2. **Line 224** (Mobile menu label): `Investors` --> `Capitalisation`
 
-No new routes, pages, or components are needed. No other files are affected.
+The route paths (`/investors`, `/investors/governance`) and the `InvestorsPage` component will remain unchanged -- only the visible label text changes.
 
+**File: `src/pages/InvestorsPage.tsx`**
+
+3. **Line 16** (Page heading `<h1>`): `Investors` --> `Capitalisation`
+
+No other files are affected. The "Investorss" span item remains as-is since it was a separate addition.
