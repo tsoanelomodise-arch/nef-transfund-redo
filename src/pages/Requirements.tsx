@@ -73,6 +73,7 @@ const Requirements = () => {
                 </span>
 
                 {/* Headline */}
+                <div className="w-[60px] h-1 bg-black mb-4" />
                 <h1 className="phakamani-headline text-black mb-6">
                   Application <span className="text-[#00703C]">Requirements</span>
                 </h1>

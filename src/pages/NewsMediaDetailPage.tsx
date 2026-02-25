@@ -72,6 +72,7 @@ const NewsMediaDetailPage = () => {
                     })}
                   </span>
                 </div>
+                <div className="w-[60px] h-1 bg-black mb-4" />
                 <h1 className="text-3xl font-extrabold uppercase tracking-tight text-[#222222]">
                   {item.title}
                 </h1>

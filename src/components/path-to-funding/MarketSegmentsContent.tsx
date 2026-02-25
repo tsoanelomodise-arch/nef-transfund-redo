@@ -99,6 +99,7 @@ const MarketSegmentsContent = () => {
             <span className="block text-xs font-semibold tracking-[0.1em] text-[#888888] mb-4 uppercase">
               Investment Areas
             </span>
+            <div className="w-[60px] h-1 bg-black mb-4" />
             <h2 className="text-2xl md:text-[2.5rem] font-extrabold uppercase tracking-[-0.02em] leading-[1.1] text-black mb-4">
               Priority sectors
             </h2>

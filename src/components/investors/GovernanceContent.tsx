@@ -28,6 +28,7 @@ const GovernanceContent = () => {
       {/* Governance Structure Section */}
       <section className="py-10 md:py-14 bg-[#f4f4f4]">
         <div className="max-w-[1200px] mx-auto px-6">
+          <div className="w-[60px] h-1 bg-black mb-4" />
           <h2 className="text-2xl md:text-[2.5rem] font-extrabold uppercase tracking-[-0.5px] leading-[1.2] text-black mb-6">
             Governance structure
           </h2>
@@ -89,6 +90,7 @@ const GovernanceContent = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
             <div>
+              <div className="w-[60px] h-1 bg-black mb-4" />
               <h2 className="text-2xl md:text-[2.5rem] font-extrabold uppercase tracking-[-0.5px] leading-[1.2] text-black mb-6">
                 Public reporting
               </h2>

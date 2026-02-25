@@ -106,6 +106,7 @@ const FAQ = () => {
         <section className="phakamani-hero-bg py-10 md:py-16">
           <div className="max-w-[1400px] mx-auto px-10">
             <div className="max-w-3xl">
+              <div className="w-[60px] h-1 bg-black mb-4" />
               <h1 className="phakamani-headline mb-6">
                 Frequently Asked <span className="text-[#00703C]">Questions</span>
               </h1>

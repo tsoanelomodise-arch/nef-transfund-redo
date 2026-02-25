@@ -11,6 +11,7 @@ const InvestorsPage = () => {
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-10">
           {/* Title */}
+          <div className="w-[60px] h-1 bg-black mb-4" />
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[hsl(var(--ptf-heading))] mb-2">
             Capitalisation
           </h1>

@@ -43,6 +43,7 @@ const ProductsContent = () => {
         <span className="block text-sm font-bold uppercase tracking-[2px] text-[#555555] mb-4">
           Transformation Fund
         </span>
+        <div className="w-[60px] h-1 bg-black mb-4" />
         <h1 className="text-3xl md:text-[3rem] font-bold uppercase text-black leading-[1.1] mb-6">
           Products
         </h1>
