@@ -179,13 +179,25 @@ const PhakamaniNavbar = memo(() => {
 
             <Link to="/contacts" className={`nav-link ${isContactsPage ? 'nav-link-active' : ''}`}>Contacts</Link>
             
-            {/* uat2_hta_portal - Main Nav Item */}
-            <Link 
-              to="/uat2_hta_portal" 
-              className={`nav-link ${isPortalSection ? 'nav-link-active' : ''}`}
+            {/* uat2_hta_portal Dropdown */}
+            <div 
+              className="relative dropdown"
+              onMouseEnter={() => setPortalDropdownOpen(true)}
+              onMouseLeave={() => setPortalDropdownOpen(false)}
             >
-              uat2_hta_portal
-            </Link>
+              <Link 
+                to="/uat2_hta_portal" 
+                className={`nav-link flex items-center ${isPortalSection ? 'nav-link-active' : ''}`}
+              >
+                uat2_hta_portal
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </Link>
+              {portalDropdownOpen && (
+                <div className="dropdown-menu">
+                  <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="dropdown-item" onClick={() => setPortalDropdownOpen(false)}>Portal Login</a>
+                </div>
+              )}
+            </div>
             
             <SearchTrigger onClick={openSearch} />
           </div>
@@ -239,6 +251,7 @@ const PhakamaniNavbar = memo(() => {
               <Link to="/contacts" className={`block px-3 py-2 text-base font-bold ${isContactsPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Contacts</Link>
               
               <Link to="/uat2_hta_portal" className={`block px-3 py-2 text-base font-bold ${isPortalSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>uat2_hta_portal</Link>
+              <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Portal Login</a>
               <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="block bg-[#007847] text-white px-3 py-2 text-base font-bold hover:opacity-90 transition-all">Portal Login</a>
             </div>
           </div>
