@@ -58,7 +58,7 @@ const PhakamaniNavbar = memo(() => {
           {/* Logo */}
           <Link to="/" className="h-[80px] lg:h-[100px] flex items-center mr-8 lg:mr-16 flex-shrink-0" onClick={closeMobileMenu}>
             <img 
-              src="https://sa-transformationfund.co.za/images/logo-transformation-fund.jpg" 
+              src="/images/logo-transformation-fund.jpg" 
               alt="Transformation Fund"
               className="h-full w-auto object-contain"
               loading="eager"

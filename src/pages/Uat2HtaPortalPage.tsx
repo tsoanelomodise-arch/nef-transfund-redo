@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, memo } from "react";
+import { Play } from "lucide-react";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 
@@ -10,8 +11,9 @@ const tabs = [
   { id: "tab-sectors", label: "Sectors" },
 ] as const;
 
-const Uat2HtaPortalPage = () => {
+const Uat2HtaPortalPage = memo(() => {
   const [activeTab, setActiveTab] = useState("tab-capital");
+  const [showVideo, setShowVideo] = useState(false);
 
   return (
     <>
@@ -208,14 +210,32 @@ const Uat2HtaPortalPage = () => {
             </div>
             <div className="hta-hero-video-block">
               <div className="hta-video-wrapper">
-                <iframe
-                  src="https://www.youtube.com/embed/8UX1guPBADg"
-                  title="What to know about the portal - Video"
-                  loading="lazy"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+                {showVideo ? (
+                  <iframe
+                    src="https://www.youtube.com/embed/8UX1guPBADg?autoplay=1"
+                    title="What to know about the portal - Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                  />
+                ) : (
+                  <button
+                    onClick={() => setShowVideo(true)}
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', cursor: 'pointer', background: '#000', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                    aria-label="Play video"
+                  >
+                    <img
+                      src={`https://img.youtube.com/vi/8UX1guPBADg/hqdefault.jpg`}
+                      alt="Video thumbnail"
+                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                      loading="lazy"
+                    />
+                    <div style={{ position: 'relative', zIndex: 1, width: 64, height: 64, borderRadius: '50%', background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Play style={{ width: 32, height: 32, color: '#fff', marginLeft: 4 }} />
+                    </div>
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -328,6 +348,8 @@ const Uat2HtaPortalPage = () => {
       <Footer />
     </>
   );
-};
+});
+
+Uat2HtaPortalPage.displayName = "Uat2HtaPortalPage";
 
 export default Uat2HtaPortalPage;
