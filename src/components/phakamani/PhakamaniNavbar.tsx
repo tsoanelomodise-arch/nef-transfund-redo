@@ -203,15 +203,6 @@ const PhakamaniNavbar = memo(() => {
             <SearchTrigger onClick={openSearch} />
           </div>
 
-          {/* CTA Button - Desktop */}
-          <a 
-            href="https://dev-online.sa-transformationfund.co.za/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden lg:block phakamani-nav-cta"
-          >
-            PORTAL LOGIN
-          </a>
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center gap-2 ml-auto">
