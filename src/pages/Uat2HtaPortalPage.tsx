@@ -133,20 +133,8 @@ const Uat2HtaPortalPage = () => {
           background: var(--color-white); box-shadow: 0 4px 12px rgba(0,0,0,0.08);
           transform: translateX(5px);
         }
-        .hta-portal-page .hta-tab-btn:nth-child(1):hover, .hta-portal-page .hta-tab-btn:nth-child(1).active {
-          color: var(--logo-red); border-left-color: var(--logo-red);
-        }
-        .hta-portal-page .hta-tab-btn:nth-child(2):hover, .hta-portal-page .hta-tab-btn:nth-child(2).active {
-          color: var(--logo-blue); border-left-color: var(--logo-blue);
-        }
-        .hta-portal-page .hta-tab-btn:nth-child(3):hover, .hta-portal-page .hta-tab-btn:nth-child(3).active {
-          color: var(--logo-green); border-left-color: var(--logo-green);
-        }
-        .hta-portal-page .hta-tab-btn:nth-child(4):hover, .hta-portal-page .hta-tab-btn:nth-child(4).active {
-          color: var(--logo-yellow); border-left-color: var(--logo-yellow);
-        }
-        .hta-portal-page .hta-tab-btn:nth-child(5):hover, .hta-portal-page .hta-tab-btn:nth-child(5).active {
-          color: var(--logo-black); border-left-color: var(--logo-black);
+        .hta-portal-page .hta-tab-btn:hover, .hta-portal-page .hta-tab-btn.active {
+          color: var(--color-coral); border-left-color: var(--color-coral);
         }
         .hta-portal-page .hta-tab-btn:hover:not(.active) {
           background: var(--color-gray-light); transform: translateX(5px);
@@ -198,11 +186,7 @@ const Uat2HtaPortalPage = () => {
           .hta-portal-page .hta-tab-btn:hover, .hta-portal-page .hta-tab-btn.active {
             transform: translateX(0); border-left: 1px solid rgba(0,0,0,0.05);
           }
-          .hta-portal-page .hta-tab-btn:nth-child(1):hover, .hta-portal-page .hta-tab-btn:nth-child(1).active { border-bottom-color: var(--logo-red); }
-          .hta-portal-page .hta-tab-btn:nth-child(2):hover, .hta-portal-page .hta-tab-btn:nth-child(2).active { border-bottom-color: var(--logo-blue); }
-          .hta-portal-page .hta-tab-btn:nth-child(3):hover, .hta-portal-page .hta-tab-btn:nth-child(3).active { border-bottom-color: var(--logo-green); }
-          .hta-portal-page .hta-tab-btn:nth-child(4):hover, .hta-portal-page .hta-tab-btn:nth-child(4).active { border-bottom-color: var(--logo-yellow); }
-          .hta-portal-page .hta-tab-btn:nth-child(5):hover, .hta-portal-page .hta-tab-btn:nth-child(5).active { border-bottom-color: var(--logo-black); }
+          .hta-portal-page .hta-tab-btn:hover, .hta-portal-page .hta-tab-btn.active { border-bottom-color: var(--color-coral); }
         }
         @media (max-width: 768px) {
           .hta-portal-page .hta-btn-group { flex-direction: column; }
