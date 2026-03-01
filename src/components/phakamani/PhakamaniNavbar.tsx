@@ -187,7 +187,7 @@ const PhakamaniNavbar = memo(() => {
             >
               <Link 
                 to="/uat2_hta_portal" 
-                className={`nav-link flex items-center ${isPortalSection ? 'nav-link-active' : ''}`}
+                className={`flex items-center px-4 py-2 rounded bg-[#007847] text-white font-bold text-sm tracking-wide hover:bg-[#005c36] transition-colors ${isPortalSection ? 'ring-2 ring-[#007847] ring-offset-2' : ''}`}
               >
                 Portal
                 <ChevronDown className="ml-1 h-4 w-4" />
