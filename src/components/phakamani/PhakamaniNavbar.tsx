@@ -195,6 +195,7 @@ const PhakamaniNavbar = memo(() => {
               {portalDropdownOpen && (
                 <div className="dropdown-menu">
                   <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="dropdown-item" onClick={() => setPortalDropdownOpen(false)}>Portal Login</a>
+                  <a href="https://dev-online.sa-transformationfund.co.za/Account/Register" target="_blank" rel="noopener noreferrer" className="dropdown-item" onClick={() => setPortalDropdownOpen(false)}>Register</a>
                 </div>
               )}
             </div>
@@ -252,6 +253,7 @@ const PhakamaniNavbar = memo(() => {
               
               <Link to="/uat2_hta_portal" className={`block px-3 py-2 text-base font-bold ${isPortalSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>uat2_hta_portal</Link>
               <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Portal Login</a>
+              <a href="https://dev-online.sa-transformationfund.co.za/Account/Register" target="_blank" rel="noopener noreferrer" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Register</a>
               <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="block bg-[#007847] text-white px-3 py-2 text-base font-bold hover:opacity-90 transition-all">Portal Login</a>
             </div>
           </div>
