@@ -10,6 +10,7 @@ const PhakamaniNavbar = memo(() => {
   const [pathToFundingDropdownOpen, setPathToFundingDropdownOpen] = useState(false);
   const [investorsDropdownOpen, setInvestorsDropdownOpen] = useState(false);
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
+  const [portalDropdownOpen, setPortalDropdownOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
   const location = useLocation();
@@ -21,6 +22,7 @@ const PhakamaniNavbar = memo(() => {
   const isNewsMediaPage = location.pathname === "/news-media";
   const isResourcesPage = location.pathname === "/resources";
   const isInvestorsSection = location.pathname.startsWith("/investors");
+  const isPortalSection = location.pathname.startsWith("/uat2_hta_portal");
 
   const handlePathToFundingLink = useCallback((e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
@@ -177,6 +179,25 @@ const PhakamaniNavbar = memo(() => {
 
             <Link to="/contacts" className={`nav-link ${isContactsPage ? 'nav-link-active' : ''}`}>Contacts</Link>
             
+            {/* Portal Dropdown */}
+            <div 
+              className="relative dropdown"
+              onMouseEnter={() => setPortalDropdownOpen(true)}
+              onMouseLeave={() => setPortalDropdownOpen(false)}
+            >
+              <span 
+                className={`nav-link flex items-center cursor-pointer ${isPortalSection ? 'nav-link-active' : ''}`}
+              >
+                Portal
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </span>
+              {portalDropdownOpen && (
+                <div className="dropdown-menu">
+                  <Link to="/uat2_hta_portal" className={`dropdown-item ${location.pathname === '/uat2_hta_portal' ? 'bg-[#004d30]' : ''}`} onClick={() => setPortalDropdownOpen(false)}>uat2_hta_portal</Link>
+                  <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="dropdown-item" onClick={() => setPortalDropdownOpen(false)}>Portal Login</a>
+                </div>
+              )}
+            </div>
             
             <SearchTrigger onClick={openSearch} />
           </div>
@@ -229,7 +250,8 @@ const PhakamaniNavbar = memo(() => {
               <a href="/resources/Transformation_Fund_Executive_Summary_v1_29Sept.pdf" target="_blank" rel="noopener noreferrer" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold">TF Executive Summary</a>
               <Link to="/contacts" className={`block px-3 py-2 text-base font-bold ${isContactsPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Contacts</Link>
               
-              
+              <span className="block px-3 py-2 text-base font-bold text-gray-700 cursor-default">Portal</span>
+              <Link to="/uat2_hta_portal" className={`block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold ${location.pathname === '/uat2_hta_portal' ? 'text-[#007847]' : ''}`} onClick={closeMobileMenu}>uat2_hta_portal</Link>
               <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="block bg-[#007847] text-white px-3 py-2 text-base font-bold hover:opacity-90 transition-all">Portal Login</a>
             </div>
           </div>
