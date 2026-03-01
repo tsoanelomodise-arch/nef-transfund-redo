@@ -209,7 +209,7 @@ const Uat2HtaPortalPage = () => {
             <div className="hta-hero-video-block">
               <div className="hta-video-wrapper">
                 <iframe
-                  src="https://www.youtube.com/embed/C3yyl_4lrd4"
+                  src="https://www.youtube.com/embed/8UX1guPBADg"
                   title="What to know about the portal - Video"
                   loading="lazy"
                   frameBorder="0"
