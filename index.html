@@ -40,13 +40,15 @@
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
     
     <!-- Preload Critical Assets -->
     <link rel="preload" as="image" href="/images/logo-transformation-fund.jpg" />
-    <link rel="preload" as="image" href="/images/test-home/hero-slide-1.jpg" />
     
-    <!-- Google Fonts (moved from CSS for non-blocking load) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Google Fonts - preload then apply -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5E2DK9T7Z"></script>
