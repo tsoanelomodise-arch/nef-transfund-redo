@@ -77,7 +77,7 @@ const Uat2HtaPortalPage = () => {
           grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center;
         }
         .hta-portal-page .hta-hero-text-block {
-          padding: var(--spacing-lg); background-color: rgba(0, 0, 0, 0.70); border-radius: 8px;
+          padding: var(--spacing-lg);
         }
         .hta-portal-page .hta-hero-video-block {
           position: relative; width: 100%; background: var(--color-coral);
