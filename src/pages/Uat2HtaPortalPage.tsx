@@ -18,26 +18,26 @@ const Uat2HtaPortalPage = () => {
       <PhakamaniNavbar />
       <style>{`
         .hta-portal-page {
-          --color-navy: #111827;
-          --color-navy-light: #1f2937;
-          --color-coral: #2950ff;
-          --color-coral-dark: #1c3ad6;
+          --color-navy: #111111;
+          --color-navy-light: #1a1a1a;
+          --color-coral: #007847;
+          --color-coral-dark: #004b28;
           --color-white: #ffffff;
-          --color-gray-light: #f4f7fb;
-          --color-text-dark: #1e293b;
-          --logo-red: #e31837;
-          --logo-blue: #0033a0;
-          --logo-green: #007a33;
-          --logo-yellow: #ffb612;
+          --color-gray-light: #F4F4F4;
+          --color-text-dark: #0F172A;
+          --logo-red: #E31C23;
+          --logo-blue: #004B8D;
+          --logo-green: #007847;
+          --logo-yellow: #FDB913;
           --logo-black: #000000;
-          --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          --font-family: 'Montserrat', sans-serif;
           --spacing-xs: 4px;
           --spacing-sm: 8px;
           --spacing-md: 16px;
           --spacing-lg: 32px;
-          --spacing-xl: 64px;
-          --spacing-xxl: 128px;
-          --container-width: 1200px;
+          --spacing-xl: 40px;
+          --spacing-xxl: 64px;
+          --container-width: 1400px;
           font-family: var(--font-family);
           color: var(--color-text-dark);
           line-height: 1.6;
@@ -47,7 +47,7 @@ const Uat2HtaPortalPage = () => {
         .hta-portal-page a { text-decoration: none; color: inherit; }
         .hta-portal-page ul { list-style: none; }
         .hta-portal-page h1, .hta-portal-page h2, .hta-portal-page h3, .hta-portal-page h4 {
-          font-weight: 700; line-height: 1.2; text-transform: uppercase; letter-spacing: 1px;
+          font-weight: 700; line-height: 1.2; text-transform: none; letter-spacing: normal;
         }
         .hta-portal-page h1 {
           font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: var(--spacing-md);
@@ -58,31 +58,31 @@ const Uat2HtaPortalPage = () => {
         }
         .hta-portal-page .hta-support-text {
           font-size: 1.1rem; color: #ffffff; margin-bottom: var(--spacing-lg);
-          max-width: 600px; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;
+          max-width: 600px; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 400;
         }
         .hta-portal-page .hta-container {
-          width: 100%; max-width: var(--container-width); margin: 0 auto; padding: 0 var(--spacing-lg);
+          width: 100%; max-width: var(--container-width); margin: 0 auto; padding: 0 40px;
         }
         .hta-portal-page .hta-hero {
-          position: relative; min-height: 100vh; display: flex; align-items: center;
+          position: relative; min-height: 80vh; display: flex; align-items: center;
           background-image: url('/images/hero/WomanOnPhone.jpg');
           background-size: cover; background-position: center; background-repeat: no-repeat;
         }
         .hta-portal-page .hta-hero::before {
           content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background-color: rgba(17, 24, 39, 0.65); z-index: 1;
+          background-color: rgba(0, 0, 0, 0.60); z-index: 1;
         }
         .hta-portal-page .hta-hero-content {
           position: relative; z-index: 2; display: grid;
-          grid-template-columns: 1fr 1.4fr; gap: var(--spacing-xl); align-items: center;
+          grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center;
         }
         .hta-portal-page .hta-hero-text-block {
-          padding: var(--spacing-lg); background-color: rgba(17, 24, 39, 0.75); border-radius: 8px;
+          padding: var(--spacing-lg); background-color: rgba(0, 0, 0, 0.70); border-radius: 8px;
         }
         .hta-portal-page .hta-hero-video-block {
           position: relative; width: 100%; background: var(--color-coral);
-          padding: var(--spacing-md); box-shadow: 20px 20px 0px 0px rgba(41, 80, 255, 0.2);
-          border: 4px solid #007a33;
+          padding: var(--spacing-md); box-shadow: 20px 20px 0px 0px rgba(0, 120, 71, 0.2);
+          border: 4px solid #007847;
         }
         .hta-portal-page .hta-video-wrapper {
           position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;
@@ -95,7 +95,7 @@ const Uat2HtaPortalPage = () => {
         }
         .hta-portal-page .hta-btn {
           display: inline-block; padding: 14px 32px; font-size: 0.9rem; font-weight: bold;
-          text-transform: uppercase; letter-spacing: 1px; text-align: center; cursor: pointer;
+          text-transform: uppercase; letter-spacing: 0.5px; text-align: center; cursor: pointer;
           transition: all 0.3s ease; border: 2px solid transparent;
         }
         .hta-portal-page .hta-btn:focus {
@@ -117,7 +117,7 @@ const Uat2HtaPortalPage = () => {
           background-color: var(--color-navy); color: var(--color-white);
         }
         .hta-portal-page .hta-tabs-wrapper {
-          display: grid; grid-template-columns: 300px 1fr; gap: var(--spacing-xl); margin-top: 0;
+          display: grid; grid-template-columns: 300px 1fr; gap: 40px; margin-top: 0;
         }
         .hta-portal-page .hta-tabs-list {
           display: flex; flex-direction: column; gap: var(--spacing-sm);
@@ -152,10 +152,10 @@ const Uat2HtaPortalPage = () => {
           background: var(--color-gray-light); transform: translateX(5px);
         }
         .hta-portal-page .hta-tab-content-container {
-          position: relative; min-height: 400px;
+          position: relative; min-height: 350px;
         }
         .hta-portal-page .hta-tab-pane {
-          display: none; padding: var(--spacing-xl); border-radius: 4px;
+          display: none; padding: 32px; border-radius: 4px;
           box-shadow: 0 4px 12px rgba(0,0,0,0.05); animation: htaFadeIn 0.4s ease forwards;
         }
         .hta-portal-page .hta-tab-pane.active { display: block; }
@@ -239,10 +239,10 @@ const Uat2HtaPortalPage = () => {
 
         {/* Tabs Section */}
         <main>
-          <section style={{ padding: "var(--spacing-xl) 0 var(--spacing-xxl) 0", backgroundColor: "var(--color-gray-light)" }}>
+          <section style={{ padding: "var(--spacing-xl) 0 var(--spacing-xl) 0", backgroundColor: "var(--color-gray-light)" }}>
             <div className="hta-container">
-              <div style={{ paddingBottom: "var(--spacing-md)", marginBottom: "var(--spacing-xl)" }}>
-                <h2 style={{ color: "#111827", fontSize: "clamp(2rem, 4vw, 3rem)", margin: 0 }}>Access Streams:</h2>
+              <div style={{ paddingBottom: "var(--spacing-md)", marginBottom: "var(--spacing-lg)" }}>
+                <h2 style={{ color: "#000000", fontSize: "clamp(2rem, 4vw, 3rem)", margin: 0 }}>Access Streams:</h2>
               </div>
 
               <div className="hta-tabs-wrapper">
