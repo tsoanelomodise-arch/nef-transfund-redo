@@ -48,7 +48,7 @@ const FundingConditionsSection: React.FC<FundingConditionsSectionProps> = memo((
   ];
 
   return (
-    <section id="path-to-funding" className="py-8 bg-[hsl(var(--ptf-section-bg))]">
+    <section id="path-to-funding" className="py-8 bg-[hsl(var(--ptf-section-bg))] scroll-mt-[200px] lg:scroll-mt-[230px]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <span className="inline-block px-4 py-2 bg-[hsl(var(--ptf-accent))]/10 text-[hsl(var(--ptf-accent))] rounded-full text-sm font-semibold mb-4">
