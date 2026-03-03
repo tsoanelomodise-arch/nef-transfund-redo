@@ -70,7 +70,7 @@ const Contacts = () => {
 
                 {/* CTA Button */}
                 <div className="flex gap-4 pt-4">
-                  <a href="mailto:info@sa-transformationfund.co.za" className="phakamani-btn-primary">
+                  <a href="#contact-form" className="phakamani-btn-primary">
                     Email Us Now
                   </a>
                   <a href="tel:+27861113186" className="phakamani-btn-secondary">
@@ -185,7 +185,7 @@ const Contacts = () => {
               Have a question or want to learn more? Fill out the form below and we'll get back to you.
             </p>
             
-            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
+            <form id="contact-form" onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-bold text-black mb-2">
