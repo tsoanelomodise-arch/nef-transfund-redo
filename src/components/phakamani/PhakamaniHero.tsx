@@ -2,7 +2,7 @@ import { useEffect, useState, memo } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const whyPageHeadings: Record<string, string> = {
-  '/about/why': 'Why the Transformation Fund?',
+  '/about/why': 'Fund Purpose',
   '/about/why/policy-choice': 'Fund Policy',
 };
 
