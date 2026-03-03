@@ -1,10 +1,11 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { usePageTracking } from "./hooks/useAnalytics";
+import { useLocation } from "react-router-dom";
 
 // Lazy-loaded pages
 const PhakamaniIndex = lazy(() => import("./pages/PhakamaniIndex"));
@@ -33,6 +34,14 @@ const Uat2HtaPortalPage = lazy(() => import("./pages/Uat2HtaPortalPage"));
 
 const queryClient = new QueryClient();
 
+const ScrollToTopOnNavigate = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
 const AnalyticsWrapper = ({ children }: { children: React.ReactNode }) => {
   usePageTracking();
   return <>{children}</>;
@@ -45,6 +54,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AnalyticsWrapper>
+          <ScrollToTopOnNavigate />
           <Suspense fallback={<div className="min-h-screen" />}>
             <Routes>
               <Route path="/" element={<TestHome />} />
