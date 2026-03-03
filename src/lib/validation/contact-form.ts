@@ -76,7 +76,7 @@ export const validateAndSanitizeContactForm = (
 
 // Build a safe mailto link from validated and sanitized data
 export const buildSafeMailtoLink = (data: ContactFormData): string => {
-  const recipients = 'info@sa-transformationfund.co.za,applications@nefcorp.co.za';
+  const recipients = 'tsoanelomodise@gmail.com';
   const subject = `Contact Form Submission from ${data.firstName} ${data.surname}`;
   const body = `Name: ${data.firstName} ${data.surname}
 Email: ${data.email}
