@@ -38,11 +38,11 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
   }, [currentSlide, isWhyPage, slideCount]);
 
   return (
-    <header className={`relative w-full overflow-hidden ${isWhyPage ? 'h-[45vh] min-h-[320px]' : 'h-[80vh] min-h-[500px]'}`}>
+    <header className={`relative w-full overflow-hidden ${isWhyPage ? 'min-h-[auto] md:h-[45vh] md:min-h-[320px]' : 'h-[80vh] min-h-[500px]'}`}>
       {/* Full-screen background slides */}
       <div className="absolute inset-0">
         {/* FistPump Slide */}
-        <div className={`absolute inset-0 transition-opacity duration-1000 bg-white ${currentSlide === 0 ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`absolute inset-0 transition-opacity duration-1000 bg-white ${currentSlide === 0 ? 'opacity-100' : 'opacity-0'} ${isWhyPage ? 'hidden md:block' : ''}`}>
           <img 
             src={isWhyPage ? "/images/hero/chicken-farmer.jpg" : "/images/hero/entrepreneur-fistbump-new.jpg"}
             className="w-full h-full object-contain"
@@ -120,8 +120,8 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
 
       </div>
 
-      {/* QR Code Block - Top Right */}
-      <div className="absolute top-6 right-6 z-20">
+      {/* QR Code Block - Top Right - Hidden on mobile */}
+      <div className="absolute top-6 right-6 z-20 hidden md:block">
         <div className="bg-black/10 border border-black/20 rounded-lg p-4 backdrop-blur-sm">
           <h3 className="text-sm font-bold text-black mb-3 text-center">
             Scan to Follow Us
@@ -137,8 +137,8 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
       </div>
 
       {/* Hero Content */}
-      <div className={`relative z-10 h-full flex ${isWhyPage ? 'items-start pt-8' : 'items-end pb-32'}`}>
-        <div className="max-w-[1400px] mx-auto px-10 w-full">
+      <div className={`relative z-10 ${isWhyPage ? 'py-6 md:py-0 md:h-full md:flex' : 'h-full flex'} ${isWhyPage ? 'items-start pt-4 md:pt-8' : 'items-end pb-32'}`}>
+        <div className="max-w-[1400px] mx-auto px-4 md:px-10 w-full">
         {/* Why page heading - top left */}
           {isWhyPage && (
             <div className="max-w-xl">
@@ -230,7 +230,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
           {!isWhyPage && (
             <div className="flex gap-4 mt-6 flex-wrap">
               <Link
-                to="/path-to-funding"
+                to="/eligibility"
                 className="phakamani-btn-primary"
               >
                 How to Apply
