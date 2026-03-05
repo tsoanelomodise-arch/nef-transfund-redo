@@ -97,9 +97,11 @@ const initialCategories: TestCategory[] = [
     collapsed: false,
     cases: [
       { id: "rsp-1", description: "View Home page on mobile (< 768px)", expected: "Layout adapts, no horizontal scroll, all content readable", status: "pending", notes: "" },
-      { id: "rsp-2", description: "View Path to Funding on tablet (768px–1024px)", expected: "Layout adapts correctly", status: "pending", notes: "" },
+      { id: "rsp-2", description: "View Eligibility page on tablet (768px–1024px)", expected: "Layout adapts correctly", status: "pending", notes: "" },
       { id: "rsp-3", description: "View Contacts page on mobile", expected: "Form is usable, fields stack vertically", status: "pending", notes: "" },
       { id: "rsp-4", description: "Check hero sections on all breakpoints", expected: "Images and text scale appropriately", status: "pending", notes: "" },
+      { id: "rsp-5", description: "View Fund Purpose (/about/why) on mobile", expected: "Hero text readable, no background image, QR code hidden, pillars stack vertically", status: "pending", notes: "" },
+      { id: "rsp-6", description: "View Fund Policy (/about/why/policy-choice) on mobile", expected: "Policy cards stack single-column with compact padding, text readable", status: "pending", notes: "" },
     ],
   },
   {
