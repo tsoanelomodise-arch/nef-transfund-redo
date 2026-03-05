@@ -230,7 +230,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
           {!isWhyPage && (
             <div className="flex gap-4 mt-6 flex-wrap">
               <Link
-                to="/path-to-funding"
+                to="/eligibility"
                 className="phakamani-btn-primary"
               >
                 How to Apply
