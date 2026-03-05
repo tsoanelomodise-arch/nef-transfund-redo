@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { CheckCircle, XCircle, MinusCircle, Printer, RotateCcw, ChevronDown, ChevronRight, Send } from "lucide-react";
+import { CheckCircle, XCircle, Printer, RotateCcw, ChevronDown, ChevronRight, Send } from "lucide-react";
 
-type TestStatus = "pass" | "fail" | "skip" | "pending";
+type TestStatus = "pass" | "fail" | "pending";
 
 interface TestCase {
   id: string;
@@ -116,7 +116,7 @@ const statusIcon = (status: TestStatus) => {
   switch (status) {
     case "pass": return <CheckCircle className="h-5 w-5 text-green-600" />;
     case "fail": return <XCircle className="h-5 w-5 text-red-600" />;
-    case "skip": return <MinusCircle className="h-5 w-5 text-muted-foreground" />;
+    
     default: return <div className="h-5 w-5 rounded-full border-2 border-muted-foreground/40" />;
   }
 };
@@ -147,7 +147,7 @@ const TestingChecklist = () => {
   const completed = allCases.filter((c) => c.status !== "pending").length;
   const passed = allCases.filter((c) => c.status === "pass").length;
   const failed = allCases.filter((c) => c.status === "fail").length;
-  const skipped = allCases.filter((c) => c.status === "skip").length;
+  
   const total = allCases.length;
 
   const updateCase = useCallback((categoryId: string, caseId: string, updates: Partial<TestCase>) => {
@@ -175,7 +175,7 @@ const TestingChecklist = () => {
 
   const sendResultsToAdmin = () => {
     const date = new Date().toLocaleDateString("en-ZA");
-    const summaryLine = `Summary: ${completed}/${total} completed — ${passed} passed, ${failed} failed, ${skipped} skipped`;
+    const summaryLine = `Summary: ${completed}/${total} completed — ${passed} passed, ${failed} failed`;
 
     const categoryResults = categories.map((cat) => {
       const lines = cat.cases.map((tc) => {
@@ -225,7 +225,7 @@ const TestingChecklist = () => {
             <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground">
               <li><span className="font-medium text-foreground">Enter your name</span> in the field above so we know who completed the testing.</li>
               <li><span className="font-medium text-foreground">Work through each category</span> — open the website in another tab and perform each test described.</li>
-              <li>For each test, click <span className="font-medium text-foreground">Pass</span> (working as expected), <span className="font-medium text-foreground">Fail</span> (something is broken or incorrect), or <span className="font-medium text-foreground">Skip</span> (not applicable or unable to test).</li>
+              <li>For each test, click <span className="font-medium text-foreground">Pass</span> (working as expected) or <span className="font-medium text-foreground">Fail</span> (something is broken or incorrect).</li>
               <li>If a test <span className="font-medium text-foreground">fails</span>, a notes field will appear — please describe what went wrong (e.g. &quot;button does nothing on mobile&quot;).</li>
               <li>Your progress is <span className="font-medium text-foreground">saved automatically</span> in your browser — you can close and return later.</li>
               <li>When finished, click <span className="font-medium text-foreground">&quot;Send to Admin&quot;</span> to email your results, or <span className="font-medium text-foreground">&quot;Print / Export PDF&quot;</span> to save a copy.</li>
@@ -240,7 +240,7 @@ const TestingChecklist = () => {
               <span className="text-sm font-medium text-foreground">{completed}/{total} completed</span>
               <Badge variant="default" className="bg-green-600 hover:bg-green-600">{passed} passed</Badge>
               <Badge variant="destructive">{failed} failed</Badge>
-              <Badge variant="secondary">{skipped} skipped</Badge>
+              
             </div>
             <Progress value={(completed / total) * 100} className="h-3" />
             <div className="flex gap-2 mt-4 print:hidden">
@@ -299,7 +299,7 @@ const TestingChecklist = () => {
                             <span className="font-medium">Expected:</span> {tc.expected}
                           </p>
                           <div className="flex flex-wrap gap-2 mt-3 print:hidden">
-                            {(["pass", "fail", "skip"] as TestStatus[]).map((s) => (
+                            {(["pass", "fail"] as TestStatus[]).map((s) => (
                               <Button
                                 key={s}
                                 size="sm"
@@ -307,13 +307,12 @@ const TestingChecklist = () => {
                                 className={
                                   tc.status === s
                                     ? s === "pass" ? "bg-green-600 hover:bg-green-700 text-white" :
-                                      s === "fail" ? "bg-red-600 hover:bg-red-700 text-white" :
-                                      "bg-muted text-muted-foreground"
+                                      "bg-red-600 hover:bg-red-700 text-white"
                                     : ""
                                 }
                                 onClick={() => updateCase(cat.id, tc.id, { status: tc.status === s ? "pending" : s })}
                               >
-                                {s === "pass" ? "Pass" : s === "fail" ? "Fail" : "Skip"}
+                                {s === "pass" ? "Pass" : "Fail"}
                               </Button>
                             ))}
                           </div>
