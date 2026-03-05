@@ -325,7 +325,7 @@ const TestingChecklist = () => {
               </CardHeader>
               {(!cat.collapsed || typeof window !== "undefined" && window.matchMedia?.("print")?.matches) && (
                 <CardContent className="space-y-4">
-                  {cat.cases.map((tc) => (
+                  {cat.cases.map((tc, idx) => (
                     <div
                       key={tc.id}
                       className={`p-4 rounded-lg border transition-colors ${
