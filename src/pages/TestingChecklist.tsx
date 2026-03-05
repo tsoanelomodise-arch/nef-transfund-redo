@@ -175,7 +175,7 @@ const TestingChecklist = () => {
 
   const sendResultsToAdmin = () => {
     const date = new Date().toLocaleDateString("en-ZA");
-    const summaryLine = `Summary: ${completed}/${total} completed — ${passed} passed, ${failed} failed, ${skipped} skipped`;
+    const summaryLine = `Summary: ${completed}/${total} completed — ${passed} passed, ${failed} failed`;
 
     const categoryResults = categories.map((cat) => {
       const lines = cat.cases.map((tc) => {
