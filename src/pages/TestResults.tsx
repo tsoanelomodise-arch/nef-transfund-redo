@@ -183,7 +183,7 @@ const TestResults = () => {
 
                         return (
                           <div key={catId} className="border border-border rounded-lg p-3">
-                            <div className="flex items-center justify-between mb-1">
+                            <div className="flex items-center justify-between mb-2">
                               <span className="text-sm font-medium text-foreground">
                                 {CATEGORY_LABELS[catId] || catId}
                               </span>
@@ -192,16 +192,34 @@ const TestResults = () => {
                                 {catFailed > 0 && <span className="text-red-600">{catFailed} ✗</span>}
                               </div>
                             </div>
-                            {failures.length > 0 && (
-                              <div className="mt-2 space-y-1">
-                                {failures.map((f) => (
-                                  <div key={f.id} className="text-xs bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 rounded p-2">
-                                    <span className="font-medium text-red-700 dark:text-red-400">{f.test_case_id}:</span>{" "}
-                                    <span className="text-red-600 dark:text-red-300">{f.notes}</span>
+                            <div className="space-y-1">
+                              {catSubs.map((s) => (
+                                <div
+                                  key={s.id}
+                                  className={`text-xs rounded p-2 flex items-start gap-2 ${
+                                    s.status === "pass"
+                                      ? "bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-900"
+                                      : "bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900"
+                                  }`}
+                                >
+                                  {s.status === "pass" ? (
+                                    <CheckCircle className="h-3.5 w-3.5 text-green-600 shrink-0 mt-0.5" />
+                                  ) : (
+                                    <XCircle className="h-3.5 w-3.5 text-red-600 shrink-0 mt-0.5" />
+                                  )}
+                                  <div className="min-w-0">
+                                    <span className={`font-medium ${s.status === "pass" ? "text-green-700 dark:text-green-400" : "text-red-700 dark:text-red-400"}`}>
+                                      {s.test_case_id}
+                                    </span>
+                                    {s.notes && (
+                                      <p className={`mt-0.5 ${s.status === "pass" ? "text-green-600 dark:text-green-300" : "text-red-600 dark:text-red-300"}`}>
+                                        {s.notes}
+                                      </p>
+                                    )}
                                   </div>
-                                ))}
-                              </div>
-                            )}
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         );
                       })}
