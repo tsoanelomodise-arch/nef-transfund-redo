@@ -96,7 +96,7 @@ const PolicyChoice = () => {
               <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-gray-900">{item.title}</h3>
               <ul className="space-y-3">
                 {item.items.map((text, index) => (
-                  <li key={index} className="flex items-start text-gray-500 text-base leading-relaxed">
+                  <li key={index} className="flex items-start text-gray-500 text-sm md:text-base leading-relaxed">
                     <span className="mr-3 text-[#00703C] font-bold">{String.fromCharCode(97 + index)}.</span>
                     <span>{text}</span>
                   </li>
