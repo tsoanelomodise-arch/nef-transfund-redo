@@ -1,14 +1,51 @@
 
 
-The issue is that when the navbar anchor scrolls to `#path-to-funding`, the fixed navbar (180px/210px tall) covers the heading. The fix is to add an invisible anchor element with enough top offset above the section heading so the full heading is visible after scrolling.
+## Plan: Cross-tester comparison table view for Test Results
 
-**Change in `src/components/path-to-funding/FundingConditionsSection.tsx`:**
+### Summary
 
-Add a scroll-margin-top to the section element (matching the navbar height) so that when the browser scrolls to `#path-to-funding`, it accounts for the fixed navbar offset:
+Replace the current per-tester card layout with a table where rows are test cases (grouped by category) and columns are testers. Each cell shows pass/fail status with an icon, and hovering or clicking reveals the tester's notes for that test case.
 
-```tsx
-<section id="path-to-funding" className="py-8 bg-[hsl(var(--ptf-section-bg))] scroll-mt-[200px] lg:scroll-mt-[230px]">
+### Layout
+
+```text
+                    | Tester A  | Tester B  | Tester C  |
+Navigation
+  nav-1 Click each… |   ✓       |   ✗ (note)|   ✓       |
+  nav-2 Open mobile…|   ✓       |   —       |   ✓       |
+Pages Load
+  pg-1 Load Home…   |   ✗ (note)|   ✓       |   ✓       |
+  ...
 ```
 
-This uses CSS `scroll-margin-top` via Tailwind to offset the scroll target by the navbar height, ensuring the full heading is visible.
+### Changes
+
+**`src/pages/TestResults.tsx`** -- Major restructure:
+
+1. Keep the summary cards at the top (testers count, passed, failed, completed).
+2. Below summary, render a horizontally-scrollable `<Table>` with:
+   - A sticky first column showing test case ID + short description (grouped under category header rows).
+   - One column per tester (sorted alphabetically or by last activity).
+   - Each cell: a colored `CheckCircle` / `XCircle` icon, or a dash `—` if not yet submitted.
+   - Notes displayed via a `Tooltip` on hover -- if the submission has notes, show a small indicator dot and the note text in the tooltip.
+3. Category header rows span the full width as a bold section divider.
+4. Use the existing `CATEGORY_LABELS` map and the `initialCategories` test case list (imported or duplicated as a constant) to define all rows, so even unanswered test cases appear.
+5. The table will be wrapped in a `ScrollArea` for horizontal overflow on mobile.
+
+### Data Processing
+
+- Build a lookup: `Map<testCaseId, Map<testerName, Submission>>` from the deduplicated submissions.
+- Extract the full ordered list of test cases from a `TEST_CASES` constant (mirroring `initialCategories` structure -- just IDs, descriptions, and category grouping).
+- Extract unique tester names from submissions.
+
+### New constant needed
+
+A `TEST_CASES` array matching the checklist structure will be added to `TestResults.tsx` so the table always shows all 37 rows regardless of submissions. This duplicates the test case metadata but keeps the results page self-contained.
+
+### Components used
+
+- `Table`, `TableHeader`, `TableBody`, `TableRow`, `TableHead`, `TableCell` from `@/components/ui/table`
+- `Tooltip`, `TooltipTrigger`, `TooltipContent`, `TooltipProvider` from `@/components/ui/tooltip`
+- `ScrollArea` from `@/components/ui/scroll-area`
+- Existing `CheckCircle`, `XCircle` icons from lucide-react
 
