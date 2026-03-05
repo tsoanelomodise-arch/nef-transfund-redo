@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { CheckCircle, XCircle, Printer, RotateCcw, ChevronDown, ChevronRight, Send } from "lucide-react";
+import { CheckCircle, XCircle, Printer, RotateCcw, ChevronDown, ChevronRight } from "lucide-react";
 
 type TestStatus = "pass" | "fail" | "pending";
 
@@ -173,25 +173,6 @@ const TestingChecklist = () => {
     }
   };
 
-  const sendResultsToAdmin = () => {
-    const date = new Date().toLocaleDateString("en-ZA");
-    const summaryLine = `Summary: ${completed}/${total} completed — ${passed} passed, ${failed} failed`;
-
-    const categoryResults = categories.map((cat) => {
-      const lines = cat.cases.map((tc) => {
-        const statusLabel = tc.status === "pending" ? "NOT TESTED" : tc.status.toUpperCase();
-        let line = `  [${statusLabel}] ${tc.description}`;
-        if (tc.notes?.trim()) line += `\n    Notes: ${tc.notes.trim()}`;
-        return line;
-      });
-      return `\n${cat.title}\n${"—".repeat(cat.title.length)}\n${lines.join("\n")}`;
-    }).join("\n");
-
-    const subject = `UAT Testing Results — ${testerName || "Anonymous"} — ${date}`;
-    const body = `UAT Testing Checklist Results\n\nTester: ${testerName || "Not specified"}\nDate: ${date}\n\n${summaryLine}\n${categoryResults}`;
-
-    window.location.href = `mailto:tsoanelomodise@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
 
   return (
     <div className="min-h-screen bg-background print:bg-white">
@@ -228,7 +209,7 @@ const TestingChecklist = () => {
               <li>For each test, click <span className="font-medium text-foreground">Pass</span> (working as expected) or <span className="font-medium text-foreground">Fail</span> (something is broken or incorrect).</li>
               <li>If a test <span className="font-medium text-foreground">fails</span>, a notes field will appear — please describe what went wrong (e.g. &quot;button does nothing on mobile&quot;).</li>
               <li>Your progress is <span className="font-medium text-foreground">saved automatically</span> in your browser — you can close and return later.</li>
-              <li>When finished, click <span className="font-medium text-foreground">&quot;Send to Admin&quot;</span> to email your results, or <span className="font-medium text-foreground">&quot;Print / Export PDF&quot;</span> to save a copy.</li>
+              <li>When finished, click <span className="font-medium text-foreground">&quot;Print / Export PDF&quot;</span> to save a copy of your results.</li>
             </ol>
           </CardContent>
         </Card>
@@ -249,9 +230,6 @@ const TestingChecklist = () => {
               </Button>
               <Button variant="outline" size="sm" onClick={resetAll}>
                 <RotateCcw className="h-4 w-4 mr-1" /> Reset All
-              </Button>
-              <Button variant="default" size="sm" onClick={sendResultsToAdmin}>
-                <Send className="h-4 w-4 mr-1" /> Send to Admin
               </Button>
             </div>
           </CardContent>
