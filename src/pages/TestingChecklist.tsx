@@ -167,11 +167,45 @@ const TestingChecklist = () => {
     );
   };
 
-  const resetAll = () => {
-    if (window.confirm("Reset all test results? This cannot be undone.")) {
-      setCategories(initialCategories);
-      setTesterName("");
+  const [validationFailed, setValidationFailed] = useState(false);
+
+  const handleExportPdf = () => {
+    const errors: string[] = [];
+
+    if (!testerName.trim()) {
+      errors.push("Please enter your name before exporting.");
     }
+
+    const pendingCategories = categories
+      .filter((cat) => cat.cases.some((c) => c.status === "pending"))
+      .map((cat) => cat.title);
+    if (pendingCategories.length > 0) {
+      errors.push(`Incomplete categories: ${pendingCategories.join(", ")}`);
+    }
+
+    const failsWithoutNotes = categories
+      .flatMap((cat) => cat.cases)
+      .filter((c) => c.status === "fail" && !c.notes.trim());
+    if (failsWithoutNotes.length > 0) {
+      errors.push(`${failsWithoutNotes.length} failed test(s) missing notes.`);
+    }
+
+    if (errors.length > 0) {
+      setValidationFailed(true);
+      // Auto-expand categories with pending items
+      setCategories((prev) =>
+        prev.map((cat) =>
+          cat.cases.some((c) => c.status === "pending" || (c.status === "fail" && !c.notes.trim()))
+            ? { ...cat, collapsed: false }
+            : cat
+        )
+      );
+      toast.error(errors.join(" "));
+      return;
+    }
+
+    setValidationFailed(false);
+    window.print();
   };
 
 
