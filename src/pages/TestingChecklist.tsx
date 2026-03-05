@@ -240,7 +240,7 @@ const TestingChecklist = () => {
               <span className="text-sm font-medium text-foreground">{completed}/{total} completed</span>
               <Badge variant="default" className="bg-green-600 hover:bg-green-600">{passed} passed</Badge>
               <Badge variant="destructive">{failed} failed</Badge>
-              <Badge variant="secondary">{skipped} skipped</Badge>
+              
             </div>
             <Progress value={(completed / total) * 100} className="h-3" />
             <div className="flex gap-2 mt-4 print:hidden">
