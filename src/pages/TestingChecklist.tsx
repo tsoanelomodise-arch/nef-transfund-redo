@@ -153,14 +153,36 @@ const TestingChecklist = () => {
   const total = allCases.length;
 
   const updateCase = useCallback((categoryId: string, caseId: string, updates: Partial<TestCase>) => {
-    setCategories((prev) =>
-      prev.map((cat) =>
+    setCategories((prev) => {
+      const updated = prev.map((cat) =>
         cat.id === categoryId
           ? { ...cat, cases: cat.cases.map((tc) => (tc.id === caseId ? { ...tc, ...updates } : tc)) }
           : cat
-      )
-    );
-  }, []);
+      );
+
+      // Sync to DB if status changed and tester name exists
+      const cat = updated.find((c) => c.id === categoryId);
+      const tc = cat?.cases.find((c) => c.id === caseId);
+      if (tc && tc.status !== "pending" && testerName.trim()) {
+        supabase
+          .from("test_submissions")
+          .upsert(
+            {
+              tester_name: testerName.trim(),
+              test_case_id: caseId,
+              category_id: categoryId,
+              status: tc.status,
+              notes: tc.notes || "",
+              submitted_at: new Date().toISOString(),
+            },
+            { onConflict: "tester_name,test_case_id" }
+          )
+          .then();
+      }
+
+      return updated;
+    });
+  }, [testerName]);
 
   const toggleCollapse = (categoryId: string) => {
     setCategories((prev) =>
