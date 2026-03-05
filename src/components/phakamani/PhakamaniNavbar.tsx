@@ -16,7 +16,7 @@ const PhakamaniNavbar = memo(() => {
   const location = useLocation();
   const navigate = useNavigate();
   const isWhySection = location.pathname.startsWith("/about/why");
-  const isPathToFundingSection = location.pathname.startsWith("/path-to-funding");
+  const isPathToFundingSection = location.pathname.startsWith("/eligibility");
   const isAboutPage = location.pathname === "/about";
   const isContactsPage = location.pathname === "/contacts";
   const isNewsMediaPage = location.pathname === "/news-media";
