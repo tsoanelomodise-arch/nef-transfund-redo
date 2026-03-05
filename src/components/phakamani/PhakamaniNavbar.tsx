@@ -29,13 +29,13 @@ const PhakamaniNavbar = memo(() => {
     setMobileMenuOpen(false);
     setPathToFundingDropdownOpen(false);
     
-    if (location.pathname === "/path-to-funding") {
+    if (location.pathname === "/eligibility") {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      navigate(`/path-to-funding#${sectionId}`);
+      navigate(`/eligibility#${sectionId}`);
     }
   }, [location.pathname, navigate]);
 
