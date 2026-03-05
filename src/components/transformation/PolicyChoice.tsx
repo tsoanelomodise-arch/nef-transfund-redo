@@ -90,10 +90,10 @@ const PolicyChoice = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {policyItems.map((item) => (
             <div key={item.id} className="bg-white p-5 md:p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              <div className="w-16 h-16 bg-[#00703C] rounded-full flex items-center justify-center flex-shrink-0 mb-6">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-[#00703C] rounded-full flex items-center justify-center flex-shrink-0 mb-4 md:mb-6">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">{item.title}</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-gray-900">{item.title}</h3>
               <ul className="space-y-3">
                 {item.items.map((text, index) => (
                   <li key={index} className="flex items-start text-gray-500 text-base leading-relaxed">
