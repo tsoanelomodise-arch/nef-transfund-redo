@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { CheckCircle, XCircle, MinusCircle, Printer, RotateCcw, ChevronDown, ChevronRight, Send } from "lucide-react";
+import { CheckCircle, XCircle, Printer, RotateCcw, ChevronDown, ChevronRight, Send } from "lucide-react";
 
 type TestStatus = "pass" | "fail" | "pending";
 
