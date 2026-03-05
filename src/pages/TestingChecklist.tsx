@@ -267,7 +267,7 @@ const TestingChecklist = () => {
             </div>
             <Progress value={(completed / total) * 100} className="h-3" />
             <div className="flex gap-2 mt-4 print:hidden">
-              <Button variant="outline" size="sm" onClick={() => window.print()}>
+              <Button variant="outline" size="sm" onClick={handleExportPdf}>
                 <Printer className="h-4 w-4 mr-1" /> Print / Export PDF
               </Button>
               <Button variant="outline" size="sm" onClick={resetAll}>
