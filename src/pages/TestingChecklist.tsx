@@ -209,7 +209,7 @@ const TestingChecklist = () => {
               <li>For each test, click <span className="font-medium text-foreground">Pass</span> (working as expected) or <span className="font-medium text-foreground">Fail</span> (something is broken or incorrect).</li>
               <li>If a test <span className="font-medium text-foreground">fails</span>, a notes field will appear — please describe what went wrong (e.g. &quot;button does nothing on mobile&quot;).</li>
               <li>Your progress is <span className="font-medium text-foreground">saved automatically</span> in your browser — you can close and return later.</li>
-              <li>When finished, click <span className="font-medium text-foreground">&quot;Send to Admin&quot;</span> to email your results, or <span className="font-medium text-foreground">&quot;Print / Export PDF&quot;</span> to save a copy.</li>
+              <li>When finished, click <span className="font-medium text-foreground">&quot;Print / Export PDF&quot;</span> to save a copy of your results.</li>
             </ol>
           </CardContent>
         </Card>
