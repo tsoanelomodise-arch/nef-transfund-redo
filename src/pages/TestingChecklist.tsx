@@ -147,7 +147,7 @@ const TestingChecklist = () => {
   const completed = allCases.filter((c) => c.status !== "pending").length;
   const passed = allCases.filter((c) => c.status === "pass").length;
   const failed = allCases.filter((c) => c.status === "fail").length;
-  const skipped = allCases.filter((c) => c.status === "skip").length;
+  
   const total = allCases.length;
 
   const updateCase = useCallback((categoryId: string, caseId: string, updates: Partial<TestCase>) => {
