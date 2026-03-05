@@ -116,7 +116,7 @@ const statusIcon = (status: TestStatus) => {
   switch (status) {
     case "pass": return <CheckCircle className="h-5 w-5 text-green-600" />;
     case "fail": return <XCircle className="h-5 w-5 text-red-600" />;
-    case "skip": return <MinusCircle className="h-5 w-5 text-muted-foreground" />;
+    
     default: return <div className="h-5 w-5 rounded-full border-2 border-muted-foreground/40" />;
   }
 };
