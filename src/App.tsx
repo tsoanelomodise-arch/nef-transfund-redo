@@ -81,6 +81,7 @@ const App = () => (
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/uat2_hta_portal" element={<Uat2HtaPortalPage />} />
               <Route path="/testing" element={<TestingChecklist />} />
+              <Route path="/test-results" element={<TestResults />} />
               
               <Route path="*" element={<NotFound />} />
             </Routes>
