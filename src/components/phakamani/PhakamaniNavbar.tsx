@@ -96,7 +96,7 @@ const PhakamaniNavbar = memo(() => {
               onMouseLeave={() => setPathToFundingDropdownOpen(false)}
             >
               <Link 
-                to="/path-to-funding" 
+                to="/eligibility" 
                 className={`nav-link flex items-center ${isPathToFundingSection ? 'nav-link-active' : ''}`}
               >
                 Eligibility
@@ -104,10 +104,10 @@ const PhakamaniNavbar = memo(() => {
               </Link>
               {pathToFundingDropdownOpen && (
                 <div className="dropdown-menu">
-                  <Link to="/path-to-funding/process" className="dropdown-item" onClick={() => setPathToFundingDropdownOpen(false)}>Funding Process</Link>
-                  <Link to="/path-to-funding/market-segments" className="dropdown-item" onClick={() => setPathToFundingDropdownOpen(false)}>Market segments</Link>
-                  <Link to="/path-to-funding/products" className="dropdown-item" onClick={() => setPathToFundingDropdownOpen(false)}>Products</Link>
-                  <a href="/path-to-funding#path-to-funding" className="dropdown-item" onClick={(e) => handlePathToFundingLink(e, 'path-to-funding')}>Eligibility Checklist</a>
+                  <Link to="/eligibility/process" className="dropdown-item" onClick={() => setPathToFundingDropdownOpen(false)}>Funding Process</Link>
+                  <Link to="/eligibility/market-segments" className="dropdown-item" onClick={() => setPathToFundingDropdownOpen(false)}>Market segments</Link>
+                  <Link to="/eligibility/products" className="dropdown-item" onClick={() => setPathToFundingDropdownOpen(false)}>Products</Link>
+                  <a href="/eligibility#path-to-funding" className="dropdown-item" onClick={(e) => handlePathToFundingLink(e, 'path-to-funding')}>Eligibility Checklist</a>
                 </div>
               )}
             </div>
