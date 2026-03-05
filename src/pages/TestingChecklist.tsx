@@ -337,7 +337,7 @@ const TestingChecklist = () => {
                       <div className="flex items-start gap-3">
                         <div className="mt-0.5">{statusIcon(tc.status)}</div>
                         <div className="flex-1 min-w-0">
-                          <p className="font-medium text-sm text-foreground">{tc.description}</p>
+                          <p className="font-medium text-sm text-foreground"><span className="text-muted-foreground mr-1.5">{idx + 1}.</span>{tc.description}</p>
                           <p className="text-xs text-muted-foreground mt-1">
                             <span className="font-medium">Expected:</span> {tc.expected}
                           </p>
