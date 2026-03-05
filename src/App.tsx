@@ -67,10 +67,10 @@ const App = () => (
               <Route path="/contacts" element={<TestContacts />} />
               <Route path="/requirements" element={<Requirements />} />
               <Route path="/startup-grants" element={<StartupGrants />} />
-              <Route path="/path-to-funding" element={<PathToFunding />} />
-              <Route path="/path-to-funding/process" element={<FundingProcessPage />} />
-              <Route path="/path-to-funding/market-segments" element={<MarketSegmentsPage />} />
-              <Route path="/path-to-funding/products" element={<ProductsPage />} />
+              <Route path="/eligibility" element={<PathToFunding />} />
+              <Route path="/eligibility/process" element={<FundingProcessPage />} />
+              <Route path="/eligibility/market-segments" element={<MarketSegmentsPage />} />
+              <Route path="/eligibility/products" element={<ProductsPage />} />
               <Route path="/investors" element={<InvestorsPage />} />
               <Route path="/investors/governance" element={<GovernancePage />} />
               <Route path="/faq" element={<FAQ />} />

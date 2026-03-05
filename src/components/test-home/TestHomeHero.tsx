@@ -76,7 +76,7 @@ const TestHomeHero = memo(({ onCheckEligibility }: TestHomeHeroProps) => {
                 </p>
                 <div className="flex gap-4 max-md:justify-center flex-wrap">
                   <Link
-                    to="/path-to-funding"
+                    to="/eligibility"
                     className="inline-block bg-black text-white px-[30px] py-3 uppercase text-[0.8rem] font-bold border border-black transition-all hover:bg-transparent hover:text-black"
                   >
                     How to Apply

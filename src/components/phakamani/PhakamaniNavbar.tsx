@@ -225,11 +225,11 @@ const PhakamaniNavbar = memo(() => {
               <Link to="/about/why" className={`block px-3 py-2 pl-6 text-base font-bold ${isWhySection && location.pathname !== '/about/why/policy-choice' ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Fund purpose</Link>
               <Link to="/about/why/policy-choice" className={`block px-3 py-2 pl-6 text-base font-bold ${location.pathname === '/about/why/policy-choice' ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Fund Policy</Link>
               
-              <Link to="/path-to-funding" className={`block px-3 py-2 text-base font-bold ${isPathToFundingSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Eligibility</Link>
-              <Link to="/path-to-funding/process" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Funding Process</Link>
-              <Link to="/path-to-funding/market-segments" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Market segments</Link>
-              <Link to="/path-to-funding/products" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Products</Link>
-              <a href="/path-to-funding#path-to-funding" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={(e) => handlePathToFundingLink(e, 'path-to-funding')}>Eligibility Checklist</a>
+              <Link to="/eligibility" className={`block px-3 py-2 text-base font-bold ${isPathToFundingSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Eligibility</Link>
+              <Link to="/eligibility/process" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Funding Process</Link>
+              <Link to="/eligibility/market-segments" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Market segments</Link>
+              <Link to="/eligibility/products" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Products</Link>
+              <a href="/eligibility#path-to-funding" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={(e) => handlePathToFundingLink(e, 'path-to-funding')}>Eligibility Checklist</a>
               <span className="block px-3 py-2 text-base font-bold text-gray-700 cursor-default">Investors</span>
               <Link to="/investors" className={`block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold ${location.pathname === '/investors' ? 'text-[#007847]' : ''}`} onClick={closeMobileMenu}>Capitalisation</Link>
               <Link to="/investors/governance" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Governance</Link>
