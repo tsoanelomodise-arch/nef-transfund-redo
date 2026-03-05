@@ -231,9 +231,6 @@ const TestingChecklist = () => {
               <Button variant="outline" size="sm" onClick={resetAll}>
                 <RotateCcw className="h-4 w-4 mr-1" /> Reset All
               </Button>
-              <Button variant="default" size="sm" onClick={sendResultsToAdmin}>
-                <Send className="h-4 w-4 mr-1" /> Send to Admin
-              </Button>
             </div>
           </CardContent>
         </Card>
