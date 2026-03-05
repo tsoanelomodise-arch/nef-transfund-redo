@@ -293,6 +293,25 @@ const TestingChecklist = () => {
               <Button variant="outline" size="sm" onClick={handleExportPdf}>
                 <Printer className="h-4 w-4 mr-1" /> Print / Export PDF
               </Button>
+              <Button variant="outline" size="sm" onClick={() => {
+                const nonPending = categories.flatMap(cat => cat.cases.filter(c => c.status !== "pending").map(c => ({ cat, c })));
+                if (!testerName.trim()) { toast.error("Please enter your name before saving."); return; }
+                let count = 0;
+                nonPending.forEach(({ cat, c }) => {
+                  supabase.from("test_submissions").upsert({
+                    tester_name: testerName.trim(),
+                    test_case_id: c.id,
+                    category_id: cat.id,
+                    status: c.status,
+                    notes: c.notes || "",
+                    submitted_at: new Date().toISOString(),
+                  }, { onConflict: "tester_name,test_case_id" }).then();
+                  count++;
+                });
+                toast.success(`Saved ${count} result(s) to database.`);
+              }}>
+                <CheckCircle className="h-4 w-4 mr-1" /> Save Progress
+              </Button>
               <Button variant="outline" size="sm" onClick={resetAll}>
                 <RotateCcw className="h-4 w-4 mr-1" /> Reset All
               </Button>
