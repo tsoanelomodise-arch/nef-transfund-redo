@@ -38,7 +38,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
   }, [currentSlide, isWhyPage, slideCount]);
 
   return (
-    <header className={`relative w-full overflow-hidden ${isWhyPage ? 'h-[45vh] min-h-[320px]' : 'h-[80vh] min-h-[500px]'}`}>
+    <header className={`relative w-full overflow-hidden ${isWhyPage ? 'min-h-[auto] md:h-[45vh] md:min-h-[320px]' : 'h-[80vh] min-h-[500px]'}`}>
       {/* Full-screen background slides */}
       <div className="absolute inset-0">
         {/* FistPump Slide */}
