@@ -207,6 +207,13 @@ const TestingChecklist = () => {
     setValidationFailed(false);
     window.print();
   };
+  const resetAll = () => {
+    if (window.confirm("Reset all test results? This cannot be undone.")) {
+      setCategories(initialCategories);
+      setTesterName("");
+      setValidationFailed(false);
+    }
+  };
 
 
   return (
