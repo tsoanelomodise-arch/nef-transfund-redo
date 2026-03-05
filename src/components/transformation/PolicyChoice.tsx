@@ -85,11 +85,11 @@ const policyItems = [
 
 const PolicyChoice = () => {
   return (
-    <section id="policy-choice" className="py-8 bg-white">
-      <div className="max-w-[1400px] mx-auto px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section id="policy-choice" className="py-6 md:py-8 bg-white">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {policyItems.map((item) => (
-            <div key={item.id} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div key={item.id} className="bg-white p-5 md:p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <div className="w-16 h-16 bg-[#00703C] rounded-full flex items-center justify-center flex-shrink-0 mb-6">
                 {item.icon}
               </div>
