@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, XCircle, Printer, RotateCcw, ChevronDown, ChevronRight } from "lucide-react";
+import { toast } from "sonner";
 
 type TestStatus = "pass" | "fail" | "pending";
 
@@ -166,10 +167,51 @@ const TestingChecklist = () => {
     );
   };
 
+  const [validationFailed, setValidationFailed] = useState(false);
+
+  const handleExportPdf = () => {
+    const errors: string[] = [];
+
+    if (!testerName.trim()) {
+      errors.push("Please enter your name before exporting.");
+    }
+
+    const pendingCategories = categories
+      .filter((cat) => cat.cases.some((c) => c.status === "pending"))
+      .map((cat) => cat.title);
+    if (pendingCategories.length > 0) {
+      errors.push(`Incomplete categories: ${pendingCategories.join(", ")}`);
+    }
+
+    const failsWithoutNotes = categories
+      .flatMap((cat) => cat.cases)
+      .filter((c) => c.status === "fail" && !c.notes.trim());
+    if (failsWithoutNotes.length > 0) {
+      errors.push(`${failsWithoutNotes.length} failed test(s) missing notes.`);
+    }
+
+    if (errors.length > 0) {
+      setValidationFailed(true);
+      // Auto-expand categories with pending items
+      setCategories((prev) =>
+        prev.map((cat) =>
+          cat.cases.some((c) => c.status === "pending" || (c.status === "fail" && !c.notes.trim()))
+            ? { ...cat, collapsed: false }
+            : cat
+        )
+      );
+      toast.error(errors.join(" "));
+      return;
+    }
+
+    setValidationFailed(false);
+    window.print();
+  };
   const resetAll = () => {
     if (window.confirm("Reset all test results? This cannot be undone.")) {
       setCategories(initialCategories);
       setTesterName("");
+      setValidationFailed(false);
     }
   };
 
@@ -187,7 +229,7 @@ const TestingChecklist = () => {
             <label className="text-sm font-medium text-foreground">
               Tester Name:
               <input
-                className="ml-2 border border-input rounded-md px-3 py-1.5 text-sm bg-background"
+                className={`ml-2 border rounded-md px-3 py-1.5 text-sm bg-background ${validationFailed && !testerName.trim() ? "border-destructive ring-1 ring-destructive" : "border-input"}`}
                 value={testerName}
                 onChange={(e) => setTesterName(e.target.value)}
                 placeholder="Enter your name"
@@ -208,8 +250,8 @@ const TestingChecklist = () => {
               <li><span className="font-medium text-foreground">Work through each category</span> — open the website in another tab and perform each test described.</li>
               <li>For each test, click <span className="font-medium text-foreground">Pass</span> (working as expected) or <span className="font-medium text-foreground">Fail</span> (something is broken or incorrect).</li>
               <li>If a test <span className="font-medium text-foreground">fails</span>, a notes field will appear — please describe what went wrong (e.g. &quot;button does nothing on mobile&quot;).</li>
-              <li>Your progress is <span className="font-medium text-foreground">saved automatically</span> in your browser — you can close and return later.</li>
               <li>When finished, click <span className="font-medium text-foreground">&quot;Print / Export PDF&quot;</span> to save a copy of your results.</li>
+              <li><span className="font-medium text-foreground">Note:</span> All test cases must be marked Pass or Fail, and failed tests must include notes, before you can export to PDF.</li>
             </ol>
           </CardContent>
         </Card>
@@ -225,7 +267,7 @@ const TestingChecklist = () => {
             </div>
             <Progress value={(completed / total) * 100} className="h-3" />
             <div className="flex gap-2 mt-4 print:hidden">
-              <Button variant="outline" size="sm" onClick={() => window.print()}>
+              <Button variant="outline" size="sm" onClick={handleExportPdf}>
                 <Printer className="h-4 w-4 mr-1" /> Print / Export PDF
               </Button>
               <Button variant="outline" size="sm" onClick={resetAll}>
