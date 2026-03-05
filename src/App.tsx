@@ -79,6 +79,7 @@ const App = () => (
               <Route path="/admin/news-media" element={<NewsMediaAdmin />} />
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/uat2_hta_portal" element={<Uat2HtaPortalPage />} />
+              <Route path="/testing" element={<TestingChecklist />} />
               
               <Route path="*" element={<NotFound />} />
             </Routes>
