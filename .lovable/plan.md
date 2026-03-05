@@ -1,14 +1,27 @@
 
 
-The issue is that when the navbar anchor scrolls to `#path-to-funding`, the fixed navbar (180px/210px tall) covers the heading. The fix is to add an invisible anchor element with enough top offset above the section heading so the full heading is visible after scrolling.
+## Plan: Mandatory Completion Before PDF Export
 
-**Change in `src/components/path-to-funding/FundingConditionsSection.tsx`:**
+### What Changes
 
-Add a scroll-margin-top to the section element (matching the navbar height) so that when the browser scrolls to `#path-to-funding`, it accounts for the fixed navbar offset:
+**`src/pages/TestingChecklist.tsx`**
 
-```tsx
-<section id="path-to-funding" className="py-8 bg-[hsl(var(--ptf-section-bg))] scroll-mt-[200px] lg:scroll-mt-[230px]">
-```
+1. **Validate before printing** — Replace the direct `window.print()` call with a validation function that checks:
+   - Tester name is not empty
+   - Every test case has a status of "pass" or "fail" (no "pending")
+   - Failed test cases have non-empty notes
 
-This uses CSS `scroll-margin-top` via Tailwind to offset the scroll target by the navbar height, ensuring the full heading is visible.
+2. **Show validation errors** — Import `toast` from `sonner` to display a specific error message when validation fails (e.g., "Please complete all test cases and add notes for failures before exporting").
+
+3. **Visual indicators for incomplete items** — Add a red highlight/border to the tester name input when empty on export attempt, and optionally auto-expand collapsed categories that contain pending items so testers can see what's missing.
+
+4. **Update instructions** — Add a note in the instructions card: "All test cases must be marked Pass or Fail, and failed tests must include notes, before you can export to PDF."
+
+### How It Works
+
+- User clicks "Print / Export PDF"
+- If `testerName` is empty → toast error, highlight name field
+- If any test case is still "pending" → toast error listing incomplete categories
+- If any "fail" case has empty/whitespace notes → toast error
+- Only if all checks pass → call `window.print()`
 
