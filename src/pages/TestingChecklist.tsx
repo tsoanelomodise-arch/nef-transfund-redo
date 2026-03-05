@@ -173,25 +173,6 @@ const TestingChecklist = () => {
     }
   };
 
-  const sendResultsToAdmin = () => {
-    const date = new Date().toLocaleDateString("en-ZA");
-    const summaryLine = `Summary: ${completed}/${total} completed — ${passed} passed, ${failed} failed`;
-
-    const categoryResults = categories.map((cat) => {
-      const lines = cat.cases.map((tc) => {
-        const statusLabel = tc.status === "pending" ? "NOT TESTED" : tc.status.toUpperCase();
-        let line = `  [${statusLabel}] ${tc.description}`;
-        if (tc.notes?.trim()) line += `\n    Notes: ${tc.notes.trim()}`;
-        return line;
-      });
-      return `\n${cat.title}\n${"—".repeat(cat.title.length)}\n${lines.join("\n")}`;
-    }).join("\n");
-
-    const subject = `UAT Testing Results — ${testerName || "Anonymous"} — ${date}`;
-    const body = `UAT Testing Checklist Results\n\nTester: ${testerName || "Not specified"}\nDate: ${date}\n\n${summaryLine}\n${categoryResults}`;
-
-    window.location.href = `mailto:tsoanelomodise@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
 
   return (
     <div className="min-h-screen bg-background print:bg-white">
