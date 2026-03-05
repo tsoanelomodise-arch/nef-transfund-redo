@@ -120,8 +120,8 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
 
       </div>
 
-      {/* QR Code Block - Top Right */}
-      <div className="absolute top-6 right-6 z-20">
+      {/* QR Code Block - Top Right - Hidden on mobile */}
+      <div className="absolute top-6 right-6 z-20 hidden md:block">
         <div className="bg-black/10 border border-black/20 rounded-lg p-4 backdrop-blur-sm">
           <h3 className="text-sm font-bold text-black mb-3 text-center">
             Scan to Follow Us
