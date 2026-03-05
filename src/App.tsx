@@ -31,6 +31,7 @@ const NewsMediaDetailPage = lazy(() => import("./pages/NewsMediaDetailPage"));
 const NewsMediaAdmin = lazy(() => import("./pages/admin/NewsMediaAdmin"));
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const Uat2HtaPortalPage = lazy(() => import("./pages/Uat2HtaPortalPage"));
+const TestingChecklist = lazy(() => import("./pages/TestingChecklist"));
 
 const queryClient = new QueryClient();
 
@@ -78,6 +79,7 @@ const App = () => (
               <Route path="/admin/news-media" element={<NewsMediaAdmin />} />
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/uat2_hta_portal" element={<Uat2HtaPortalPage />} />
+              <Route path="/testing" element={<TestingChecklist />} />
               
               <Route path="*" element={<NotFound />} />
             </Routes>
