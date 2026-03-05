@@ -32,6 +32,7 @@ const NewsMediaAdmin = lazy(() => import("./pages/admin/NewsMediaAdmin"));
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const Uat2HtaPortalPage = lazy(() => import("./pages/Uat2HtaPortalPage"));
 const TestingChecklist = lazy(() => import("./pages/TestingChecklist"));
+const TestResults = lazy(() => import("./pages/TestResults"));
 
 const queryClient = new QueryClient();
 
