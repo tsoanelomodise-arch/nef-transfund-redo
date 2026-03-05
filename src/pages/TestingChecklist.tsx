@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, XCircle, Printer, RotateCcw, ChevronDown, ChevronRight } from "lucide-react";
+import { toast } from "sonner";
 
 type TestStatus = "pass" | "fail" | "pending";
 
