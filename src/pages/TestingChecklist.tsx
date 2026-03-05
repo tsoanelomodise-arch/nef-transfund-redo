@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, XCircle, MinusCircle, Printer, RotateCcw, ChevronDown, ChevronRight, Send } from "lucide-react";
 
-type TestStatus = "pass" | "fail" | "skip" | "pending";
+type TestStatus = "pass" | "fail" | "pending";
 
 interface TestCase {
   id: string;
