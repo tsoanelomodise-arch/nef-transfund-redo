@@ -51,7 +51,7 @@ const initialCategories: TestCategory[] = [
       { id: "pg-4", description: "Load Market Segments (/eligibility/market-segments)", expected: "Market segments page loads with sector icons", status: "pending", notes: "" },
       { id: "pg-5", description: "Load Funding Process (/eligibility/process)", expected: "Process page loads with steps", status: "pending", notes: "" },
       { id: "pg-6", description: "Load About (/about)", expected: "About page loads correctly", status: "pending", notes: "" },
-      { id: "pg-7", description: "Load About Why (/about/why)", expected: "Why page loads with pillars", status: "pending", notes: "" },
+      { id: "pg-7", description: "Load Fund Purpose (/about/why)", expected: "Page loads with pillars, mobile-optimized hero", status: "pending", notes: "" },
       { id: "pg-8", description: "Load Contacts (/contacts)", expected: "Contact form and details display", status: "pending", notes: "" },
       { id: "pg-9", description: "Load Investors (/investors)", expected: "Investors page loads", status: "pending", notes: "" },
       { id: "pg-10", description: "Load FAQ (/faq)", expected: "FAQ accordions display", status: "pending", notes: "" },
