@@ -104,6 +104,36 @@ export type Database = {
         }
         Relationships: []
       }
+      test_submissions: {
+        Row: {
+          category_id: string
+          id: string
+          notes: string | null
+          status: string
+          submitted_at: string
+          test_case_id: string
+          tester_name: string
+        }
+        Insert: {
+          category_id: string
+          id?: string
+          notes?: string | null
+          status: string
+          submitted_at?: string
+          test_case_id: string
+          tester_name: string
+        }
+        Update: {
+          category_id?: string
+          id?: string
+          notes?: string | null
+          status?: string
+          submitted_at?: string
+          test_case_id?: string
+          tester_name?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
