@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { CheckCircle, XCircle, MinusCircle, Printer, RotateCcw, ChevronDown, ChevronRight } from "lucide-react";
+import { CheckCircle, XCircle, MinusCircle, Printer, RotateCcw, ChevronDown, ChevronRight, Send } from "lucide-react";
 
 type TestStatus = "pass" | "fail" | "skip" | "pending";
 
@@ -173,6 +173,26 @@ const TestingChecklist = () => {
     }
   };
 
+  const sendResultsToAdmin = () => {
+    const date = new Date().toLocaleDateString("en-ZA");
+    const summaryLine = `Summary: ${completed}/${total} completed — ${passed} passed, ${failed} failed, ${skipped} skipped`;
+
+    const categoryResults = categories.map((cat) => {
+      const lines = cat.cases.map((tc) => {
+        const statusLabel = tc.status === "pending" ? "NOT TESTED" : tc.status.toUpperCase();
+        let line = `  [${statusLabel}] ${tc.description}`;
+        if (tc.notes?.trim()) line += `\n    Notes: ${tc.notes.trim()}`;
+        return line;
+      });
+      return `\n${cat.title}\n${"—".repeat(cat.title.length)}\n${lines.join("\n")}`;
+    }).join("\n");
+
+    const subject = `UAT Testing Results — ${testerName || "Anonymous"} — ${date}`;
+    const body = `UAT Testing Checklist Results\n\nTester: ${testerName || "Not specified"}\nDate: ${date}\n\n${summaryLine}\n${categoryResults}`;
+
+    window.location.href = `mailto:tsoanelomodise@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <div className="min-h-screen bg-background print:bg-white">
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -214,6 +234,9 @@ const TestingChecklist = () => {
               </Button>
               <Button variant="outline" size="sm" onClick={resetAll}>
                 <RotateCcw className="h-4 w-4 mr-1" /> Reset All
+              </Button>
+              <Button variant="default" size="sm" onClick={sendResultsToAdmin}>
+                <Send className="h-4 w-4 mr-1" /> Send to Admin
               </Button>
             </div>
           </CardContent>
