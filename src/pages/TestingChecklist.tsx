@@ -35,7 +35,7 @@ const initialCategories: TestCategory[] = [
     cases: [
       { id: "nav-1", description: "Click each top-level navbar link", expected: "Navigates to correct page without errors", status: "pending", notes: "" },
       { id: "nav-2", description: "Open mobile hamburger menu and click each link", expected: "Menu opens, links navigate correctly, menu closes", status: "pending", notes: "" },
-      { id: "nav-3", description: "Test dropdown menus (Path to Funding, About, Investors)", expected: "Dropdowns open on hover/click, sub-links work", status: "pending", notes: "" },
+      { id: "nav-3", description: "Test dropdown menus (Eligibility, About, Investors)", expected: "Dropdowns open on hover/click, sub-links work", status: "pending", notes: "" },
       { id: "nav-4", description: "Click 'Eligibility & Document Checklist' anchor link", expected: "Scrolls to section with full heading visible (not hidden by navbar)", status: "pending", notes: "" },
       { id: "nav-5", description: "Click logo to return to home page", expected: "Navigates to home page", status: "pending", notes: "" },
     ],
