@@ -218,7 +218,22 @@ const TestingChecklist = () => {
           </div>
         </div>
 
-        {/* Summary */}
+        {/* Instructions */}
+        <Card className="mb-6 border-primary/20 print:shadow-none print:border">
+          <CardContent className="pt-6">
+            <h2 className="text-lg font-semibold text-foreground mb-3">📋 How to Complete This Checklist</h2>
+            <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground">
+              <li><span className="font-medium text-foreground">Enter your name</span> in the field above so we know who completed the testing.</li>
+              <li><span className="font-medium text-foreground">Work through each category</span> — open the website in another tab and perform each test described.</li>
+              <li>For each test, click <span className="font-medium text-foreground">Pass</span> (working as expected), <span className="font-medium text-foreground">Fail</span> (something is broken or incorrect), or <span className="font-medium text-foreground">Skip</span> (not applicable or unable to test).</li>
+              <li>If a test <span className="font-medium text-foreground">fails</span>, a notes field will appear — please describe what went wrong (e.g. &quot;button does nothing on mobile&quot;).</li>
+              <li>Your progress is <span className="font-medium text-foreground">saved automatically</span> in your browser — you can close and return later.</li>
+              <li>When finished, click <span className="font-medium text-foreground">&quot;Send to Admin&quot;</span> to email your results, or <span className="font-medium text-foreground">&quot;Print / Export PDF&quot;</span> to save a copy.</li>
+            </ol>
+          </CardContent>
+        </Card>
+
+
         <Card className="mb-6 print:shadow-none print:border">
           <CardContent className="pt-6">
             <div className="flex flex-wrap gap-4 items-center mb-3">
