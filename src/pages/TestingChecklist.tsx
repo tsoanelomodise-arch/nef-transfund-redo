@@ -299,7 +299,7 @@ const TestingChecklist = () => {
                             <span className="font-medium">Expected:</span> {tc.expected}
                           </p>
                           <div className="flex flex-wrap gap-2 mt-3 print:hidden">
-                            {(["pass", "fail", "skip"] as TestStatus[]).map((s) => (
+                            {(["pass", "fail"] as TestStatus[]).map((s) => (
                               <Button
                                 key={s}
                                 size="sm"
@@ -307,13 +307,12 @@ const TestingChecklist = () => {
                                 className={
                                   tc.status === s
                                     ? s === "pass" ? "bg-green-600 hover:bg-green-700 text-white" :
-                                      s === "fail" ? "bg-red-600 hover:bg-red-700 text-white" :
-                                      "bg-muted text-muted-foreground"
+                                      "bg-red-600 hover:bg-red-700 text-white"
                                     : ""
                                 }
                                 onClick={() => updateCase(cat.id, tc.id, { status: tc.status === s ? "pending" : s })}
                               >
-                                {s === "pass" ? "Pass" : s === "fail" ? "Fail" : "Skip"}
+                                {s === "pass" ? "Pass" : "Fail"}
                               </Button>
                             ))}
                           </div>
