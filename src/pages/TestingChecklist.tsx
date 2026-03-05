@@ -35,7 +35,7 @@ const initialCategories: TestCategory[] = [
     cases: [
       { id: "nav-1", description: "Click each top-level navbar link", expected: "Navigates to correct page without errors", status: "pending", notes: "" },
       { id: "nav-2", description: "Open mobile hamburger menu and click each link", expected: "Menu opens, links navigate correctly, menu closes", status: "pending", notes: "" },
-      { id: "nav-3", description: "Test dropdown menus (Path to Funding, About, Investors)", expected: "Dropdowns open on hover/click, sub-links work", status: "pending", notes: "" },
+      { id: "nav-3", description: "Test dropdown menus (Eligibility, About, Investors)", expected: "Dropdowns open on hover/click, sub-links work", status: "pending", notes: "" },
       { id: "nav-4", description: "Click 'Eligibility & Document Checklist' anchor link", expected: "Scrolls to section with full heading visible (not hidden by navbar)", status: "pending", notes: "" },
       { id: "nav-5", description: "Click logo to return to home page", expected: "Navigates to home page", status: "pending", notes: "" },
     ],
@@ -51,7 +51,7 @@ const initialCategories: TestCategory[] = [
       { id: "pg-4", description: "Load Market Segments (/eligibility/market-segments)", expected: "Market segments page loads with sector icons", status: "pending", notes: "" },
       { id: "pg-5", description: "Load Funding Process (/eligibility/process)", expected: "Process page loads with steps", status: "pending", notes: "" },
       { id: "pg-6", description: "Load About (/about)", expected: "About page loads correctly", status: "pending", notes: "" },
-      { id: "pg-7", description: "Load About Why (/about/why)", expected: "Why page loads with pillars", status: "pending", notes: "" },
+      { id: "pg-7", description: "Load Fund Purpose (/about/why)", expected: "Page loads with pillars, mobile-optimized hero", status: "pending", notes: "" },
       { id: "pg-8", description: "Load Contacts (/contacts)", expected: "Contact form and details display", status: "pending", notes: "" },
       { id: "pg-9", description: "Load Investors (/investors)", expected: "Investors page loads", status: "pending", notes: "" },
       { id: "pg-10", description: "Load FAQ (/faq)", expected: "FAQ accordions display", status: "pending", notes: "" },
@@ -97,9 +97,11 @@ const initialCategories: TestCategory[] = [
     collapsed: false,
     cases: [
       { id: "rsp-1", description: "View Home page on mobile (< 768px)", expected: "Layout adapts, no horizontal scroll, all content readable", status: "pending", notes: "" },
-      { id: "rsp-2", description: "View Path to Funding on tablet (768px–1024px)", expected: "Layout adapts correctly", status: "pending", notes: "" },
+      { id: "rsp-2", description: "View Eligibility page on tablet (768px–1024px)", expected: "Layout adapts correctly", status: "pending", notes: "" },
       { id: "rsp-3", description: "View Contacts page on mobile", expected: "Form is usable, fields stack vertically", status: "pending", notes: "" },
       { id: "rsp-4", description: "Check hero sections on all breakpoints", expected: "Images and text scale appropriately", status: "pending", notes: "" },
+      { id: "rsp-5", description: "View Fund Purpose (/about/why) on mobile", expected: "Hero text readable, no background image, QR code hidden, pillars stack vertically", status: "pending", notes: "" },
+      { id: "rsp-6", description: "View Fund Policy (/about/why/policy-choice) on mobile", expected: "Policy cards stack single-column with compact padding, text readable", status: "pending", notes: "" },
     ],
   },
   {
