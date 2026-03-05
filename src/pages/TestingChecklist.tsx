@@ -229,7 +229,7 @@ const TestingChecklist = () => {
             <label className="text-sm font-medium text-foreground">
               Tester Name:
               <input
-                className="ml-2 border border-input rounded-md px-3 py-1.5 text-sm bg-background"
+                className={`ml-2 border rounded-md px-3 py-1.5 text-sm bg-background ${validationFailed && !testerName.trim() ? "border-destructive ring-1 ring-destructive" : "border-input"}`}
                 value={testerName}
                 onChange={(e) => setTesterName(e.target.value)}
                 placeholder="Enter your name"
