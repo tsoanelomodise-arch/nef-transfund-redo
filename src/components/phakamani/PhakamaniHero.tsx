@@ -42,7 +42,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
       {/* Full-screen background slides */}
       <div className="absolute inset-0">
         {/* FistPump Slide */}
-        <div className={`absolute inset-0 transition-opacity duration-1000 bg-white ${currentSlide === 0 ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`absolute inset-0 transition-opacity duration-1000 bg-white ${currentSlide === 0 ? 'opacity-100' : 'opacity-0'} ${isWhyPage ? 'hidden md:block' : ''}`}>
           <img 
             src={isWhyPage ? "/images/hero/chicken-farmer.jpg" : "/images/hero/entrepreneur-fistbump-new.jpg"}
             className="w-full h-full object-contain"
