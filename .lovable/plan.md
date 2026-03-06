@@ -1,16 +1,14 @@
 
 
-## Plan: Refresh button clears and reloads results
+The issue is that when the navbar anchor scrolls to `#path-to-funding`, the fixed navbar (180px/210px tall) covers the heading. The fix is to add an invisible anchor element with enough top offset above the section heading so the full heading is visible after scrolling.
 
-Currently the Refresh button calls `fetchSubmissions()` which appends/updates data but the existing `submissions` state persists until the new data arrives. The fix is simple:
+**Change in `src/components/path-to-funding/FundingConditionsSection.tsx`:**
 
-### Change in `src/pages/TestResults.tsx`
-
-In the Refresh button's `onClick` handler, clear the `submissions` state before fetching:
+Add a scroll-margin-top to the section element (matching the navbar height) so that when the browser scrolls to `#path-to-funding`, it accounts for the fixed navbar offset:
 
 ```tsx
-onClick={() => { setSubmissions([]); setLoading(true); fetchSubmissions(); }}
+<section id="path-to-funding" className="py-8 bg-[hsl(var(--ptf-section-bg))] scroll-mt-[200px] lg:scroll-mt-[230px]">
 ```
 
-This ensures the UI resets to a clean loading state, then populates with the latest data from the database -- effectively "resetting" the currently loaded tester results.
+This uses CSS `scroll-margin-top` via Tailwind to offset the scroll target by the navbar height, ensuring the full heading is visible.
 
