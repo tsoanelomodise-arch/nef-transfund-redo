@@ -107,14 +107,26 @@ const TOTAL_TESTS = TEST_CASES.reduce((sum, cat) => sum + cat.cases.length, 0);
 const TestResults = () => {
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
 
-  const fetchSubmissions = async () => {
-    const { data } = await supabase
-      .from("test_submissions")
-      .select("*")
-      .order("submitted_at", { ascending: false });
-    if (data) setSubmissions(data as Submission[]);
-    setLoading(false);
+  const fetchSubmissions = async (isRefresh = false) => {
+    try {
+      if (isRefresh) setRefreshing(true);
+      const { data, error } = await supabase
+        .from("test_submissions")
+        .select("*")
+        .order("submitted_at", { ascending: false });
+      if (error) {
+        console.error("Failed to fetch submissions:", error);
+      } else if (data) {
+        setSubmissions(data as Submission[]);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
   };
 
   useEffect(() => {
