@@ -246,7 +246,7 @@ const TestingChecklist = () => {
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8 print:mb-4">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Website Testing Checklist</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Transformation Fund Website Testing Checklist</h1>
           <p className="text-muted-foreground">
             Transformation Fund — UAT Testing Template
           </p>
