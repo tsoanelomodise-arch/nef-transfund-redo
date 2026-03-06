@@ -47,10 +47,10 @@ const TEST_CASES: CategoryDef[] = [
   {
     id: "pages", title: "Pages Load", cases: [
       { id: "pg-1", description: "Load Home page (/)" },
-      { id: "pg-2", description: "Load Eligibility (/eligibility)" },
-      { id: "pg-3", description: "Load Products (/eligibility/products)" },
-      { id: "pg-4", description: "Load Market Segments (/eligibility/market-segments)" },
-      { id: "pg-5", description: "Load Funding Process (/eligibility/process)" },
+      { id: "pg-2", description: "Load Eligibility & Criteria (/eligibility)" },
+      { id: "pg-3", description: "Load Eligibility Products (/eligibility/products)" },
+      { id: "pg-4", description: "Load Eligibility Market Segments (/eligibility/market-segments)" },
+      { id: "pg-5", description: "Load Eligibility Process (/eligibility/process)" },
       { id: "pg-6", description: "Load About (/about)" },
       { id: "pg-7", description: "Load Fund Purpose (/about/why)" },
       { id: "pg-8", description: "Load Contacts (/contacts)" },
