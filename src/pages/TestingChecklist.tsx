@@ -46,10 +46,10 @@ const initialCategories: TestCategory[] = [
     collapsed: false,
     cases: [
       { id: "pg-1", description: "Load Home page (/)", expected: "Page loads with hero, products, news sections", status: "pending", notes: "" },
-      { id: "pg-2", description: "Load Eligibility (/eligibility)", expected: "Page loads with all sections visible", status: "pending", notes: "" },
-      { id: "pg-3", description: "Load Products (/eligibility/products)", expected: "Products page loads with fund cards", status: "pending", notes: "" },
-      { id: "pg-4", description: "Load Market Segments (/eligibility/market-segments)", expected: "Market segments page loads with sector icons", status: "pending", notes: "" },
-      { id: "pg-5", description: "Load Funding Process (/eligibility/process)", expected: "Process page loads with steps", status: "pending", notes: "" },
+      { id: "pg-2", description: "Load Eligibility & Criteria (/eligibility)", expected: "Page loads with all sections visible", status: "pending", notes: "" },
+      { id: "pg-3", description: "Load Eligibility Products (/eligibility/products)", expected: "Products page loads with fund cards", status: "pending", notes: "" },
+      { id: "pg-4", description: "Load Eligibility Market Segments (/eligibility/market-segments)", expected: "Market segments page loads with sector icons", status: "pending", notes: "" },
+      { id: "pg-5", description: "Load Eligibility Process (/eligibility/process)", expected: "Process page loads with steps", status: "pending", notes: "" },
       { id: "pg-6", description: "Load About (/about)", expected: "About page loads correctly", status: "pending", notes: "" },
       { id: "pg-7", description: "Load Fund Purpose (/about/why)", expected: "Page loads with pillars, mobile-optimized hero", status: "pending", notes: "" },
       { id: "pg-8", description: "Load Contacts (/contacts)", expected: "Contact form and details display", status: "pending", notes: "" },
@@ -246,7 +246,7 @@ const TestingChecklist = () => {
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8 print:mb-4">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Website Testing Checklist</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Transformation Fund Website Testing Checklist</h1>
           <p className="text-muted-foreground">
             Transformation Fund — UAT Testing Template
           </p>
