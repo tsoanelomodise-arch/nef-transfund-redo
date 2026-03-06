@@ -107,14 +107,26 @@ const TOTAL_TESTS = TEST_CASES.reduce((sum, cat) => sum + cat.cases.length, 0);
 const TestResults = () => {
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
 
-  const fetchSubmissions = async () => {
-    const { data } = await supabase
-      .from("test_submissions")
-      .select("*")
-      .order("submitted_at", { ascending: false });
-    if (data) setSubmissions(data as Submission[]);
-    setLoading(false);
+  const fetchSubmissions = async (isRefresh = false) => {
+    try {
+      if (isRefresh) setRefreshing(true);
+      const { data, error } = await supabase
+        .from("test_submissions")
+        .select("*")
+        .order("submitted_at", { ascending: false });
+      if (error) {
+        console.error("Failed to fetch submissions:", error);
+      } else if (data) {
+        setSubmissions(data as Submission[]);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
   };
 
   useEffect(() => {
@@ -168,9 +180,9 @@ const TestResults = () => {
           <div className="mb-8">
             <div className="flex items-center justify-between">
               <h1 className="text-3xl font-bold text-foreground mb-2">Test Results Dashboard</h1>
-              <Button variant="outline" size="sm" onClick={() => { setSubmissions([]); setLoading(true); fetchSubmissions(); }} className="gap-2">
-                <RefreshCw className="h-4 w-4" />
-                Refresh
+              <Button variant="outline" size="sm" disabled={refreshing} onClick={() => { setSubmissions([]); setLoading(true); fetchSubmissions(true); }} className="gap-2">
+                <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
+                {refreshing ? 'Refreshing...' : 'Refresh'}
               </Button>
             </div>
             <p className="text-muted-foreground">Cross-tester comparison — hover icons for notes</p>
