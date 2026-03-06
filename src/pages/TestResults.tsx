@@ -166,7 +166,13 @@ const TestResults = () => {
       <div className="min-h-screen bg-background">
         <div className="max-w-[95vw] mx-auto px-4 py-8">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Test Results Dashboard</h1>
+            <div className="flex items-center justify-between">
+              <h1 className="text-3xl font-bold text-foreground mb-2">Test Results Dashboard</h1>
+              <Button variant="outline" size="sm" onClick={() => { setLoading(true); fetchSubmissions(); }} className="gap-2">
+                <RefreshCw className="h-4 w-4" />
+                Refresh
+              </Button>
+            </div>
             <p className="text-muted-foreground">Cross-tester comparison — hover icons for notes</p>
             <div className="flex items-center gap-2 mt-2">
               <span className="inline-block h-2 w-2 rounded-full bg-green-500 animate-pulse" />
