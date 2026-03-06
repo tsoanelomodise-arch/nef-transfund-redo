@@ -1,0 +1,1 @@
+CREATE POLICY "Anyone can delete test submissions" ON public.test_submissions FOR DELETE USING (true);

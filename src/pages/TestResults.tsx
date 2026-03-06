@@ -180,7 +180,7 @@ const TestResults = () => {
           <div className="mb-8">
             <div className="flex items-center justify-between">
               <h1 className="text-3xl font-bold text-foreground mb-2">Test Results Dashboard</h1>
-              <Button variant="outline" size="sm" disabled={refreshing} onClick={() => { setSubmissions([]); setLoading(true); fetchSubmissions(true); }} className="gap-2">
+              <Button variant="outline" size="sm" disabled={refreshing} onClick={async () => { setRefreshing(true); setSubmissions([]); await supabase.from("test_submissions").delete().neq("id", "00000000-0000-0000-0000-000000000000"); setLoading(true); fetchSubmissions(true); }} className="gap-2">
                 <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
                 {refreshing ? 'Refreshing...' : 'Refresh'}
               </Button>
