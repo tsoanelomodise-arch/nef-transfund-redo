@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { CheckCircle, XCircle, Users, Clock, MessageSquare } from "lucide-react";
+import { CheckCircle, XCircle, Users, Clock, MessageSquare, RefreshCw } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import {
   Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
