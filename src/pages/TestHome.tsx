@@ -1,3 +1,4 @@
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import TestHomeHero from "@/components/test-home/TestHomeHero";
 import NewsHighlightsSection from "@/components/test-home/NewsHighlightsSection";
