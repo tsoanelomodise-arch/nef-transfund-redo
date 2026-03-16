@@ -1,3 +1,4 @@
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 import InvestorsContent from "@/components/investors/InvestorsContent";
