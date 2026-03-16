@@ -1,4 +1,5 @@
 import { FileText, ExternalLink } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 
