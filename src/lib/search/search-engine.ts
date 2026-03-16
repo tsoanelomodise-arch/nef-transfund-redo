@@ -18,7 +18,6 @@ const fuseOptions: IFuseOptions<SearchableContent> = {
   shouldSort: true,
   findAllMatches: true,
   ignoreLocation: true, // Search entire field, not just beginning
-  useExtendedSearch: true,
 };
 
 // Initialize Fuse instance
