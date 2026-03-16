@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import PhakamaniHero from "@/components/phakamani/PhakamaniHero";
 import HeroSectionNew from "@/components/transformation/HeroSectionNew";
