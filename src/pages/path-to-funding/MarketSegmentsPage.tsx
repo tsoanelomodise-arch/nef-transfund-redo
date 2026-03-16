@@ -5,6 +5,11 @@ import MarketSegmentsContent from "@/components/path-to-funding/MarketSegmentsCo
 import MarketSegmentsHero from "@/components/path-to-funding/MarketSegmentsHero";
 
 const MarketSegmentsPage = () => {
+  useSEO({
+    title: "Market Segments",
+    description: "Priority sectors and market foundations for the Transformation Fund including renewable energy, mining services, agro-processing, ICT, and manufacturing.",
+    path: "/eligibility/market-segments",
+  });
   return (
     <div className="min-h-screen bg-background">
       <PhakamaniNavbar />

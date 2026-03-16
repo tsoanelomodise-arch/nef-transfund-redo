@@ -4,6 +4,11 @@ import Footer from "@/components/transformation/Footer";
 import InvestorsContent from "@/components/investors/InvestorsContent";
 
 const InvestorsPage = () => {
+  useSEO({
+    title: "Capitalisation",
+    description: "Resource mobilisation and investment channels for the Transformation Fund. Explore EEIP, enterprise development, DFI partnerships, and innovative financing.",
+    path: "/investors",
+  });
   return (
     <div className="min-h-screen bg-background">
       <PhakamaniNavbar />

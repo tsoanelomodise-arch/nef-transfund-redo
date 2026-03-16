@@ -58,6 +58,11 @@ const objectives = [
 ];
 
 const About = () => {
+  useSEO({
+    title: "About",
+    description: "Learn about the Transformation Fund's objectives, architecture, and method for driving inclusive economic growth in South Africa through capital, capability, and market access.",
+    path: "/about",
+  });
   return (
     <div className="min-h-screen bg-background pt-[180px] lg:pt-[210px]">
       <PhakamaniNavbar />

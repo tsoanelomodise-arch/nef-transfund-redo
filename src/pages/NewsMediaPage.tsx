@@ -20,6 +20,11 @@ function getYoutubeThumbnail(url: string): string | null {
 }
 
 const NewsMediaPage = () => {
+  useSEO({
+    title: "News & Media",
+    description: "Latest news, updates, and media from the Transformation Fund. Stay informed about funding opportunities, success stories, and economic transformation in South Africa.",
+    path: "/news-media",
+  });
   const [contentType, setContentType] = useState("all");
   const [page, setPage] = useState(1);
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);

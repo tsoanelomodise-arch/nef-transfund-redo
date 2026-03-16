@@ -7,9 +7,11 @@ import Footer from "@/components/transformation/Footer";
 import ScrollToTop from "@/components/transformation/ScrollToTop";
 
 const TheoryPage = () => {
-  useEffect(() => {
-    document.title = "Theory of Change | Transformation Fund";
-  }, []);
+  useSEO({
+    title: "Theory of Change",
+    description: "How the Transformation Fund drives systemic economic transformation through capital, capability, markets, telemetry, and governance.",
+    path: "/why/theory-of-change",
+  });
 
   return (
     <div className="min-h-screen bg-background pt-[180px] lg:pt-[210px]">

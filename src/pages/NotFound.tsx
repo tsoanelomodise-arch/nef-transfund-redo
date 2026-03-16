@@ -4,6 +4,11 @@ import { useSEO } from "@/hooks/useSEO";
 
 const NotFound = () => {
   const location = useLocation();
+  useSEO({
+    title: "Page Not Found",
+    description: "The page you are looking for does not exist. Return to the Transformation Fund homepage.",
+    path: location.pathname,
+  });
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);

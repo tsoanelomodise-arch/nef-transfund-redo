@@ -13,6 +13,11 @@ import { SuccessModal, RejectModal, DocSuccessModal, DocRejectModal } from "@/co
 
 const TestHome = () => {
   const quiz = usePathToFundingQuiz();
+  useSEO({
+    title: "Home",
+    description: "South Africa's national platform for inclusive economic transformation. Supporting black entrepreneurs, SMMEs, and communities through bundled capital, capability, and market access.",
+    path: "/",
+  });
 
   return (
     <div className="min-h-screen pt-[180px] lg:pt-[210px]">

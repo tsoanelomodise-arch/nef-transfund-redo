@@ -16,6 +16,14 @@ const NewsMediaDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const { data: item, isLoading, error } = useNewsMediaItem(id ?? "");
 
+  useSEO({
+    title: item?.title ?? "News & Media",
+    description: item?.excerpt ?? "Read the latest from the Transformation Fund.",
+    path: `/news-media/${id ?? ""}`,
+    image: item?.featured_image_url ?? undefined,
+    type: "article",
+  });
+
   return (
     <div className="min-h-screen pt-[180px] lg:pt-[210px]">
       <PhakamaniNavbar />

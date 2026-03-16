@@ -8,6 +8,11 @@ import { useToast } from "@/hooks/use-toast";
 
 const TestContacts = () => {
   const { toast } = useToast();
+  useSEO({
+    title: "Contact Us",
+    description: "Get in touch with the Transformation Fund team. Email, call, or visit our Sandton office for enquiries about funding applications and support.",
+    path: "/contacts",
+  });
   const [formData, setFormData] = useState<ContactFormData>({
     firstName: "",
     surname: "",

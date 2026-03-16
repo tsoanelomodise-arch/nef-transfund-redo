@@ -10,6 +10,11 @@ import Footer from "@/components/transformation/Footer";
 
 const TransformationIndex = () => {
   const location = useLocation();
+  useSEO({
+    title: "Why the Fund",
+    description: "The case for a national transformation platform. Understand why South Africa needs the Transformation Fund for inclusive economic growth.",
+    path: "/why",
+  });
 
   // Handle hash navigation after page load/navigation
   useEffect(() => {

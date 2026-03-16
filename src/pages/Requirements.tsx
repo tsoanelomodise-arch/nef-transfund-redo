@@ -6,6 +6,11 @@ import Footer from "@/components/transformation/Footer";
 import SocialIconsRow from "@/components/shared/SocialIconsRow";
 
 const Requirements = () => {
+  useSEO({
+    title: "Requirements",
+    description: "Documentation and requirements for Transformation Fund applications including general, business, legal, compliance, and financial requirements.",
+    path: "/requirements",
+  });
   const requirements = [
     {
       title: "General Requirements",
