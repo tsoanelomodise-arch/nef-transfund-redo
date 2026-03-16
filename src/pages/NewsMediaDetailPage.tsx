@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 import { useNewsMediaItem } from "@/hooks/useNewsMedia";
@@ -14,6 +15,14 @@ function getYoutubeEmbedUrl(url: string): string | null {
 const NewsMediaDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const { data: item, isLoading, error } = useNewsMediaItem(id ?? "");
+
+  useSEO({
+    title: item?.title ?? "News & Media",
+    description: item?.excerpt ?? "Read the latest from the Transformation Fund.",
+    path: `/news-media/${id ?? ""}`,
+    image: item?.featured_image_url ?? undefined,
+    type: "article",
+  });
 
   return (
     <div className="min-h-screen pt-[180px] lg:pt-[210px]">

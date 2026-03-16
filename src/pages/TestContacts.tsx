@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 import { validateAndSanitizeContactForm, buildSafeMailtoLink, type ContactFormData } from "@/lib/validation/contact-form";
@@ -7,6 +8,11 @@ import { useToast } from "@/hooks/use-toast";
 
 const TestContacts = () => {
   const { toast } = useToast();
+  useSEO({
+    title: "Contact Us",
+    description: "Get in touch with the Transformation Fund team. Email, call, or visit our Sandton office for enquiries about funding applications and support.",
+    path: "/contacts",
+  });
   const [formData, setFormData] = useState<ContactFormData>({
     firstName: "",
     surname: "",

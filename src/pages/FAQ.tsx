@@ -1,4 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 
@@ -97,6 +98,11 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  useSEO({
+    title: "FAQ",
+    description: "Answers to common questions about the Transformation Fund, eligibility requirements, application process, funding amounts, and support services.",
+    path: "/faq",
+  });
   return (
     <div className="min-h-screen bg-white pt-[180px] lg:pt-[210px]">
       <PhakamaniNavbar />

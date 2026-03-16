@@ -1,4 +1,5 @@
 import { FileText, ExternalLink } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 
@@ -24,6 +25,11 @@ const resources = [
 ];
 
 const Resources = () => {
+  useSEO({
+    title: "Resources",
+    description: "Download Transformation Fund documents and resources including the comprehensive fund document and executive summary.",
+    path: "/resources",
+  });
   return (
     <div className="min-h-screen bg-white pt-[180px] lg:pt-[210px]">
       <PhakamaniNavbar />
