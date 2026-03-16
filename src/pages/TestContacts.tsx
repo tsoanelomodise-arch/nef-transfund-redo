@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 import { validateAndSanitizeContactForm, buildSafeMailtoLink, type ContactFormData } from "@/lib/validation/contact-form";
