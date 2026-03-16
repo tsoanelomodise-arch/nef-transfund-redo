@@ -16,7 +16,7 @@ const slides = [
   {
     image: "/images/test-home/hero-slide-3.jpg",
     title: "Advancing the economic agenda",
-    tagline: "Designed to accelerate economic participation and unlock opportunity, to support sustainable growth for emerging businesses across South Africa.",
+    tagline: "The Transformation Fund represents a bold shift: a coordinated, outcome-focused mechanism that engineers inclusive growth at scale.",
   },
   {
     image: "/images/hero/platform-baker.jpg",
