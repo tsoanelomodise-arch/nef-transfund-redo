@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 import SocialIconsRow from "@/components/shared/SocialIconsRow";
