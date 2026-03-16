@@ -40,6 +40,11 @@ const StepCard = memo(({ step, title, description, showConnector = false }: { st
 StepCard.displayName = "StepCard";
 
 const StartupGrants = () => {
+  useSEO({
+    title: "Startup Grants",
+    description: "Financial support for early-stage black-owned businesses. Capability vouchers and seed capital for informal and micro enterprises ready to scale.",
+    path: "/startup-grants",
+  });
   const features = useMemo(() => [
     {
       icon: Target,
