@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import PhakamaniHero from "@/components/phakamani/PhakamaniHero";
 import NationalAgenda from "@/components/transformation/NationalAgenda";
