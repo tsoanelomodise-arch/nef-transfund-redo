@@ -156,22 +156,6 @@ const PhakamaniNavbar = memo(() => {
               {resourcesDropdownOpen && (
                 <div className="dropdown-menu">
                   <Link to="/faq" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>FAQ</Link>
-                  <a 
-                    href="/resources/TransformationFundDocument_v2.4_28Sept25.pdf" 
-                    className="dropdown-item" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    TF Framework
-                  </a>
-                  <a 
-                    href="/resources/Transformation_Fund_Executive_Summary_v1_29Sept.pdf" 
-                    className="dropdown-item" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    TF Executive Summary
-                  </a>
                 </div>
               )}
             </div>
