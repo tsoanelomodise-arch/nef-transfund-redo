@@ -10,12 +10,19 @@ const NewsHighlightsSection = memo(() => {
     <section className="bg-white">
       <div className="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr]">
         {/* Left image */}
-        <img
-          src="/images/test-home/wrench-lady.jpg"
-          alt="News Highlights"
-          className="w-full h-full min-h-[400px] object-contain object-top bg-[#f5f5f5]"
-          loading="lazy"
-        />
+        <a
+          href="/resources/2026-TransformationFund-PrintAd.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block cursor-pointer hover:opacity-90 transition-opacity"
+        >
+          <img
+            src="/images/test-home/wrench-lady.jpg"
+            alt="Board of Directors Call for Applications"
+            className="w-full h-full min-h-[400px] object-contain object-top bg-[#f5f5f5]"
+            loading="lazy"
+          />
+        </a>
 
         {/* News content */}
         <div className="p-8 lg:p-10 bg-white">

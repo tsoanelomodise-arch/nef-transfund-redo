@@ -1,8 +1,14 @@
 
 
-## Plan: Make Board of Directors Image Clickable to Open PDF
+The issue is that when the navbar anchor scrolls to `#path-to-funding`, the fixed navbar (180px/210px tall) covers the heading. The fix is to add an invisible anchor element with enough top offset above the section heading so the full heading is visible after scrolling.
 
-1. **Copy PDF to public folder**: Copy `user-uploads://2026-TransformationFund-PrintAd_280x112mm.pdf` to `public/resources/2026-TransformationFund-PrintAd.pdf`
+**Change in `src/components/path-to-funding/FundingConditionsSection.tsx`:**
 
-2. **Wrap image in anchor tag** in `src/components/test-home/NewsHighlightsSection.tsx`: Wrap the wrench-lady `<img>` in an `<a>` tag with `href="/resources/2026-TransformationFund-PrintAd.pdf"`, `target="_blank"`, and `rel="noopener noreferrer"`. Add `cursor-pointer hover:opacity-90 transition-opacity` for visual feedback.
+Add a scroll-margin-top to the section element (matching the navbar height) so that when the browser scrolls to `#path-to-funding`, it accounts for the fixed navbar offset:
+
+```tsx
+<section id="path-to-funding" className="py-8 bg-[hsl(var(--ptf-section-bg))] scroll-mt-[200px] lg:scroll-mt-[230px]">
+```
+
+This uses CSS `scroll-margin-top` via Tailwind to offset the scroll target by the navbar height, ensuring the full heading is visible.
 
