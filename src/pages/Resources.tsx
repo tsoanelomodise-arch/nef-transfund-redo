@@ -1,28 +1,6 @@
-import { FileText, ExternalLink } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
-
-const resources = [
-  {
-    id: "tf-document",
-    title: "TF Document",
-    description: "Comprehensive Transformation Fund documentation with detailed information about the fund's structure, objectives, and implementation guidelines.",
-    fileName: "TransformationFundDocument_v2.4_28Sept25.pdf",
-    path: "/resources/TransformationFundDocument_v2.4_28Sept25.pdf",
-    version: "v2.4",
-    date: "28 Sept 2025",
-  },
-  {
-    id: "tf-executive-summary",
-    title: "TF Executive Summary",
-    description: "A concise executive summary of the Transformation Fund, providing an overview of key objectives, strategies, and expected outcomes.",
-    fileName: "Transformation_Fund_Executive_Summary_v1_29Sept.pdf",
-    path: "/resources/Transformation_Fund_Executive_Summary_v1_29Sept.pdf",
-    version: "v1",
-    date: "29 Sept 2025",
-  },
-];
 
 const Resources = () => {
   useSEO({
