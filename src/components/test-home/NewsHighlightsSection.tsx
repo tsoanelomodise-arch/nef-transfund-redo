@@ -11,11 +11,10 @@ const NewsHighlightsSection = memo(() => {
       <div className="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr]">
         {/* Left image */}
         <a
-          href="/resources/2026-TransformationFund-PrintAd.pdf"
+          href="https://www.sa-transformationfund.co.za/uploads/careers/2026-TransformationFund-PrintAd(280x112mm).pdf"
           onClick={(e) => {
             e.preventDefault();
-            const baseUrl = window.location.origin;
-            window.open(`${baseUrl}/resources/2026-TransformationFund-PrintAd.pdf`, '_blank', 'noopener,noreferrer,width=1000,height=800');
+            window.open('https://www.sa-transformationfund.co.za/uploads/careers/2026-TransformationFund-PrintAd(280x112mm).pdf', '_blank', 'noopener,noreferrer,width=1000,height=800');
           }}
           className="block cursor-pointer hover:opacity-90 transition-opacity"
         >
