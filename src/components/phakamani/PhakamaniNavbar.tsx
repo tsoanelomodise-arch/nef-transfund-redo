@@ -149,7 +149,7 @@ const PhakamaniNavbar = memo(() => {
             >
               <Link 
                 to="/resources" 
-                className={`nav-link flex items-center ${isResourcesPage || location.pathname === '/faq' ? 'nav-link-active' : ''}`}
+                className={`nav-link flex items-center ${isResourcesPage || location.pathname === '/faq' || isCareersPage ? 'nav-link-active' : ''}`}
               >
                 Resources
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -157,6 +157,7 @@ const PhakamaniNavbar = memo(() => {
               {resourcesDropdownOpen && (
                 <div className="dropdown-menu">
                   <Link to="/faq" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>FAQ</Link>
+                  <Link to="/careers" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>Careers</Link>
                 </div>
               )}
             </div>
