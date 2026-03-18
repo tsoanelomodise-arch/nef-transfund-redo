@@ -21,6 +21,7 @@ const PhakamaniNavbar = memo(() => {
   const isContactsPage = location.pathname === "/contacts";
   const isNewsMediaPage = location.pathname === "/news-media";
   const isResourcesPage = location.pathname === "/resources";
+  const isCareersPage = location.pathname.startsWith("/careers");
   const isInvestorsSection = location.pathname.startsWith("/investors");
   const isPortalSection = location.pathname.startsWith("/uat2_hta_portal");
 
