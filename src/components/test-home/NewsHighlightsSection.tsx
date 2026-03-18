@@ -12,8 +12,10 @@ const NewsHighlightsSection = memo(() => {
         {/* Left image */}
         <a
           href="/resources/view-print-ad.html"
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={(e) => {
+            e.preventDefault();
+            window.open('/resources/view-print-ad.html', '_blank', 'noopener,noreferrer,width=1000,height=800');
+          }}
           className="block cursor-pointer hover:opacity-90 transition-opacity"
         >
           <img
