@@ -14,51 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      careers: {
-        Row: {
-          closing_date: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          employment_type: string | null
-          id: string
-          location: string | null
-          priority: number
-          show_on_archive: boolean
-          status: string
-          title: string
-          updated_at: string
-        }
-        Insert: {
-          closing_date?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          employment_type?: string | null
-          id?: string
-          location?: string | null
-          priority?: number
-          show_on_archive?: boolean
-          status?: string
-          title: string
-          updated_at?: string
-        }
-        Update: {
-          closing_date?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          employment_type?: string | null
-          id?: string
-          location?: string | null
-          priority?: number
-          show_on_archive?: boolean
-          status?: string
-          title?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
       news_media: {
         Row: {
           content_type: string
@@ -199,48 +154,6 @@ export type Database = {
       }
     }
     Views: {
-      careers_public: {
-        Row: {
-          closing_date: string | null
-          created_at: string | null
-          description: string | null
-          employment_type: string | null
-          id: string | null
-          location: string | null
-          priority: number | null
-          show_on_archive: boolean | null
-          status: string | null
-          title: string | null
-          updated_at: string | null
-        }
-        Insert: {
-          closing_date?: string | null
-          created_at?: string | null
-          description?: string | null
-          employment_type?: string | null
-          id?: string | null
-          location?: string | null
-          priority?: number | null
-          show_on_archive?: boolean | null
-          status?: string | null
-          title?: string | null
-          updated_at?: string | null
-        }
-        Update: {
-          closing_date?: string | null
-          created_at?: string | null
-          description?: string | null
-          employment_type?: string | null
-          id?: string | null
-          location?: string | null
-          priority?: number | null
-          show_on_archive?: boolean | null
-          status?: string | null
-          title?: string | null
-          updated_at?: string | null
-        }
-        Relationships: []
-      }
       news_media_public: {
         Row: {
           content_type: string | null

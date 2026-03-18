@@ -21,7 +21,6 @@ const PhakamaniNavbar = memo(() => {
   const isContactsPage = location.pathname === "/contacts";
   const isNewsMediaPage = location.pathname === "/news-media";
   const isResourcesPage = location.pathname === "/resources";
-  const isCareersPage = location.pathname.startsWith("/careers");
   const isInvestorsSection = location.pathname.startsWith("/investors");
   const isPortalSection = location.pathname.startsWith("/uat2_hta_portal");
 
@@ -149,7 +148,7 @@ const PhakamaniNavbar = memo(() => {
             >
               <Link 
                 to="/resources" 
-                className={`nav-link flex items-center ${isResourcesPage || location.pathname === '/faq' || isCareersPage ? 'nav-link-active' : ''}`}
+                className={`nav-link flex items-center ${isResourcesPage || location.pathname === '/faq' ? 'nav-link-active' : ''}`}
               >
                 Resources
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -157,7 +156,6 @@ const PhakamaniNavbar = memo(() => {
               {resourcesDropdownOpen && (
                 <div className="dropdown-menu">
                   <Link to="/faq" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>FAQ</Link>
-                  <Link to="/careers" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>Careers</Link>
                 </div>
               )}
             </div>
@@ -222,7 +220,6 @@ const PhakamaniNavbar = memo(() => {
               <Link to="/news-media" className={`block px-3 py-2 text-base font-bold ${isNewsMediaPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>News</Link>
               <Link to="/resources" className={`block px-3 py-2 text-base font-bold ${isResourcesPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Resources</Link>
               <Link to="/faq" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>FAQ</Link>
-              <Link to="/careers" className={`block px-3 py-2 pl-6 text-sm font-semibold ${isCareersPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Careers</Link>
               <Link to="/contacts" className={`block px-3 py-2 text-base font-bold ${isContactsPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Contacts</Link>
               
               <Link to="/uat2_hta_portal" className={`block px-3 py-2 text-base font-bold ${isPortalSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Portal</Link>
