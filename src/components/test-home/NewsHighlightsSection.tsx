@@ -13,7 +13,7 @@ const NewsHighlightsSection = memo(() => {
         <img
           src="/images/test-home/wrench-lady.jpg"
           alt="News Highlights"
-          className="w-full h-full min-h-[400px] object-cover grayscale"
+          className="w-full h-full min-h-[400px] object-contain bg-[#f5f5f5]"
           loading="lazy"
         />
 
