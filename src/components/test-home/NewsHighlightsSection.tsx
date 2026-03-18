@@ -11,7 +11,7 @@ const NewsHighlightsSection = memo(() => {
       <div className="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr]">
         {/* Left image */}
         <a
-          href="/resources/2026-TransformationFund-PrintAd.pdf"
+          href="/resources/view-print-ad.html"
           target="_blank"
           rel="noopener noreferrer"
           className="block cursor-pointer hover:opacity-90 transition-opacity"
