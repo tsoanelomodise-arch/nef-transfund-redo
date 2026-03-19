@@ -1,6 +1,7 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useNewsHighlights } from "@/hooks/useNewsMedia";
+import { useCareerAttachmentsBySlug } from "@/hooks/useCareers";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const NewsHighlightsSection = memo(() => {
