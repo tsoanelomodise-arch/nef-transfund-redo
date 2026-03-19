@@ -1,22 +1,32 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useNewsHighlights } from "@/hooks/useNewsMedia";
+import { useCareerAttachmentsBySlug } from "@/hooks/useCareers";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const NewsHighlightsSection = memo(() => {
   const { data: newsItems = [], isLoading } = useNewsHighlights();
+  const { data: attachments = [] } = useCareerAttachmentsBySlug("board-of-directors");
+
+  const pdfUrl = useMemo(() => {
+    const pdf = attachments.find((a: any) => a.file_type === "application/pdf" || a.file_name?.endsWith(".pdf"));
+    return pdf ? (pdf as any).file_url : null;
+  }, [attachments]);
 
   return (
     <section className="bg-white">
       <div className="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr]">
         {/* Left image */}
         <a
-          href="https://www.sa-transformationfund.co.za/uploads/careers/2026-TransformationFund-PrintAd(280x112mm).pdf"
+          href={pdfUrl || "/careers/board-of-directors"}
           onClick={(e) => {
-            e.preventDefault();
-            window.open('https://www.sa-transformationfund.co.za/uploads/careers/2026-TransformationFund-PrintAd(280x112mm).pdf', '_blank', 'noopener,noreferrer,width=1000,height=800');
+            if (pdfUrl) {
+              e.preventDefault();
+              window.open(pdfUrl, '_blank', 'noopener,noreferrer,width=1000,height=800');
+            }
           }}
           className="block cursor-pointer hover:opacity-90 transition-opacity"
+          {...(!pdfUrl ? {} : { target: "_blank", rel: "noopener noreferrer" })}
         >
           <img
             src="/images/test-home/wrench-lady.jpg"
