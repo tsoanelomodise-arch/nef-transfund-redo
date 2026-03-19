@@ -33,6 +33,9 @@ const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const Uat2HtaPortalPage = lazy(() => import("./pages/Uat2HtaPortalPage"));
 const TestingChecklist = lazy(() => import("./pages/TestingChecklist"));
 const TestResults = lazy(() => import("./pages/TestResults"));
+const CareersPage = lazy(() => import("./pages/CareersPage"));
+const CareerDetailPage = lazy(() => import("./pages/CareerDetailPage"));
+const CareersAdmin = lazy(() => import("./pages/admin/CareersAdmin"));
 
 const queryClient = new QueryClient();
 
