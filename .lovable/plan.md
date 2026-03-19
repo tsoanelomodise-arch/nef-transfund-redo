@@ -1,14 +1,25 @@
 
 
-The issue is that when the navbar anchor scrolls to `#path-to-funding`, the fixed navbar (180px/210px tall) covers the heading. The fix is to add an invisible anchor element with enough top offset above the section heading so the full heading is visible after scrolling.
+## Plan: Link Board of Directors image to its career attachment PDF
 
-**Change in `src/components/path-to-funding/FundingConditionsSection.tsx`:**
+### What changes
 
-Add a scroll-margin-top to the section element (matching the navbar height) so that when the browser scrolls to `#path-to-funding`, it accounts for the fixed navbar offset:
+The Board of Directors banner image in `NewsHighlightsSection` currently links to a hardcoded external URL. Instead, it should dynamically fetch the PDF attachment from the "board-of-directors" career record and open that file when clicked.
 
-```tsx
-<section id="path-to-funding" className="py-8 bg-[hsl(var(--ptf-section-bg))] scroll-mt-[200px] lg:scroll-mt-[230px]">
-```
+### Implementation
 
-This uses CSS `scroll-margin-top` via Tailwind to offset the scroll target by the navbar height, ensuring the full heading is visible.
+**File: `src/components/test-home/NewsHighlightsSection.tsx`**
+
+1. Import `useCareerAttachmentsBySlug` from `@/hooks/useCareers`
+2. Call `useCareerAttachmentsBySlug("board-of-directors")` to fetch the attachments for that career record
+3. Find the first PDF attachment (matching the uploaded `2026-TransformationFund-PrintAd` file)
+4. Replace the hardcoded external URL in the `<a>` tag with the dynamic `file_url` from the attachment query
+5. Keep the existing click behavior (opens in a new window) but use the dynamic URL
+6. Add a fallback: if no attachment is found yet (loading or empty), fall back to a link to the career detail page `/careers/board-of-directors`
+
+### Technical details
+
+- The `useCareerAttachmentsBySlug` hook already exists and fetches attachments via the `careers_public` view (no auth required)
+- The `career-attachments` storage bucket is public, so the `file_url` will be directly accessible
+- No database or migration changes needed
 
