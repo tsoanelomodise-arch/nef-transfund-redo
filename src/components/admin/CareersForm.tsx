@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/hooks/use-toast";
 import { useCreateCareer, useUpdateCareer } from "@/hooks/useCareers";
+import CareerAttachments from "@/components/admin/CareerAttachments";
 import type { CareerItem } from "@/types/careers";
 
 interface CareersFormProps {
@@ -180,6 +181,13 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
         <Checkbox id="showOnArchive" checked={showOnArchive} onCheckedChange={(v) => setShowOnArchive(!!v)} />
         <label htmlFor="showOnArchive" className="text-sm">Show on Careers page</label>
       </div>
+
+      {isEditing && item?.id && (
+        <CareerAttachments careerId={item.id} />
+      )}
+      {!isEditing && (
+        <p className="text-xs text-muted-foreground italic">Save the job first, then you can add file attachments.</p>
+      )}
 
       <div className="flex gap-3">
         <Button type="submit" disabled={isPending}>{isPending ? "Saving..." : isEditing ? "Update" : "Create"}</Button>

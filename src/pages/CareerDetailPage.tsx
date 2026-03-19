@@ -1,15 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
-import { useCareerBySlug } from "@/hooks/useCareers";
+import { useCareerBySlug, useCareerAttachmentsBySlug } from "@/hooks/useCareers";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, MapPin, Briefcase, Calendar, ExternalLink, DollarSign } from "lucide-react";
+import { ArrowLeft, MapPin, Briefcase, Calendar, ExternalLink, DollarSign, FileText, Download } from "lucide-react";
 
 const CareerDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const { data: job, isLoading, error } = useCareerBySlug(slug ?? "");
+  const { data: attachments = [] } = useCareerAttachmentsBySlug(slug ?? "");
 
   useSEO({
     title: job?.title ?? "Career Details",
@@ -107,6 +108,29 @@ const CareerDetailPage = () => {
           <p className="text-sm text-muted-foreground mb-6">
             Closing date: {new Date(job.closing_date).toLocaleDateString()}
           </p>
+        )}
+
+        {/* Attachments */}
+        {attachments.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-xl font-bold text-foreground mb-3">Downloads</h2>
+            <ul className="space-y-2">
+              {attachments.map((att: any) => (
+                <li key={att.id}>
+                  <a
+                    href={att.file_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-3 rounded-lg border border-border hover:bg-muted/50 transition-colors text-foreground"
+                  >
+                    <FileText className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span className="flex-1">{att.file_name}</span>
+                    <Download className="h-4 w-4 text-muted-foreground" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
 
         {/* CTA */}
