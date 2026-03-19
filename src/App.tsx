@@ -33,6 +33,9 @@ const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const Uat2HtaPortalPage = lazy(() => import("./pages/Uat2HtaPortalPage"));
 const TestingChecklist = lazy(() => import("./pages/TestingChecklist"));
 const TestResults = lazy(() => import("./pages/TestResults"));
+const CareersPage = lazy(() => import("./pages/CareersPage"));
+const CareerDetailPage = lazy(() => import("./pages/CareerDetailPage"));
+const CareersAdmin = lazy(() => import("./pages/admin/CareersAdmin"));
 
 const queryClient = new QueryClient();
 
@@ -79,6 +82,9 @@ const App = () => (
               <Route path="/news-media/:id" element={<NewsMediaDetailPage />} />
               <Route path="/admin/news-media" element={<NewsMediaAdmin />} />
               <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/careers/:slug" element={<CareerDetailPage />} />
+              <Route path="/admin/careers" element={<CareersAdmin />} />
               <Route path="/uat2_hta_portal" element={<Uat2HtaPortalPage />} />
               <Route path="/testing" element={<TestingChecklist />} />
               <Route path="/test-results" element={<TestResults />} />

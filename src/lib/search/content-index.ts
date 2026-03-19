@@ -1236,6 +1236,23 @@ export const searchableContent: SearchableContent[] = [
     priority: 5,
     lastUpdated: currentDate,
   },
+
+  // ============================================
+  // Careers
+  // ============================================
+  {
+    id: 'careers-page',
+    type: 'section',
+    title: 'Careers & Job Opportunities',
+    description: 'Explore career opportunities at the Transformation Fund',
+    content: 'Browse current job openings at the Transformation Fund. Find full-time, part-time, and contract positions across departments. Join our mission to support inclusive economic transformation in South Africa.',
+    url: '/careers',
+    category: 'general',
+    audience: ['general'],
+    keywords: ['careers', 'jobs', 'vacancies', 'employment', 'hiring', 'work', 'opportunities', 'positions'],
+    priority: 4,
+    lastUpdated: currentDate,
+  },
 ];
 
 // Helper function to get content by type

@@ -41,9 +41,14 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
           <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
             ← Back to Site
           </Link>
-          <h1 className="text-lg font-extrabold uppercase tracking-tight text-foreground">
-            News & Media Admin
-          </h1>
+          <nav className="flex items-center gap-4">
+            <Link to="/admin/news-media" className="text-sm font-bold text-foreground hover:text-primary">
+              News & Media
+            </Link>
+            <Link to="/admin/careers" className="text-sm font-bold text-foreground hover:text-primary">
+              Careers
+            </Link>
+          </nav>
         </div>
         <Button variant="ghost" size="sm" onClick={handleLogout}>
           <LogOut className="h-4 w-4 mr-2" /> Sign Out
