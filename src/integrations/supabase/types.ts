@@ -16,44 +16,68 @@ export type Database = {
     Tables: {
       careers: {
         Row: {
+          apply_url: string | null
           closing_date: string | null
           created_at: string
           created_by: string | null
+          department: string | null
           description: string | null
           employment_type: string | null
           id: string
           location: string | null
           priority: number
+          publish_date: string
+          requirements: string | null
+          responsibilities: string | null
+          salary_range: string | null
           show_on_archive: boolean
+          slug: string | null
           status: string
+          summary: string | null
           title: string
           updated_at: string
         }
         Insert: {
+          apply_url?: string | null
           closing_date?: string | null
           created_at?: string
           created_by?: string | null
+          department?: string | null
           description?: string | null
           employment_type?: string | null
           id?: string
           location?: string | null
           priority?: number
+          publish_date?: string
+          requirements?: string | null
+          responsibilities?: string | null
+          salary_range?: string | null
           show_on_archive?: boolean
+          slug?: string | null
           status?: string
+          summary?: string | null
           title: string
           updated_at?: string
         }
         Update: {
+          apply_url?: string | null
           closing_date?: string | null
           created_at?: string
           created_by?: string | null
+          department?: string | null
           description?: string | null
           employment_type?: string | null
           id?: string
           location?: string | null
           priority?: number
+          publish_date?: string
+          requirements?: string | null
+          responsibilities?: string | null
+          salary_range?: string | null
           show_on_archive?: boolean
+          slug?: string | null
           status?: string
+          summary?: string | null
           title?: string
           updated_at?: string
         }
