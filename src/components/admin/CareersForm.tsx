@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/hooks/use-toast";
 import { useCreateCareer, useUpdateCareer } from "@/hooks/useCareers";
+import CareerAttachments from "@/components/admin/CareerAttachments";
 import type { CareerItem } from "@/types/careers";
 
 interface CareersFormProps {
