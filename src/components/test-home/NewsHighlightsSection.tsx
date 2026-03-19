@@ -21,7 +21,7 @@ const NewsHighlightsSection = memo(() => {
           <img
             src="/images/test-home/wrench-lady.jpg"
             alt="Board of Directors Call for Applications"
-            className="w-full h-full min-h-[400px] object-contain object-top bg-[#f5f5f5]"
+            className="w-full h-full min-h-[400px] object-contain object-top bg-[#f5f5f5] border border-[hsl(0,0%,85%)]"
             loading="lazy"
           />
         </a>
