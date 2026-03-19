@@ -110,6 +110,29 @@ const CareerDetailPage = () => {
           </p>
         )}
 
+        {/* Attachments */}
+        {attachments.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-xl font-bold text-foreground mb-3">Downloads</h2>
+            <ul className="space-y-2">
+              {attachments.map((att: any) => (
+                <li key={att.id}>
+                  <a
+                    href={att.file_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-3 rounded-lg border border-border hover:bg-muted/50 transition-colors text-foreground"
+                  >
+                    <FileText className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span className="flex-1">{att.file_name}</span>
+                    <Download className="h-4 w-4 text-muted-foreground" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {/* CTA */}
         <div className="mt-10 flex gap-4">
           {job.apply_url ? (

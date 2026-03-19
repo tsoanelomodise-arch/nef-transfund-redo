@@ -182,6 +182,13 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
         <label htmlFor="showOnArchive" className="text-sm">Show on Careers page</label>
       </div>
 
+      {isEditing && item?.id && (
+        <CareerAttachments careerId={item.id} />
+      )}
+      {!isEditing && (
+        <p className="text-xs text-muted-foreground italic">Save the job first, then you can add file attachments.</p>
+      )}
+
       <div className="flex gap-3">
         <Button type="submit" disabled={isPending}>{isPending ? "Saving..." : isEditing ? "Update" : "Create"}</Button>
         <Button type="button" variant="outline" onClick={onClose}>Cancel</Button>
