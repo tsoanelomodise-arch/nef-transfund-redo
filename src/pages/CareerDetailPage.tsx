@@ -1,11 +1,11 @@
 import { useParams, Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
-import { useCareerBySlug } from "@/hooks/useCareers";
+import { useCareerBySlug, useCareerAttachmentsBySlug } from "@/hooks/useCareers";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, MapPin, Briefcase, Calendar, ExternalLink, DollarSign } from "lucide-react";
+import { ArrowLeft, MapPin, Briefcase, Calendar, ExternalLink, DollarSign, FileText, Download } from "lucide-react";
 
 const CareerDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
