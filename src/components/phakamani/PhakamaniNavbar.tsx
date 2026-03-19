@@ -155,8 +155,8 @@ const PhakamaniNavbar = memo(() => {
               </Link>
               {resourcesDropdownOpen && (
                 <div className="dropdown-menu">
-                  <Link to="/careers" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>Careers</Link>
                   <Link to="/faq" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>FAQ</Link>
+                  <Link to="/careers" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>Careers</Link>
                 </div>
               )}
             </div>
