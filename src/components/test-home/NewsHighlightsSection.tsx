@@ -18,15 +18,13 @@ const NewsHighlightsSection = memo(() => {
       <div className="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr]">
         {/* Left image */}
         <a
-          href={pdfUrl || "/careers/board-of-directors"}
+          href={pdfUrl || "/resources/2026-TransformationFund-PrintAd.pdf"}
           onClick={(e) => {
-            if (pdfUrl) {
-              e.preventDefault();
-              window.open(pdfUrl, '_blank', 'noopener,noreferrer,width=1000,height=800');
-            }
+            const url = pdfUrl || "/resources/2026-TransformationFund-PrintAd.pdf";
+            e.preventDefault();
+            window.open(url, '_blank', 'noopener,width=1000,height=800');
           }}
           className="block cursor-pointer hover:opacity-90 transition-opacity"
-          {...(!pdfUrl ? {} : { target: "_blank", rel: "noopener noreferrer" })}
         >
           <img
             src="/images/test-home/wrench-lady.jpg"
