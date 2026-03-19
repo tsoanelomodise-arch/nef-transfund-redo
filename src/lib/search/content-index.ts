@@ -1242,7 +1242,7 @@ export const searchableContent: SearchableContent[] = [
   // ============================================
   {
     id: 'careers-page',
-    type: 'page',
+    type: 'section',
     title: 'Careers & Job Opportunities',
     description: 'Explore career opportunities at the Transformation Fund',
     content: 'Browse current job openings at the Transformation Fund. Find full-time, part-time, and contract positions across departments. Join our mission to support inclusive economic transformation in South Africa.',
