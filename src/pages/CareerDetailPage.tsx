@@ -10,6 +10,7 @@ import { ArrowLeft, MapPin, Briefcase, Calendar, ExternalLink, DollarSign, FileT
 const CareerDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const { data: job, isLoading, error } = useCareerBySlug(slug ?? "");
+  const { data: attachments = [] } = useCareerAttachmentsBySlug(slug ?? "");
 
   useSEO({
     title: job?.title ?? "Career Details",
