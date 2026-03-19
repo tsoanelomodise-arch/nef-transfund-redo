@@ -130,3 +130,62 @@ export function useDeleteCareer() {
     },
   });
 }
+
+// ─── Attachment hooks ───
+
+export function useCareerAttachments(careerId: string) {
+  return useQuery({
+    queryKey: ["career-attachments", careerId],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("career_attachments" as any)
+        .select("*")
+        .eq("career_id", careerId)
+        .order("created_at", { ascending: true });
+      if (error) throw error;
+      return data ?? [];
+    },
+    enabled: !!careerId,
+  });
+}
+
+export function useCareerAttachmentsBySlug(slug: string) {
+  return useQuery({
+    queryKey: ["career-attachments-slug", slug],
+    queryFn: async () => {
+      // First get the career id from slug
+      const { data: career, error: careerError } = await supabase
+        .from("careers_public" as any)
+        .select("id")
+        .eq("slug", slug)
+        .single();
+      if (careerError || !career) return [];
+
+      const { data, error } = await supabase
+        .from("career_attachments" as any)
+        .select("*")
+        .eq("career_id", (career as any).id)
+        .order("created_at", { ascending: true });
+      if (error) throw error;
+      return data ?? [];
+    },
+    enabled: !!slug,
+  });
+}
+
+export function useDeleteCareerAttachment() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async (id: string) => {
+      const { error } = await supabase
+        .from("career_attachments" as any)
+        .delete()
+        .eq("id", id);
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["career-attachments"] });
+      qc.invalidateQueries({ queryKey: ["career-attachments-slug"] });
+    },
+  });
+}
