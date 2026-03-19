@@ -31,7 +31,7 @@ export type Database = {
           responsibilities: string | null
           salary_range: string | null
           show_on_archive: boolean
-          slug: string | null
+          slug: string
           status: string
           summary: string | null
           title: string
@@ -53,7 +53,7 @@ export type Database = {
           responsibilities?: string | null
           salary_range?: string | null
           show_on_archive?: boolean
-          slug?: string | null
+          slug: string
           status?: string
           summary?: string | null
           title: string
@@ -75,7 +75,7 @@ export type Database = {
           responsibilities?: string | null
           salary_range?: string | null
           show_on_archive?: boolean
-          slug?: string | null
+          slug?: string
           status?: string
           summary?: string | null
           title?: string
@@ -225,41 +225,65 @@ export type Database = {
     Views: {
       careers_public: {
         Row: {
+          apply_url: string | null
           closing_date: string | null
           created_at: string | null
+          department: string | null
           description: string | null
           employment_type: string | null
           id: string | null
           location: string | null
           priority: number | null
+          publish_date: string | null
+          requirements: string | null
+          responsibilities: string | null
+          salary_range: string | null
           show_on_archive: boolean | null
+          slug: string | null
           status: string | null
+          summary: string | null
           title: string | null
           updated_at: string | null
         }
         Insert: {
+          apply_url?: string | null
           closing_date?: string | null
           created_at?: string | null
+          department?: string | null
           description?: string | null
           employment_type?: string | null
           id?: string | null
           location?: string | null
           priority?: number | null
+          publish_date?: string | null
+          requirements?: string | null
+          responsibilities?: string | null
+          salary_range?: string | null
           show_on_archive?: boolean | null
+          slug?: string | null
           status?: string | null
+          summary?: string | null
           title?: string | null
           updated_at?: string | null
         }
         Update: {
+          apply_url?: string | null
           closing_date?: string | null
           created_at?: string | null
+          department?: string | null
           description?: string | null
           employment_type?: string | null
           id?: string | null
           location?: string | null
           priority?: number | null
+          publish_date?: string | null
+          requirements?: string | null
+          responsibilities?: string | null
+          salary_range?: string | null
           show_on_archive?: boolean | null
+          slug?: string | null
           status?: string | null
+          summary?: string | null
           title?: string | null
           updated_at?: string | null
         }
