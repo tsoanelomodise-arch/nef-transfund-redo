@@ -133,19 +133,8 @@ const CareerDetailPage = () => {
           </div>
         )}
 
-        {/* CTA */}
-        <div className="mt-10 flex gap-4">
-          {job.apply_url ? (
-            <a href={job.apply_url} target="_blank" rel="noopener noreferrer">
-              <Button variant="cta" size="lg">
-                Apply Now <ExternalLink className="h-4 w-4 ml-2" />
-              </Button>
-            </a>
-          ) : (
-            <Link to="/contacts">
-              <Button variant="cta" size="lg">Contact Us to Apply</Button>
-            </Link>
-          )}
+        {/* Back link */}
+        <div className="mt-10">
           <Link to="/careers">
             <Button variant="outline" size="lg">
               <ArrowLeft className="h-4 w-4 mr-2" /> Back to Careers
