@@ -15,7 +15,7 @@ const slides = [
   },
   {
     image: "/images/test-home/hero-slide-3.jpg",
-    title: "A strategic instrument designed to enable coherent financing interventions",
+    title: "A STRATEGIC INSTRUMENT DESIGNED TO ENABLE COORDINATED FINANCING INTERVENTIONS",
     tagline: "The Transformation Fund represents a bold shift: a coordinated, outcome-focused mechanism that engineers inclusive growth at scale.",
   },
   {
