@@ -1,5 +1,5 @@
-import { useState, memo } from "react";
-import { Play } from "lucide-react";
+import { useState, memo, useEffect, useRef, useCallback } from "react";
+import { Play, RotateCcw } from "lucide-react";
 import videoThumbnail from "@/assets/video-thumbnail.png";
 
 const serviceItems = [
@@ -10,11 +10,60 @@ const serviceItems = [
 
 const TestHomePortalSection = memo(() => {
   const [showVideo, setShowVideo] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false);
+  const playerContainerRef = useRef<HTMLDivElement>(null);
+  const playerRef = useRef<any>(null);
+
+  const handleReplay = useCallback(() => {
+    setVideoEnded(false);
+    if (playerRef.current?.seekTo) {
+      playerRef.current.seekTo(0);
+      playerRef.current.playVideo();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!showVideo) return;
+
+    const loadAPI = () => {
+      if ((window as any).YT?.Player) {
+        createPlayer();
+        return;
+      }
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(tag);
+      (window as any).onYouTubeIframeAPIReady = createPlayer;
+    };
+
+    const createPlayer = () => {
+      if (!playerContainerRef.current) return;
+      playerRef.current = new (window as any).YT.Player(playerContainerRef.current, {
+        videoId: "C3yyl_4lrd4",
+        playerVars: { autoplay: 1, rel: 0, modestbranding: 1, enablejsapi: 1 },
+        events: {
+          onStateChange: (event: any) => {
+            if (event.data === (window as any).YT.PlayerState.ENDED) {
+              setVideoEnded(true);
+            }
+          },
+        },
+      });
+    };
+
+    loadAPI();
+
+    return () => {
+      if (playerRef.current?.destroy) {
+        playerRef.current.destroy();
+        playerRef.current = null;
+      }
+    };
+  }, [showVideo]);
 
   return (
     <section className="pt-6 pb-10 bg-white">
       <div className="max-w-[1200px] mx-auto px-5">
-        {/* Header - full width */}
         <span className="text-xs font-bold tracking-widest text-[#666666] uppercase text-right block">
           PREPARATION IS KEY
         </span>
@@ -25,9 +74,7 @@ const TestHomePortalSection = memo(() => {
           Saving you time and effort
         </p>
 
-        {/* Bullet points + Video side by side */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Numbered service items */}
           <div className="lg:pr-8">
             {serviceItems.map((item, index) => (
               <div key={index} className="flex items-center mb-8">
@@ -41,17 +88,26 @@ const TestHomePortalSection = memo(() => {
             ))}
           </div>
 
-          {/* YouTube embed - click to load */}
           <div className="relative w-full bg-black" style={{ paddingBottom: "56.25%" }}>
             {showVideo ? (
-              <iframe
-                src="https://www.youtube.com/embed/C3yyl_4lrd4?autoplay=1"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-                className="absolute inset-0 w-full h-full"
-              />
+              <>
+                <div ref={playerContainerRef} className="absolute inset-0 w-full h-full" />
+                {videoEnded && (
+                  <div
+                    className="absolute inset-0 w-full h-full z-10 flex items-center justify-center cursor-pointer bg-black"
+                    onClick={handleReplay}
+                  >
+                    <img
+                      src={videoThumbnail}
+                      alt="Video ended"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="relative z-10 w-16 h-16 bg-black/70 rounded-full flex items-center justify-center">
+                      <RotateCcw className="w-7 h-7 text-white" />
+                    </div>
+                  </div>
+                )}
+              </>
             ) : (
               <button
                 onClick={() => setShowVideo(true)}
