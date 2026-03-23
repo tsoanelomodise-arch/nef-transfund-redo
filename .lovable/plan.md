@@ -1,25 +1,26 @@
 
 
-## Plan: Link Board of Directors image to its career attachment PDF
+## Prevent YouTube Suggested Videos on Portal Page
 
-### What changes
+### Change
 
-The Board of Directors banner image in `NewsHighlightsSection` currently links to a hardcoded external URL. Instead, it should dynamically fetch the PDF attachment from the "board-of-directors" career record and open that file when clicked.
+In `src/pages/Uat2HtaPortalPage.tsx`, update the YouTube embed URL from:
 
-### Implementation
+```
+https://www.youtube.com/embed/8UX1guPBADg?autoplay=1
+```
 
-**File: `src/components/test-home/NewsHighlightsSection.tsx`**
+to:
 
-1. Import `useCareerAttachmentsBySlug` from `@/hooks/useCareers`
-2. Call `useCareerAttachmentsBySlug("board-of-directors")` to fetch the attachments for that career record
-3. Find the first PDF attachment (matching the uploaded `2026-TransformationFund-PrintAd` file)
-4. Replace the hardcoded external URL in the `<a>` tag with the dynamic `file_url` from the attachment query
-5. Keep the existing click behavior (opens in a new window) but use the dynamic URL
-6. Add a fallback: if no attachment is found yet (loading or empty), fall back to a link to the career detail page `/careers/board-of-directors`
+```
+https://www.youtube.com/embed/8UX1guPBADg?autoplay=1&rel=0&modestbranding=1
+```
 
-### Technical details
+- `rel=0` — disables suggested videos from other channels at the end
+- `modestbranding=1` — reduces YouTube branding in the player
 
-- The `useCareerAttachmentsBySlug` hook already exists and fetches attachments via the `careers_public` view (no auth required)
-- The `career-attachments` storage bucket is public, so the `file_url` will be directly accessible
-- No database or migration changes needed
+**Note**: YouTube no longer fully hides *all* suggestions with `rel=0` — it limits them to the same channel only. Complete removal of end-screen suggestions is not possible with standard embeds. If no other videos exist on the channel, the end screen will appear mostly clean.
+
+### Files changed
+- `src/pages/Uat2HtaPortalPage.tsx` — one line change to the iframe `src` attribute
 
