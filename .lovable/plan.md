@@ -1,26 +1,27 @@
 
 
-## Prevent YouTube Suggested Videos on Portal Page
+## Freeze YouTube Video on Last Frame
 
-### Change
+### Problem
+When the YouTube video finishes playing, it shows suggested videos and YouTube branding. The user wants it to freeze on the last frame with nothing displayed after.
 
-In `src/pages/Uat2HtaPortalPage.tsx`, update the YouTube embed URL from:
+### Approach
+Replace the simple iframe embed with the YouTube IFrame Player API. This allows listening for the video's `ENDED` state event. When the video ends, we overlay the thumbnail image back on top of the iframe, effectively "freezing" the display and hiding all YouTube end-screen content.
 
-```
-https://www.youtube.com/embed/8UX1guPBADg?autoplay=1
-```
+### Implementation
 
-to:
+**File: `src/pages/Uat2HtaPortalPage.tsx`**
 
-```
-https://www.youtube.com/embed/8UX1guPBADg?autoplay=1&rel=0&modestbranding=1
-```
+1. Add a new state `videoEnded` (boolean, default false)
+2. Add a `useEffect` that loads the YouTube IFrame Player API script and creates a `YT.Player` instance when `showVideo` becomes true
+3. Listen for the player's `onStateChange` event — when `state === YT.PlayerState.ENDED`, set `videoEnded = true`
+4. When `videoEnded` is true, render the thumbnail image as an overlay on top of the iframe (same thumbnail used for the play button), hiding YouTube's end screen
+5. Optionally include a replay button on the overlay so the user can watch again
+6. Use a `ref` for the iframe container div so the API can target it
+7. The embed URL will use `enablejsapi=1` in addition to the existing `rel=0&modestbranding=1` parameters
 
-- `rel=0` — disables suggested videos from other channels at the end
-- `modestbranding=1` — reduces YouTube branding in the player
-
-**Note**: YouTube no longer fully hides *all* suggestions with `rel=0` — it limits them to the same channel only. Complete removal of end-screen suggestions is not possible with standard embeds. If no other videos exist on the channel, the end screen will appear mostly clean.
-
-### Files changed
-- `src/pages/Uat2HtaPortalPage.tsx` — one line change to the iframe `src` attribute
+### What stays the same
+- Click-to-play thumbnail behavior unchanged
+- Video autoplay on click unchanged
+- Tab section and all other page content unchanged
 
