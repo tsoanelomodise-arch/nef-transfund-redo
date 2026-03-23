@@ -261,14 +261,21 @@ const Uat2HtaPortalPage = memo(() => {
             <div className="hta-hero-video-block">
               <div className="hta-video-wrapper">
                 {showVideo ? (
-                  <iframe
-                    src="https://www.youtube.com/embed/8UX1guPBADg?autoplay=1&rel=0&modestbranding=1"
-                    title="What to know about the portal - Video"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                  />
+                  <>
+                    <div ref={playerContainerRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} />
+                    {videoEnded && (
+                      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10, cursor: 'pointer', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={handleReplay}>
+                        <img
+                          src="https://img.youtube.com/vi/8UX1guPBADg/hqdefault.jpg"
+                          alt="Video ended"
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                        <div style={{ position: 'relative', zIndex: 1, width: 64, height: 64, borderRadius: '50%', background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <RotateCcw style={{ width: 28, height: 28, color: '#fff' }} />
+                        </div>
+                      </div>
+                    )}
+                  </>
                 ) : (
                   <button
                     onClick={() => setShowVideo(true)}
@@ -276,7 +283,7 @@ const Uat2HtaPortalPage = memo(() => {
                     aria-label="Play video"
                   >
                     <img
-                      src={`https://img.youtube.com/vi/8UX1guPBADg/hqdefault.jpg`}
+                      src="https://img.youtube.com/vi/8UX1guPBADg/hqdefault.jpg"
                       alt="Video thumbnail"
                       style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
                       loading="lazy"
