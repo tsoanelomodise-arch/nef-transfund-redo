@@ -1,27 +1,22 @@
 
 
-## Freeze YouTube Video on Last Frame
+## Fix: Hide YouTube End-Screen Suggestions on Homepage Video
 
 ### Problem
-When the YouTube video finishes playing, it shows suggested videos and YouTube branding. The user wants it to freeze on the last frame with nothing displayed after.
+When the homepage video finishes, YouTube briefly shows suggested video thumbnails before the custom overlay appears. The `rel=0` parameter only limits suggestions to the same channel — it doesn't eliminate them entirely.
 
-### Approach
-Replace the simple iframe embed with the YouTube IFrame Player API. This allows listening for the video's `ENDED` state event. When the video ends, we overlay the thumbnail image back on top of the iframe, effectively "freezing" the display and hiding all YouTube end-screen content.
+### Solution
+In `src/components/test-home/TestHomePortalSection.tsx`, pause the video ~0.5 seconds before it ends so the overlay appears *before* YouTube shows its end screen. This uses the `onStateChange` event combined with a time-check interval near the end of playback.
 
-### Implementation
+**Changes to `src/components/test-home/TestHomePortalSection.tsx`:**
 
-**File: `src/pages/Uat2HtaPortalPage.tsx`**
+1. Add a `timeUpdate` interval inside the `useEffect` that checks if the video is within 0.5s of ending — if so, pause it and show the overlay immediately
+2. This prevents YouTube's end-screen from ever appearing
+3. Keep the existing `ENDED` event as a fallback
+4. The replay button and thumbnail overlay remain unchanged
 
-1. Add a new state `videoEnded` (boolean, default false)
-2. Add a `useEffect` that loads the YouTube IFrame Player API script and creates a `YT.Player` instance when `showVideo` becomes true
-3. Listen for the player's `onStateChange` event — when `state === YT.PlayerState.ENDED`, set `videoEnded = true`
-4. When `videoEnded` is true, render the thumbnail image as an overlay on top of the iframe (same thumbnail used for the play button), hiding YouTube's end screen
-5. Optionally include a replay button on the overlay so the user can watch again
-6. Use a `ref` for the iframe container div so the API can target it
-7. The embed URL will use `enablejsapi=1` in addition to the existing `rel=0&modestbranding=1` parameters
-
-### What stays the same
-- Click-to-play thumbnail behavior unchanged
-- Video autoplay on click unchanged
-- Tab section and all other page content unchanged
+### Technical detail
+- Use `player.getDuration()` and `player.getCurrentTime()` in a `setInterval` (every 500ms) to detect near-end state
+- When `duration - currentTime < 0.8`, pause the player and set `videoEnded = true`
+- Clear the interval on cleanup
 
