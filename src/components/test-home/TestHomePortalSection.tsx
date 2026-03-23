@@ -36,6 +36,8 @@ const TestHomePortalSection = memo(() => {
       (window as any).onYouTubeIframeAPIReady = createPlayer;
     };
 
+    let timeCheckInterval: ReturnType<typeof setInterval> | null = null;
+
     const createPlayer = () => {
       if (!playerContainerRef.current) return;
       playerRef.current = new (window as any).YT.Player(playerContainerRef.current, {
@@ -43,8 +45,23 @@ const TestHomePortalSection = memo(() => {
         playerVars: { autoplay: 1, rel: 0, modestbranding: 1, enablejsapi: 1 },
         events: {
           onStateChange: (event: any) => {
+            if (event.data === (window as any).YT.PlayerState.PLAYING) {
+              if (timeCheckInterval) clearInterval(timeCheckInterval);
+              timeCheckInterval = setInterval(() => {
+                const player = playerRef.current;
+                if (!player?.getCurrentTime || !player?.getDuration) return;
+                const duration = player.getDuration();
+                const currentTime = player.getCurrentTime();
+                if (duration > 0 && duration - currentTime < 0.8) {
+                  player.pauseVideo();
+                  setVideoEnded(true);
+                  if (timeCheckInterval) clearInterval(timeCheckInterval);
+                }
+              }, 500);
+            }
             if (event.data === (window as any).YT.PlayerState.ENDED) {
               setVideoEnded(true);
+              if (timeCheckInterval) clearInterval(timeCheckInterval);
             }
           },
         },
@@ -54,6 +71,7 @@ const TestHomePortalSection = memo(() => {
     loadAPI();
 
     return () => {
+      if (timeCheckInterval) clearInterval(timeCheckInterval);
       if (playerRef.current?.destroy) {
         playerRef.current.destroy();
         playerRef.current = null;
