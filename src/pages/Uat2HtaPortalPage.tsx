@@ -1,5 +1,5 @@
-import { useState, memo } from "react";
-import { Play } from "lucide-react";
+import { useState, memo, useEffect, useRef, useCallback } from "react";
+import { Play, RotateCcw } from "lucide-react";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 
