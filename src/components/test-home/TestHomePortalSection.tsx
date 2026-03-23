@@ -71,6 +71,7 @@ const TestHomePortalSection = memo(() => {
     loadAPI();
 
     return () => {
+      if (timeCheckInterval) clearInterval(timeCheckInterval);
       if (playerRef.current?.destroy) {
         playerRef.current.destroy();
         playerRef.current = null;
