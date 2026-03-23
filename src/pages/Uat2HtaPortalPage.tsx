@@ -212,7 +212,7 @@ const Uat2HtaPortalPage = memo(() => {
               <div className="hta-video-wrapper">
                 {showVideo ? (
                   <iframe
-                    src="https://www.youtube.com/embed/8UX1guPBADg?autoplay=1"
+                    src="https://www.youtube.com/embed/8UX1guPBADg?autoplay=1&rel=0&modestbranding=1"
                     title="What to know about the portal - Video"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
