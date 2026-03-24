@@ -34,7 +34,7 @@ const TestHomePortalSection = memo(() => {
             ))}
           </div>
 
-          <div className="relative w-full" style={{ paddingBottom: "56.25%", border: "4px solid #007847", padding: "16px", paddingBottom: "calc(56.25% + 16px)", background: "#007847", boxShadow: "20px 20px 0px 0px rgba(0, 120, 71, 0.2)" }}>
+          <div className="relative w-full" style={{ border: "4px solid #007847", padding: "16px", paddingBottom: "calc(56.25% + 16px)", background: "#007847", boxShadow: "20px 20px 0px 0px rgba(0, 120, 71, 0.2)" }}>
             <video
               controls
               preload="metadata"
