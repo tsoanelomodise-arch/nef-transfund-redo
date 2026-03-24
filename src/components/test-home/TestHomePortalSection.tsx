@@ -1,6 +1,4 @@
-import { useState, memo, useEffect, useRef, useCallback } from "react";
-import { Play, RotateCcw } from "lucide-react";
-import videoThumbnail from "@/assets/video-thumbnail.png";
+import { memo } from "react";
 
 const serviceItems = [
   { number: "01", title: "Check Your Eligibility" },
@@ -9,76 +7,6 @@ const serviceItems = [
 ];
 
 const TestHomePortalSection = memo(() => {
-  const [showVideo, setShowVideo] = useState(false);
-  const [videoEnded, setVideoEnded] = useState(false);
-  const playerContainerRef = useRef<HTMLDivElement>(null);
-  const playerRef = useRef<any>(null);
-
-  const handleReplay = useCallback(() => {
-    setVideoEnded(false);
-    if (playerRef.current?.seekTo) {
-      playerRef.current.seekTo(0);
-      playerRef.current.playVideo();
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!showVideo) return;
-
-    const loadAPI = () => {
-      if ((window as any).YT?.Player) {
-        createPlayer();
-        return;
-      }
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.head.appendChild(tag);
-      (window as any).onYouTubeIframeAPIReady = createPlayer;
-    };
-
-    let timeCheckInterval: ReturnType<typeof setInterval> | null = null;
-
-    const createPlayer = () => {
-      if (!playerContainerRef.current) return;
-      playerRef.current = new (window as any).YT.Player(playerContainerRef.current, {
-        videoId: "C3yyl_4lrd4",
-        playerVars: { autoplay: 1, rel: 0, modestbranding: 1, enablejsapi: 1 },
-        events: {
-          onStateChange: (event: any) => {
-            if (event.data === (window as any).YT.PlayerState.PLAYING) {
-              if (timeCheckInterval) clearInterval(timeCheckInterval);
-              timeCheckInterval = setInterval(() => {
-                const player = playerRef.current;
-                if (!player?.getCurrentTime || !player?.getDuration) return;
-                const duration = player.getDuration();
-                const currentTime = player.getCurrentTime();
-                if (duration > 0 && duration - currentTime < 0.8) {
-                  player.pauseVideo();
-                  setVideoEnded(true);
-                  if (timeCheckInterval) clearInterval(timeCheckInterval);
-                }
-              }, 500);
-            }
-            if (event.data === (window as any).YT.PlayerState.ENDED) {
-              setVideoEnded(true);
-              if (timeCheckInterval) clearInterval(timeCheckInterval);
-            }
-          },
-        },
-      });
-    };
-
-    loadAPI();
-
-    return () => {
-      if (timeCheckInterval) clearInterval(timeCheckInterval);
-      if (playerRef.current?.destroy) {
-        playerRef.current.destroy();
-        playerRef.current = null;
-      }
-    };
-  }, [showVideo]);
-
   return (
     <section className="pt-6 pb-10 bg-white">
       <div className="max-w-[1200px] mx-auto px-5">
@@ -107,42 +35,14 @@ const TestHomePortalSection = memo(() => {
           </div>
 
           <div className="relative w-full bg-black" style={{ paddingBottom: "56.25%" }}>
-            {showVideo ? (
-              <>
-                <div ref={playerContainerRef} className="absolute inset-0 w-full h-full" />
-                {videoEnded && (
-                  <div
-                    className="absolute inset-0 w-full h-full z-10 flex items-center justify-center cursor-pointer bg-black"
-                    onClick={handleReplay}
-                  >
-                    <img
-                      src={videoThumbnail}
-                      alt="Video ended"
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                    <div className="relative z-10 w-16 h-16 bg-black/70 rounded-full flex items-center justify-center">
-                      <RotateCcw className="w-7 h-7 text-white" />
-                    </div>
-                  </div>
-                )}
-              </>
-            ) : (
-              <button
-                onClick={() => setShowVideo(true)}
-                className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer group"
-                aria-label="Play video"
-              >
-                <img
-                  src={videoThumbnail}
-                  alt="Video thumbnail"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="relative z-10 w-16 h-16 bg-black/70 rounded-full flex items-center justify-center group-hover:bg-black/90 transition-colors">
-                  <Play className="w-8 h-8 text-white ml-1" />
-                </div>
-              </button>
-            )}
+            <video
+              controls
+              preload="metadata"
+              className="absolute inset-0 w-full h-full"
+            >
+              <source src="/videos/V3_TF_EligibilityAndDocumentChecker.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
