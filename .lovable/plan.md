@@ -1,37 +1,21 @@
 
 
-## Replace YouTube Video with Uploaded MP4 on Portal Page
+## Replace Homepage YouTube Embed with Native MP4 Video
 
 ### What changes
-Replace the YouTube embed in `src/pages/Uat2HtaPortalPage.tsx` with a native HTML5 `<video>` element using the uploaded MP4 file.
+Replace the YouTube IFrame Player API embed in `src/components/test-home/TestHomePortalSection.tsx` with a native HTML5 `<video>` element using the uploaded MP4 file.
 
 ### Steps
 
-1. **Copy the uploaded video** to `public/videos/P4_ApplicationProcess_Video.mp4`
+1. **Copy uploaded video** to `public/videos/V3_TF_EligibilityAndDocumentChecker.mp4`
 
-2. **Simplify `Uat2HtaPortalPage.tsx`**:
-   - Remove all YouTube IFrame Player API logic (the `useEffect` for loading YT API, `playerRef`, `playerContainerRef`, `onYouTubeIframeAPIReady`, etc.)
-   - Remove `videoEnded` state and replay overlay logic
-   - Remove the click-to-play thumbnail pattern
-   - Replace with a simple `<video>` element with `controls`, no `autoplay`, and styled to fill the video wrapper
-   - The native video player naturally freezes on the last frame when playback ends — no extra logic needed
-
-### Technical detail
-
-The video element will be:
-```html
-<video
-  controls
-  preload="metadata"
-  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
->
-  <source src="/videos/P4_ApplicationProcess_Video.mp4" type="video/mp4" />
-</video>
-```
-
-This eliminates ~60 lines of YouTube API code and all related state/refs. The native player handles end-of-video gracefully with no suggested content.
+2. **Simplify `TestHomePortalSection.tsx`**:
+   - Remove all YouTube IFrame Player API logic (`useEffect`, `playerRef`, `playerContainerRef`, `onYouTubeIframeAPIReady`, time-check interval, `videoEnded` state, `handleReplay`, `showVideo` state)
+   - Remove `videoThumbnail` import and `RotateCcw` / `Play` icon imports
+   - Replace with a simple `<video controls preload="metadata">` element pointing to `/videos/V3_TF_EligibilityAndDocumentChecker.mp4`
+   - Native player freezes on last frame automatically — no overlay logic needed
 
 ### Files changed
-- `public/videos/P4_ApplicationProcess_Video.mp4` — new file (copied from upload)
-- `src/pages/Uat2HtaPortalPage.tsx` — replace YouTube embed with native video player
+- `public/videos/V3_TF_EligibilityAndDocumentChecker.mp4` — new file
+- `src/components/test-home/TestHomePortalSection.tsx` — replace ~90 lines of YouTube logic with ~10 lines of native video
 
