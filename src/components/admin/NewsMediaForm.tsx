@@ -47,12 +47,8 @@ const NewsMediaForm = ({ item, onClose }: NewsMediaFormProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim()) {
-      toast({ title: "Title is required", variant: "destructive" });
-      return;
-    }
 
-    const payload = {
+    const raw = {
       content_type: contentType,
       title: title.trim(),
       excerpt: excerpt.trim() || null,
@@ -66,6 +62,15 @@ const NewsMediaForm = ({ item, onClose }: NewsMediaFormProps) => {
       highlight_on_home: !isNews ? highlightOnHome : false,
       show_on_archive: showOnArchive,
     };
+
+    const result = newsMediaSchema.safeParse(raw);
+    if (!result.success) {
+      const firstError = result.error.errors[0]?.message || "Validation failed";
+      toast({ title: "Validation Error", description: firstError, variant: "destructive" });
+      return;
+    }
+
+    const payload = result.data;
 
     if (isEditing) {
       updateMutation.mutate(

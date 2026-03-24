@@ -52,12 +52,8 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim() || !slug.trim()) {
-      toast({ title: "Title and slug are required", variant: "destructive" });
-      return;
-    }
 
-    const payload = {
+    const raw = {
       title: title.trim(),
       slug: slug.trim(),
       department: department.trim() || null,
@@ -73,6 +69,15 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
       priority,
       show_on_archive: showOnArchive,
     };
+
+    const result = careersSchema.safeParse(raw);
+    if (!result.success) {
+      const firstError = result.error.errors[0]?.message || "Validation failed";
+      toast({ title: "Validation Error", description: firstError, variant: "destructive" });
+      return;
+    }
+
+    const payload = result.data;
 
     if (isEditing) {
       updateMutation.mutate(
