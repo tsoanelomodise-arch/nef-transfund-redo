@@ -70,7 +70,7 @@ const NewsMediaForm = ({ item, onClose }: NewsMediaFormProps) => {
       return;
     }
 
-    const payload = result.data;
+    const payload = result.data as typeof raw;
 
     if (isEditing) {
       updateMutation.mutate(

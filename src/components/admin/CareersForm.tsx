@@ -77,7 +77,7 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
       return;
     }
 
-    const payload = result.data;
+    const payload = result.data as typeof raw;
 
     if (isEditing) {
       updateMutation.mutate(
