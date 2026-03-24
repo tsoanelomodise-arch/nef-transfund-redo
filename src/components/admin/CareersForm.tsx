@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/hooks/use-toast";
 import { useCreateCareer, useUpdateCareer } from "@/hooks/useCareers";
+import { careersSchema } from "@/lib/validation/admin-forms";
 import CareerAttachments from "@/components/admin/CareerAttachments";
 import type { CareerItem } from "@/types/careers";
 
@@ -51,12 +52,8 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim() || !slug.trim()) {
-      toast({ title: "Title and slug are required", variant: "destructive" });
-      return;
-    }
 
-    const payload = {
+    const raw = {
       title: title.trim(),
       slug: slug.trim(),
       department: department.trim() || null,
@@ -72,6 +69,15 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
       priority,
       show_on_archive: showOnArchive,
     };
+
+    const result = careersSchema.safeParse(raw);
+    if (!result.success) {
+      const firstError = result.error.errors[0]?.message || "Validation failed";
+      toast({ title: "Validation Error", description: firstError, variant: "destructive" });
+      return;
+    }
+
+    const payload = result.data as typeof raw;
 
     if (isEditing) {
       updateMutation.mutate(

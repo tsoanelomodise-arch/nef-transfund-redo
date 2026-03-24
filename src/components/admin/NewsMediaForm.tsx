@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/hooks/use-toast";
 import { useCreateNewsMedia, useUpdateNewsMedia, useHomeNewsCount, useHomeStoriesCount } from "@/hooks/useNewsMedia";
+import { newsMediaSchema } from "@/lib/validation/admin-forms";
 import type { NewsMediaItem } from "@/types/news-media";
 
 interface NewsMediaFormProps {
@@ -46,12 +47,8 @@ const NewsMediaForm = ({ item, onClose }: NewsMediaFormProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim()) {
-      toast({ title: "Title is required", variant: "destructive" });
-      return;
-    }
 
-    const payload = {
+    const raw = {
       content_type: contentType,
       title: title.trim(),
       excerpt: excerpt.trim() || null,
@@ -65,6 +62,15 @@ const NewsMediaForm = ({ item, onClose }: NewsMediaFormProps) => {
       highlight_on_home: !isNews ? highlightOnHome : false,
       show_on_archive: showOnArchive,
     };
+
+    const result = newsMediaSchema.safeParse(raw);
+    if (!result.success) {
+      const firstError = result.error.errors[0]?.message || "Validation failed";
+      toast({ title: "Validation Error", description: firstError, variant: "destructive" });
+      return;
+    }
+
+    const payload = result.data as typeof raw;
 
     if (isEditing) {
       updateMutation.mutate(
