@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/hooks/use-toast";
 import { useCreateNewsMedia, useUpdateNewsMedia, useHomeNewsCount, useHomeStoriesCount } from "@/hooks/useNewsMedia";
+import { newsMediaSchema } from "@/lib/validation/admin-forms";
 import type { NewsMediaItem } from "@/types/news-media";
 
 interface NewsMediaFormProps {
