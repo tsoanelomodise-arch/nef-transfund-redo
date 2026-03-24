@@ -1,21 +1,16 @@
 
 
-## Replace Homepage YouTube Embed with Native MP4 Video
+## Add Green Border to Homepage Video
 
-### What changes
-Replace the YouTube IFrame Player API embed in `src/components/test-home/TestHomePortalSection.tsx` with a native HTML5 `<video>` element using the uploaded MP4 file.
+### Change
+In `src/components/test-home/TestHomePortalSection.tsx`, add a thick green border around the video container to match the portal page styling.
 
-### Steps
+**What gets added to the video wrapper div (line 37):**
+- `border: 4px solid #007847` (Phakamani Green)
+- `padding: 16px` (spacing between border and video)
+- `box-shadow: 20px 20px 0px 0px rgba(0, 120, 71, 0.2)` (matching the portal page offset shadow)
+- Green background on the wrapper to fill the padding area
 
-1. **Copy uploaded video** to `public/videos/V3_TF_EligibilityAndDocumentChecker.mp4`
-
-2. **Simplify `TestHomePortalSection.tsx`**:
-   - Remove all YouTube IFrame Player API logic (`useEffect`, `playerRef`, `playerContainerRef`, `onYouTubeIframeAPIReady`, time-check interval, `videoEnded` state, `handleReplay`, `showVideo` state)
-   - Remove `videoThumbnail` import and `RotateCcw` / `Play` icon imports
-   - Replace with a simple `<video controls preload="metadata">` element pointing to `/videos/V3_TF_EligibilityAndDocumentChecker.mp4`
-   - Native player freezes on last frame automatically — no overlay logic needed
-
-### Files changed
-- `public/videos/V3_TF_EligibilityAndDocumentChecker.mp4` — new file
-- `src/components/test-home/TestHomePortalSection.tsx` — replace ~90 lines of YouTube logic with ~10 lines of native video
+### File changed
+- `src/components/test-home/TestHomePortalSection.tsx` — update the video container div styling
 
