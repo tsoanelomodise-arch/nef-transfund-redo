@@ -1,5 +1,4 @@
-import { useState, memo, useEffect, useRef, useCallback } from "react";
-import { Play, RotateCcw } from "lucide-react";
+import { useState, memo } from "react";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 
@@ -13,57 +12,6 @@ const tabs = [
 
 const Uat2HtaPortalPage = memo(() => {
   const [activeTab, setActiveTab] = useState("tab-capital");
-  const [showVideo, setShowVideo] = useState(false);
-  const [videoEnded, setVideoEnded] = useState(false);
-  const playerContainerRef = useRef<HTMLDivElement>(null);
-  const playerRef = useRef<any>(null);
-
-  const handleReplay = useCallback(() => {
-    setVideoEnded(false);
-    if (playerRef.current?.seekTo) {
-      playerRef.current.seekTo(0);
-      playerRef.current.playVideo();
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!showVideo) return;
-
-    const loadAPI = () => {
-      if ((window as any).YT?.Player) {
-        createPlayer();
-        return;
-      }
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.head.appendChild(tag);
-      (window as any).onYouTubeIframeAPIReady = createPlayer;
-    };
-
-    const createPlayer = () => {
-      if (!playerContainerRef.current) return;
-      playerRef.current = new (window as any).YT.Player(playerContainerRef.current, {
-        videoId: "8UX1guPBADg",
-        playerVars: { autoplay: 1, rel: 0, modestbranding: 1, enablejsapi: 1 },
-        events: {
-          onStateChange: (event: any) => {
-            if (event.data === (window as any).YT.PlayerState.ENDED) {
-              setVideoEnded(true);
-            }
-          },
-        },
-      });
-    };
-
-    loadAPI();
-
-    return () => {
-      if (playerRef.current?.destroy) {
-        playerRef.current.destroy();
-        playerRef.current = null;
-      }
-    };
-  }, [showVideo]);
 
   return (
     <>
@@ -260,39 +208,14 @@ const Uat2HtaPortalPage = memo(() => {
             </div>
             <div className="hta-hero-video-block">
               <div className="hta-video-wrapper">
-                {showVideo ? (
-                  <>
-                    <div ref={playerContainerRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} />
-                    {videoEnded && (
-                      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10, cursor: 'pointer', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={handleReplay}>
-                        <img
-                          src="https://img.youtube.com/vi/8UX1guPBADg/hqdefault.jpg"
-                          alt="Video ended"
-                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                        <div style={{ position: 'relative', zIndex: 1, width: 64, height: 64, borderRadius: '50%', background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                          <RotateCcw style={{ width: 28, height: 28, color: '#fff' }} />
-                        </div>
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <button
-                    onClick={() => setShowVideo(true)}
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', cursor: 'pointer', background: '#000', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                    aria-label="Play video"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/8UX1guPBADg/hqdefault.jpg"
-                      alt="Video thumbnail"
-                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-                      loading="lazy"
-                    />
-                    <div style={{ position: 'relative', zIndex: 1, width: 64, height: 64, borderRadius: '50%', background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Play style={{ width: 32, height: 32, color: '#fff', marginLeft: 4 }} />
-                    </div>
-                  </button>
-                )}
+                <video
+                  controls
+                  preload="metadata"
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                >
+                  <source src="/videos/P4_ApplicationProcess_Video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
