@@ -1,5 +1,4 @@
-import { useState, memo, useEffect, useRef, useCallback } from "react";
-import { Play, RotateCcw } from "lucide-react";
+import { useState, memo } from "react";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 
@@ -13,57 +12,6 @@ const tabs = [
 
 const Uat2HtaPortalPage = memo(() => {
   const [activeTab, setActiveTab] = useState("tab-capital");
-  const [showVideo, setShowVideo] = useState(false);
-  const [videoEnded, setVideoEnded] = useState(false);
-  const playerContainerRef = useRef<HTMLDivElement>(null);
-  const playerRef = useRef<any>(null);
-
-  const handleReplay = useCallback(() => {
-    setVideoEnded(false);
-    if (playerRef.current?.seekTo) {
-      playerRef.current.seekTo(0);
-      playerRef.current.playVideo();
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!showVideo) return;
-
-    const loadAPI = () => {
-      if ((window as any).YT?.Player) {
-        createPlayer();
-        return;
-      }
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.head.appendChild(tag);
-      (window as any).onYouTubeIframeAPIReady = createPlayer;
-    };
-
-    const createPlayer = () => {
-      if (!playerContainerRef.current) return;
-      playerRef.current = new (window as any).YT.Player(playerContainerRef.current, {
-        videoId: "8UX1guPBADg",
-        playerVars: { autoplay: 1, rel: 0, modestbranding: 1, enablejsapi: 1 },
-        events: {
-          onStateChange: (event: any) => {
-            if (event.data === (window as any).YT.PlayerState.ENDED) {
-              setVideoEnded(true);
-            }
-          },
-        },
-      });
-    };
-
-    loadAPI();
-
-    return () => {
-      if (playerRef.current?.destroy) {
-        playerRef.current.destroy();
-        playerRef.current = null;
-      }
-    };
-  }, [showVideo]);
 
   return (
     <>
