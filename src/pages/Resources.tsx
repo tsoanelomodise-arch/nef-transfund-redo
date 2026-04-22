@@ -1,7 +1,7 @@
 import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
-import { FileText, Download } from "lucide-react";
+import { FileText } from "lucide-react";
 
 const Resources = () => {
   useSEO({
@@ -36,14 +36,6 @@ const Resources = () => {
                 >
                   <FileText className="w-5 h-5" />
                   TF Framework (PDF)
-                </a>
-                <a
-                  href="/resources/Transformation_Fund_Framework_FINAL_03_March_2026.pdf"
-                  download
-                  className="inline-flex items-center gap-3 bg-white hover:bg-gray-50 text-[#00703C] border-2 border-[#00703C] font-bold px-6 py-3 rounded-md transition-colors shadow-md hover:shadow-lg"
-                >
-                  <Download className="w-5 h-5" />
-                  Download PDF
                 </a>
               </div>
             </div>
