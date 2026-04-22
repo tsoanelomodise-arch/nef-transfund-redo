@@ -18,9 +18,9 @@ const NewsHighlightsSection = memo(() => {
       <div className="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr]">
         {/* Left image */}
         <a
-          href={pdfUrl || "/resources/2026-TransformationFund-PrintAd.pdf"}
+          href={pdfUrl || "/resources/2026-TransformationFund-PrintAdvertisement.pdf"}
           onClick={(e) => {
-            const url = pdfUrl || "/resources/2026-TransformationFund-PrintAd.pdf";
+            const url = pdfUrl || "/resources/2026-TransformationFund-PrintAdvertisement.pdf";
             e.preventDefault();
             window.open(url, '_blank', 'noopener,width=1000,height=800');
           }}
