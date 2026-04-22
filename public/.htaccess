@@ -1,11 +1,28 @@
 Options -Indexes
+DirectoryIndex disabled
+DirectorySlash Off
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
+
+  # Force /resources and /resources/ to the SPA (must run before -d check)
   RewriteRule ^resources/?$ /index.html [L]
+
+  # If a request maps to a real directory (e.g. /resources/), serve the SPA
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ /index.html [L]
+
+  # Otherwise, fall back to SPA for any non-existent file
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
+</IfModule>
+
+# Belt-and-suspenders: if mod_rewrite is unavailable, return 403 instead of a listing
+<IfModule !mod_rewrite.c>
+  <Directory "resources">
+    Options -Indexes
+    DirectoryIndex disabled
+  </Directory>
 </IfModule>
