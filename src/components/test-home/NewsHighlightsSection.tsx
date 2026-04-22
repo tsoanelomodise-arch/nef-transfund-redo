@@ -19,11 +19,9 @@ const NewsHighlightsSection = memo(() => {
         {/* Left image */}
         <a
           href={pdfUrl || "/resources/2026-TransformationFund-PrintAdvertisement.pdf"}
-          onClick={(e) => {
-            const url = pdfUrl || "/resources/2026-TransformationFund-PrintAdvertisement.pdf";
-            e.preventDefault();
-            window.open(url, '_blank', 'noopener,width=1000,height=800');
-          }}
+          target="_blank"
+          rel="noopener noreferrer"
+          download
           className="block cursor-pointer hover:opacity-90 transition-opacity"
         >
           <img
