@@ -31,6 +31,13 @@ const Footer = () => {
               <div className="mt-3">
                 <p className="text-white opacity-90">info@sa-transformationfund.co.za</p>
               </div>
+              <div className="mt-3">
+                <p className="text-white opacity-90">
+                  70 Grayston Drive, Sandown<br />
+                  Sandton, Gauteng, 2196<br />
+                  South Africa
+                </p>
+              </div>
             </div>
           </div>
           
