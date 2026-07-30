@@ -240,7 +240,7 @@ const PhakamaniNavbar = memo(() => {
         <div className="max-w-[1400px] mx-auto px-4 lg:px-10 py-3">
           <SocialIconsRow className="!mb-2 !justify-start" />
             <span className="font-mono text-[#00703C] font-bold text-sm">
-            // Follow us on social media to stay updated
+            Follow us on social media to stay updated
           </span>
         </div>
       </div>
