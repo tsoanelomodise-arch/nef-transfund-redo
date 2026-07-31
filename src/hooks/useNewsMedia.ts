@@ -67,8 +67,16 @@ export function useSiteSettings() {
         .from("site_settings")
         .select("*")
         .limit(1)
-        .single();
-      if (error) throw error;
+        .maybeSingle();
+      // Settings are readable only by signed-in users; fall back to defaults publicly
+      if (error || !data) {
+        return {
+          id: "",
+          system_logo_url: "/images/logo-transformation-fund.jpg",
+          youtube_channel_url: "",
+          updated_at: new Date().toISOString(),
+        } as unknown as SiteSettings;
+      }
       return data as unknown as SiteSettings;
     },
   });
