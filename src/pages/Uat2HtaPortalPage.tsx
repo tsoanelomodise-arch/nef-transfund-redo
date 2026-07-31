@@ -245,15 +245,15 @@ const Uat2HtaPortalPage = memo(() => {
                 <div className="hta-tab-content-container">
                   {/* Tab 1: Access to Capital */}
                   <div className={`hta-tab-pane hta-bg-navy${activeTab === "tab-capital" ? " active" : ""}`}>
-                    <h2>1. Access to Capital (R13bn)</h2>
+                    <h2>1. Access to Capital</h2>
                     <table className="hta-data-table">
                       <thead>
-                        <tr><th>Funding Partner</th><th>Notes</th></tr>
+                        <tr><th>Funding Partner</th></tr>
                       </thead>
                       <tbody>
-                        <tr><td>Afreximbank (African Export-Import Bank)</td><td>Direct</td></tr>
-                        <tr><td>African Bank</td><td>R300m</td></tr>
-                        <tr><td>National Empowerment Fund (NEF)</td><td>R1.2bn</td></tr>
+                        <tr><td>Afreximbank (African Export-Import Bank)</td></tr>
+                        <tr><td>African Bank</td></tr>
+                        <tr><td>National Empowerment Fund (NEF)</td></tr>
                       </tbody>
                     </table>
                   </div>
