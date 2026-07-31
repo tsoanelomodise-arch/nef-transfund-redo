@@ -32,16 +32,12 @@ const CareerAttachments = ({ careerId }: CareerAttachmentsProps) => {
 
         if (uploadError) throw uploadError;
 
-        const { data: urlData } = supabase.storage
-          .from("career-attachments")
-          .getPublicUrl(path);
-
         const { error: insertError } = await supabase
           .from("career_attachments" as any)
           .insert({
             career_id: careerId,
             file_name: file.name,
-            file_url: urlData.publicUrl,
+            file_url: path,
             file_size: file.size,
             file_type: file.type || ext || "unknown",
           });
