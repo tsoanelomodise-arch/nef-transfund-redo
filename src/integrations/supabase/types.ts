@@ -400,6 +400,27 @@ export type Database = {
         }
         Relationships: []
       }
+      site_settings_public: {
+        Row: {
+          id: string | null
+          system_logo_url: string | null
+          updated_at: string | null
+          youtube_channel_url: string | null
+        }
+        Insert: {
+          id?: string | null
+          system_logo_url?: string | null
+          updated_at?: string | null
+          youtube_channel_url?: string | null
+        }
+        Update: {
+          id?: string | null
+          system_logo_url?: string | null
+          updated_at?: string | null
+          youtube_channel_url?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       has_role: {
