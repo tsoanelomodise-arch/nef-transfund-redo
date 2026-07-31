@@ -133,6 +133,27 @@ export function useDeleteCareer() {
 
 // ─── Attachment hooks ───
 
+// Bucket is private: convert stored paths/URLs into short-lived signed URLs
+async function withSignedUrls(rows: any[]) {
+  return Promise.all(
+    (rows ?? []).map(async (row) => {
+      const raw = row?.file_url as string | undefined;
+      if (!raw) return row;
+      const path = raw.includes("/career-attachments/")
+        ? raw.split("/career-attachments/").pop()!
+        : raw;
+      try {
+        const { data } = await supabase.storage
+          .from("career-attachments")
+          .createSignedUrl(decodeURIComponent(path), 3600);
+        return data?.signedUrl ? { ...row, file_url: data.signedUrl } : row;
+      } catch {
+        return row;
+      }
+    })
+  );
+}
+
 export function useCareerAttachments(careerId: string) {
   return useQuery({
     queryKey: ["career-attachments", careerId],
@@ -143,7 +164,7 @@ export function useCareerAttachments(careerId: string) {
         .eq("career_id", careerId)
         .order("created_at", { ascending: true });
       if (error) throw error;
-      return data ?? [];
+      return await withSignedUrls((data ?? []) as any[]);
     },
     enabled: !!careerId,
   });
@@ -167,7 +188,7 @@ export function useCareerAttachmentsBySlug(slug: string) {
         .eq("career_id", (career as any).id)
         .order("created_at", { ascending: true });
       if (error) throw error;
-      return data ?? [];
+      return await withSignedUrls((data ?? []) as any[]);
     },
     enabled: !!slug,
   });
