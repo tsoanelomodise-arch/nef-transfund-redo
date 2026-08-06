@@ -41,12 +41,24 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
           <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
             ← Back to Site
           </Link>
-          <nav className="flex items-center gap-4">
+          <nav className="flex items-center gap-4 flex-wrap">
+            <Link to="/admin/pages" className="text-sm font-bold text-foreground hover:text-primary">
+              Pages
+            </Link>
+            <Link to="/admin/navigation" className="text-sm font-bold text-foreground hover:text-primary">
+              Navigation
+            </Link>
+            <Link to="/admin/documents" className="text-sm font-bold text-foreground hover:text-primary">
+              Documents
+            </Link>
             <Link to="/admin/news-media" className="text-sm font-bold text-foreground hover:text-primary">
               News & Media
             </Link>
             <Link to="/admin/careers" className="text-sm font-bold text-foreground hover:text-primary">
               Careers
+            </Link>
+            <Link to="/admin/guide" className="text-sm font-bold text-foreground hover:text-primary">
+              Help
             </Link>
           </nav>
         </div>

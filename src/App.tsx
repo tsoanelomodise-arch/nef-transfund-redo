@@ -36,6 +36,13 @@ const TestResults = lazy(() => import("./pages/TestResults"));
 const CareersPage = lazy(() => import("./pages/CareersPage"));
 const CareerDetailPage = lazy(() => import("./pages/CareerDetailPage"));
 const CareersAdmin = lazy(() => import("./pages/admin/CareersAdmin"));
+const PagesAdmin = lazy(() => import("./pages/admin/PagesAdmin"));
+const PageEditor = lazy(() => import("./pages/admin/PageEditor"));
+const NavigationAdmin = lazy(() => import("./pages/admin/NavigationAdmin"));
+const DocumentsAdmin = lazy(() => import("./pages/admin/DocumentsAdmin"));
+const AdminGuide = lazy(() => import("./pages/admin/AdminGuide"));
+const PagePreview = lazy(() => import("./pages/admin/PagePreview"));
+const CmsPage = lazy(() => import("./pages/CmsPage"));
 
 const queryClient = new QueryClient();
 
@@ -85,10 +92,17 @@ const App = () => (
               <Route path="/careers" element={<CareersPage />} />
               <Route path="/careers/:slug" element={<CareerDetailPage />} />
               <Route path="/admin/careers" element={<CareersAdmin />} />
+              <Route path="/admin/pages" element={<PagesAdmin />} />
+              <Route path="/admin/pages/:pageId" element={<PageEditor />} />
+              <Route path="/admin/navigation" element={<NavigationAdmin />} />
+              <Route path="/admin/documents" element={<DocumentsAdmin />} />
+              <Route path="/admin/guide" element={<AdminGuide />} />
+              <Route path="/admin/preview/:pageId" element={<PagePreview />} />
               <Route path="/uat2_hta_portal" element={<Uat2HtaPortalPage />} />
               <Route path="/testing" element={<TestingChecklist />} />
               <Route path="/test-results" element={<TestResults />} />
-              
+
+              <Route path="/:slug" element={<CmsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
