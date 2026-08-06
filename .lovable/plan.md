@@ -1,50 +1,58 @@
+# Convert the website into a basic CMS
 
+Goal: the client maintains the site (text, images, documents, menus, new pages) from the existing admin area, with draft/preview then publish, without developer involvement.
 
-## Fix Apache directory listing on refresh
+## What the client will be able to do
 
-### Root cause
+- Edit headings, paragraphs, lists, images and buttons on existing pages. Layout and brand styling stay fixed and safe.
+- Create new pages from a few preset layouts and give them a web address.
+- Manage the navigation menus: labels, order, nesting, links, show/hide.
+- Upload and replace documents (PDFs) in a document library, and link them from pages or menus.
+- Save a draft, preview the page exactly as visitors will see it, then publish when ready. Nothing goes live until published.
+- Keep using the existing News & Media and Careers managers, now inside one consistent admin.
 
-Your `public/resources/` folder (containing the PDFs and viewer HTML files) gets deployed as a real directory on your Apache host. When you refresh `/resources`, Apache:
-1. Sees the physical directory exists
-2. Skips the SPA fallback rule (which only fires for non-existent paths)
-3. Falls back to showing the raw "Index of /resources" listing
+## Rollout (phased)
 
-The same issue would hit any URL that collides with a real folder under `public/` (currently only `/resources`).
+**Phase 1 — CMS foundation**
+- Content database: pages, content blocks, page versions (draft vs published), navigation menus, document library, media library.
+- Admin shell upgrade: left sidebar with Pages, Navigation, Documents, News & Media, Careers, Settings.
+- Draft/publish workflow with a preview link.
+- Rich text editor, image picker (upload or reuse), document picker.
 
-### Fix
+**Phase 2 — Migrate high-churn pages**
+Home, About, Resources, FAQ, Contacts. Their current copy and images are imported verbatim into the database; the pages render from the database with the current design unchanged.
 
-Update `public/.htaccess` to:
+**Phase 3 — Navigation and documents**
+Menus move to the database (current structure imported exactly), Resources documents move into the document library. The TF Framework and Print Advertisement PDFs are imported as library entries.
 
-1. **Disable directory listings** entirely with `Options -Indexes` — even if Apache reaches a directory, it won't expose the file list. As a bonus this will return a 403 instead of leaking filenames if anything else goes wrong.
-2. **Force the SPA fallback for `/resources` (the bare folder URL)** so React Router renders your Resources page on refresh, while still allowing direct file requests like `/resources/Transformation_Fund_Framework_FINAL_03_March_2026.pdf` and `/resources/view-tf-framework.html` to be served as static files.
+**Phase 4 — Remaining pages**
+Why / Theory of Change / Policy Choice / Value / Operating Model / National Agenda, Path to Funding and its sub-pages, Investors and Governance, Startup Grants, Requirements. Interactive pieces (eligibility quiz, testing checklist, portal page) stay code-driven; only their text becomes editable.
 
-Final `.htaccess`:
+**Phase 5 — Handover**
+Short admin guide page inside the admin area, plus a walkthrough of publishing.
 
-```apache
-Options -Indexes
+## Technical approach
 
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
+Data model (Lovable Cloud / Postgres, RLS admin-only writes, public reads limited to published content):
 
-  # Let index.html through
-  RewriteRule ^index\.html$ - [L]
-
-  # If the URL is exactly /resources (the bare folder), send it to the SPA
-  RewriteRule ^resources/?$ /index.html [L]
-
-  # Otherwise, only fall back to SPA for paths that are not real files or dirs
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
-</IfModule>
+```text
+pages(id, slug, title, template, seo_title, seo_description, status, published_at)
+page_blocks(id, page_id, version_id, type, position, data jsonb)
+page_versions(id, page_id, status: draft|published, snapshot jsonb, created_by)
+nav_items(id, parent_id, label, href, document_id, position, visible)
+documents(id, title, storage_path, file_type, size, visible)
+media(id, storage_path, alt_text, width, height)
 ```
 
-### Notes
-- This is hosting-specific to your Apache server (cPanel/shared hosting). On `uat2tf.lovable.app` the issue does not occur — Lovable's SPA fallback is built in and ignores `_redirects`/`.htaccess`.
-- No React/code changes required. Direct PDF links like `/resources/Transformation_Fund_Framework_FINAL_03_March_2026.pdf` continue to work.
-- If you later add other folders under `public/` whose names match React routes, add a similar `RewriteRule ^foldername/?$ /index.html [L]` line.
+- Block types kept deliberately small and mapped to existing components: `hero`, `richtext`, `card_grid`, `accordion`, `stat_row`, `cta`, `document_list`, `table`. Each block renders through the current component so design tokens and the white-card / black-left-border style are preserved.
+- Page renderer: one `CmsPage` route component resolving `/:slug` from `pages`, falling back to existing hard-coded routes during migration so nothing breaks mid-phase.
+- Preview: `/admin/preview/:pageId` renders the draft version with the real site chrome.
+- Content migration is mechanical and verbatim — existing JSX copy is transferred into block records without rewording.
+- Storage: new public `site-media` bucket for images; documents bucket for PDFs with public read on published entries only.
+- Admin auth reuses the existing `has_role(auth.uid(),'admin')` model; no new role scheme.
 
-### Files changed
-- `public/.htaccess` — add `Options -Indexes` and an explicit rewrite for `/resources` to `index.html`.
+## Notes and trade-offs
 
+- Templates, not a free-form builder: the client cannot break the design, but new layout types need a developer (a small, rare task).
+- Highly interactive pages (quiz logic, testing dashboard, portal tables) remain code-driven by design.
+- Each phase is independently shippable; the site stays fully working between phases.
