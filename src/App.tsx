@@ -70,7 +70,8 @@ const App = () => (
           <ScrollToTopOnNavigate />
           <Suspense fallback={<div className="min-h-screen" />}>
             <Routes>
-              <Route path="/" element={<CmsOrCoded slug="home" fallback={<TestHome />} />} />
+              {/* Home stays code-driven: it hosts interactive sections (news highlights, portal, ticker) */}
+              <Route path="/" element={<TestHome />} />
               <Route path="/about/why" element={<TransformationIndex />} />
               <Route path="/about/why/policy-choice" element={<PolicyChoicePage />} />
               <Route path="/old" element={<Index />} />
