@@ -43,6 +43,7 @@ const DocumentsAdmin = lazy(() => import("./pages/admin/DocumentsAdmin"));
 const AdminGuide = lazy(() => import("./pages/admin/AdminGuide"));
 const PagePreview = lazy(() => import("./pages/admin/PagePreview"));
 const CmsPage = lazy(() => import("./pages/CmsPage"));
+import CmsOrCoded from "./components/cms/CmsOrCoded";
 
 const queryClient = new QueryClient();
 
@@ -69,12 +70,13 @@ const App = () => (
           <ScrollToTopOnNavigate />
           <Suspense fallback={<div className="min-h-screen" />}>
             <Routes>
+              {/* Home stays code-driven: it hosts interactive sections (news highlights, portal, ticker) */}
               <Route path="/" element={<TestHome />} />
               <Route path="/about/why" element={<TransformationIndex />} />
               <Route path="/about/why/policy-choice" element={<PolicyChoicePage />} />
               <Route path="/old" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contacts" element={<TestContacts />} />
+              <Route path="/about" element={<CmsOrCoded slug="about" fallback={<About />} />} />
+              <Route path="/contacts" element={<CmsOrCoded slug="contacts" fallback={<TestContacts />} />} />
               <Route path="/requirements" element={<Requirements />} />
               <Route path="/startup-grants" element={<StartupGrants />} />
               <Route path="/eligibility" element={<PathToFunding />} />
@@ -83,8 +85,8 @@ const App = () => (
               <Route path="/eligibility/products" element={<ProductsPage />} />
               <Route path="/investors" element={<InvestorsPage />} />
               <Route path="/investors/governance" element={<GovernancePage />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/resources" element={<Resources />} />
+              <Route path="/faq" element={<CmsOrCoded slug="faq" fallback={<FAQ />} />} />
+              <Route path="/resources" element={<CmsOrCoded slug="resources" fallback={<Resources />} />} />
               <Route path="/news-media" element={<NewsMediaPage />} />
               <Route path="/news-media/:id" element={<NewsMediaDetailPage />} />
               <Route path="/admin/news-media" element={<NewsMediaAdmin />} />

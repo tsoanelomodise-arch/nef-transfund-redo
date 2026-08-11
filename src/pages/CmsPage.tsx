@@ -6,8 +6,9 @@ import Footer from "@/components/transformation/Footer";
 import BlockRenderer from "@/components/cms/BlockRenderer";
 import NotFound from "./NotFound";
 
-const CmsPage = () => {
-  const { slug } = useParams<{ slug: string }>();
+const CmsPage = ({ slug: slugProp }: { slug?: string } = {}) => {
+  const params = useParams<{ slug: string }>();
+  const slug = slugProp ?? params.slug;
   const { data, isLoading } = usePublishedPage(slug);
 
   useSEO({
