@@ -1,43 +1,44 @@
-import { useState, useCallback, memo } from "react";
+import { useState, useCallback, memo, useMemo } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { SearchDialog, SearchTrigger } from "@/components/search";
 import SocialIconsRow from "@/components/shared/SocialIconsRow";
+import { useNavItems, useDocuments, signedDocumentUrl } from "@/hooks/useCms";
+import { buildMenuTree, DEFAULT_MENU, isExternal, isFileLink, type MenuNode } from "@/lib/navigation";
+
+const PORTAL_HREF = "/uat2_hta_portal";
+
+const openDocument = async (storagePath: string) => {
+  const url = await signedDocumentUrl(storagePath);
+  if (url) window.open(url, "_blank", "noopener,noreferrer");
+};
 
 const PhakamaniNavbar = memo(() => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
-  const [pathToFundingDropdownOpen, setPathToFundingDropdownOpen] = useState(false);
-  const [investorsDropdownOpen, setInvestorsDropdownOpen] = useState(false);
-  const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
-  const [portalDropdownOpen, setPortalDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
-  const isWhySection = location.pathname.startsWith("/about/why");
-  const isPathToFundingSection = location.pathname.startsWith("/eligibility");
-  const isAboutPage = location.pathname === "/about";
-  const isContactsPage = location.pathname === "/contacts";
-  const isNewsMediaPage = location.pathname === "/news-media";
-  const isResourcesPage = location.pathname === "/resources";
-  const isInvestorsSection = location.pathname.startsWith("/investors");
-  const isPortalSection = location.pathname.startsWith("/uat2_hta_portal");
+  const { data: navItems } = useNavItems();
+  const { data: documents } = useDocuments(true);
+  const menu = useMemo(() => buildMenuTree(navItems, documents) ?? DEFAULT_MENU, [navItems, documents]);
+  const isPortalSection = location.pathname.startsWith(PORTAL_HREF);
 
-  const handlePathToFundingLink = useCallback((e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    setPathToFundingDropdownOpen(false);
-    
-    if (location.pathname === "/eligibility") {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+  const handleAnchorLink = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      setMobileMenuOpen(false);
+      setOpenDropdown(null);
+      const [path, sectionId] = href.split("#");
+      if (location.pathname === path) {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        navigate(href);
       }
-    } else {
-      navigate(`/eligibility#${sectionId}`);
-    }
-  }, [location.pathname, navigate]);
+    },
+    [location.pathname, navigate]
+  );
 
   const closeMobileMenu = useCallback(() => {
     setMobileMenuOpen(false);
@@ -50,6 +51,70 @@ const PhakamaniNavbar = memo(() => {
   const openSearch = useCallback(() => {
     setSearchOpen(true);
   }, []);
+
+  const isActive = (node: MenuNode) => {
+    const paths = [node.href, ...node.children.map((c) => c.href)]
+      .filter((h): h is string => !!h && h.startsWith("/") && !isFileLink(h))
+      .map((h) => h.split("#")[0]);
+    return paths.some((p) => location.pathname === p || (p !== "/" && location.pathname.startsWith(`${p}/`)));
+  };
+
+  /** Renders a single menu entry as the right kind of link (route, external, file, document or anchor). */
+  const MenuLink = ({
+    node,
+    className,
+    onNavigate,
+    children,
+  }: {
+    node: MenuNode;
+    className: string;
+    onNavigate?: () => void;
+    children?: React.ReactNode;
+  }) => {
+    const content = children ?? node.label;
+
+    if (node.documentPath) {
+      return (
+        <a
+          href="#"
+          className={className}
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate?.();
+            openDocument(node.documentPath!);
+          }}
+        >
+          {content}
+        </a>
+      );
+    }
+
+    if (!node.href) {
+      return <span className={`${className} cursor-pointer`}>{content}</span>;
+    }
+
+    if (isExternal(node.href) || isFileLink(node.href)) {
+      return (
+        <a href={node.href} target="_blank" rel="noopener noreferrer" className={className} onClick={onNavigate}>
+          {content}
+        </a>
+      );
+    }
+
+    if (node.href.includes("#")) {
+      return (
+        <a href={node.href} className={className} onClick={(e) => handleAnchorLink(e, node.href!)}>
+          {content}
+        </a>
+      );
+    }
+
+    return (
+      <Link to={node.href} className={className} onClick={onNavigate}>
+        {content}
+      </Link>
+    );
+  };
 
   return (
     <>
@@ -68,123 +133,49 @@ const PhakamaniNavbar = memo(() => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1 mr-auto">
-            {/* About Dropdown (includes Why sub-nav) */}
-            <div 
-              className="relative dropdown"
-              onMouseEnter={() => setAboutDropdownOpen(true)}
-              onMouseLeave={() => setAboutDropdownOpen(false)}
-            >
-              <Link 
-                to="/about" 
-                className={`nav-link flex items-center ${isAboutPage || isWhySection ? 'nav-link-active' : ''}`}
-              >
-                About
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Link>
-              {aboutDropdownOpen && (
-                <div className="dropdown-menu">
-                  <Link to="/about/why" className={`dropdown-item font-bold ${location.pathname === '/about/why' ? 'bg-[#004d30]' : ''}`} onClick={() => setAboutDropdownOpen(false)}>Fund purpose</Link>
-                  <Link to="/about/why/policy-choice" className={`dropdown-item font-bold ${location.pathname === '/about/why/policy-choice' ? 'bg-[#004d30]' : ''}`} onClick={() => setAboutDropdownOpen(false)}>Fund Policy</Link>
-                </div>
-              )}
-            </div>
+            {menu.map((node) => {
+              const isPortal = node.href === PORTAL_HREF;
+              const triggerClass = isPortal
+                ? `flex items-center px-4 py-2 rounded bg-[#007847] text-white font-bold text-sm tracking-wide hover:bg-[#005c36] transition-colors ${isPortalSection ? "ring-2 ring-[#007847] ring-offset-2" : ""}`
+                : `nav-link flex items-center ${isActive(node) ? "nav-link-active" : ""}`;
 
-            {/* Path to Funding Dropdown */}
-            <div 
-              className="relative dropdown"
-              onMouseEnter={() => setPathToFundingDropdownOpen(true)}
-              onMouseLeave={() => setPathToFundingDropdownOpen(false)}
-            >
-              <Link 
-                to="/eligibility" 
-                className={`nav-link flex items-center ${isPathToFundingSection ? 'nav-link-active' : ''}`}
-              >
-                Eligibility
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Link>
-              {pathToFundingDropdownOpen && (
-                <div className="dropdown-menu">
-                  <Link to="/eligibility/process" className="dropdown-item" onClick={() => setPathToFundingDropdownOpen(false)}>Funding Process</Link>
-                  <Link to="/eligibility/market-segments" className="dropdown-item" onClick={() => setPathToFundingDropdownOpen(false)}>Market segments</Link>
-                  <Link to="/eligibility/products" className="dropdown-item" onClick={() => setPathToFundingDropdownOpen(false)}>Products</Link>
-                  <a href="/eligibility#path-to-funding" className="dropdown-item" onClick={(e) => handlePathToFundingLink(e, 'path-to-funding')}>Eligibility Checklist</a>
-                </div>
-              )}
-            </div>
+              if (!node.children.length) {
+                return (
+                  <MenuLink key={node.id} node={node} className={triggerClass}>
+                    {node.label}
+                  </MenuLink>
+                );
+              }
 
-            {/* Investorss Dropdown */}
-            <div 
-              className="relative dropdown"
-              onMouseEnter={() => setInvestorsDropdownOpen(true)}
-              onMouseLeave={() => setInvestorsDropdownOpen(false)}
-            >
-              <span 
-                className={`nav-link flex items-center cursor-pointer ${isInvestorsSection ? 'nav-link-active' : ''}`}
-              >
-                Investors
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </span>
-              {investorsDropdownOpen && (
-                <div className="dropdown-menu">
-                  <Link to="/investors" className={`dropdown-item ${location.pathname === '/investors' ? 'bg-[#004d30]' : ''}`} onClick={() => setInvestorsDropdownOpen(false)}>Capitalisation</Link>
-                  <Link to="/investors/governance" className="dropdown-item" onClick={() => setInvestorsDropdownOpen(false)}>Governance</Link>
+              return (
+                <div
+                  key={node.id}
+                  className="relative dropdown"
+                  onMouseEnter={() => setOpenDropdown(node.id)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  <MenuLink node={node} className={triggerClass}>
+                    <>
+                      {node.label}
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </>
+                  </MenuLink>
+                  {openDropdown === node.id && (
+                    <div className="dropdown-menu">
+                      {node.children.map((child) => (
+                        <MenuLink
+                          key={child.id}
+                          node={child}
+                          className={`dropdown-item ${child.href && location.pathname === child.href ? "bg-[#004d30]" : ""}`}
+                          onNavigate={() => setOpenDropdown(null)}
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
+              );
+            })}
 
-            {/* News & Stories Link */}
-            <Link 
-              to="/news-media" 
-              className={`nav-link ${isNewsMediaPage ? 'nav-link-active' : ''}`}
-            >
-              News
-            </Link>
-
-            {/* Resources Dropdown */}
-            <div 
-              className="relative dropdown"
-              onMouseEnter={() => setResourcesDropdownOpen(true)}
-              onMouseLeave={() => setResourcesDropdownOpen(false)}
-            >
-              <Link 
-                to="/resources" 
-                className={`nav-link flex items-center ${isResourcesPage || location.pathname === '/faq' ? 'nav-link-active' : ''}`}
-              >
-                Resources
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Link>
-              {resourcesDropdownOpen && (
-                <div className="dropdown-menu">
-                  <Link to="/faq" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>FAQ</Link>
-                  <Link to="/careers" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>Careers</Link>
-                  <a href="/resources/Transformation_Fund_Framework_FINAL_03_March_2026.pdf" target="_blank" rel="noopener noreferrer" className="dropdown-item" onClick={() => setResourcesDropdownOpen(false)}>TF Framework</a>
-                </div>
-              )}
-            </div>
-
-            <Link to="/contacts" className={`nav-link ${isContactsPage ? 'nav-link-active' : ''}`}>Contacts</Link>
-            
-            {/* uat2_hta_portal Dropdown */}
-            <div 
-              className="relative dropdown"
-              onMouseEnter={() => setPortalDropdownOpen(true)}
-              onMouseLeave={() => setPortalDropdownOpen(false)}
-            >
-              <Link 
-                to="/uat2_hta_portal" 
-                className={`flex items-center px-4 py-2 rounded bg-[#007847] text-white font-bold text-sm tracking-wide hover:bg-[#005c36] transition-colors ${isPortalSection ? 'ring-2 ring-[#007847] ring-offset-2' : ''}`}
-              >
-                Portal
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Link>
-              {portalDropdownOpen && (
-                <div className="dropdown-menu">
-                  <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="dropdown-item" onClick={() => setPortalDropdownOpen(false)}>Login</a>
-                  <a href="https://dev-online.sa-transformationfund.co.za/Account/Register" target="_blank" rel="noopener noreferrer" className="dropdown-item" onClick={() => setPortalDropdownOpen(false)}>Register</a>
-                </div>
-              )}
-            </div>
-            
             <SearchTrigger onClick={openSearch} />
           </div>
 
@@ -207,28 +198,23 @@ const PhakamaniNavbar = memo(() => {
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-100px)] overflow-y-auto">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link to="/about" className={`block px-3 py-2 text-base font-bold ${isAboutPage || isWhySection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>About</Link>
-              <Link to="/about/why" className={`block px-3 py-2 pl-6 text-base font-bold ${isWhySection && location.pathname !== '/about/why/policy-choice' ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Fund purpose</Link>
-              <Link to="/about/why/policy-choice" className={`block px-3 py-2 pl-6 text-base font-bold ${location.pathname === '/about/why/policy-choice' ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Fund Policy</Link>
-              
-              <Link to="/eligibility" className={`block px-3 py-2 text-base font-bold ${isPathToFundingSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Eligibility</Link>
-              <Link to="/eligibility/process" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Funding Process</Link>
-              <Link to="/eligibility/market-segments" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Market segments</Link>
-              <Link to="/eligibility/products" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Products</Link>
-              <a href="/eligibility#path-to-funding" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={(e) => handlePathToFundingLink(e, 'path-to-funding')}>Eligibility Checklist</a>
-              <span className="block px-3 py-2 text-base font-bold text-gray-700 cursor-default">Investors</span>
-              <Link to="/investors" className={`block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold ${location.pathname === '/investors' ? 'text-[#007847]' : ''}`} onClick={closeMobileMenu}>Capitalisation</Link>
-              <Link to="/investors/governance" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Governance</Link>
-              <Link to="/news-media" className={`block px-3 py-2 text-base font-bold ${isNewsMediaPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>News</Link>
-              <Link to="/resources" className={`block px-3 py-2 text-base font-bold ${isResourcesPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Resources</Link>
-              <Link to="/faq" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>FAQ</Link>
-              <Link to="/careers" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Careers</Link>
-              <a href="/resources/Transformation_Fund_Framework_FINAL_03_March_2026.pdf" target="_blank" rel="noopener noreferrer" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>TF Framework</a>
-              <Link to="/contacts" className={`block px-3 py-2 text-base font-bold ${isContactsPage ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Contacts</Link>
-              
-              <Link to="/uat2_hta_portal" className={`block px-3 py-2 text-base font-bold ${isPortalSection ? 'text-[#007847]' : 'text-gray-700 hover:text-[#007847]'}`} onClick={closeMobileMenu}>Portal</Link>
-              <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Login</a>
-              <a href="https://dev-online.sa-transformationfund.co.za/Account/Register" target="_blank" rel="noopener noreferrer" className="block text-gray-700 hover:text-[#007847] px-3 py-2 pl-6 text-sm font-semibold" onClick={closeMobileMenu}>Register</a>
+              {menu.map((node) => (
+                <div key={node.id}>
+                  <MenuLink
+                    node={node}
+                    className={`block px-3 py-2 text-base font-bold ${isActive(node) ? "text-[#007847]" : "text-gray-700 hover:text-[#007847]"}`}
+                    onNavigate={closeMobileMenu}
+                  />
+                  {node.children.map((child) => (
+                    <MenuLink
+                      key={child.id}
+                      node={child}
+                      className={`block px-3 py-2 pl-6 text-sm font-semibold ${child.href && location.pathname === child.href ? "text-[#007847]" : "text-gray-700 hover:text-[#007847]"}`}
+                      onNavigate={closeMobileMenu}
+                    />
+                  ))}
+                </div>
+              ))}
               <a href="https://dev-online.sa-transformationfund.co.za/" target="_blank" rel="noopener noreferrer" className="block bg-[#007847] text-white px-3 py-2 text-base font-bold hover:opacity-90 transition-all">Login</a>
             </div>
           </div>
