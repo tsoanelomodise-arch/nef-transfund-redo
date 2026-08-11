@@ -68,11 +68,6 @@ export function useDocuments(onlyVisible = true) {
   });
 }
 
-export function documentUrl(storagePath: string) {
-  const { data } = supabase.storage.from("site-documents").getPublicUrl(storagePath);
-  return data.publicUrl;
-}
-
 export async function signedDocumentUrl(storagePath: string) {
   const { data } = await supabase.storage.from("site-documents").createSignedUrl(storagePath, 60 * 60);
   return data?.signedUrl ?? "";
