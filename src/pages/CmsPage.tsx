@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { usePublishedPage } from "@/hooks/useCms";
 import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
@@ -8,7 +8,9 @@ import NotFound from "./NotFound";
 
 const CmsPage = ({ slug: slugProp }: { slug?: string } = {}) => {
   const params = useParams<{ slug: string }>();
-  const slug = slugProp ?? params.slug;
+  const { pathname } = useLocation();
+  // Supports nested addresses too (e.g. "eligibility/products").
+  const slug = slugProp ?? params.slug ?? pathname.replace(/^\/+/, "").replace(/\/+$/, "");
   const { data, isLoading } = usePublishedPage(slug);
 
   useSEO({
