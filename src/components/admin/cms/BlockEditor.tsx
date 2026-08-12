@@ -123,6 +123,55 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
         </div>
       );
 
+    case "pillars":
+      return (
+        <div className="space-y-4">
+          <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
+          <Field label="In-page link name (optional)"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} placeholder="path-to-funding" /></Field>
+          {(data.steps ?? []).map((step: any, i: number) => (
+            <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-bold">Step {i + 1}</span>
+                <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("steps", i)}><Trash2 className="h-4 w-4" /></Button>
+              </div>
+              <Input placeholder="Number (e.g. 01)" value={step.number ?? ""} onChange={(e) => listUpdate("steps", i, { number: e.target.value })} />
+              <Input placeholder="Title" value={step.title ?? ""} onChange={(e) => listUpdate("steps", i, { title: e.target.value })} />
+              <Textarea rows={4} placeholder="Text" value={step.body ?? ""} onChange={(e) => listUpdate("steps", i, { body: e.target.value })} />
+            </div>
+          ))}
+          <Button type="button" variant="outline" size="sm" onClick={() => listAdd("steps", { number: "", title: "", body: "" })}><Plus className="h-4 w-4 mr-1" /> Add step</Button>
+        </div>
+      );
+
+    case "two_column":
+      return (
+        <div className="space-y-4">
+          <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
+          <Field label="Text"><Textarea rows={8} value={data.body ?? ""} onChange={(e) => set("body", e.target.value)} /></Field>
+          <ImageUploadField label="Image" value={data.image_url ?? ""} onChange={(url) => set("image_url", url)} />
+          <Field label="Image alt text"><Input value={data.image_alt ?? ""} onChange={(e) => set("image_alt", e.target.value)} /></Field>
+          <Field label="Image side">
+            <select
+              className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+              value={data.image_position ?? "right"}
+              onChange={(e) => set("image_position", e.target.value)}
+            >
+              <option value="right">Right</option>
+              <option value="left">Left</option>
+            </select>
+          </Field>
+          <Field label="In-page link name (optional)"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} /></Field>
+        </div>
+      );
+
+    case "anchor":
+      return (
+        <div className="space-y-4">
+          <Field label="In-page link name"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} placeholder="market-segments" /></Field>
+          <p className="text-xs text-muted-foreground">Menu links ending in #{data.anchor || "name"} will jump to this point on the page.</p>
+        </div>
+      );
+
     case "document_list":
       return (
         <div className="space-y-4">

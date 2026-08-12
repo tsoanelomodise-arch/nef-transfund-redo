@@ -80,9 +80,9 @@ const App = () => (
               <Route path="/requirements" element={<Requirements />} />
               <Route path="/startup-grants" element={<StartupGrants />} />
               <Route path="/eligibility" element={<PathToFunding />} />
-              <Route path="/eligibility/process" element={<FundingProcessPage />} />
+              <Route path="/eligibility/process" element={<CmsOrCoded slug="eligibility/process" fallback={<FundingProcessPage />} />} />
               <Route path="/eligibility/market-segments" element={<MarketSegmentsPage />} />
-              <Route path="/eligibility/products" element={<ProductsPage />} />
+              <Route path="/eligibility/products" element={<CmsOrCoded slug="eligibility/products" fallback={<ProductsPage />} />} />
               <Route path="/investors" element={<InvestorsPage />} />
               <Route path="/investors/governance" element={<GovernancePage />} />
               <Route path="/faq" element={<CmsOrCoded slug="faq" fallback={<FAQ />} />} />
@@ -105,6 +105,8 @@ const App = () => (
               <Route path="/test-results" element={<TestResults />} />
 
               <Route path="/:slug" element={<CmsPage />} />
+              {/* Nested CMS addresses (e.g. /section/page); falls back to Not found inside CmsPage */}
+              <Route path="/*" element={<CmsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
