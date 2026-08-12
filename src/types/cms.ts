@@ -7,7 +7,10 @@ export type BlockType =
   | "cta"
   | "document_list"
   | "table"
-  | "image";
+  | "image"
+  | "pillars"
+  | "two_column"
+  | "anchor";
 
 export type PageStatus = "draft" | "published";
 
@@ -81,6 +84,9 @@ export const BLOCK_LABELS: Record<BlockType, string> = {
   document_list: "Document list",
   table: "Table",
   image: "Image",
+  pillars: "Numbered steps / pillars",
+  two_column: "Text + image (two columns)",
+  anchor: "Anchor link target",
 };
 
 export const DEFAULT_BLOCK_DATA: Record<BlockType, Record<string, any>> = {
@@ -93,4 +99,7 @@ export const DEFAULT_BLOCK_DATA: Record<BlockType, Record<string, any>> = {
   document_list: { heading: "Downloads", document_ids: [] },
   table: { heading: "", columns: ["Column 1", "Column 2"], rows: [["", ""]] },
   image: { url: "", alt: "", caption: "" },
+  pillars: { heading: "", anchor: "", steps: [{ number: "01", title: "Step title", body: "" }] },
+  two_column: { heading: "", body: "", image_url: "", image_alt: "", image_position: "right", anchor: "" },
+  anchor: { anchor: "section-name" },
 };
