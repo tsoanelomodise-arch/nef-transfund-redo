@@ -8,6 +8,9 @@ import CtaBlock from "./blocks/CtaBlock";
 import DocumentListBlock from "./blocks/DocumentListBlock";
 import TableBlock from "./blocks/TableBlock";
 import ImageBlock from "./blocks/ImageBlock";
+import PillarsBlock from "./blocks/PillarsBlock";
+import TwoColumnBlock from "./blocks/TwoColumnBlock";
+import AnchorBlock from "./blocks/AnchorBlock";
 
 const MAP: Record<string, (p: { data: Record<string, any> }) => JSX.Element | null> = {
   hero: HeroBlock,
@@ -19,6 +22,9 @@ const MAP: Record<string, (p: { data: Record<string, any> }) => JSX.Element | nu
   document_list: DocumentListBlock,
   table: TableBlock,
   image: ImageBlock,
+  pillars: PillarsBlock,
+  two_column: TwoColumnBlock,
+  anchor: AnchorBlock,
 };
 
 const BlockRenderer = ({ blocks }: { blocks: CmsBlock[] }) => (
