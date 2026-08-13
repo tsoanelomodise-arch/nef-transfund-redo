@@ -14,7 +14,11 @@ export type BlockType =
   | "intro_split"
   | "image_list"
   | "side_label"
-  | "feature_cards";
+  | "feature_cards"
+  | "contact_hero"
+  | "contact_cards"
+  | "map"
+  | "contact_form";
 
 
 export type PageStatus = "draft" | "published";
@@ -96,6 +100,10 @@ export const BLOCK_LABELS: Record<BlockType, string> = {
   image_list: "Image + bulleted list",
   side_label: "Dark panel with side label",
   feature_cards: "Numbered outline cards (3 columns)",
+  contact_hero: "Contact hero (buttons + QR image)",
+  contact_cards: "Contact info cards (dark)",
+  map: "Map",
+  contact_form: "Contact form",
 
 };
 
@@ -139,6 +147,33 @@ export const DEFAULT_BLOCK_DATA: Record<BlockType, Record<string, any>> = {
     intro: "",
     cards: [{ number: "01", title: "Card title", paragraphs: [""] }],
     anchor: "",
+  },
+  contact_hero: {
+    eyebrow: "",
+    heading: "Contact Us",
+    body: "",
+    primary_label: "Email Us Now",
+    primary_href: "mailto:info@sa-transformationfund.co.za",
+    secondary_label: "Call Us",
+    secondary_href: "tel:+27861113186",
+    image_url: "",
+    image_alt: "",
+    image_href: "",
+    image_caption: "",
+    anchor: "",
+  },
+  contact_cards: {
+    heading: "Contact Information",
+    cards: [{ icon: "mail", title: "Email", lines: [{ text: "info@example.com", href: "mailto:info@example.com" }] }],
+    anchor: "",
+  },
+  map: { heading: "Our Location", address: "", zoom: 15, embed_url: "", anchor: "" },
+  contact_form: {
+    heading: "Send us a Message",
+    intro: "",
+    button_label: "Send Message",
+    recipient: "",
+    anchor: "contact-form",
   },
 
 };
