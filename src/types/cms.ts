@@ -92,6 +92,11 @@ export const BLOCK_LABELS: Record<BlockType, string> = {
   pillars: "Numbered steps / pillars",
   two_column: "Text + image (two columns)",
   anchor: "Anchor link target",
+  intro_split: "Intro with overlapping images",
+  image_list: "Image + bulleted list",
+  side_label: "Dark panel with side label",
+  feature_cards: "Numbered outline cards (3 columns)",
+
 };
 
 export const DEFAULT_BLOCK_DATA: Record<BlockType, Record<string, any>> = {
@@ -107,4 +112,33 @@ export const DEFAULT_BLOCK_DATA: Record<BlockType, Record<string, any>> = {
   pillars: { heading: "", anchor: "", steps: [{ number: "01", title: "Step title", body: "" }] },
   two_column: { heading: "", body: "", image_url: "", image_alt: "", image_position: "right", anchor: "" },
   anchor: { anchor: "section-name" },
+  intro_split: {
+    eyebrow: "",
+    heading: "Heading",
+    lead: "",
+    body: "",
+    back_image_url: "",
+    back_image_alt: "",
+    front_image_url: "",
+    front_image_alt: "",
+    anchor: "",
+  },
+  image_list: {
+    eyebrow: "",
+    heading: "Heading",
+    image_url: "",
+    image_alt: "",
+    image_position: "left",
+    items: ["First point"],
+    anchor: "",
+  },
+  side_label: { heading: "Heading", side_label: "", paragraphs: ["Write your content here."], anchor: "" },
+  feature_cards: {
+    eyebrow: "",
+    heading: "Heading",
+    intro: "",
+    cards: [{ number: "01", title: "Card title", paragraphs: [""] }],
+    anchor: "",
+  },
+
 };
