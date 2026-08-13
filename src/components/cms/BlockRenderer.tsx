@@ -15,6 +15,10 @@ import IntroSplitBlock from "./blocks/IntroSplitBlock";
 import ImageListBlock from "./blocks/ImageListBlock";
 import SideLabelBlock from "./blocks/SideLabelBlock";
 import FeatureCardsBlock from "./blocks/FeatureCardsBlock";
+import ContactHeroBlock from "./blocks/ContactHeroBlock";
+import ContactCardsBlock from "./blocks/ContactCardsBlock";
+import MapBlock from "./blocks/MapBlock";
+import ContactFormBlock from "./blocks/ContactFormBlock";
 
 const MAP: Record<string, (p: { data: Record<string, any> }) => JSX.Element | null> = {
   hero: HeroBlock,
@@ -33,6 +37,10 @@ const MAP: Record<string, (p: { data: Record<string, any> }) => JSX.Element | nu
   image_list: ImageListBlock,
   side_label: SideLabelBlock,
   feature_cards: FeatureCardsBlock,
+  contact_hero: ContactHeroBlock,
+  contact_cards: ContactCardsBlock,
+  map: MapBlock,
+  contact_form: ContactFormBlock,
 };
 
 
