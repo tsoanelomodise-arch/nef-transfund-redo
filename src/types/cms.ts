@@ -10,7 +10,12 @@ export type BlockType =
   | "image"
   | "pillars"
   | "two_column"
-  | "anchor";
+  | "anchor"
+  | "intro_split"
+  | "image_list"
+  | "side_label"
+  | "feature_cards";
+
 
 export type PageStatus = "draft" | "published";
 

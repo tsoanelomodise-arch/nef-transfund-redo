@@ -11,6 +11,10 @@ import ImageBlock from "./blocks/ImageBlock";
 import PillarsBlock from "./blocks/PillarsBlock";
 import TwoColumnBlock from "./blocks/TwoColumnBlock";
 import AnchorBlock from "./blocks/AnchorBlock";
+import IntroSplitBlock from "./blocks/IntroSplitBlock";
+import ImageListBlock from "./blocks/ImageListBlock";
+import SideLabelBlock from "./blocks/SideLabelBlock";
+import FeatureCardsBlock from "./blocks/FeatureCardsBlock";
 
 const MAP: Record<string, (p: { data: Record<string, any> }) => JSX.Element | null> = {
   hero: HeroBlock,
@@ -25,7 +29,12 @@ const MAP: Record<string, (p: { data: Record<string, any> }) => JSX.Element | nu
   pillars: PillarsBlock,
   two_column: TwoColumnBlock,
   anchor: AnchorBlock,
+  intro_split: IntroSplitBlock,
+  image_list: ImageListBlock,
+  side_label: SideLabelBlock,
+  feature_cards: FeatureCardsBlock,
 };
+
 
 const BlockRenderer = ({ blocks }: { blocks: CmsBlock[] }) => (
   <>
