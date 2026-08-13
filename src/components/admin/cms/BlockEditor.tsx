@@ -371,9 +371,8 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
             <Field label="Second button label"><Input value={data.secondary_label ?? ""} onChange={(e) => set("secondary_label", e.target.value)} /></Field>
             <Field label="Second button link"><Input placeholder="tel:+27861113186" value={data.secondary_href ?? ""} onChange={(e) => set("secondary_href", e.target.value)} /></Field>
           </div>
-          <Field label="Side image / QR code">
-            <ImageUploadField value={data.image_url ?? ""} onChange={(url) => set("image_url", url)} />
-          </Field>
+          <ImageUploadField label="Side image / QR code" value={data.image_url ?? ""} onChange={(url) => set("image_url", url)} />
+
           <Field label="Image description (for screen readers)"><Input value={data.image_alt ?? ""} onChange={(e) => set("image_alt", e.target.value)} /></Field>
           <Field label="Image links to (optional)"><Input value={data.image_href ?? ""} onChange={(e) => set("image_href", e.target.value)} /></Field>
           <Field label="Caption under image (optional)"><Input value={data.image_caption ?? ""} onChange={(e) => set("image_caption", e.target.value)} /></Field>
