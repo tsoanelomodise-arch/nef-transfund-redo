@@ -359,9 +359,109 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
         </div>
       );
 
+    case "contact_hero":
+      return (
+        <div className="space-y-4">
+          <Field label="Small label above heading (optional)"><Input value={data.eyebrow ?? ""} onChange={(e) => set("eyebrow", e.target.value)} /></Field>
+          <Field label="Heading"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
+          <Field label="Intro text"><Textarea rows={4} value={data.body ?? ""} onChange={(e) => set("body", e.target.value)} /></Field>
+          <div className="grid grid-cols-2 gap-3">
+            <Field label="Main button label"><Input value={data.primary_label ?? ""} onChange={(e) => set("primary_label", e.target.value)} /></Field>
+            <Field label="Main button link"><Input placeholder="mailto:info@example.com" value={data.primary_href ?? ""} onChange={(e) => set("primary_href", e.target.value)} /></Field>
+            <Field label="Second button label"><Input value={data.secondary_label ?? ""} onChange={(e) => set("secondary_label", e.target.value)} /></Field>
+            <Field label="Second button link"><Input placeholder="tel:+27861113186" value={data.secondary_href ?? ""} onChange={(e) => set("secondary_href", e.target.value)} /></Field>
+          </div>
+          <Field label="Side image / QR code">
+            <ImageUploadField value={data.image_url ?? ""} onChange={(url) => set("image_url", url)} />
+          </Field>
+          <Field label="Image description (for screen readers)"><Input value={data.image_alt ?? ""} onChange={(e) => set("image_alt", e.target.value)} /></Field>
+          <Field label="Image links to (optional)"><Input value={data.image_href ?? ""} onChange={(e) => set("image_href", e.target.value)} /></Field>
+          <Field label="Caption under image (optional)"><Input value={data.image_caption ?? ""} onChange={(e) => set("image_caption", e.target.value)} /></Field>
+          <Field label="In-page link name (optional)"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} /></Field>
+        </div>
+      );
+
+    case "contact_cards":
+      return (
+        <div className="space-y-4">
+          <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
+          {(data.cards ?? []).map((card: any, i: number) => {
+            const lines: any[] = Array.isArray(card.lines) ? card.lines : [];
+            const setLines = (next: any[]) => listUpdate("cards", i, { lines: next });
+            return (
+              <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm font-bold">Card {i + 1}</span>
+                  <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("cards", i)}><Trash2 className="h-4 w-4" /></Button>
+                </div>
+                <Field label="Icon">
+                  <select
+                    className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+                    value={card.icon ?? "mail"}
+                    onChange={(e) => listUpdate("cards", i, { icon: e.target.value })}
+                  >
+                    <option value="mail">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="address">Address / pin</option>
+                    <option value="clock">Clock / hours</option>
+                    <option value="globe">Website</option>
+                    <option value="message">Message</option>
+                  </select>
+                </Field>
+                <Input placeholder="Title" value={card.title ?? ""} onChange={(e) => listUpdate("cards", i, { title: e.target.value })} />
+                <div className="space-y-2">
+                  {lines.map((line, li) => {
+                    const text = typeof line === "string" ? line : line.text ?? "";
+                    const href = typeof line === "string" ? "" : line.href ?? "";
+                    return (
+                      <div key={li} className="flex gap-2">
+                        <Input placeholder="Text" value={text} onChange={(e) => {
+                          const next = [...lines]; next[li] = { text: e.target.value, href }; setLines(next);
+                        }} />
+                        <Input placeholder="Link (optional)" value={href} onChange={(e) => {
+                          const next = [...lines]; next[li] = { text, href: e.target.value }; setLines(next);
+                        }} />
+                        <Button type="button" variant="ghost" size="sm" onClick={() => setLines(lines.filter((_, x) => x !== li))}><Trash2 className="h-4 w-4" /></Button>
+                      </div>
+                    );
+                  })}
+                  <Button type="button" variant="outline" size="sm" onClick={() => setLines([...lines, { text: "", href: "" }])}><Plus className="h-4 w-4 mr-1" /> Add line</Button>
+                </div>
+              </div>
+            );
+          })}
+          <Button type="button" variant="outline" size="sm" onClick={() => listAdd("cards", { icon: "mail", title: "", lines: [{ text: "", href: "" }] })}><Plus className="h-4 w-4 mr-1" /> Add card</Button>
+          <Field label="In-page link name (optional)"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} /></Field>
+        </div>
+      );
+
+    case "map":
+      return (
+        <div className="space-y-4">
+          <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
+          <Field label="Address to show on the map"><Input value={data.address ?? ""} onChange={(e) => set("address", e.target.value)} placeholder="70 Grayston Drive, Sandown, Sandton, 2196" /></Field>
+          <Field label="Zoom level (1 = world, 20 = street)"><Input type="number" min={1} max={20} value={data.zoom ?? 15} onChange={(e) => set("zoom", Number(e.target.value))} /></Field>
+          <Field label="Custom embed link (advanced, optional)"><Input value={data.embed_url ?? ""} onChange={(e) => set("embed_url", e.target.value)} /></Field>
+          <Field label="In-page link name (optional)"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} /></Field>
+        </div>
+      );
+
+    case "contact_form":
+      return (
+        <div className="space-y-4">
+          <Field label="Heading"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
+          <Field label="Intro text (optional)"><Textarea rows={3} value={data.intro ?? ""} onChange={(e) => set("intro", e.target.value)} /></Field>
+          <Field label="Send messages to (email address)"><Input value={data.recipient ?? ""} onChange={(e) => set("recipient", e.target.value)} placeholder="info@sa-transformationfund.co.za" /></Field>
+          <Field label="Button label"><Input value={data.button_label ?? ""} onChange={(e) => set("button_label", e.target.value)} /></Field>
+          <Field label="In-page link name"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} placeholder="contact-form" /></Field>
+          <p className="text-xs text-muted-foreground">The form opens the visitor's own email app with their message pre-filled.</p>
+        </div>
+      );
+
     default:
       return null;
   }
+
 };
 
 export default BlockEditor;
