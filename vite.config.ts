@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-tabs', '@radix-ui/react-accordion', 'fuse.js'],
-          'charts-vendor': ['recharts'],
+          
           'icons-vendor': ['lucide-react'],
         },
       },
