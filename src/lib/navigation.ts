@@ -21,7 +21,7 @@ export const DEFAULT_MENU: MenuNode[] = [
   },
   {
     id: "eligibility",
-    label: "Eligibility",
+    label: "Access to Capital",
     href: "/eligibility",
     children: [
       { id: "elig-process", label: "Funding Process", href: "/eligibility/process", children: [] },
