@@ -50,10 +50,27 @@ import CmsOrCoded from "./components/cms/CmsOrCoded";
 const queryClient = new QueryClient();
 
 const ScrollToTopOnNavigate = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash, key } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    // Target sections may still be mounting (lazy routes) — retry briefly.
+    const id = hash.slice(1);
+    let attempts = 0;
+    let frame = 0;
+    const tryScroll = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+      if (attempts++ < 40) frame = window.setTimeout(tryScroll, 100);
+    };
+    tryScroll();
+    return () => window.clearTimeout(frame);
+  }, [pathname, hash, key]);
   return null;
 };
 

@@ -32,6 +32,8 @@ const PhakamaniNavbar = memo(() => {
       setOpenDropdown(null);
       const [path, sectionId] = href.split("#");
       if (location.pathname === path) {
+        // Keep the URL in sync so the hash reflects the section being viewed.
+        navigate(href, { replace: true });
         document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
       } else {
         navigate(href);
