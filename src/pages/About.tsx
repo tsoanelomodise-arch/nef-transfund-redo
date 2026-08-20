@@ -81,12 +81,12 @@ const About = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
               <div className="relative h-[320px] md:h-[400px] max-w-[500px]">
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/hero/BakeryBack-2.png"
                   alt=""
                   className="absolute bottom-0 right-0 w-[80%] z-[1] object-contain"
                 />
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/hero/BakeryFront-2.png"
                   alt=""
                   className="absolute bottom-0 left-0 w-[70%] z-[2] object-contain"
@@ -110,7 +110,7 @@ const About = () => {
           <div className="max-w-[1200px] mx-auto px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="min-h-[300px] overflow-hidden">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={objectivesFarmerImg} 
                   alt="Farmer harvesting produce" 
                   className="w-full h-full object-cover min-h-[300px]"

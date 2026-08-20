@@ -124,7 +124,7 @@ const ImageUploadField = ({ label, value, onChange, placeholder, helpText }: Ima
 
       {value && (
         <div className="mt-2 relative inline-block">
-          <img
+          <img loading="lazy" decoding="async"
             src={value}
             alt="Preview"
             className="h-20 w-20 object-cover rounded-md border border-border"

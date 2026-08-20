@@ -127,7 +127,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
             Scan to Follow Us
           </h3>
           <div className="flex justify-center">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="/images/social-media-qr-code.png" 
               alt="Scan to follow us on social media" 
               className="w-24 h-24 rounded-lg"

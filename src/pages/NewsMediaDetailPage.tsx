@@ -89,7 +89,7 @@ const NewsMediaDetailPage = () => {
 
               {/* Featured image */}
               {item.featured_image_url && (
-                <img
+                <img loading="lazy" decoding="async"
                   src={item.featured_image_url}
                   alt={item.title}
                   className="w-full max-h-[500px] object-contain rounded mb-10"
