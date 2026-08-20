@@ -43,6 +43,8 @@ const DocumentsAdmin = lazy(() => import("./pages/admin/DocumentsAdmin"));
 const AdminGuide = lazy(() => import("./pages/admin/AdminGuide"));
 const PagePreview = lazy(() => import("./pages/admin/PagePreview"));
 const CmsPage = lazy(() => import("./pages/CmsPage"));
+const AccessToCapabilityPage = lazy(() => import("./pages/AccessToCapabilityPage"));
+const AccessToMarketsPage = lazy(() => import("./pages/AccessToMarketsPage"));
 import CmsOrCoded from "./components/cms/CmsOrCoded";
 
 const queryClient = new QueryClient();
@@ -83,6 +85,8 @@ const App = () => (
               <Route path="/eligibility/process" element={<CmsOrCoded slug="eligibility/process" fallback={<FundingProcessPage />} />} />
               <Route path="/eligibility/market-segments" element={<MarketSegmentsPage />} />
               <Route path="/eligibility/products" element={<CmsOrCoded slug="eligibility/products" fallback={<ProductsPage />} />} />
+              <Route path="/access-to-capability" element={<AccessToCapabilityPage />} />
+              <Route path="/access-to-markets" element={<AccessToMarketsPage />} />
               <Route path="/investors" element={<InvestorsPage />} />
               <Route path="/investors/governance" element={<GovernancePage />} />
               <Route path="/faq" element={<CmsOrCoded slug="faq" fallback={<FAQ />} />} />
