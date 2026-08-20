@@ -2,15 +2,8 @@ Options -Indexes
 DirectoryIndex disabled
 DirectorySlash Off
 
-# Diagnostic probes — let server-check.php confirm .htaccess is being read.
-# SetEnv requires AllowOverride FileInfo (or All).
-SetEnv HTACCESS_ACTIVE 1
-
 <IfModule mod_headers.c>
-  # Adds X-Htaccess-Active: yes to every response. Inspect in DevTools → Network.
   Header set X-Htaccess-Active "yes"
-  # Forwarded to PHP as HTTP_X_HTACCESS_PROBE so server-check.php can read it.
-  RequestHeader set X-Htaccess-Probe "yes"
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -28,12 +21,4 @@ SetEnv HTACCESS_ACTIVE 1
   # Otherwise, fall back to SPA for any non-existent file
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule . /index.html [L]
-</IfModule>
-
-# Belt-and-suspenders: if mod_rewrite is unavailable, return 403 instead of a listing
-<IfModule !mod_rewrite.c>
-  <Directory "resources">
-    Options -Indexes
-    DirectoryIndex disabled
-  </Directory>
 </IfModule>
