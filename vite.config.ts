@@ -23,6 +23,9 @@ export default defineConfig(({ mode }) => ({
           'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-tabs', '@radix-ui/react-accordion', 'fuse.js'],
           
           'icons-vendor': ['lucide-react'],
+          'supabase-vendor': ['@supabase/supabase-js'],
+          'motion-vendor': ['motion'],
+          'query-vendor': ['@tanstack/react-query'],
         },
       },
     },
