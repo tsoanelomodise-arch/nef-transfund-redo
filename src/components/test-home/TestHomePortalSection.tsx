@@ -40,7 +40,7 @@ const TestHomePortalSection = memo(() => {
               preload="metadata"
               className="absolute inset-0 w-full h-full"
             >
-              <source src="/videos/V3_TF_EligibilityAndDocumentChecker.mp4" type="video/mp4" />
+              <source src="/videos/TF_EligibilityAndDocumentChecker.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
