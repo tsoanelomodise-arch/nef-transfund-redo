@@ -31,12 +31,22 @@ export const DEFAULT_MENU: MenuNode[] = [
     ],
   },
   {
-    id: "access",
+    id: "access-capability",
     label: "Access to Capability",
     href: "/access-to-capability",
     children: [
-      { id: "access-capability", label: "Access to Capability", href: "/access-to-capability", children: [] },
-      { id: "access-markets", label: "Access to Markets", href: "/access-to-markets", children: [] },
+      { id: "cap-journey", label: "Capability Journey", href: "/access-to-capability#capability-journey", children: [] },
+      { id: "cap-interventions", label: "Support Interventions", href: "/access-to-capability#support-interventions", children: [] },
+      { id: "cap-documents", label: "Required Documents", href: "/access-to-capability#documents-section", children: [] },
+    ],
+  },
+  {
+    id: "access-markets",
+    label: "Access to Markets",
+    href: "/access-to-markets",
+    children: [
+      { id: "mkt-how", label: "How it Works", href: "/access-to-markets#markets-journey", children: [] },
+      { id: "mkt-opps", label: "Market Opportunities", href: "/access-to-markets#markets-opportunities", children: [] },
     ],
   },
   {
