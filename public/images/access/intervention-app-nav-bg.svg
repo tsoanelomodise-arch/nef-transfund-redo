@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ledgerBgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3f5f8"/>
+      <stop offset="100%" stop-color="#eff2f7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Clean UI Canvas Background -->
+  <rect width="100%" height="100%" rx="16" fill="url(#ledgerBgGrad)"/>
+
+  <!-- Top Navigation Header -->
+  <g transform="translate(24, 42)">
+    <!-- Ledger Tab with Active Indicator -->
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#09090b" letter-spacing="-0.2">Ledger</text>
+    <circle cx="22" cy="18" r="2.5" fill="#09090b"/>
+
+    <!-- Reporting Tab -->
+    <text x="95" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#3f3f46" letter-spacing="-0.2">Reporting</text>
+
+    <!-- Catalog Tab -->
+    <text x="210" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#3f3f46" letter-spacing="-0.2">Catalog</text>
+  </g>
+</svg>

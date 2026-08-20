@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="peachCoralGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8c8a8"/>
+      <stop offset="35%" stop-color="#f3b088"/>
+      <stop offset="70%" stop-color="#e8925e"/>
+      <stop offset="100%" stop-color="#d97341"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#peachCoralGrad)"/>
+</svg>

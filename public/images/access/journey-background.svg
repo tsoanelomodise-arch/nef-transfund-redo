@@ -1,0 +1,26 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="base-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EFF2F5" />
+      <stop offset="35%" stop-color="#F4F6F8" />
+      <stop offset="70%" stop-color="#F8F9FA" />
+      <stop offset="90%" stop-color="#FEF9EE" />
+      <stop offset="100%" stop-color="#FDEFD4" />
+    </linearGradient>
+    <radialGradient id="warm-glow" cx="95%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#FCE7B8" stop-opacity="0.75" />
+      <stop offset="40%" stop-color="#FDF3DB" stop-opacity="0.45" />
+      <stop offset="80%" stop-color="#FBFBFB" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#F4F6F8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="soft-center" cx="30%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#EFF2F6" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#E2E8F0" stop-opacity="0.2" />
+    </radialGradient>
+  </defs>
+  <!-- Background Rect -->
+  <rect width="1920" height="1080" fill="url(#base-grad)" />
+  <rect width="1920" height="1080" fill="url(#soft-center)" />
+  <rect width="1920" height="1080" fill="url(#warm-glow)" />
+</svg>
