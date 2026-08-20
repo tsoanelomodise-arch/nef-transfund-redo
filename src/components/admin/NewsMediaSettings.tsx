@@ -40,7 +40,7 @@ const NewsMediaSettings = () => {
         <label className="text-sm font-bold text-foreground block mb-1">System Logo URL (Story Fallback)</label>
         <Input value={logoUrl} onChange={(e) => setLogoUrl(e.target.value)} placeholder="https://example.com/logo.png" />
         {logoUrl && (
-          <img src={logoUrl} alt="Preview" className="mt-2 h-16 w-auto object-contain rounded border border-border" />
+          <img loading="lazy" decoding="async" src={logoUrl} alt="Preview" className="mt-2 h-16 w-auto object-contain rounded border border-border" />
         )}
       </div>
       <Button onClick={handleSave} disabled={updateSettings.isPending}>

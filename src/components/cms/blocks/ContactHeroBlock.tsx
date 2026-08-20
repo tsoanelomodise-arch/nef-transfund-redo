@@ -40,10 +40,10 @@ const ContactHeroBlock = ({ data }: Props) => (
           <div className="border border-[#e0e0e0] p-8 text-center">
             {data.image_href ? (
               <a href={data.image_href} target="_blank" rel="noopener noreferrer">
-                <img src={data.image_url} alt={data.image_alt || ""} className="w-[200px] h-[200px] mx-auto mb-4 object-contain" width={200} height={200} />
+                <img loading="lazy" decoding="async" src={data.image_url} alt={data.image_alt || ""} className="w-[200px] h-[200px] mx-auto mb-4 object-contain" width={200} height={200} />
               </a>
             ) : (
-              <img src={data.image_url} alt={data.image_alt || ""} className="w-[200px] h-[200px] mx-auto mb-4 object-contain" width={200} height={200} />
+              <img loading="lazy" decoding="async" src={data.image_url} alt={data.image_alt || ""} className="w-[200px] h-[200px] mx-auto mb-4 object-contain" width={200} height={200} />
             )}
             {data.image_caption && <p className="text-[0.8rem] text-[#4a4a4a]">{data.image_caption}</p>}
           </div>

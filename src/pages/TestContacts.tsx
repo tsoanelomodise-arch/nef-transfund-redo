@@ -85,7 +85,7 @@ const TestContacts = () => {
           <div className="flex justify-center items-center">
             <div className="border border-[#e0e0e0] p-8 text-center">
               <a href="https://scan.page/p/jJshR7" target="_blank" rel="noopener noreferrer">
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/social-media-qr-code.png"
                   alt="Scan QR Code to connect with us"
                   className="w-[200px] h-[200px] mx-auto mb-4 object-contain"

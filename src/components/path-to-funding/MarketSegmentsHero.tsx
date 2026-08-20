@@ -16,7 +16,7 @@ const MarketSegmentsHero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Image column */}
           <div className="relative h-[320px] md:h-[400px] w-full max-w-[500px] md:-mt-12">
-            <img
+            <img loading="lazy" decoding="async"
               src="/images/hero/Smelters_back.png"
               alt="Smelters"
               className="absolute bottom-0 right-0 w-[80%] h-auto object-cover z-[1]"

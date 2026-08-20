@@ -87,7 +87,7 @@ const WhyPillarsSection = () => {
             </div>
             {card.image && (
               <div className="w-full h-[220px] md:h-[180px] lg:h-[220px] mt-8 overflow-hidden">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={card.image} 
                   alt={card.title}
                   className="w-full h-full object-cover"

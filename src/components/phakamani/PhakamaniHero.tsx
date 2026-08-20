@@ -49,7 +49,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
             style={isWhyPage ? { objectPosition: '65% center' } : undefined}
             alt={isWhyPage ? "Chicken farmer holding basket of eggs" : "Two people fist-bumping"}
             loading="eager"
-            fetchPriority="high"
+            fetchpriority="high"
           />
         </div>
 
@@ -61,7 +61,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
               className="w-full h-full object-contain"
               alt="Woman at vibrant market stall with fresh vegetables"
               loading="eager"
-              fetchPriority="high"
+              fetchpriority="high"
             />
           </div>
         )}
@@ -74,7 +74,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
               className="w-full h-full object-contain"
               alt="Businessman in industrial manufacturing facility"
               loading="eager"
-              fetchPriority="high"
+              fetchpriority="high"
             />
           </div>
         )}
@@ -87,7 +87,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
               className="w-full h-full object-contain"
               alt="Two artisans collaborating in pottery workshop"
               loading="eager"
-              fetchPriority="high"
+              fetchpriority="high"
             />
           </div>
         )}
@@ -100,7 +100,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
               className="w-full h-full object-contain"
               alt="Business partners shaking hands in manufacturing facility"
               loading="eager"
-              fetchPriority="high"
+              fetchpriority="high"
             />
           </div>
         )}
@@ -113,7 +113,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
               className="w-full h-full object-contain"
               alt="Baker standing in artisan bakery with fresh bread"
               loading="eager"
-              fetchPriority="high"
+              fetchpriority="high"
             />
           </div>
         )}
@@ -127,7 +127,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
             Scan to Follow Us
           </h3>
           <div className="flex justify-center">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="/images/social-media-qr-code.png" 
               alt="Scan to follow us on social media" 
               className="w-24 h-24 rounded-lg"

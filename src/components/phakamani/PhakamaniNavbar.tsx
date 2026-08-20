@@ -129,7 +129,7 @@ const PhakamaniNavbar = memo(() => {
               alt="Transformation Fund"
               className="h-full w-auto object-contain"
               loading="eager"
-              fetchPriority="high"
+              fetchpriority="high"
             />
           </Link>
 

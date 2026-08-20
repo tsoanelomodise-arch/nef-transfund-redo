@@ -52,14 +52,14 @@ const PathToFundingHero: React.FC<PathToFundingHeroProps> = memo(({ onCheckEligi
                     className="layer-back-seamstress"
                     alt=""
                     loading="eager"
-                    fetchPriority="high"
+                    fetchpriority="high"
                   />
                   <img 
                     src="/images/path-to-funding/SeamstressFront.png" 
                     className="layer-front-seamstress"
                     alt="Seamstress entrepreneur"
                     loading="eager"
-                    fetchPriority="high"
+                    fetchpriority="high"
                   />
                 </div>
               </div>

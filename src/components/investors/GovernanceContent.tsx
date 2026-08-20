@@ -66,7 +66,7 @@ const GovernanceContent = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             <div className="w-full min-h-[300px] bg-[#222222] border border-[#333333] overflow-hidden">
-              <img src={digitalOversightImg} alt="Digital oversight dashboard" className="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={digitalOversightImg} alt="Digital oversight dashboard" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col justify-center">
               <div className="w-[60px] h-1 bg-white mb-6" />
