@@ -31,6 +31,15 @@ export const DEFAULT_MENU: MenuNode[] = [
     ],
   },
   {
+    id: "access",
+    label: "Access to Capability",
+    href: "/access-to-capability",
+    children: [
+      { id: "access-capability", label: "Access to Capability", href: "/access-to-capability", children: [] },
+      { id: "access-markets", label: "Access to Markets", href: "/access-to-markets", children: [] },
+    ],
+  },
+  {
     id: "investors",
     label: "Investors",
     href: null,
