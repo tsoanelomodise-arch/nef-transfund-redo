@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { QuizState } from '../types';
+import { QuizState } from '@/types/access';
 import { IconPipelineApproved } from './BespokeIcons';
 
 interface EligibilityModalProps {
@@ -78,7 +78,7 @@ export const EligibilityModal: React.FC<EligibilityModalProps> = ({ isOpen, onCl
 
             {/* Modal Header */}
             <div className="flex items-center gap-3.5 mb-4 flex-shrink-0 pr-8">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-black text-white rounded-xl flex items-center justify-center text-lg font-bold flex-shrink-0 shadow-xs">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-black text-white rounded-xl flex items-center justify-center text-lg font-bold flex-shrink-0 shadow-sm">
                 <IconPipelineApproved className="w-5 h-5 text-white" theme="dark" />
               </div>
               <div>
@@ -215,7 +215,7 @@ export const EligibilityModal: React.FC<EligibilityModalProps> = ({ isOpen, onCl
               <button
                 id="calculate-eligibility-btn"
                 onClick={handleCalculateScore}
-                className="px-6 py-2.5 bg-black hover:bg-neutral-800 text-white text-xs font-extrabold uppercase tracking-wider rounded-full shadow-xs transition-all cursor-pointer"
+                className="px-6 py-2.5 bg-black hover:bg-neutral-800 text-white text-xs font-extrabold uppercase tracking-wider rounded-full shadow-sm transition-all cursor-pointer"
               >
                 Calculate Readiness
               </button>

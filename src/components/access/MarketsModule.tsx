@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ModuleType, JourneyTabType } from '../types';
+import { ModuleType, JourneyTabType } from '@/types/access';
 import { AnimatedMouseArrow } from './AnimatedMouseArrow';
 
 interface MarketsModuleProps {
@@ -70,7 +70,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
         {/* Background Concept Image */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
           <img
-            src="https://donotdelete.wonderlandstudio.co.za/tf/accesstocapacitymarkets/Workshop_Large_full.jpg"
+            src="/images/access/Workshop_Large_full.jpg"
             alt=""
             aria-hidden="true"
             loading="eager"
@@ -120,7 +120,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
                   transition={{ duration: 0.15 }}
                   id="hero-markets-opps-btn"
                   onClick={() => scrollToSection('markets-opportunities')}
-                  className="inline-flex justify-center items-center px-8 py-3.5 border border-gray-300 text-xs font-extrabold uppercase tracking-wider rounded-full text-black bg-white hover:bg-gray-100 transition-colors shadow-xs cursor-pointer"
+                  className="inline-flex justify-center items-center px-8 py-3.5 border border-gray-300 text-xs font-extrabold uppercase tracking-wider rounded-full text-black bg-white hover:bg-gray-100 transition-colors shadow-sm cursor-pointer"
                 >
                   Opportunities
                 </motion.button>
@@ -144,7 +144,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
 
                 <div className="relative rounded-2xl overflow-hidden bg-gray-100">
                   <img
-                    src="https://donotdelete.wonderlandstudio.co.za/tf/accesstocapacitymarkets/Workshop_person.jpg"
+                    src="/images/access/Workshop_person.jpg"
                     alt="Access to Markets Hero"
                     loading="eager"
                     decoding="async"
@@ -166,7 +166,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
                   className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-gray-200/90 shadow-xl cursor-pointer group flex items-center gap-3"
                   onClick={() => onOpenVideoModal('Markets Introduction')}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                  <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform shadow-sm">
                     <svg className="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
@@ -203,7 +203,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
             </p>
 
             {/* Toggle Tabs */}
-            <div className="inline-flex p-1.5 bg-white rounded-full border border-gray-200/90 shadow-xs">
+            <div className="inline-flex p-1.5 bg-white rounded-full border border-gray-200/90 shadow-sm">
               <button
                 id="tab-btn-supplier"
                 onClick={() => setJourneyTab('supplier')}
@@ -249,7 +249,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
                         <span className="w-2 h-2 rounded-full bg-gray-200"></span>
                       </div>
                     </div>
-                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-xs mb-5 group-hover:scale-105 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-sm mb-5 group-hover:scale-105 transition-transform">
                       1
                     </div>
                     <h4 className="text-xl font-bold text-black mb-2.5 tracking-tight">Create Enterprise Profile</h4>
@@ -269,7 +269,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
                         <span className="w-2 h-2 rounded-full bg-gray-200"></span>
                       </div>
                     </div>
-                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-xs mb-5 group-hover:scale-105 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-sm mb-5 group-hover:scale-105 transition-transform">
                       2
                     </div>
                     <h4 className="text-xl font-bold text-black mb-2.5 tracking-tight">Smart Matching</h4>
@@ -289,7 +289,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
                         <span className="w-2 h-2 rounded-full bg-gray-200"></span>
                       </div>
                     </div>
-                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-xs mb-5 group-hover:scale-105 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-sm mb-5 group-hover:scale-105 transition-transform">
                       3
                     </div>
                     <h4 className="text-xl font-bold text-black mb-2.5 tracking-tight">Secure Contracts &amp; Grow</h4>
@@ -318,7 +318,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
                         <span className="w-2 h-2 rounded-full bg-gray-200"></span>
                       </div>
                     </div>
-                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-xs mb-5 group-hover:scale-105 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-sm mb-5 group-hover:scale-105 transition-transform">
                       1
                     </div>
                     <h4 className="text-xl font-bold text-black mb-2.5 tracking-tight">Publish RFQs &amp; Tenders</h4>
@@ -338,7 +338,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
                         <span className="w-2 h-2 rounded-full bg-gray-200"></span>
                       </div>
                     </div>
-                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-xs mb-5 group-hover:scale-105 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-sm mb-5 group-hover:scale-105 transition-transform">
                       2
                     </div>
                     <h4 className="text-xl font-bold text-black mb-2.5 tracking-tight">Vetted Candidate Shortlists</h4>
@@ -358,7 +358,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
                         <span className="w-2 h-2 rounded-full bg-gray-200"></span>
                       </div>
                     </div>
-                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-xs mb-5 group-hover:scale-105 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base shadow-sm mb-5 group-hover:scale-105 transition-transform">
                       3
                     </div>
                     <h4 className="text-xl font-bold text-black mb-2.5 tracking-tight">Scorecard Maximization</h4>
@@ -419,7 +419,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
                     onClick={() => onOpenModal(opp.modalKey)}
                     onMouseEnter={() => setHoveredModalBtn(`opp-${index}`)}
                     onMouseLeave={() => setHoveredModalBtn(null)}
-                    className="w-full py-3 bg-black text-white text-xs font-extrabold uppercase tracking-wider rounded-full hover:bg-neutral-800 transition-colors cursor-pointer shadow-xs relative flex items-center justify-center gap-2"
+                    className="w-full py-3 bg-black text-white text-xs font-extrabold uppercase tracking-wider rounded-full hover:bg-neutral-800 transition-colors cursor-pointer shadow-sm relative flex items-center justify-center gap-2"
                   >
                     <span>Click to Open</span>
                     <AnimatePresence>

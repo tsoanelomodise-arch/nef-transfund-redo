@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { InterventionItem } from '../types';
+import { InterventionItem } from '@/types/access';
 import {
   IconAdvisory,
   IconFinancial,
@@ -105,7 +105,7 @@ export const InterventionModal: React.FC<InterventionModalProps> = ({ data, onCl
             <button
               id="close-intervention-modal-btn"
               onClick={onClose}
-              className="absolute top-5 right-5 text-gray-400 hover:text-gray-900 text-lg font-bold w-8 h-8 flex items-center justify-center rounded-full bg-white/80 hover:bg-white border border-gray-200/60 shadow-2xs transition-colors cursor-pointer z-20"
+              className="absolute top-5 right-5 text-gray-400 hover:text-gray-900 text-lg font-bold w-8 h-8 flex items-center justify-center rounded-full bg-white/80 hover:bg-white border border-gray-200/60 shadow-sm transition-colors cursor-pointer z-20"
               aria-label="Close modal"
             >
               &times;
@@ -113,7 +113,7 @@ export const InterventionModal: React.FC<InterventionModalProps> = ({ data, onCl
 
             {/* Header */}
             <div className="flex items-center gap-4 mb-4 flex-shrink-0 pr-8 relative z-10">
-              <div className="w-12 h-12 bg-white/90 border border-gray-200/70 rounded-xl flex items-center justify-center flex-shrink-0 text-gray-600 shadow-2xs">
+              <div className="w-12 h-12 bg-white/90 border border-gray-200/70 rounded-xl flex items-center justify-center flex-shrink-0 text-gray-600 shadow-sm">
                 {renderIcon(data.title, data.iconType)}
               </div>
               <div>
@@ -149,7 +149,7 @@ export const InterventionModal: React.FC<InterventionModalProps> = ({ data, onCl
               )}
 
               {data.deliverables && (
-                <div className="rounded-2xl border border-gray-200/80 bg-white/90 backdrop-blur-2xs p-4 sm:p-5 shadow-2xs">
+                <div className="rounded-2xl border border-gray-200/80 bg-white/90 backdrop-blur-2xs p-4 sm:p-5 shadow-sm">
                   <div className="flex items-center gap-2 mb-1.5">
                     <div className="w-4 h-4 rounded-full bg-gray-600 text-white flex items-center justify-center flex-shrink-0">
                       <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
@@ -171,7 +171,7 @@ export const InterventionModal: React.FC<InterventionModalProps> = ({ data, onCl
             <div className="mt-5 pt-4 border-t border-gray-200/60 flex justify-end flex-shrink-0 relative z-10">
               <button
                 onClick={onClose}
-                className="px-6 py-2.5 bg-black hover:bg-gray-800 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer shadow-xs"
+                className="px-6 py-2.5 bg-black hover:bg-gray-800 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer shadow-sm"
               >
                 CLOSE
               </button>

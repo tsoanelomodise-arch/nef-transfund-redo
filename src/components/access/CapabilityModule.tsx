@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ModuleType } from '../types';
+import { ModuleType } from '@/types/access';
 import { AnimatedMouseArrow } from './AnimatedMouseArrow';
 import {
   IconAdvisory,
@@ -116,7 +116,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
       mockup: (
         <div className="w-full bg-white rounded-xl p-3.5 sm:p-4 border border-gray-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] relative overflow-hidden">
           <div className="flex items-center gap-3 bg-gray-50 p-2.5 rounded-lg border border-gray-100 mb-2.5">
-            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-sm">
               <IconAdvisory className="w-7 h-7 text-white" theme="dark" />
             </div>
             <div className="overflow-hidden">
@@ -140,7 +140,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
       mockup: (
         <div className="w-full bg-white rounded-xl p-3.5 sm:p-4 border border-gray-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] relative overflow-hidden">
           <div className="flex items-center gap-3 bg-gray-50 p-2.5 rounded-lg border border-gray-100 mb-2.5">
-            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-sm">
               <IconFinancial className="w-7 h-7 text-white" theme="dark" />
             </div>
             <div className="overflow-hidden">
@@ -164,7 +164,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
       mockup: (
         <div className="w-full bg-white rounded-xl p-3.5 sm:p-4 border border-gray-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] relative overflow-hidden">
           <div className="flex items-center gap-3 bg-gray-50 p-2.5 rounded-lg border border-gray-100 mb-2.5">
-            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-sm">
               <IconTechnical className="w-7 h-7 text-white" theme="dark" />
             </div>
             <div className="overflow-hidden">
@@ -188,7 +188,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
       mockup: (
         <div className="w-full bg-white rounded-xl p-3.5 sm:p-4 border border-gray-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] relative overflow-hidden">
           <div className="flex items-center gap-3 bg-gray-50 p-2.5 rounded-lg border border-gray-100 mb-2.5">
-            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-sm">
               <IconSkills className="w-7 h-7 text-white" theme="dark" />
             </div>
             <div className="overflow-hidden">
@@ -212,7 +212,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
       mockup: (
         <div className="w-full bg-white rounded-xl p-3.5 sm:p-4 border border-gray-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] relative overflow-hidden">
           <div className="flex items-center gap-3 bg-gray-50 p-2.5 rounded-lg border border-gray-100 mb-2.5">
-            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-sm">
               <IconIncubation className="w-7 h-7 text-white" theme="dark" />
             </div>
             <div className="overflow-hidden">
@@ -236,7 +236,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
       mockup: (
         <div className="w-full bg-white rounded-xl p-3.5 sm:p-4 border border-gray-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] relative overflow-hidden">
           <div className="flex items-center gap-3 bg-gray-50 p-2.5 rounded-lg border border-gray-100 mb-2.5">
-            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-sm">
               <IconMentorship className="w-7 h-7 text-white" theme="dark" />
             </div>
             <div className="overflow-hidden">
@@ -260,7 +260,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
       mockup: (
         <div className="w-full bg-white rounded-xl p-3.5 sm:p-4 border border-gray-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] relative overflow-hidden">
           <div className="flex items-center gap-3 bg-gray-50 p-2.5 rounded-lg border border-gray-100 mb-2.5">
-            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 shadow-sm">
               <IconDigital className="w-7 h-7 text-white" theme="dark" />
             </div>
             <div className="overflow-hidden">
@@ -284,7 +284,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
         {/* Background Concept Image */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
           <img
-            src="https://donotdelete.wonderlandstudio.co.za/tf/accesstocapacitymarkets/ProteasBackground.jpg"
+            src="/images/access/ProteasBackground.jpg"
             alt=""
             aria-hidden="true"
             loading="eager"
@@ -341,7 +341,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                   transition={{ duration: 0.15 }}
                   id="hero-doc-checklist-btn"
                   onClick={() => scrollToSection('documents-section')}
-                  className="inline-flex justify-center items-center px-8 py-3.5 border border-gray-300 text-xs font-extrabold uppercase tracking-wider rounded-full text-black bg-white hover:bg-gray-100 transition-colors shadow-xs cursor-pointer"
+                  className="inline-flex justify-center items-center px-8 py-3.5 border border-gray-300 text-xs font-extrabold uppercase tracking-wider rounded-full text-black bg-white hover:bg-gray-100 transition-colors shadow-sm cursor-pointer"
                 >
                   Document Checklist
                 </motion.button>
@@ -365,7 +365,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
 
                 <div className="relative rounded-2xl overflow-hidden bg-gray-100">
                   <img
-                    src="https://donotdelete.wonderlandstudio.co.za/tf/accesstocapacitymarkets/Florist-Concept-Large-Cropped.jpg"
+                    src="/images/access/Florist-Concept-Large-Cropped.jpg"
                     alt="Access to Capability Hero"
                     loading="eager"
                     decoding="async"
@@ -387,7 +387,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                   className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-gray-200/90 shadow-xl cursor-pointer group flex items-center gap-3"
                   onClick={() => onOpenVideoModal('Capability Walkthrough')}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                  <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform shadow-sm">
                     <svg className="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
@@ -420,7 +420,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
             transition={{ duration: 0.5 }}
             className="text-center max-w-3xl mx-auto mb-2 sm:mb-3"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-gray-200/90 text-[11px] font-extrabold uppercase tracking-widest text-black mb-2 shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-gray-200/90 text-[11px] font-extrabold uppercase tracking-widest text-black mb-2 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-black"></span>
               The application process
             </div>
@@ -477,7 +477,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                     transition={{ duration: 0.3 }}
                     className="flex flex-col items-center h-[135px] justify-end"
                   >
-                    <div className={`w-15 h-15 rounded-full bg-white border-2 flex items-center justify-center shadow-xs transition-all duration-300 ${
+                    <div className={`w-[3.75rem] h-[3.75rem] rounded-full bg-white border-2 flex items-center justify-center shadow-sm transition-all duration-300 ${
                       journeyStep === 1 ? 'border-black shadow-md ring-4 ring-black/5' : 'border-gray-200 group-hover:border-gray-400'
                     }`}>
                       {/* Document / Submission Icon */}
@@ -494,7 +494,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                         scale: journeyStep === 1 ? 1.5 : 1,
                         backgroundColor: journeyStep >= 1 ? '#000000' : '#d1d5db',
                       }}
-                      className="w-3.5 h-3.5 rounded-full ring-4 ring-white shadow-xs"
+                      className="w-3.5 h-3.5 rounded-full ring-4 ring-white shadow-sm"
                     />
                   </div>
 
@@ -545,7 +545,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                         scale: journeyStep === 2 ? 1.5 : 1,
                         backgroundColor: journeyStep >= 2 ? '#000000' : '#d1d5db',
                       }}
-                      className="w-3.5 h-3.5 rounded-full ring-4 ring-white shadow-xs"
+                      className="w-3.5 h-3.5 rounded-full ring-4 ring-white shadow-sm"
                     />
                   </div>
 
@@ -560,7 +560,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                   >
                     {/* Stem down from axis */}
                     <div className={`w-[2px] h-8 transition-colors duration-300 ${journeyStep === 2 ? 'bg-black' : 'bg-gray-300'}`}></div>
-                    <div className={`w-15 h-15 rounded-full bg-white border-2 flex items-center justify-center shadow-xs transition-all duration-300 ${
+                    <div className={`w-[3.75rem] h-[3.75rem] rounded-full bg-white border-2 flex items-center justify-center shadow-sm transition-all duration-300 ${
                       journeyStep === 2 ? 'border-black shadow-md ring-4 ring-black/5' : 'border-gray-200 group-hover:border-gray-400'
                     }`}>
                       {/* Shield / Approved Icon */}
@@ -583,7 +583,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                     transition={{ duration: 0.3 }}
                     className="flex flex-col items-center h-[135px] justify-end"
                   >
-                    <div className={`w-15 h-15 rounded-full bg-white border-2 flex items-center justify-center shadow-xs transition-all duration-300 ${
+                    <div className={`w-[3.75rem] h-[3.75rem] rounded-full bg-white border-2 flex items-center justify-center shadow-sm transition-all duration-300 ${
                       journeyStep === 3 ? 'border-black shadow-md ring-4 ring-black/5' : 'border-gray-200 group-hover:border-gray-400'
                     }`}>
                       {/* Lightbulb Training Icon */}
@@ -600,7 +600,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                         scale: journeyStep === 3 ? 1.5 : 1,
                         backgroundColor: journeyStep >= 3 ? '#000000' : '#d1d5db',
                       }}
-                      className="w-3.5 h-3.5 rounded-full ring-4 ring-white shadow-xs"
+                      className="w-3.5 h-3.5 rounded-full ring-4 ring-white shadow-sm"
                     />
                   </div>
 
@@ -651,7 +651,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                         scale: journeyStep === 4 ? 1.5 : 1,
                         backgroundColor: journeyStep >= 4 ? '#000000' : '#d1d5db',
                       }}
-                      className="w-3.5 h-3.5 rounded-full ring-4 ring-white shadow-xs"
+                      className="w-3.5 h-3.5 rounded-full ring-4 ring-white shadow-sm"
                     />
                   </div>
 
@@ -666,7 +666,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                   >
                     {/* Stem down from axis */}
                     <div className={`w-[2px] h-8 transition-colors duration-300 ${journeyStep === 4 ? 'bg-black' : 'bg-gray-300'}`}></div>
-                    <div className={`w-15 h-15 rounded-full bg-white border-2 flex items-center justify-center shadow-xs transition-all duration-300 ${
+                    <div className={`w-[3.75rem] h-[3.75rem] rounded-full bg-white border-2 flex items-center justify-center shadow-sm transition-all duration-300 ${
                       journeyStep === 4 ? 'border-black shadow-md ring-4 ring-black/5' : 'border-gray-200 group-hover:border-gray-400'
                     }`}>
                       {/* Quote mark icon matching reference image */}
@@ -687,7 +687,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                         scale: journeyStep === 5 ? 1.5 : 1,
                         backgroundColor: journeyStep >= 5 ? '#000000' : '#d1d5db',
                       }}
-                      className="w-3.5 h-3.5 rounded-full ring-4 ring-white shadow-xs"
+                      className="w-3.5 h-3.5 rounded-full ring-4 ring-white shadow-sm"
                     />
                   </div>
 
@@ -759,7 +759,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                     <div className={`w-2.5 h-2.5 rounded-full ${journeyStep >= 1 ? 'bg-black' : 'bg-gray-300'}`} />
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-xs flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-sm flex-shrink-0">
                       <IconPipelineSubmission className="w-5 h-5 text-black" theme="light" />
                     </div>
                     <div>
@@ -777,7 +777,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                     <div className={`w-2.5 h-2.5 rounded-full ${journeyStep >= 2 ? 'bg-black' : 'bg-gray-300'}`} />
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-xs flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-sm flex-shrink-0">
                       <IconPipelineApproved className="w-5 h-5 text-black" theme="light" />
                     </div>
                     <div>
@@ -795,7 +795,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                     <div className={`w-2.5 h-2.5 rounded-full ${journeyStep >= 3 ? 'bg-black' : 'bg-gray-300'}`} />
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-xs flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-sm flex-shrink-0">
                       <IconPipelineTraining className="w-5 h-5 text-black" theme="light" />
                     </div>
                     <div>
@@ -813,7 +813,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                     <div className={`w-2.5 h-2.5 rounded-full ${journeyStep >= 4 ? 'bg-black' : 'bg-gray-300'}`} />
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-xs flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-sm flex-shrink-0">
                       <IconPipelineCertificate className="w-5 h-5 text-black" theme="light" />
                     </div>
                     <div>
@@ -825,7 +825,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
 
                 {/* Step 5 Mobile */}
                 <div onClick={() => setJourneyStep(5)} className="relative pt-2 cursor-pointer group">
-                  <div className={`absolute -left-[33px] sm:-left-[41px] top-6 w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 bg-black flex items-center justify-center shadow-xs`}>
+                  <div className={`absolute -left-[33px] sm:-left-[41px] top-6 w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 bg-black flex items-center justify-center shadow-sm`}>
                     <div className="w-2.5 h-2.5 rounded-full bg-white" />
                   </div>
                   <div
@@ -864,7 +864,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
             transition={{ duration: 0.5 }}
             className="text-center max-w-3xl mx-auto mb-10 lg:mb-12"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-gray-200/90 text-[11px] font-extrabold uppercase tracking-widest text-black mb-4 shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-gray-200/90 text-[11px] font-extrabold uppercase tracking-widest text-black mb-4 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-black"></span>
               Capability Interventions
             </div>
@@ -962,7 +962,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
             transition={{ duration: 0.5 }}
             className="text-center max-w-3xl mx-auto mb-12 lg:mb-14"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-gray-200/90 text-[11px] font-extrabold uppercase tracking-widest text-black mb-4 shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-gray-200/90 text-[11px] font-extrabold uppercase tracking-widest text-black mb-4 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-black"></span>
               Compliance &amp; Verification
             </div>
@@ -1002,9 +1002,9 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                   <motion.li
                     whileHover={{ x: 3 }}
                     transition={{ duration: 0.2 }}
-                    className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:bg-white hover:border-gray-300 hover:shadow-xs transition-all flex items-start gap-4 group"
+                    className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:bg-white hover:border-gray-300 hover:shadow-sm transition-all flex items-start gap-4 group"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-sm group-hover:scale-105 transition-transform">
                       ✓
                     </div>
                     <div className="flex-1 text-sm leading-relaxed">
@@ -1017,9 +1017,9 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                   <motion.li
                     whileHover={{ x: 3 }}
                     transition={{ duration: 0.2 }}
-                    className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:bg-white hover:border-gray-300 hover:shadow-xs transition-all flex items-start gap-4 group"
+                    className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:bg-white hover:border-gray-300 hover:shadow-sm transition-all flex items-start gap-4 group"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-sm group-hover:scale-105 transition-transform">
                       ✓
                     </div>
                     <div className="flex-1 text-sm leading-relaxed">
@@ -1032,9 +1032,9 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                   <motion.li
                     whileHover={{ x: 3 }}
                     transition={{ duration: 0.2 }}
-                    className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:bg-white hover:border-gray-300 hover:shadow-xs transition-all flex items-start gap-4 group"
+                    className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:bg-white hover:border-gray-300 hover:shadow-sm transition-all flex items-start gap-4 group"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-sm group-hover:scale-105 transition-transform">
                       ✓
                     </div>
                     <div className="flex-1 text-sm leading-relaxed">
@@ -1047,9 +1047,9 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                   <motion.li
                     whileHover={{ x: 3 }}
                     transition={{ duration: 0.2 }}
-                    className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:bg-white hover:border-gray-300 hover:shadow-xs transition-all flex items-start gap-4 group"
+                    className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:bg-white hover:border-gray-300 hover:shadow-sm transition-all flex items-start gap-4 group"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-sm group-hover:scale-105 transition-transform">
                       ✓
                     </div>
                     <div className="flex-1 text-sm leading-relaxed">
@@ -1062,9 +1062,9 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                   <motion.li
                     whileHover={{ x: 3 }}
                     transition={{ duration: 0.2 }}
-                    className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:bg-white hover:border-gray-300 hover:shadow-xs transition-all flex items-start gap-4 group"
+                    className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:bg-white hover:border-gray-300 hover:shadow-sm transition-all flex items-start gap-4 group"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-sm group-hover:scale-105 transition-transform">
                       ✓
                     </div>
                     <div className="flex-1 text-sm leading-relaxed">
@@ -1084,7 +1084,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
               transition={{ duration: 0.45, delay: 0.1 }}
               className="lg:col-span-5 p-7 sm:p-9 rounded-[2rem] border border-emerald-100/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between relative overflow-hidden bg-cover bg-center"
               style={{
-                backgroundImage: 'url(/guidance-mint-gradient.svg)',
+                backgroundImage: 'url(/images/access/guidance-mint-gradient.svg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
@@ -1119,7 +1119,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                     onClick={() => onOpenVideoModal('Document Upload Tutorial')}
                   >
                     <img
-                      src="https://placehold.co/600x338/e5e7eb/9ca3af?text=Document+Guidance+Video"
+                      src="/images/access/Workshop_person.jpg"
                       alt="Document Guidance Video"
                       loading="lazy"
                       decoding="async"
@@ -1177,7 +1177,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
             transition={{ duration: 0.5 }}
             className="bg-black text-white rounded-[2.5rem] p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl text-center"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-[11px] font-extrabold uppercase tracking-widest text-white mb-5 shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-[11px] font-extrabold uppercase tracking-widest text-white mb-5 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-white"></span>
               Next Horizon
             </div>

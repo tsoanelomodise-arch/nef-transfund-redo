@@ -1,4 +1,4 @@
-import { InterventionItem } from '../types';
+import { InterventionItem } from '@/types/access';
 
 export const interventionData: Record<string, InterventionItem> = {
   advisory: {
