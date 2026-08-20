@@ -75,7 +75,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
             aria-hidden="true"
             loading="eager"
             decoding="async"
-            fetchPriority="high"
+            fetchpriority="high"
             className="w-full h-full object-cover object-right sm:object-right opacity-100 transition-opacity"
             referrerPolicy="no-referrer"
           />
@@ -148,7 +148,7 @@ export const MarketsModule: React.FC<MarketsModuleProps> = ({
                     alt="Access to Markets Hero"
                     loading="eager"
                     decoding="async"
-                    fetchPriority="high"
+                    fetchpriority="high"
                     className="w-full h-[320px] lg:h-[420px] object-cover object-center"
                     referrerPolicy="no-referrer"
                   />
