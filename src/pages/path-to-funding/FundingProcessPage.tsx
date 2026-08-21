@@ -10,7 +10,7 @@ const FundingProcessPage = () => {
     path: "/eligibility/process",
   });
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-50">
       <PhakamaniNavbar />
 
       <main className="pt-[180px] lg:pt-[210px]">
