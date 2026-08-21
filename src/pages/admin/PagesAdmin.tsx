@@ -31,9 +31,9 @@ const PagesAdmin = () => {
 
   return (
     <AdminLayout>
-      <h1 className="text-2xl font-bold mb-6">Pages</h1>
+      <h1 className="text-3xl font-black tracking-tight text-black mb-6">Pages</h1>
 
-      <div className="bg-background border border-border rounded-md p-4 mb-8 flex flex-col md:flex-row gap-3 md:items-end">
+      <div className="admin-card bg-white p-5 mb-8 flex flex-col md:flex-row gap-3 md:items-end">
         <div className="flex-1">
           <label className="text-sm font-bold block mb-1">Page title</label>
           <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Our Impact" />
@@ -48,18 +48,18 @@ const PagesAdmin = () => {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Loading pages...</p>
+        <p className="text-gray-500">Loading pages...</p>
       ) : !pages?.length ? (
-        <p className="text-muted-foreground">No pages yet. Create your first one above.</p>
+        <p className="text-gray-500">No pages yet. Create your first one above.</p>
       ) : (
-        <div className="bg-background border border-border rounded-md divide-y divide-border">
+        <div className="admin-card bg-white divide-y divide-gray-100">
           {pages.map((page) => (
             <div key={page.id} className="p-4 flex flex-wrap items-center gap-3">
               <div className="flex-1 min-w-[200px]">
                 <p className="font-bold">{page.title}</p>
-                <p className="text-sm text-muted-foreground">/{page.slug}</p>
+                <p className="text-sm text-gray-500">/{page.slug}</p>
               </div>
-              <span className={`text-xs font-bold uppercase px-2 py-1 rounded ${page.status === "published" ? "bg-[#00703C] text-white" : "bg-muted text-muted-foreground"}`}>
+              <span className={`text-xs font-bold uppercase px-2 py-1 rounded ${page.status === "published" ? "bg-[#00703C] text-white" : "bg-muted text-gray-500"}`}>
                 {page.status}
               </span>
               <Button asChild variant="outline" size="sm"><Link to={`/admin/pages/${page.id}`}>Edit</Link></Button>

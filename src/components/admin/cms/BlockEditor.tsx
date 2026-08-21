@@ -48,7 +48,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
         <div className="space-y-4">
           <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
           <Field label="Text"><Textarea rows={10} value={data.body ?? ""} onChange={(e) => set("body", e.target.value)} /></Field>
-          <p className="text-xs text-muted-foreground">Line breaks are kept exactly as you type them.</p>
+          <p className="text-xs text-gray-500">Line breaks are kept exactly as you type them.</p>
         </div>
       );
 
@@ -276,7 +276,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
       return (
         <div className="space-y-4">
           <Field label="In-page link name"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} placeholder="market-segments" /></Field>
-          <p className="text-xs text-muted-foreground">Menu links ending in #{data.anchor || "name"} will jump to this point on the page.</p>
+          <p className="text-xs text-gray-500">Menu links ending in #{data.anchor || "name"} will jump to this point on the page.</p>
         </div>
       );
 
@@ -301,11 +301,11 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
                       }
                     />
                     {doc.title}
-                    {!doc.visible && <span className="text-xs text-muted-foreground">(hidden)</span>}
+                    {!doc.visible && <span className="text-xs text-gray-500">(hidden)</span>}
                   </label>
                 );
               })}
-              {!documents?.length && <p className="text-sm text-muted-foreground">No documents uploaded yet.</p>}
+              {!documents?.length && <p className="text-sm text-gray-500">No documents uploaded yet.</p>}
             </div>
           </div>
         </div>
@@ -453,7 +453,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
           <Field label="Send messages to (email address)"><Input value={data.recipient ?? ""} onChange={(e) => set("recipient", e.target.value)} placeholder="info@sa-transformationfund.co.za" /></Field>
           <Field label="Button label"><Input value={data.button_label ?? ""} onChange={(e) => set("button_label", e.target.value)} /></Field>
           <Field label="In-page link name"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} placeholder="contact-form" /></Field>
-          <p className="text-xs text-muted-foreground">The form opens the visitor's own email app with their message pre-filled.</p>
+          <p className="text-xs text-gray-500">The form opens the visitor's own email app with their message pre-filled.</p>
         </div>
       );
 

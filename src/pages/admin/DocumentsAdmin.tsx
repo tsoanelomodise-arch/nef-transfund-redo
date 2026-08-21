@@ -58,8 +58,8 @@ const DocumentsAdmin = () => {
 
   return (
     <AdminLayout>
-      <h1 className="text-2xl font-bold mb-2">Documents</h1>
-      <p className="text-sm text-muted-foreground mb-6">Upload PDFs and other files, then link them from pages or menu items.</p>
+      <h1 className="text-3xl font-black tracking-tight text-black mb-2">Documents</h1>
+      <p className="text-sm text-gray-500 mb-6">Upload PDFs and other files, then link them from pages or menu items.</p>
 
       <div
         onClick={() => inputRef.current?.click()}
@@ -67,9 +67,9 @@ const DocumentsAdmin = () => {
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => { e.preventDefault(); const f = e.dataTransfer.files?.[0]; if (f) upload(f); }}
       >
-        <Upload className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
-        <p className="text-sm text-muted-foreground">Drag & drop a file here, or <span className="text-primary underline">browse</span></p>
-        <p className="text-xs text-muted-foreground mt-1">PDF, Word, Excel, PowerPoint — max 25 MB</p>
+        <Upload className="h-8 w-8 mx-auto mb-2 text-gray-500" />
+        <p className="text-sm text-gray-500">Drag & drop a file here, or <span className="text-primary underline">browse</span></p>
+        <p className="text-xs text-gray-500 mt-1">PDF, Word, Excel, PowerPoint — max 25 MB</p>
         <input
           ref={inputRef}
           type="file"
@@ -81,14 +81,14 @@ const DocumentsAdmin = () => {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Loading documents...</p>
+        <p className="text-gray-500">Loading documents...</p>
       ) : !documents?.length ? (
-        <p className="text-muted-foreground">No documents yet.</p>
+        <p className="text-gray-500">No documents yet.</p>
       ) : (
-        <div className="bg-background border border-border rounded-md divide-y divide-border">
+        <div className="admin-card bg-white divide-y divide-gray-100">
           {documents.map((doc) => (
             <div key={doc.id} className="p-4 flex flex-wrap items-center gap-3">
-              <FileText className="h-5 w-5 text-muted-foreground" />
+              <FileText className="h-5 w-5 text-gray-500" />
               <Input
                 className="flex-1 min-w-[220px]"
                 defaultValue={doc.title}
@@ -96,7 +96,7 @@ const DocumentsAdmin = () => {
               />
               <div className="flex items-center gap-2">
                 <Switch checked={doc.visible} onCheckedChange={(v) => save.mutate({ id: doc.id, visible: v })} />
-                <span className="text-xs text-muted-foreground">Visible</span>
+                <span className="text-xs text-gray-500">Visible</span>
               </div>
               <Button variant="outline" size="sm" onClick={() => openDocument(doc.storage_path)}>Open</Button>
               <Button variant="ghost" size="sm" onClick={() => { if (confirm(`Delete "${doc.title}"?`)) remove.mutate(doc); }}>

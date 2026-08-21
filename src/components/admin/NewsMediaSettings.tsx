@@ -27,14 +27,14 @@ const NewsMediaSettings = () => {
     );
   };
 
-  if (isLoading) return <p className="text-muted-foreground">Loading settings...</p>;
+  if (isLoading) return <p className="text-gray-500">Loading settings...</p>;
 
   return (
     <div className="space-y-6 max-w-lg">
       <div>
         <label className="text-sm font-bold text-foreground block mb-1">YouTube Channel URL</label>
         <Input value={youtubeUrl} onChange={(e) => setYoutubeUrl(e.target.value)} placeholder="https://www.youtube.com/@yourchannel" />
-        <p className="text-xs text-muted-foreground mt-1">Only videos from this channel will be allowed.</p>
+        <p className="text-xs text-gray-500 mt-1">Only videos from this channel will be allowed.</p>
       </div>
       <div>
         <label className="text-sm font-bold text-foreground block mb-1">System Logo URL (Story Fallback)</label>

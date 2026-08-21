@@ -96,11 +96,11 @@ const ImageUploadField = ({ label, value, onChange, placeholder, helpText }: Ima
               dragOver ? "border-primary bg-primary/5" : "border-muted-foreground/30 hover:border-primary/50"
             }`}
           >
-            <Upload className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
-            <p className="text-sm text-muted-foreground">
+            <Upload className="h-8 w-8 mx-auto mb-2 text-gray-500" />
+            <p className="text-sm text-gray-500">
               Drag & drop an image here, or <span className="text-primary underline">browse</span>
             </p>
-            <p className="text-xs text-muted-foreground mt-1">JPG, PNG, WebP, GIF — max 5 MB</p>
+            <p className="text-xs text-gray-500 mt-1">JPG, PNG, WebP, GIF — max 5 MB</p>
           </div>
           <input
             ref={fileInputRef}
@@ -118,7 +118,7 @@ const ImageUploadField = ({ label, value, onChange, placeholder, helpText }: Ima
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder ?? "https://..."}
           />
-          {helpText && <p className="text-xs text-muted-foreground mt-1">{helpText}</p>}
+          {helpText && <p className="text-xs text-gray-500 mt-1">{helpText}</p>}
         </TabsContent>
       </Tabs>
 

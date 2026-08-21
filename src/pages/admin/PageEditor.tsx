@@ -35,7 +35,7 @@ const PageEditor = () => {
   }, [data]);
 
   if (isLoading || !data) {
-    return <AdminLayout><p className="text-muted-foreground">Loading page...</p></AdminLayout>;
+    return <AdminLayout><p className="text-gray-500">Loading page...</p></AdminLayout>;
   }
 
   const move = (index: number, dir: -1 | 1) => {
@@ -64,8 +64,8 @@ const PageEditor = () => {
     <AdminLayout>
       <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
         <div>
-          <Link to="/admin/pages" className="text-sm text-muted-foreground hover:text-foreground">← All pages</Link>
-          <h1 className="text-2xl font-bold">{meta.title}</h1>
+          <Link to="/admin/pages" className="text-sm text-gray-500 hover:text-foreground">← All pages</Link>
+          <h1 className="text-3xl font-black tracking-tight text-black">{meta.title}</h1>
         </div>
         <div className="flex gap-2">
           <Button asChild variant="outline" size="sm">
@@ -76,7 +76,7 @@ const PageEditor = () => {
         </div>
       </div>
 
-      <div className="bg-background border border-border rounded-md p-4 mb-8 grid gap-4 md:grid-cols-2">
+      <div className="admin-card bg-white p-5 mb-8 grid gap-4 md:grid-cols-2">
         <div>
           <label className="text-sm font-bold block mb-1">Page title</label>
           <Input value={meta.title} onChange={(e) => setMeta({ ...meta, title: e.target.value })} />
@@ -97,7 +97,7 @@ const PageEditor = () => {
 
       <div className="space-y-4">
         {blocks.map((block, i) => (
-          <div key={block.id} className="bg-background border border-border rounded-md">
+          <div key={block.id} className="admin-card bg-white p-1">
             <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-muted/40">
               <span className="font-bold text-sm">{BLOCK_LABELS[block.type] ?? block.type}</span>
               <div className="flex gap-1">

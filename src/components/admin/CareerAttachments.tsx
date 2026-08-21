@@ -96,11 +96,11 @@ const CareerAttachments = ({ careerId }: CareerAttachmentsProps) => {
         }`}
       >
         {uploading ? (
-          <div className="flex items-center justify-center gap-2 text-muted-foreground">
+          <div className="flex items-center justify-center gap-2 text-gray-500">
             <Loader2 className="h-5 w-5 animate-spin" /> Uploading...
           </div>
         ) : (
-          <div className="flex flex-col items-center gap-2 text-muted-foreground">
+          <div className="flex flex-col items-center gap-2 text-gray-500">
             <Upload className="h-6 w-6" />
             <span className="text-sm">Drag & drop files here, or click to browse</span>
           </div>
@@ -120,7 +120,7 @@ const CareerAttachments = ({ careerId }: CareerAttachmentsProps) => {
         <ul className="space-y-2">
           {attachments.map((att: any) => (
             <li key={att.id} className="flex items-center gap-3 bg-muted/50 rounded-md px-3 py-2 text-sm">
-              <FileText className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+              <FileText className="h-4 w-4 text-gray-500 flex-shrink-0" />
               <a
                 href={att.file_url}
                 target="_blank"
@@ -129,7 +129,7 @@ const CareerAttachments = ({ careerId }: CareerAttachmentsProps) => {
               >
                 {att.file_name}
               </a>
-              <span className="text-muted-foreground text-xs whitespace-nowrap">{formatSize(att.file_size)}</span>
+              <span className="text-gray-500 text-xs whitespace-nowrap">{formatSize(att.file_size)}</span>
               <Button
                 type="button"
                 variant="ghost"

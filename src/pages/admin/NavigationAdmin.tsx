@@ -64,7 +64,7 @@ const NavigationAdmin = () => {
       </Select>
       <div className="flex items-center gap-2">
         <Switch checked={item.visible} onCheckedChange={(v) => save.mutate({ id: item.id, visible: v })} />
-        <span className="text-xs text-muted-foreground">Visible</span>
+        <span className="text-xs text-gray-500">Visible</span>
       </div>
       <Button variant="ghost" size="sm" onClick={() => swap(list, index, -1)} disabled={index === 0}><ArrowUp className="h-4 w-4" /></Button>
       <Button variant="ghost" size="sm" onClick={() => swap(list, index, 1)} disabled={index === list.length - 1}><ArrowDown className="h-4 w-4" /></Button>
@@ -76,10 +76,10 @@ const NavigationAdmin = () => {
 
   return (
     <AdminLayout>
-      <h1 className="text-2xl font-bold mb-2">Navigation</h1>
-      <p className="text-sm text-muted-foreground mb-6">Menu items shown in the website header. Sub-items appear in the dropdown of their parent.</p>
+      <h1 className="text-3xl font-black tracking-tight text-black mb-2">Navigation</h1>
+      <p className="text-sm text-gray-500 mb-6">Menu items shown in the website header. Sub-items appear in the dropdown of their parent.</p>
 
-      <div className="bg-background border border-border rounded-md p-4 mb-8 flex flex-col md:flex-row gap-3 md:items-end">
+      <div className="admin-card bg-white p-5 mb-8 flex flex-col md:flex-row gap-3 md:items-end">
         <div className="flex-1">
           <label className="text-sm font-bold block mb-1">Label</label>
           <Input value={newLabel} onChange={(e) => setNewLabel(e.target.value)} placeholder="e.g. Our Impact" />
@@ -102,11 +102,11 @@ const NavigationAdmin = () => {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Loading menu...</p>
+        <p className="text-gray-500">Loading menu...</p>
       ) : !topLevel.length ? (
-        <p className="text-muted-foreground">No menu items yet.</p>
+        <p className="text-gray-500">No menu items yet.</p>
       ) : (
-        <div className="bg-background border border-border rounded-md divide-y divide-border">
+        <div className="admin-card bg-white divide-y divide-gray-100">
           {topLevel.map((item, i) => (
             <div key={item.id}>
               <Row item={item} list={topLevel} index={i} />

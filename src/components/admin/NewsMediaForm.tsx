@@ -152,7 +152,7 @@ const NewsMediaForm = ({ item, onClose }: NewsMediaFormProps) => {
       <div>
         <label className="text-sm font-bold block mb-1">Display Order (1 = lowest, 10 = highest)</label>
         <Input type="number" min={1} max={10} value={priority} onChange={(e) => setPriority(Number(e.target.value))} />
-        <p className="text-xs text-muted-foreground mt-1">Higher values appear first on both the home and archive pages.</p>
+        <p className="text-xs text-gray-500 mt-1">Higher values appear first on both the home and archive pages.</p>
       </div>
 
       <div className="flex flex-wrap gap-6">
