@@ -58,7 +58,6 @@ export const DEFAULT_MENU: MenuNode[] = [
       { id: "inv-gov", label: "Governance", href: "/investors/governance", children: [] },
     ],
   },
-  { id: "news", label: "News", href: "/news-media", children: [] },
   {
     id: "resources",
     label: "Resources",
@@ -72,6 +71,7 @@ export const DEFAULT_MENU: MenuNode[] = [
         href: "/resources/Transformation_Fund_Framework_FINAL_03_March_2026.pdf",
         children: [],
       },
+      { id: "news", label: "News", href: "/news-media", children: [] },
     ],
   },
   { id: "contacts", label: "Contacts", href: "/contacts", children: [] },
