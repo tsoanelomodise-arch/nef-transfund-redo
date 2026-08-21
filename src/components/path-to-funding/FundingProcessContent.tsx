@@ -64,34 +64,34 @@ const stages = [
 
 const FundingProcessContent = () => {
   return (
-    <section className="max-w-[1400px] mx-auto px-5 py-10 md:py-14 bg-white text-[#111111]">
+    <section className="max-w-[1400px] mx-auto px-5 py-10 md:py-14 bg-gray-50 text-gray-900">
       {/* Header */}
       <div className="mb-8 md:mb-12 max-w-[800px]">
-        <div className="w-[60px] h-1 bg-black mb-4" />
-        <h1 className="text-4xl md:text-[48px] font-extrabold leading-[1.1] tracking-[-1px] mb-6">
+        <div className="w-[60px] h-1 bg-black rounded-full mb-5" />
+        <h1 className="text-4xl md:text-[48px] font-extrabold leading-[1.1] tracking-[-1px] mb-6 text-gray-900">
           Funding Process
         </h1>
-        <p className="text-lg leading-relaxed text-[#333333] font-light max-w-[600px]">
+        <p className="text-lg leading-relaxed text-gray-500 font-light max-w-[600px]">
           The Transformation Fund follows a structured, stage-gated funding process designed to ensure alignment, viability, accountability and long-term impact across the full project lifecycle.
         </p>
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {stages.map((stage, index) => (
           <article
             key={index}
-            className="bg-[#F5F5F5] p-8 md:p-10 flex flex-col border border-transparent transition-all duration-300 hover:bg-white hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:border-[#E5E5E5] hover:-translate-y-1"
+            className="bg-white rounded-3xl p-8 md:p-10 flex flex-col shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1"
           >
-            <div className="mb-6 pb-5 border-b-2 border-black/10">
-              <span className="block text-sm font-semibold uppercase tracking-[1px] text-[#333333] mb-2">
+            <div className="mb-6 pb-5 border-b border-gray-100">
+              <span className="inline-flex items-center rounded-full bg-black px-4 py-1.5 text-xs font-semibold uppercase tracking-[1px] text-white mb-4">
                 {stage.step}
               </span>
-              <h3 className="text-2xl font-bold leading-[1.3] m-0">
+              <h3 className="text-2xl font-bold leading-[1.3] m-0 text-gray-900">
                 {stage.title}
               </h3>
             </div>
-            <div className="text-[15px] leading-[1.7] text-[#555555] flex-grow">
+            <div className="text-[15px] leading-[1.7] text-gray-500 flex-grow">
               {stage.paragraphs.map((paragraph, pIndex) => (
                 <p key={pIndex} className="mb-4 last:mb-0">
                   {paragraph}
