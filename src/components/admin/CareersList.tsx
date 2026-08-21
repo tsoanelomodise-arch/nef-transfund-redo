@@ -10,9 +10,9 @@ import type { CareerItem } from "@/types/careers";
 import CareersForm from "./CareersForm";
 
 const statusColor: Record<string, string> = {
-  draft: "bg-muted text-gray-500",
-  published: "bg-primary/10 text-primary",
-  archived: "bg-destructive/10 text-destructive",
+  draft: "bg-gray-100 text-gray-600",
+  published: "bg-black text-white",
+  archived: "bg-gray-900/80 text-white",
 };
 
 const CareersList = () => {

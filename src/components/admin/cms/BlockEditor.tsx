@@ -152,7 +152,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
           <Field label="Image alt text"><Input value={data.image_alt ?? ""} onChange={(e) => set("image_alt", e.target.value)} /></Field>
           <Field label="Image side">
             <select
-              className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+              className="w-full h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm"
               value={data.image_position ?? "right"}
               onChange={(e) => set("image_position", e.target.value)}
             >
@@ -188,7 +188,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
           <Field label="Image alt text"><Input value={data.image_alt ?? ""} onChange={(e) => set("image_alt", e.target.value)} /></Field>
           <Field label="Image side">
             <select
-              className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+              className="w-full h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm"
               value={data.image_position ?? "left"}
               onChange={(e) => set("image_position", e.target.value)}
             >
@@ -395,7 +395,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
                 </div>
                 <Field label="Icon">
                   <select
-                    className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+                    className="w-full h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm"
                     value={card.icon ?? "mail"}
                     onChange={(e) => listUpdate("cards", i, { icon: e.target.value })}
                   >

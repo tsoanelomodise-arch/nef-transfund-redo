@@ -59,7 +59,7 @@ const PagesAdmin = () => {
                 <p className="font-bold">{page.title}</p>
                 <p className="text-sm text-gray-500">/{page.slug}</p>
               </div>
-              <span className={`text-xs font-bold uppercase px-2 py-1 rounded ${page.status === "published" ? "bg-[#00703C] text-white" : "bg-muted text-gray-500"}`}>
+              <span className={`text-xs font-bold uppercase px-2 py-1 rounded ${page.status === "published" ? "bg-black text-white" : "bg-gray-100 text-gray-600"}`}>
                 {page.status}
               </span>
               <Button asChild variant="outline" size="sm"><Link to={`/admin/pages/${page.id}`}>Edit</Link></Button>

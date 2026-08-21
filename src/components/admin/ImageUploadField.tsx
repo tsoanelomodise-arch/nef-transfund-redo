@@ -92,7 +92,7 @@ const ImageUploadField = ({ label, value, onChange, placeholder, helpText }: Ima
             onDragLeave={() => setDragOver(false)}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
-            className={`border-2 border-dashed rounded-md p-6 text-center cursor-pointer transition-colors ${
+            className={`border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition-colors ${
               dragOver ? "border-primary bg-primary/5" : "border-muted-foreground/30 hover:border-primary/50"
             }`}
           >
