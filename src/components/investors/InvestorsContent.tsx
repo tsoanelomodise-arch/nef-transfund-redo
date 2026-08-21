@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { TfCheck } from "@/components/icons";
 
 const investorCards = [
   {
@@ -134,7 +134,7 @@ const InvestorsContent = () => {
                 {featureItems.map((item, index) => (
                   <li key={index} className="flex items-start gap-4">
                     <div className="min-w-[24px] h-[24px] bg-white text-[#7C8089] flex items-center justify-center rounded-sm text-xs font-bold mt-0.5">
-                      <Check className="w-4 h-4" />
+                      <TfCheck className="w-4 h-4" />
                     </div>
                     <div>
                       <strong className="block text-white font-semibold mb-1">

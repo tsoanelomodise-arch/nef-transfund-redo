@@ -1,4 +1,4 @@
-import { FileText } from "lucide-react";
+import { TfDocument } from "@/components/icons";
 import { useQuery } from "@tanstack/react-query";
 import { useDocuments, signedDocumentUrl } from "@/hooks/useCms";
 
@@ -35,7 +35,7 @@ const DocumentListBlock = ({ data }: Props) => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#00703C] hover:bg-[#005c30] text-white font-bold px-6 py-3 rounded-md transition-colors shadow-md hover:shadow-lg"
             >
-              <FileText className="w-5 h-5" />
+              <TfDocument className="w-5 h-5" />
               {doc.title}
             </a>
           ))}

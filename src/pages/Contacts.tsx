@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { TfMail, TfPhone, TfPin, TfClock } from "@/components/icons";
 import { useToast } from "@/hooks/use-toast";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
@@ -108,7 +108,7 @@ const Contacts = () => {
               {/* Email Card */}
               <div className="bg-black text-white rounded-2xl p-6 hover:translate-y-[-8px] transition-transform duration-300 shadow-lg">
                 <div className="w-12 h-12 bg-[#00703C] rounded-full flex items-center justify-center mb-4">
-                  <Mail className="h-6 w-6 text-white" />
+                  <TfMail className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Email</h3>
                 <a href="mailto:info@sa-transformationfund.co.za" className="text-gray-300 hover:text-[#00703C] transition-colors block text-sm mb-1">
@@ -119,12 +119,12 @@ const Contacts = () => {
                 </a>
               </div>
 
-              {/* Phone Card */}
+              {/* TfPhone Card */}
               <div className="bg-black text-white rounded-2xl p-6 hover:translate-y-[-8px] transition-transform duration-300 shadow-lg">
                 <div className="w-12 h-12 bg-[#00703C] rounded-full flex items-center justify-center mb-4">
-                  <Phone className="h-6 w-6 text-white" />
+                  <TfPhone className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Phone</h3>
+                <h3 className="text-xl font-bold mb-3">TfPhone</h3>
                 <a href="tel:+27861113186" className="text-gray-300 hover:text-[#00703C] transition-colors block text-sm">
                   +27 86 111 3186
                 </a>
@@ -133,7 +133,7 @@ const Contacts = () => {
               {/* Address Card */}
               <div className="bg-black text-white rounded-2xl p-6 hover:translate-y-[-8px] transition-transform duration-300 shadow-lg">
                 <div className="w-12 h-12 bg-[#00703C] rounded-full flex items-center justify-center mb-4">
-                  <MapPin className="h-6 w-6 text-white" />
+                  <TfPin className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Address</h3>
                 <p className="text-gray-300 text-sm">
@@ -146,7 +146,7 @@ const Contacts = () => {
               {/* Office Hours Card */}
               <div className="bg-black text-white rounded-2xl p-6 hover:translate-y-[-8px] transition-transform duration-300 shadow-lg">
                 <div className="w-12 h-12 bg-[#00703C] rounded-full flex items-center justify-center mb-4">
-                  <Clock className="h-6 w-6 text-white" />
+                  <TfClock className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Office Hours</h3>
                 <p className="text-gray-300 text-sm">

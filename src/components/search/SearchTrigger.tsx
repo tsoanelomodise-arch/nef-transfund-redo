@@ -1,5 +1,5 @@
 // Search trigger button for the navigation header
-import { Search } from 'lucide-react';
+import { TfSearch } from "@/components/icons";
 import { Button } from '@/components/ui/button';
 
 interface SearchTriggerProps {
@@ -17,7 +17,7 @@ export function SearchTrigger({ onClick, variant = 'desktop' }: SearchTriggerPro
         className="h-9 w-9"
         aria-label="Open search"
       >
-        <Search className="h-5 w-5 text-gray-700" />
+        <TfSearch className="h-5 w-5 text-gray-700" />
       </Button>
     );
   }
@@ -29,9 +29,9 @@ export function SearchTrigger({ onClick, variant = 'desktop' }: SearchTriggerPro
       onClick={onClick}
       className="h-9 w-9"
       aria-label="Open search (⌘K)"
-      title="Search (⌘K)"
+      title="TfSearch (⌘K)"
     >
-      <Search className="h-5 w-5 text-gray-700" />
+      <TfSearch className="h-5 w-5 text-gray-700" />
     </Button>
   );
 }

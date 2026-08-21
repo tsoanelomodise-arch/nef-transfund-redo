@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import { Play } from "lucide-react";
+import { TfPlay } from "@/components/icons";
 import {
   Dialog,
   DialogContent,
@@ -43,7 +43,7 @@ const PortalSection = memo(() => {
             />
             <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
               <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Play className="w-10 h-10 text-[#00703C] ml-1" />
+                <TfPlay className="w-10 h-10 text-[#00703C] ml-1" />
               </div>
             </div>
           </div>

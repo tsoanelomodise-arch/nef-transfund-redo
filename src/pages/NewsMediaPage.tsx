@@ -7,7 +7,7 @@ import { useNewsMediaArchive, useSiteSettings } from "@/hooks/useNewsMedia";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Play } from "lucide-react";
+import { TfPlay } from "@/components/icons";
 
 function getYoutubeEmbedUrl(url: string): string | null {
   const match = url.match(/(?:v=|\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
@@ -110,7 +110,7 @@ const NewsMediaPage = () => {
                                 className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity"
                               >
                                 <div className="bg-white/90 rounded-full p-3">
-                                  <Play className="h-6 w-6 text-[#222222] fill-[#222222]" />
+                                  <TfPlay className="h-6 w-6 text-[#222222] fill-[#222222]" />
                                 </div>
                               </button>
                             )}

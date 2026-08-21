@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { TfCheck } from "@/components/icons";
 import digitalOversightImg from "@/assets/digital-oversight-dashboard.jpg";
 
 const GovernanceContent = () => {
@@ -101,7 +101,7 @@ const GovernanceContent = () => {
             <div>
               <div className="flex items-start">
                 <span className="inline-flex items-center justify-center w-5 h-5 bg-black text-white text-xs mr-3 flex-shrink-0 mt-0.5">
-                  <Check className="w-3 h-3" />
+                  <TfCheck className="w-3 h-3" />
                 </span>
                 <p className="text-[#666666] text-base mb-0">
                   A Transformation Index will aggregate impact data for public visibility and accountability.

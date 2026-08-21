@@ -2,13 +2,13 @@ import { memo, useMemo } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Target, Users, TrendingUp } from "lucide-react";
+import { TfCheckCircle, TfTarget, TfPeople, TfGrowth } from "@/components/icons";
 import startupGrantsHeader from "@/assets/startup-grants-header.jpg";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 import SocialIconsRow from "@/components/shared/SocialIconsRow";
 
-const FeatureCard = memo(({ icon: Icon, title, description }: { icon: typeof Target; title: string; description: string }) => (
+const FeatureCard = memo(({ icon: Icon, title, description }: { icon: typeof TfTarget; title: string; description: string }) => (
   <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white rounded-2xl overflow-hidden">
     <CardContent className="p-8">
       <div className="w-16 h-16 mx-auto mb-8 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -47,17 +47,17 @@ const StartupGrants = () => {
   });
   const features = useMemo(() => [
     {
-      icon: Target,
+      icon: TfTarget,
       title: "Smart Instrument",
       description: "Small startup grants and convertible vouchers specifically designed for early-stage and informal enterprises seeking growth opportunities."
     },
     {
-      icon: Users,
-      title: "Target Businesses",
+      icon: TfPeople,
+      title: "TfTarget Businesses",
       description: "Township shopkeepers, youth-led tech enterprises, entrepreneurs building prototypes, and informal businesses seeking formalization."
     },
     {
-      icon: TrendingUp,
+      icon: TfGrowth,
       title: "Perfect Market Fit",
       description: "Tailored for micro and informal businesses that struggle with complex applications – featuring minimal paperwork and maximum impact."
     }
@@ -66,7 +66,7 @@ const StartupGrants = () => {
   const steps = useMemo(() => [
     { step: "01", title: "Register Business", description: "Complete our streamlined business registration process with minimal paperwork" },
     { step: "02", title: "Complete Training", description: "Finish our comprehensive capability training program designed for your success" },
-    { step: "03", title: "Hit Sales Target", description: "Achieve your first sales milestone and unlock continued funding support" }
+    { step: "03", title: "Hit Sales TfTarget", description: "Achieve your first sales milestone and unlock continued funding support" }
   ], []);
 
   return (
@@ -156,7 +156,7 @@ const StartupGrants = () => {
               <CardContent className="p-12">
                 <div className="text-center">
                   <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center">
-                    <CheckCircle className="w-10 h-10 text-white" />
+                    <TfCheckCircle className="w-10 h-10 text-white" />
                   </div>
                   <blockquote className="text-xl lg:text-2xl text-slate-700 leading-relaxed font-medium">
                     "We provide seed capital to entrepreneurs who lack initial funding or collateral – transforming 
@@ -201,7 +201,7 @@ const StartupGrants = () => {
               <CardContent className="p-12 text-center">
                 <div className="max-w-4xl mx-auto">
                   <div className="w-16 h-16 mx-auto mb-8 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center">
-                    <CheckCircle className="w-8 h-8 text-white" />
+                    <TfCheckCircle className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-6">
                     Designed for Real Businesses
@@ -265,24 +265,24 @@ const StartupGrants = () => {
               <Card className="border-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-3xl overflow-hidden shadow-lg">
                 <CardContent className="p-10">
                   <div className="w-16 h-16 mb-8 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center">
-                    <CheckCircle className="w-8 h-8 text-white" />
+                    <TfCheckCircle className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Our Solution</h3>
                   <ul className="text-slate-700 space-y-4 text-lg">
                     <li className="flex items-start">
-                      <CheckCircle className="text-primary mr-3 mt-1 w-5 h-5 flex-shrink-0" />
+                      <TfCheckCircle className="text-primary mr-3 mt-1 w-5 h-5 flex-shrink-0" />
                       Streamlined digital platform for quick applications
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="text-primary mr-3 mt-1 w-5 h-5 flex-shrink-0" />
+                      <TfCheckCircle className="text-primary mr-3 mt-1 w-5 h-5 flex-shrink-0" />
                       Focus on outcomes, not paperwork
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="text-primary mr-3 mt-1 w-5 h-5 flex-shrink-0" />
+                      <TfCheckCircle className="text-primary mr-3 mt-1 w-5 h-5 flex-shrink-0" />
                       Conditional grants with capability requirements
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="text-primary mr-3 mt-1 w-5 h-5 flex-shrink-0" />
+                      <TfCheckCircle className="text-primary mr-3 mt-1 w-5 h-5 flex-shrink-0" />
                       Embedded technical support throughout your journey
                     </li>
                   </ul>
@@ -294,7 +294,7 @@ const StartupGrants = () => {
               <CardContent className="p-12 text-center">
                 <div className="max-w-4xl mx-auto">
                   <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center">
-                    <TrendingUp className="w-10 h-10 text-white" />
+                    <TfGrowth className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6">
                     Smart Conditions, Better Outcomes
@@ -340,15 +340,15 @@ const StartupGrants = () => {
             </div>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-white/80">
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" />
+                <TfCheckCircle className="w-5 h-5" />
                 <span>No Lengthy Paperwork</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" />
+                <TfCheckCircle className="w-5 h-5" />
                 <span>Fast Approval</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" />
+                <TfCheckCircle className="w-5 h-5" />
                 <span>Ongoing Support</span>
               </div>
             </div>

@@ -5,7 +5,7 @@ import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, MapPin, Briefcase, Calendar, ExternalLink, DollarSign, FileText, Download } from "lucide-react";
+import { TfArrowLeft, TfPin, TfBriefcase, TfCalendar, TfExternal, TfCapital, TfDocument, TfDownload } from "@/components/icons";
 
 const CareerDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -38,7 +38,7 @@ const CareerDetailPage = () => {
           <h1 className="text-2xl font-bold text-foreground mb-4">Position Not Found</h1>
           <p className="text-muted-foreground mb-6">This job posting may no longer be available.</p>
           <Link to="/careers">
-            <Button variant="outline"><ArrowLeft className="h-4 w-4 mr-2" /> Back to Careers</Button>
+            <Button variant="outline"><TfArrowLeft className="h-4 w-4 mr-2" /> Back to Careers</Button>
           </Link>
         </div>
         <Footer />
@@ -54,27 +54,27 @@ const CareerDetailPage = () => {
       <section className="bg-primary text-primary-foreground py-12">
         <div className="container mx-auto px-4">
           <Link to="/careers" className="inline-flex items-center gap-1 text-sm opacity-80 hover:opacity-100 mb-4">
-            <ArrowLeft className="h-4 w-4" /> All Careers
+            <TfArrowLeft className="h-4 w-4" /> All Careers
           </Link>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-4">{job.title}</h1>
           <div className="flex flex-wrap gap-3 mt-4">
             {job.department && <Badge className="bg-primary-foreground/20 text-primary-foreground">{job.department}</Badge>}
             {job.location && (
               <Badge className="bg-primary-foreground/20 text-primary-foreground flex items-center gap-1">
-                <MapPin className="h-3 w-3" /> {job.location}
+                <TfPin className="h-3 w-3" /> {job.location}
               </Badge>
             )}
             {job.employment_type && (
               <Badge className="bg-primary-foreground/20 text-primary-foreground flex items-center gap-1">
-                <Briefcase className="h-3 w-3" /> {job.employment_type}
+                <TfBriefcase className="h-3 w-3" /> {job.employment_type}
               </Badge>
             )}
             <Badge className="bg-primary-foreground/20 text-primary-foreground flex items-center gap-1">
-              <Calendar className="h-3 w-3" /> Posted {new Date(job.publish_date).toLocaleDateString()}
+              <TfCalendar className="h-3 w-3" /> Posted {new Date(job.publish_date).toLocaleDateString()}
             </Badge>
             {job.salary_range && (
               <Badge className="bg-primary-foreground/20 text-primary-foreground flex items-center gap-1">
-                <DollarSign className="h-3 w-3" /> {job.salary_range}
+                <TfCapital className="h-3 w-3" /> {job.salary_range}
               </Badge>
             )}
           </div>
@@ -123,9 +123,9 @@ const CareerDetailPage = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-3 rounded-lg border border-border hover:bg-muted/50 transition-colors text-foreground"
                   >
-                    <FileText className="h-5 w-5 text-primary flex-shrink-0" />
+                    <TfDocument className="h-5 w-5 text-primary flex-shrink-0" />
                     <span className="flex-1">{att.file_name}</span>
-                    <Download className="h-4 w-4 text-muted-foreground" />
+                    <TfDownload className="h-4 w-4 text-muted-foreground" />
                   </a>
                 </li>
               ))}
@@ -137,7 +137,7 @@ const CareerDetailPage = () => {
         <div className="mt-10">
           <Link to="/careers">
             <Button variant="outline" size="lg">
-              <ArrowLeft className="h-4 w-4 mr-2" /> Back to Careers
+              <TfArrowLeft className="h-4 w-4 mr-2" /> Back to Careers
             </Button>
           </Link>
         </div>

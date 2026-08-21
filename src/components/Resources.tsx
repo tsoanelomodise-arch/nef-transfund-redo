@@ -1,25 +1,25 @@
-import { BookOpen, Users, Briefcase } from "lucide-react";
+import { TfBook, TfPeople, TfBriefcase } from "@/components/icons";
 
 const Resources = () => {
   const resources = [
     {
       title: "Business Development",
       description: "Access to business planning, market research, and strategic development resources.",
-      icon: BookOpen,
+      icon: TfBook,
       iconColor: "text-teal-700",
       bgColor: "bg-teal-100"
     },
     {
       title: "Mentorship Network", 
       description: "Connect with experienced business leaders and industry experts for guidance and support.",
-      icon: Users,
+      icon: TfPeople,
       iconColor: "text-teal-700", 
       bgColor: "bg-teal-100"
     },
     {
       title: "Training Programs",
       description: "Skills development workshops, financial literacy, and business management training.",
-      icon: Briefcase,
+      icon: TfBriefcase,
       iconColor: "text-orange-600",
       bgColor: "bg-orange-100"
     }
