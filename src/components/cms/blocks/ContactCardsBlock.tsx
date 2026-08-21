@@ -1,14 +1,14 @@
-import { Mail, Phone, MapPin, Clock, Globe, MessageSquare } from "lucide-react";
+import { TfMail, TfPhone, TfPin, TfClock, TfGlobe, TfMessage } from "@/components/icons";
 
 interface Props { data: Record<string, any>; }
 
-const ICONS: Record<string, typeof Mail> = {
-  mail: Mail,
-  phone: Phone,
-  address: MapPin,
-  clock: Clock,
-  globe: Globe,
-  message: MessageSquare,
+const ICONS: Record<string, typeof TfMail> = {
+  mail: TfMail,
+  phone: TfPhone,
+  address: TfPin,
+  clock: TfClock,
+  globe: TfGlobe,
+  message: TfMessage,
 };
 
 /** Dark contact cards (email, phone, address, hours) in a four-column grid. */
@@ -20,7 +20,7 @@ const ContactCardsBlock = ({ data }: Props) => (
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {(data.cards ?? []).map((card: any, i: number) => {
-          const Icon = ICONS[card.icon] ?? Mail;
+          const Icon = ICONS[card.icon] ?? TfMail;
           const lines: any[] = Array.isArray(card.lines) ? card.lines : [];
           return (
             <div key={i} className="bg-[#111111] text-white p-8 flex flex-col">

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, memo } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { TfChevronLeft, TfChevronRight } from "@/components/icons";
 import { Link } from "react-router-dom";
 
 const slides = [
@@ -101,14 +101,14 @@ const TestHomeHero = memo(({ onCheckEligibility }: TestHomeHeroProps) => {
           className="pointer-events-auto w-[50px] h-[50px] rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black transition-colors"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <TfChevronLeft className="w-6 h-6" />
         </button>
         <button
           onClick={nextSlide}
           className="pointer-events-auto w-[50px] h-[50px] rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black transition-colors"
           aria-label="Next slide"
         >
-          <ChevronRight className="w-6 h-6" />
+          <TfChevronRight className="w-6 h-6" />
         </button>
       </div>
     </section>

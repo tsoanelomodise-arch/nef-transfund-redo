@@ -1,6 +1,6 @@
 import { useState, useCallback, memo, useMemo } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { TfMenu, TfClose, TfChevronDown } from "@/components/icons";
 import { SearchDialog, SearchTrigger } from "@/components/search";
 import SocialIconsRow from "@/components/shared/SocialIconsRow";
 import { useNavItems, useDocuments, signedDocumentUrl } from "@/hooks/useCms";
@@ -159,7 +159,7 @@ const PhakamaniNavbar = memo(() => {
                   <MenuLink node={node} className={triggerClass}>
                     <>
                       {node.label}
-                      <ChevronDown className="ml-1 h-4 w-4" />
+                      <TfChevronDown className="ml-1 h-4 w-4" />
                     </>
                   </MenuLink>
                   {openDropdown === node.id && (
@@ -191,12 +191,12 @@ const PhakamaniNavbar = memo(() => {
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {mobileMenuOpen ? <TfClose className="h-6 w-6" /> : <TfMenu className="h-6 w-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile TfMenu */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-100px)] overflow-y-auto">
             <div className="px-2 pt-2 pb-3 space-y-1">

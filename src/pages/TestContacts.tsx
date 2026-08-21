@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { TfMail, TfPhone, TfPin, TfClock } from "@/components/icons";
 import { useSEO } from "@/hooks/useSEO";
 import PhakamaniNavbar from "@/components/phakamani/PhakamaniNavbar";
 import Footer from "@/components/transformation/Footer";
@@ -109,7 +109,7 @@ const TestContacts = () => {
             {/* Email */}
             <div className="bg-[#111] text-white p-8 flex flex-col">
               <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-6">
-                <Mail className="w-[18px] h-[18px] text-white" />
+                <TfMail className="w-[18px] h-[18px] text-white" />
               </div>
               <h3 className="text-white text-[1.1rem] font-bold mb-4">Email</h3>
               <a href="mailto:info@sa-transformationfund.co.za" className="text-[#ccc] text-[0.85rem] mb-2 block hover:text-white hover:underline transition-colors">
@@ -120,19 +120,19 @@ const TestContacts = () => {
               </a>
             </div>
 
-            {/* Phone */}
+            {/* TfPhone */}
             <div className="bg-[#111] text-white p-8 flex flex-col">
               <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-6">
-                <Phone className="w-[18px] h-[18px] text-white" />
+                <TfPhone className="w-[18px] h-[18px] text-white" />
               </div>
-              <h3 className="text-white text-[1.1rem] font-bold mb-4">Phone</h3>
+              <h3 className="text-white text-[1.1rem] font-bold mb-4">TfPhone</h3>
               <p className="text-[#ccc] text-[0.85rem]">+27 86 111 3186</p>
             </div>
 
             {/* Address */}
             <div className="bg-[#111] text-white p-8 flex flex-col">
               <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-6">
-                <MapPin className="w-[18px] h-[18px] text-white" />
+                <TfPin className="w-[18px] h-[18px] text-white" />
               </div>
               <h3 className="text-white text-[1.1rem] font-bold mb-4">Address</h3>
               <p className="text-[#ccc] text-[0.85rem]">70 Grayston Drive, Sandown Sandton, Gauteng, 2196 South Africa</p>
@@ -141,7 +141,7 @@ const TestContacts = () => {
             {/* Office Hours */}
             <div className="bg-[#111] text-white p-8 flex flex-col">
               <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-6">
-                <Clock className="w-[18px] h-[18px] text-white" />
+                <TfClock className="w-[18px] h-[18px] text-white" />
               </div>
               <h3 className="text-white text-[1.1rem] font-bold mb-4">Office Hours</h3>
               <p className="text-[#ccc] text-[0.85rem] mb-2">Monday - Friday: 8:00 AM - 5:00 PM</p>

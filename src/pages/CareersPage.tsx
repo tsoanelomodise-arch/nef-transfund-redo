@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Briefcase, Calendar, Search } from "lucide-react";
+import { TfPin, TfBriefcase, TfCalendar, TfSearch } from "@/components/icons";
 
 const CareersPage = () => {
   const [search, setSearch] = useState("");
@@ -64,9 +64,9 @@ const CareersPage = () => {
       <section className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <TfSearch className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search jobs..."
+              placeholder="TfSearch jobs..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="pl-10"
@@ -114,13 +114,13 @@ const CareersPage = () => {
                       <div className="flex gap-2 flex-wrap">
                         {job.employment_type && (
                           <Badge variant="secondary" className="flex items-center gap-1">
-                            <Briefcase className="h-3 w-3" />
+                            <TfBriefcase className="h-3 w-3" />
                             {job.employment_type}
                           </Badge>
                         )}
                         {job.location && (
                           <Badge variant="outline" className="flex items-center gap-1">
-                            <MapPin className="h-3 w-3" />
+                            <TfPin className="h-3 w-3" />
                             {job.location}
                           </Badge>
                         )}
@@ -135,7 +135,7 @@ const CareersPage = () => {
                       <p className="text-sm text-foreground line-clamp-2">{job.summary}</p>
                     )}
                     <div className="flex items-center gap-1 mt-3 text-xs text-muted-foreground">
-                      <Calendar className="h-3 w-3" />
+                      <TfCalendar className="h-3 w-3" />
                       Posted {new Date(job.publish_date).toLocaleDateString()}
                     </div>
                   </CardContent>

@@ -5,7 +5,7 @@ import Footer from "@/components/transformation/Footer";
 import { useNewsMediaItem } from "@/hooks/useNewsMedia";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { TfArrowLeft, TfExternal } from "@/components/icons";
 
 function getYoutubeEmbedUrl(url: string): string | null {
   const match = url.match(/(?:v=|\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
@@ -34,7 +34,7 @@ const NewsMediaDetailPage = () => {
             to="/news-media"
             className="inline-flex items-center gap-2 text-sm font-bold text-[#007847] hover:underline mb-8"
           >
-            <ArrowLeft className="h-4 w-4" />
+            <TfArrowLeft className="h-4 w-4" />
             Back to News & Media
           </Link>
 
@@ -127,7 +127,7 @@ const NewsMediaDetailPage = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-bold text-[#007847] hover:underline mt-8"
                 >
-                  <ExternalLink className="h-4 w-4" />
+                  <TfExternal className="h-4 w-4" />
                   View original source
                 </a>
               )}
