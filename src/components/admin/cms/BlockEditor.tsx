@@ -48,7 +48,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
         <div className="space-y-4">
           <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
           <Field label="Text"><Textarea rows={10} value={data.body ?? ""} onChange={(e) => set("body", e.target.value)} /></Field>
-          <p className="text-xs text-muted-foreground">Line breaks are kept exactly as you type them.</p>
+          <p className="text-xs text-gray-500">Line breaks are kept exactly as you type them.</p>
         </div>
       );
 
@@ -57,7 +57,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
         <div className="space-y-4">
           <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
           {(data.cards ?? []).map((card: any, i: number) => (
-            <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+            <div key={i} className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-bold">Card {i + 1}</span>
                 <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("cards", i)}><Trash2 className="h-4 w-4" /></Button>
@@ -76,7 +76,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
         <div className="space-y-4">
           <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
           {(data.items ?? []).map((item: any, i: number) => (
-            <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+            <div key={i} className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-bold">Item {i + 1}</span>
                 <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("items", i)}><Trash2 className="h-4 w-4" /></Button>
@@ -129,7 +129,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
           <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
           <Field label="In-page link name (optional)"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} placeholder="path-to-funding" /></Field>
           {(data.steps ?? []).map((step: any, i: number) => (
-            <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+            <div key={i} className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-bold">Step {i + 1}</span>
                 <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("steps", i)}><Trash2 className="h-4 w-4" /></Button>
@@ -152,7 +152,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
           <Field label="Image alt text"><Input value={data.image_alt ?? ""} onChange={(e) => set("image_alt", e.target.value)} /></Field>
           <Field label="Image side">
             <select
-              className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+              className="w-full h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm"
               value={data.image_position ?? "right"}
               onChange={(e) => set("image_position", e.target.value)}
             >
@@ -188,7 +188,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
           <Field label="Image alt text"><Input value={data.image_alt ?? ""} onChange={(e) => set("image_alt", e.target.value)} /></Field>
           <Field label="Image side">
             <select
-              className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+              className="w-full h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm"
               value={data.image_position ?? "left"}
               onChange={(e) => set("image_position", e.target.value)}
             >
@@ -252,7 +252,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
           <Field label="Heading"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
           <Field label="Intro text (optional)"><Textarea rows={3} value={data.intro ?? ""} onChange={(e) => set("intro", e.target.value)} /></Field>
           {(data.cards ?? []).map((card: any, i: number) => (
-            <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+            <div key={i} className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-bold">Card {i + 1}</span>
                 <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("cards", i)}><Trash2 className="h-4 w-4" /></Button>
@@ -276,7 +276,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
       return (
         <div className="space-y-4">
           <Field label="In-page link name"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} placeholder="market-segments" /></Field>
-          <p className="text-xs text-muted-foreground">Menu links ending in #{data.anchor || "name"} will jump to this point on the page.</p>
+          <p className="text-xs text-gray-500">Menu links ending in #{data.anchor || "name"} will jump to this point on the page.</p>
         </div>
       );
 
@@ -301,11 +301,11 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
                       }
                     />
                     {doc.title}
-                    {!doc.visible && <span className="text-xs text-muted-foreground">(hidden)</span>}
+                    {!doc.visible && <span className="text-xs text-gray-500">(hidden)</span>}
                   </label>
                 );
               })}
-              {!documents?.length && <p className="text-sm text-muted-foreground">No documents uploaded yet.</p>}
+              {!documents?.length && <p className="text-sm text-gray-500">No documents uploaded yet.</p>}
             </div>
           </div>
         </div>
@@ -388,14 +388,14 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
             const lines: any[] = Array.isArray(card.lines) ? card.lines : [];
             const setLines = (next: any[]) => listUpdate("cards", i, { lines: next });
             return (
-              <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+              <div key={i} className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-bold">Card {i + 1}</span>
                   <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("cards", i)}><Trash2 className="h-4 w-4" /></Button>
                 </div>
                 <Field label="Icon">
                   <select
-                    className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+                    className="w-full h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm"
                     value={card.icon ?? "mail"}
                     onChange={(e) => listUpdate("cards", i, { icon: e.target.value })}
                   >
@@ -453,7 +453,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
           <Field label="Send messages to (email address)"><Input value={data.recipient ?? ""} onChange={(e) => set("recipient", e.target.value)} placeholder="info@sa-transformationfund.co.za" /></Field>
           <Field label="Button label"><Input value={data.button_label ?? ""} onChange={(e) => set("button_label", e.target.value)} /></Field>
           <Field label="In-page link name"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} placeholder="contact-form" /></Field>
-          <p className="text-xs text-muted-foreground">The form opens the visitor's own email app with their message pre-filled.</p>
+          <p className="text-xs text-gray-500">The form opens the visitor's own email app with their message pre-filled.</p>
         </div>
       );
 

@@ -98,7 +98,7 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
   const isPending = createMutation.isPending || updateMutation.isPending;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-background p-6 rounded-lg border border-border">
+    <form onSubmit={handleSubmit} className="admin-card bg-white space-y-4 p-6 md:p-8">
       <h2 className="text-lg font-extrabold uppercase tracking-tight">{isEditing ? "Edit Job" : "New Job Advert"}</h2>
 
       <div>
@@ -109,7 +109,7 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
       <div>
         <label className="text-sm font-bold block mb-1">URL Slug *</label>
         <Input value={slug} onChange={(e) => { setAutoSlug(false); setSlug(e.target.value); }} required />
-        <p className="text-xs text-muted-foreground mt-1">/careers/{slug || "..."}</p>
+        <p className="text-xs text-gray-500 mt-1">/careers/{slug || "..."}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -180,7 +180,7 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
       <div>
         <label className="text-sm font-bold block mb-1">External Apply URL</label>
         <Input value={applyUrl} onChange={(e) => setApplyUrl(e.target.value)} placeholder="https://..." />
-        <p className="text-xs text-muted-foreground mt-1">Leave empty to show "Contact Us" instead.</p>
+        <p className="text-xs text-gray-500 mt-1">Leave empty to show "Contact Us" instead.</p>
       </div>
 
       <div className="flex items-center gap-2">
@@ -192,7 +192,7 @@ const CareersForm = ({ item, onClose }: CareersFormProps) => {
         <CareerAttachments careerId={item.id} />
       )}
       {!isEditing && (
-        <p className="text-xs text-muted-foreground italic">Save the job first, then you can add file attachments.</p>
+        <p className="text-xs text-gray-500 italic">Save the job first, then you can add file attachments.</p>
       )}
 
       <div className="flex gap-3">

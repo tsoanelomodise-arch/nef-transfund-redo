@@ -27,20 +27,20 @@ const NewsMediaSettings = () => {
     );
   };
 
-  if (isLoading) return <p className="text-muted-foreground">Loading settings...</p>;
+  if (isLoading) return <p className="text-gray-500">Loading settings...</p>;
 
   return (
     <div className="space-y-6 max-w-lg">
       <div>
         <label className="text-sm font-bold text-foreground block mb-1">YouTube Channel URL</label>
         <Input value={youtubeUrl} onChange={(e) => setYoutubeUrl(e.target.value)} placeholder="https://www.youtube.com/@yourchannel" />
-        <p className="text-xs text-muted-foreground mt-1">Only videos from this channel will be allowed.</p>
+        <p className="text-xs text-gray-500 mt-1">Only videos from this channel will be allowed.</p>
       </div>
       <div>
         <label className="text-sm font-bold text-foreground block mb-1">System Logo URL (Story Fallback)</label>
         <Input value={logoUrl} onChange={(e) => setLogoUrl(e.target.value)} placeholder="https://example.com/logo.png" />
         {logoUrl && (
-          <img loading="lazy" decoding="async" src={logoUrl} alt="Preview" className="mt-2 h-16 w-auto object-contain rounded border border-border" />
+          <img loading="lazy" decoding="async" src={logoUrl} alt="Preview" className="mt-2 h-16 w-auto object-contain rounded-xl border border-gray-200" />
         )}
       </div>
       <Button onClick={handleSave} disabled={updateSettings.isPending}>

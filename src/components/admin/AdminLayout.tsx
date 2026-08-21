@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { useAdminAuth } from "@/hooks/useNewsMedia";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -9,9 +9,19 @@ interface AdminLayoutProps {
   children: React.ReactNode;
 }
 
+const NAV = [
+  { to: "/admin/pages", label: "Pages" },
+  { to: "/admin/navigation", label: "Navigation" },
+  { to: "/admin/documents", label: "Documents" },
+  { to: "/admin/news-media", label: "News & Media" },
+  { to: "/admin/careers", label: "Careers" },
+  { to: "/admin/guide", label: "Help" },
+];
+
 const AdminLayout = ({ children }: AdminLayoutProps) => {
   const { data: auth, isLoading } = useAdminAuth();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (!isLoading && (!auth?.user || !auth?.isAdmin)) {
@@ -21,8 +31,8 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted">
-        <p className="text-muted-foreground">Loading...</p>
+      <div className="admin-shell min-h-screen flex items-center justify-center bg-gray-50">
+        <p className="text-gray-500">Loading...</p>
       </div>
     );
   }
@@ -35,38 +45,46 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-muted">
-      <header className="bg-background border-b border-border px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-6">
-          <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
-            ← Back to Site
-          </Link>
-          <nav className="flex items-center gap-4 flex-wrap">
-            <Link to="/admin/pages" className="text-sm font-bold text-foreground hover:text-primary">
-              Pages
+    <div className="admin-shell min-h-screen bg-gray-50 text-gray-900">
+      <div className="px-4 md:px-6 pt-4 md:pt-6">
+        <header className="bg-white rounded-3xl shadow-sm px-5 md:px-7 py-4 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-6 flex-wrap">
+            <Link
+              to="/"
+              className="text-sm font-normal text-gray-500 hover:text-black transition-colors"
+            >
+              ← Back to Site
             </Link>
-            <Link to="/admin/navigation" className="text-sm font-bold text-foreground hover:text-primary">
-              Navigation
-            </Link>
-            <Link to="/admin/documents" className="text-sm font-bold text-foreground hover:text-primary">
-              Documents
-            </Link>
-            <Link to="/admin/news-media" className="text-sm font-bold text-foreground hover:text-primary">
-              News & Media
-            </Link>
-            <Link to="/admin/careers" className="text-sm font-bold text-foreground hover:text-primary">
-              Careers
-            </Link>
-            <Link to="/admin/guide" className="text-sm font-bold text-foreground hover:text-primary">
-              Help
-            </Link>
-          </nav>
-        </div>
-        <Button variant="ghost" size="sm" onClick={handleLogout}>
-          <LogOut className="h-4 w-4 mr-2" /> Sign Out
-        </Button>
-      </header>
-      <main className="p-6 max-w-7xl mx-auto">{children}</main>
+            <nav className="flex items-center gap-1.5 flex-wrap">
+              {NAV.map((item) => {
+                const active = pathname.startsWith(item.to);
+                return (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className={`text-sm font-bold rounded-full px-4 py-2 transition-colors ${
+                      active
+                        ? "bg-black text-white"
+                        : "bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-black"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleLogout}
+            className="rounded-full font-bold text-gray-600 hover:text-black hover:bg-gray-100"
+          >
+            <LogOut className="h-4 w-4 mr-2" /> Sign Out
+          </Button>
+        </header>
+      </div>
+      <main className="p-4 md:p-6 max-w-7xl mx-auto">{children}</main>
     </div>
   );
 };

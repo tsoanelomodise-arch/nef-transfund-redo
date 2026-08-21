@@ -10,9 +10,9 @@ import type { CareerItem } from "@/types/careers";
 import CareersForm from "./CareersForm";
 
 const statusColor: Record<string, string> = {
-  draft: "bg-muted text-muted-foreground",
-  published: "bg-primary/10 text-primary",
-  archived: "bg-destructive/10 text-destructive",
+  draft: "bg-gray-100 text-gray-600",
+  published: "bg-black text-white",
+  archived: "bg-gray-900/80 text-white",
 };
 
 const CareersList = () => {
@@ -77,11 +77,11 @@ const CareersList = () => {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Loading...</p>
+        <p className="text-gray-500">Loading...</p>
       ) : items.length === 0 ? (
-        <p className="text-muted-foreground">No job adverts found.</p>
+        <p className="text-gray-500">No job adverts found.</p>
       ) : (
-        <div className="bg-background rounded-lg border border-border">
+        <div className="admin-card bg-white overflow-hidden">
           <Table>
             <TableHeader>
               <TableRow>
@@ -116,7 +116,7 @@ const CareersList = () => {
                       </Button>
                     </div>
                   </TableCell>
-                  <TableCell className="text-sm text-muted-foreground">
+                  <TableCell className="text-sm text-gray-500">
                     {new Date(item.publish_date).toLocaleDateString()}
                   </TableCell>
                   <TableCell>
@@ -128,7 +128,7 @@ const CareersList = () => {
                       )}
                       {item.status !== "archived" && (
                         <Button variant="ghost" size="icon" onClick={() => handleArchive(item)} title="Archive">
-                          <Archive className="h-4 w-4 text-muted-foreground" />
+                          <Archive className="h-4 w-4 text-gray-500" />
                         </Button>
                       )}
                       <Button variant="ghost" size="icon" onClick={() => setEditingItem(item)} title="Edit">

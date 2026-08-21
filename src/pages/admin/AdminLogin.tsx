@@ -24,9 +24,9 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-muted">
-      <form onSubmit={handleLogin} className="bg-background p-8 rounded-lg shadow-lg w-full max-w-sm space-y-4">
-        <h1 className="text-2xl font-extrabold uppercase tracking-tight text-foreground">Admin Login</h1>
+    <div className="admin-shell min-h-screen flex items-center justify-center bg-gray-50">
+      <form onSubmit={handleLogin} className="admin-card bg-white p-8 md:p-10 w-full max-w-sm space-y-4">
+        <h1 className="text-3xl font-black tracking-tight text-black">Admin Login</h1>
         <Input
           type="email"
           placeholder="Email"

@@ -811,3 +811,116 @@ img {
 .animate-headline-fade {
   animation: headline-fade 5s ease-in-out;
 }
+
+/* =========================================
+   ADMIN UI KIT — monochrome floating widgets
+   Scoped strictly to the admin environment
+   ========================================= */
+.admin-shell {
+  --admin-ink: #000000;
+  --admin-muted: #6b7280;
+  --admin-line: #ececec;
+  background-color: #f6f6f7;
+  letter-spacing: normal;
+}
+
+/* Typography hierarchy */
+.admin-shell h1 {
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #000;
+}
+.admin-shell h2,
+.admin-shell h3 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #000;
+}
+.admin-shell p,
+.admin-shell label,
+.admin-shell span {
+  letter-spacing: normal;
+}
+
+/* Floating widget containers */
+.admin-shell .admin-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  border: 1px solid var(--admin-line);
+  box-shadow: 0 4px 20px -8px rgba(0, 0, 0, 0.12);
+}
+
+/* Inputs, textareas, selects */
+.admin-shell input,
+.admin-shell textarea,
+.admin-shell [role="combobox"] {
+  border-radius: 0.9rem !important;
+  border-color: #e5e5e5 !important;
+  background-color: #fff !important;
+  color: #111 !important;
+}
+.admin-shell input:focus-visible,
+.admin-shell textarea:focus-visible,
+.admin-shell [role="combobox"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #000 !important;
+}
+
+/* Buttons: primary solid black pills, secondary light */
+.admin-shell button {
+  border-radius: 9999px !important;
+  font-weight: 700;
+}
+.admin-shell button.bg-primary,
+.admin-shell button[type="submit"]:not(.bg-transparent) {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+.admin-shell button.bg-primary:hover,
+.admin-shell button[type="submit"]:hover {
+  background-color: #1f1f1f !important;
+}
+.admin-shell button.border-input {
+  background-color: #fff !important;
+  border-color: #e5e5e5 !important;
+  color: #111 !important;
+}
+.admin-shell button.border-input:hover {
+  background-color: #f3f4f6 !important;
+  color: #000 !important;
+}
+
+/* Tables */
+.admin-shell table thead th {
+  color: var(--admin-muted);
+  font-weight: 700;
+  text-transform: none;
+}
+.admin-shell table tbody tr {
+  border-color: var(--admin-line);
+}
+.admin-shell table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+/* Tabs → pill switcher */
+.admin-shell [role="tablist"] {
+  background-color: #efefef !important;
+  border-radius: 9999px !important;
+  padding: 0.25rem;
+}
+.admin-shell [role="tab"] {
+  border-radius: 9999px !important;
+  font-weight: 700;
+  color: var(--admin-muted);
+}
+.admin-shell [role="tab"][data-state="active"] {
+  background-color: #000 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* Switches */
+.admin-shell [role="switch"][data-state="checked"] {
+  background-color: #000 !important;
+}

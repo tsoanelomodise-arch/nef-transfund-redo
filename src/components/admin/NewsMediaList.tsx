@@ -10,9 +10,9 @@ import type { NewsMediaItem } from "@/types/news-media";
 import NewsMediaForm from "./NewsMediaForm";
 
 const statusColor: Record<string, string> = {
-  draft: "bg-muted text-muted-foreground",
-  approved: "bg-primary/10 text-primary",
-  rejected: "bg-destructive/10 text-destructive",
+  draft: "bg-gray-100 text-gray-600",
+  approved: "bg-black text-white",
+  rejected: "bg-gray-900/80 text-white",
 };
 
 const NewsMediaList = () => {
@@ -90,11 +90,11 @@ const NewsMediaList = () => {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Loading...</p>
+        <p className="text-gray-500">Loading...</p>
       ) : items.length === 0 ? (
-        <p className="text-muted-foreground">No items found.</p>
+        <p className="text-gray-500">No items found.</p>
       ) : (
-        <div className="bg-background rounded-lg border border-border">
+        <div className="admin-card bg-white overflow-hidden">
           <Table>
             <TableHeader>
               <TableRow>
@@ -143,10 +143,10 @@ const NewsMediaList = () => {
                     </div>
                   </TableCell>
                   <TableCell>
-                    {item.content_type === "news" && item.show_on_home && <Badge className="bg-primary/10 text-primary">Home</Badge>}
-                    {item.content_type === "story" && item.highlight_on_home && <Badge className="bg-primary/10 text-primary">Highlight</Badge>}
+                    {item.content_type === "news" && item.show_on_home && <Badge className="bg-black text-white">Home</Badge>}
+                    {item.content_type === "story" && item.highlight_on_home && <Badge className="bg-black text-white">Highlight</Badge>}
                   </TableCell>
-                  <TableCell className="text-sm text-muted-foreground">
+                  <TableCell className="text-sm text-gray-500">
                     {new Date(item.publish_date).toLocaleDateString()}
                   </TableCell>
                   <TableCell>

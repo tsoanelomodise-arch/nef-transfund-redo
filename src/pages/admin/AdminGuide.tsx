@@ -12,13 +12,13 @@ const steps = [
 
 const AdminGuide = () => (
   <AdminLayout>
-    <h1 className="text-2xl font-bold mb-2">How to maintain the website</h1>
-    <p className="text-sm text-muted-foreground mb-8">A short guide to everything you can change yourself.</p>
+    <h1 className="text-3xl font-black tracking-tight text-black mb-2">How to maintain the website</h1>
+    <p className="text-sm text-gray-500 mb-8">A short guide to everything you can change yourself.</p>
     <div className="space-y-4 max-w-3xl">
       {steps.map((s, i) => (
-        <div key={i} className="bg-background border-l-4 border-black shadow-sm p-6">
+        <div key={i} className="admin-card bg-white p-6 md:p-8">
           <h2 className="font-bold text-lg mb-2">{s.title}</h2>
-          <p className="text-muted-foreground">{s.body}</p>
+          <p className="text-gray-500">{s.body}</p>
         </div>
       ))}
     </div>

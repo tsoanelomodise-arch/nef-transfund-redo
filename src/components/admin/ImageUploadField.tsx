@@ -92,15 +92,15 @@ const ImageUploadField = ({ label, value, onChange, placeholder, helpText }: Ima
             onDragLeave={() => setDragOver(false)}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
-            className={`border-2 border-dashed rounded-md p-6 text-center cursor-pointer transition-colors ${
+            className={`border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition-colors ${
               dragOver ? "border-primary bg-primary/5" : "border-muted-foreground/30 hover:border-primary/50"
             }`}
           >
-            <Upload className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
-            <p className="text-sm text-muted-foreground">
+            <Upload className="h-8 w-8 mx-auto mb-2 text-gray-500" />
+            <p className="text-sm text-gray-500">
               Drag & drop an image here, or <span className="text-primary underline">browse</span>
             </p>
-            <p className="text-xs text-muted-foreground mt-1">JPG, PNG, WebP, GIF — max 5 MB</p>
+            <p className="text-xs text-gray-500 mt-1">JPG, PNG, WebP, GIF — max 5 MB</p>
           </div>
           <input
             ref={fileInputRef}
@@ -118,7 +118,7 @@ const ImageUploadField = ({ label, value, onChange, placeholder, helpText }: Ima
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder ?? "https://..."}
           />
-          {helpText && <p className="text-xs text-muted-foreground mt-1">{helpText}</p>}
+          {helpText && <p className="text-xs text-gray-500 mt-1">{helpText}</p>}
         </TabsContent>
       </Tabs>
 
@@ -127,7 +127,7 @@ const ImageUploadField = ({ label, value, onChange, placeholder, helpText }: Ima
           <img loading="lazy" decoding="async"
             src={value}
             alt="Preview"
-            className="h-20 w-20 object-cover rounded-md border border-border"
+            className="h-20 w-20 object-cover rounded-xl border border-gray-200"
             onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
           />
           <button

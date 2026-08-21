@@ -91,7 +91,7 @@ const NewsMediaForm = ({ item, onClose }: NewsMediaFormProps) => {
   const isPending = createMutation.isPending || updateMutation.isPending;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-background p-6 rounded-lg border border-border">
+    <form onSubmit={handleSubmit} className="admin-card bg-white space-y-4 p-6 md:p-8">
       <h2 className="text-lg font-extrabold uppercase tracking-tight">{isEditing ? "Edit Item" : "New Item"}</h2>
 
       <div>
@@ -152,7 +152,7 @@ const NewsMediaForm = ({ item, onClose }: NewsMediaFormProps) => {
       <div>
         <label className="text-sm font-bold block mb-1">Display Order (1 = lowest, 10 = highest)</label>
         <Input type="number" min={1} max={10} value={priority} onChange={(e) => setPriority(Number(e.target.value))} />
-        <p className="text-xs text-muted-foreground mt-1">Higher values appear first on both the home and archive pages.</p>
+        <p className="text-xs text-gray-500 mt-1">Higher values appear first on both the home and archive pages.</p>
       </div>
 
       <div className="flex flex-wrap gap-6">
