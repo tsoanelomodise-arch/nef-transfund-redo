@@ -25,7 +25,7 @@ const ContactCardsBlock = ({ data }: Props) => (
           return (
             <div key={i} className="bg-[#111111] text-white p-8 flex flex-col">
               <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-6">
-                <Icon className="w-[18px] h-[18px] text-white" />
+                <Icon tone="dark" className="w-[18px] h-[18px] text-white" />
               </div>
               <h3 className="text-white text-[1.1rem] font-bold mb-4">{card.title}</h3>
               {lines.map((line, li) => {
