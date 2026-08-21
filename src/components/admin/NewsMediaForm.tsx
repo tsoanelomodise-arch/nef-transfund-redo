@@ -91,7 +91,7 @@ const NewsMediaForm = ({ item, onClose }: NewsMediaFormProps) => {
   const isPending = createMutation.isPending || updateMutation.isPending;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-background p-6 rounded-lg border border-border">
+    <form onSubmit={handleSubmit} className="admin-card bg-white space-y-4 p-6 md:p-8">
       <h2 className="text-lg font-extrabold uppercase tracking-tight">{isEditing ? "Edit Item" : "New Item"}</h2>
 
       <div>

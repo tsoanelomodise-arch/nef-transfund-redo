@@ -127,7 +127,7 @@ const ImageUploadField = ({ label, value, onChange, placeholder, helpText }: Ima
           <img loading="lazy" decoding="async"
             src={value}
             alt="Preview"
-            className="h-20 w-20 object-cover rounded-md border border-border"
+            className="h-20 w-20 object-cover rounded-xl border border-gray-200"
             onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
           />
           <button

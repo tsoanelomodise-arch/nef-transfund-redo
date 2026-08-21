@@ -63,7 +63,7 @@ const DocumentsAdmin = () => {
 
       <div
         onClick={() => inputRef.current?.click()}
-        className="border-2 border-dashed border-muted-foreground/30 hover:border-primary/50 rounded-md p-8 text-center cursor-pointer mb-8 bg-background"
+        className="border-2 border-dashed border-gray-300 hover:border-black rounded-3xl p-10 text-center cursor-pointer mb-8 bg-white transition-colors"
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => { e.preventDefault(); const f = e.dataTransfer.files?.[0]; if (f) upload(f); }}
       >

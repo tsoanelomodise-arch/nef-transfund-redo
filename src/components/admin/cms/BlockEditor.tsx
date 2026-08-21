@@ -57,7 +57,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
         <div className="space-y-4">
           <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
           {(data.cards ?? []).map((card: any, i: number) => (
-            <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+            <div key={i} className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-bold">Card {i + 1}</span>
                 <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("cards", i)}><Trash2 className="h-4 w-4" /></Button>
@@ -76,7 +76,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
         <div className="space-y-4">
           <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
           {(data.items ?? []).map((item: any, i: number) => (
-            <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+            <div key={i} className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-bold">Item {i + 1}</span>
                 <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("items", i)}><Trash2 className="h-4 w-4" /></Button>
@@ -129,7 +129,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
           <Field label="Heading (optional)"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
           <Field label="In-page link name (optional)"><Input value={data.anchor ?? ""} onChange={(e) => set("anchor", e.target.value)} placeholder="path-to-funding" /></Field>
           {(data.steps ?? []).map((step: any, i: number) => (
-            <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+            <div key={i} className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-bold">Step {i + 1}</span>
                 <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("steps", i)}><Trash2 className="h-4 w-4" /></Button>
@@ -252,7 +252,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
           <Field label="Heading"><Input value={data.heading ?? ""} onChange={(e) => set("heading", e.target.value)} /></Field>
           <Field label="Intro text (optional)"><Textarea rows={3} value={data.intro ?? ""} onChange={(e) => set("intro", e.target.value)} /></Field>
           {(data.cards ?? []).map((card: any, i: number) => (
-            <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+            <div key={i} className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-bold">Card {i + 1}</span>
                 <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("cards", i)}><Trash2 className="h-4 w-4" /></Button>
@@ -388,7 +388,7 @@ const BlockEditor = ({ type, data, onChange }: Props) => {
             const lines: any[] = Array.isArray(card.lines) ? card.lines : [];
             const setLines = (next: any[]) => listUpdate("cards", i, { lines: next });
             return (
-              <div key={i} className="border border-border rounded-md p-4 space-y-3 bg-background">
+              <div key={i} className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-bold">Card {i + 1}</span>
                   <Button type="button" variant="ghost" size="sm" onClick={() => listRemove("cards", i)}><Trash2 className="h-4 w-4" /></Button>

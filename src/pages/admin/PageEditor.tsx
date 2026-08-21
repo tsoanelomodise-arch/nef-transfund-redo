@@ -97,8 +97,8 @@ const PageEditor = () => {
 
       <div className="space-y-4">
         {blocks.map((block, i) => (
-          <div key={block.id} className="admin-card bg-white p-1">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-muted/40">
+          <div key={block.id} className="admin-card bg-white overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-gray-50">
               <span className="font-bold text-sm">{BLOCK_LABELS[block.type] ?? block.type}</span>
               <div className="flex gap-1">
                 <Button variant="ghost" size="sm" onClick={() => move(i, -1)} disabled={i === 0}><ArrowUp className="h-4 w-4" /></Button>
