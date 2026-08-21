@@ -108,7 +108,7 @@ const Contacts = () => {
               {/* Email Card */}
               <div className="bg-black text-white rounded-2xl p-6 hover:translate-y-[-8px] transition-transform duration-300 shadow-lg">
                 <div className="w-12 h-12 bg-[#00703C] rounded-full flex items-center justify-center mb-4">
-                  <TfMail className="h-6 w-6 text-white" />
+                  <TfMail tone="dark" className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Email</h3>
                 <a href="mailto:info@sa-transformationfund.co.za" className="text-gray-300 hover:text-[#00703C] transition-colors block text-sm mb-1">
@@ -122,7 +122,7 @@ const Contacts = () => {
               {/* TfPhone Card */}
               <div className="bg-black text-white rounded-2xl p-6 hover:translate-y-[-8px] transition-transform duration-300 shadow-lg">
                 <div className="w-12 h-12 bg-[#00703C] rounded-full flex items-center justify-center mb-4">
-                  <TfPhone className="h-6 w-6 text-white" />
+                  <TfPhone tone="dark" className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">TfPhone</h3>
                 <a href="tel:+27861113186" className="text-gray-300 hover:text-[#00703C] transition-colors block text-sm">
@@ -133,7 +133,7 @@ const Contacts = () => {
               {/* Address Card */}
               <div className="bg-black text-white rounded-2xl p-6 hover:translate-y-[-8px] transition-transform duration-300 shadow-lg">
                 <div className="w-12 h-12 bg-[#00703C] rounded-full flex items-center justify-center mb-4">
-                  <TfPin className="h-6 w-6 text-white" />
+                  <TfPin tone="dark" className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Address</h3>
                 <p className="text-gray-300 text-sm">
@@ -146,7 +146,7 @@ const Contacts = () => {
               {/* Office Hours Card */}
               <div className="bg-black text-white rounded-2xl p-6 hover:translate-y-[-8px] transition-transform duration-300 shadow-lg">
                 <div className="w-12 h-12 bg-[#00703C] rounded-full flex items-center justify-center mb-4">
-                  <TfClock className="h-6 w-6 text-white" />
+                  <TfClock tone="dark" className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Office Hours</h3>
                 <p className="text-gray-300 text-sm">
