@@ -49,7 +49,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
             style={isWhyPage ? { objectPosition: '65% center' } : undefined}
             alt={isWhyPage ? "Chicken farmer holding basket of eggs" : "Two people fist-bumping"}
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
           />
         </div>
 
@@ -61,7 +61,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
               className="w-full h-full object-contain"
               alt="Woman at vibrant market stall with fresh vegetables"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </div>
         )}
@@ -74,7 +74,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
               className="w-full h-full object-contain"
               alt="Businessman in industrial manufacturing facility"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </div>
         )}
@@ -87,7 +87,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
               className="w-full h-full object-contain"
               alt="Two artisans collaborating in pottery workshop"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </div>
         )}
@@ -100,7 +100,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
               className="w-full h-full object-contain"
               alt="Business partners shaking hands in manufacturing facility"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </div>
         )}
@@ -113,7 +113,7 @@ const PhakamaniHero = memo(({ onCheckEligibility }: PhakamaniHeroProps) => {
               className="w-full h-full object-contain"
               alt="Baker standing in artisan bakery with fresh bread"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </div>
         )}
