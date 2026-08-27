@@ -4,6 +4,8 @@ import { TfMenu, TfClose, TfChevronDown } from "@/components/icons";
 import { SearchDialog, SearchTrigger } from "@/components/search";
 import SocialIconsRow from "@/components/shared/SocialIconsRow";
 import { useNavItems, useDocuments, signedDocumentUrl } from "@/hooks/useCms";
+import { useHiddenRoutes } from "@/hooks/usePageVisibility";
+import { matchesRoute } from "@/lib/site-routes";
 import { buildMenuTree, DEFAULT_MENU, isExternal, isFileLink, type MenuNode } from "@/lib/navigation";
 
 const PORTAL_HREF = "/uat2_hta_portal";
@@ -22,7 +24,21 @@ const PhakamaniNavbar = memo(() => {
   const navigate = useNavigate();
   const { data: navItems } = useNavItems();
   const { data: documents } = useDocuments(true);
-  const menu = useMemo(() => buildMenuTree(navItems, documents) ?? DEFAULT_MENU, [navItems, documents]);
+  const { hiddenRoutes } = useHiddenRoutes();
+  const menu = useMemo(() => {
+    const tree = buildMenuTree(navItems, documents) ?? DEFAULT_MENU;
+    if (!hiddenRoutes.length) return tree;
+    const isHidden = (href?: string | null) => {
+      if (!href || /^https?:\/\//i.test(href)) return false;
+      const path = href.split("#")[0] || "/";
+      return hiddenRoutes.some((r) => matchesRoute(path, r));
+    };
+    const prune = (nodes: MenuNode[]): MenuNode[] =>
+      nodes
+        .filter((n) => !isHidden(n.href))
+        .map((n) => ({ ...n, children: prune(n.children) }));
+    return prune(tree);
+  }, [navItems, documents, hiddenRoutes]);
   const isPortalSection = location.pathname.startsWith(PORTAL_HREF);
 
   const handleAnchorLink = useCallback(

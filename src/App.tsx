@@ -47,6 +47,7 @@ const CmsPage = lazy(() => import("./pages/CmsPage"));
 const AccessToCapabilityPage = lazy(() => import("./pages/AccessToCapabilityPage"));
 const AccessToMarketsPage = lazy(() => import("./pages/AccessToMarketsPage"));
 import CmsOrCoded from "./components/cms/CmsOrCoded";
+import HiddenRouteGuard from "./components/cms/HiddenRouteGuard";
 
 const queryClient = new QueryClient();
 
@@ -89,6 +90,7 @@ const App = () => (
         <AnalyticsWrapper>
           <ScrollToTopOnNavigate />
           <Suspense fallback={<div className="min-h-screen" />}>
+            <HiddenRouteGuard>
             <Routes>
               {/* Home stays code-driven: it hosts interactive sections (news highlights, portal, ticker) */}
               <Route path="/" element={<TestHome />} />
@@ -131,6 +133,7 @@ const App = () => (
               <Route path="/*" element={<CmsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </HiddenRouteGuard>
           </Suspense>
         </AnalyticsWrapper>
       </BrowserRouter>
