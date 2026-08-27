@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 import { Plus, Trash2, ExternalLink } from "lucide-react";
+import PageVisibilityManager from "@/components/admin/PageVisibilityManager";
 
 const slugify = (s: string) =>
   s.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
@@ -82,6 +83,8 @@ const PagesAdmin = () => {
           ))}
         </div>
       )}
+
+      <PageVisibilityManager />
     </AdminLayout>
   );
 };
