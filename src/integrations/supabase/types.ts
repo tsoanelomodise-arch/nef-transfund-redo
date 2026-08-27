@@ -396,6 +396,33 @@ export type Database = {
           },
         ]
       }
+      page_visibility: {
+        Row: {
+          created_at: string
+          hidden: boolean
+          id: string
+          label: string
+          route: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          hidden?: boolean
+          id?: string
+          label?: string
+          route: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          hidden?: boolean
+          id?: string
+          label?: string
+          route?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       pages: {
         Row: {
           created_at: string
