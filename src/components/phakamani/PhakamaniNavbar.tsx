@@ -36,7 +36,9 @@ const PhakamaniNavbar = memo(() => {
     const prune = (nodes: MenuNode[]): MenuNode[] =>
       nodes
         .filter((n) => !isHidden(n.href))
-        .map((n) => ({ ...n, children: prune(n.children) }));
+        .map((n) => ({ ...n, children: prune(n.children) }))
+        // Drop label-only parents (e.g. "Investors") once all their pages are hidden
+        .filter((n) => n.href || n.children.length > 0);
     return prune(tree);
   }, [navItems, documents, hiddenRoutes]);
   const isPortalSection = location.pathname.startsWith(PORTAL_HREF);
