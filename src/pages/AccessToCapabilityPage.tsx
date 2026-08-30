@@ -63,6 +63,7 @@ const AccessToCapabilityPage = () => {
         isOpen={!!activeVideoTitle}
         title={activeVideoTitle || "Walkthrough Video"}
         onClose={() => setActiveVideoTitle(null)}
+        videoSrc={capabilityVideoAsset.url}
       />
 
       <Footer />
