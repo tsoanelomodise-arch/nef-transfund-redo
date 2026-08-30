@@ -5,9 +5,11 @@ interface VideoModalProps {
   isOpen: boolean;
   title: string;
   onClose: () => void;
+  /** Optional local/CDN video file. When set, it replaces the YouTube embed. */
+  videoSrc?: string;
 }
 
-export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, title, onClose }) => {
+export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, title, onClose, videoSrc }) => {
   // Prevent background scrolling when modal is active
   useEffect(() => {
     if (isOpen) {
@@ -52,13 +54,23 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, title, onClose }
             </button>
 
             <div id="video-container" className="w-full h-full flex flex-col items-center justify-center text-gray-500 bg-black">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/ZMI0cznDLzU?autoplay=1"
-                title={title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+              {videoSrc ? (
+                <video
+                  src={videoSrc}
+                  title={title}
+                  className="w-full h-full"
+                  controls
+                  autoPlay
+                />
+              ) : (
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/ZMI0cznDLzU?autoplay=1"
+                  title={title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              )}
             </div>
           </motion.div>
         </div>
