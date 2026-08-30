@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ModuleType } from '@/types/access';
+import guidanceThumbAsset from '@/assets/scene-4-1.jpeg.asset.json';
 import { AnimatedMouseArrow } from './AnimatedMouseArrow';
 import {
   IconAdvisory,
@@ -1119,7 +1120,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                     onClick={() => onOpenVideoModal('Document Upload Tutorial')}
                   >
                     <img
-                      src="/images/access/Workshop_person.jpg"
+                      src={guidanceThumbAsset.url}
                       alt="Document Guidance Video"
                       loading="lazy"
                       decoding="async"
