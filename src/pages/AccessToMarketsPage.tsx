@@ -58,6 +58,7 @@ const AccessToMarketsPage = () => {
         isOpen={!!activeVideoTitle}
         title={activeVideoTitle || "Walkthrough Video"}
         onClose={() => setActiveVideoTitle(null)}
+        videoSrc={marketsVideoAsset.url}
       />
 
       <Footer />
