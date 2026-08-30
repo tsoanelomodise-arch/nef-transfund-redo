@@ -1120,7 +1120,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
                     onClick={() => onOpenVideoModal('Document Upload Tutorial')}
                   >
                     <img
-                      src="/images/access/Workshop_person.jpg"
+                      src={guidanceThumbAsset.url}
                       alt="Document Guidance Video"
                       loading="lazy"
                       decoding="async"
