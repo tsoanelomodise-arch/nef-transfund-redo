@@ -9,6 +9,7 @@ import { VideoModal } from "@/components/access/VideoModal";
 import { interventionData } from "@/data/interventions";
 import { useSEO } from "@/hooks/useSEO";
 import type { ModuleType } from "@/types/access";
+import capabilityVideoAsset from "@/assets/AccessToCapacity_P2.mp4.asset.json";
 
 const AccessToCapabilityPage = () => {
   const navigate = useNavigate();
@@ -62,6 +63,7 @@ const AccessToCapabilityPage = () => {
         isOpen={!!activeVideoTitle}
         title={activeVideoTitle || "Walkthrough Video"}
         onClose={() => setActiveVideoTitle(null)}
+        videoSrc={capabilityVideoAsset.url}
       />
 
       <Footer />
