@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ModuleType } from '@/types/access';
 import guidanceThumbAsset from '@/assets/guidance-thumbnail.jpeg.asset.json';
+import capabilityHeroThumbAsset from '@/assets/capability-hero-thumbnail.jpeg.asset.json';
 import { AnimatedMouseArrow } from './AnimatedMouseArrow';
 import {
   IconAdvisory,
@@ -366,7 +367,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
 
                 <div className="relative rounded-2xl overflow-hidden bg-gray-100">
                   <img
-                    src="/images/access/Florist-Concept-Large-Cropped.jpg"
+                    src={capabilityHeroThumbAsset.url}
                     alt="Access to Capability Hero"
                     loading="eager"
                     decoding="async"
