@@ -367,7 +367,7 @@ export const CapabilityModule: React.FC<CapabilityModuleProps> = ({
 
                 <div className="relative rounded-2xl overflow-hidden bg-gray-100">
                   <img
-                    src="/images/access/Florist-Concept-Large-Cropped.jpg"
+                    src={capabilityHeroThumbAsset.url}
                     alt="Access to Capability Hero"
                     loading="eager"
                     decoding="async"
