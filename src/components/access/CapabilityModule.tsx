@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ModuleType } from '@/types/access';
 import guidanceThumbAsset from '@/assets/guidance-thumbnail.jpeg.asset.json';
+import capabilityHeroThumbAsset from '@/assets/capability-hero-thumbnail.jpeg.asset.json';
 import { AnimatedMouseArrow } from './AnimatedMouseArrow';
 import {
   IconAdvisory,
