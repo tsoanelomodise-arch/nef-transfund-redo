@@ -8,7 +8,7 @@ import { VideoModal } from "@/components/access/VideoModal";
 import { interventionData } from "@/data/interventions";
 import { useSEO } from "@/hooks/useSEO";
 import type { ModuleType } from "@/types/access";
-import marketsVideoAsset from "@/assets/AccessToMarkets_P3.mp4.asset.json";
+import marketsVideoAsset from "@/assets/AccessToMarkets_P4.mp4.asset.json";
 
 const AccessToMarketsPage = () => {
   const navigate = useNavigate();
